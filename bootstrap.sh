@@ -42,6 +42,8 @@ install_fish() {
 		info "Installing oh-my-fish"
 		curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
 		success "Installing oh-my-fish"
+	else
+		success "oh-my-fish already installed"
 	fi
 
 	# Install fish dotfiles
