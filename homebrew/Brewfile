@@ -4,7 +4,7 @@ install git
 install fish
 install ruby
 install python3
-install go
+install go --cross-compile-common
 install node
 
 # Some slightly less important tools
