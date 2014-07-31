@@ -1,0 +1,14 @@
+# Install the necessities
+
+install git
+install fish
+install ruby
+install python3
+install go
+install node
+
+# Some slightly less important tools
+
+install youtube-dl
+install ffmpeg 
+install atomicparsley

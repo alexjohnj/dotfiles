@@ -1,0 +1,13 @@
+# Get cask 
+
+install phinze/cask/brew-cask
+
+# Dev fonts
+
+cask install font-anonymous-pro
+cask install font-sauce-code-powerline
+cask install font-source-code-pro
+
+# Other fonts
+
+cask install font-lato

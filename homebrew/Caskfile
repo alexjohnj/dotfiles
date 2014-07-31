@@ -1,0 +1,40 @@
+# Install cask
+
+install phinze/cask/brew-cask
+
+# General Stuff
+
+cask install arq
+cask install ynab
+cask install appcleaner
+cask install caffeine
+cask install flux
+cask install teamspeak-client
+cask install steam
+cask install spectacle
+
+# Quick Look Plugins
+
+cask install qlcolorcode
+cask install qlstephen
+cask install qlmarkdown
+cask install quicklook-json
+cask install quicklook-csv
+
+# Development
+
+cask install tower
+cask install marked
+
+
+# Browsers
+
+cask install google-chrome
+cask install firefox
+cask install opera
+
+# Media
+
+cask install spotify
+cask install adapter
+cask install audio-hijack-pro
