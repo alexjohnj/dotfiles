@@ -34,9 +34,19 @@ link_file() {
 	ln -s "$src" "$dst"
 }
 
+install_homebrew() {
+	if [ "$(uname -s)" == "Darwin" ] && test ! $(which brew)
+	then
+		info "Installing Homebrew"
+		ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+		success "Installing Homebrew"
+	else
+		success "Homebrew already installed"
+	fi
+}
+
 install_fish() {
 	# Install oh-my-fish if it isn't installed
-
 	if [ ! -d "$HOME/.oh-my-fish" ]
 	then
 		info "Installing oh-my-fish"
@@ -63,5 +73,6 @@ install_fish() {
 	success "Installing fish functions"
 }
 
+install_homebrew
 install_fish
 
