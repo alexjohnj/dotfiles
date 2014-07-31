@@ -1,7 +1,26 @@
 {
 	"installed_packages":
 	[
+		"Base16 Color Schemes",
+		"Better CoffeeScript",
 		"fish-shell",
-		"Table Editor"
+		"GitGutter",
+		"GoSublime",
+		"HTML5",
+		"INI",
+		"JSONLint",
+		"Julia",
+		"MarkdownEditing",
+		"Pretty JSON",
+		"Sass",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-coffee",
+		"SublimeLinter-coffeelint",
+		"Table Editor",
+		"Theme - Afterglow",
+		"TOML",
+		"Tomorrow Color Schemes",
+		"VDF"
 	]
 }

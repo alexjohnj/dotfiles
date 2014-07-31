@@ -1,8 +1,31 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"caret_style": "phase",
+	"color_scheme": "Packages/User/base16-eighties.dark (SL).tmTheme",
+	"default_encoding": "UTF-8",
+	"detect_indentation": true,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		".sass-cache",
+		"_site"
+	],
 	"font_face": "Source Code Pro",
+	"font_size": 12,
+	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage"
-	]
+		"Vintage",
+		"Markdown"
+	],
+	"overlay_scrollbars": true,
+	"tab_size": 2,
+	"tabs_small": true,
+	"theme": "Afterglow-orange.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"use_tab_stops": true,
+	"word_wrap": true,
+	"wrap_width": "auto"
 }
