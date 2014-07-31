@@ -1,0 +1,28 @@
+# Quick Look Plugins
+
+cask install qlcolorcode
+cask install qlstephen
+cask install qlmarkdown
+cask install quicklook-json
+cask install quicklook-csv
+
+# Browsers
+
+cask install google-chrome
+cask install firefox
+cask install opera
+
+# Development
+
+cask install marked
+cask install tower
+cask install vmware-fusion
+
+# Utilities
+
+cask install spectacle
+cask install caffeine
+cask install appcleaner
+cask install arq
+cask install dropbox
+cask install flux

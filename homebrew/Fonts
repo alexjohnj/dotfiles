@@ -1,6 +1,7 @@
-# Get cask 
+# N.B. You need to install homebrew cask
 
-install phinze/cask/brew-cask
+# Tap the fonts
+tap caskroom/fonts 
 
 # Dev fonts
 

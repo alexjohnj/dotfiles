@@ -1,0 +1,12 @@
+# Essential Developer Tools
+
+install git
+install fish
+install ruby
+install python3
+install go --cross-compile-common
+install node
+
+# Homebrew Cask
+
+install phinze/cask/brew-cask

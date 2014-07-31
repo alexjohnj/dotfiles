@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# 
+# This script installs the packages specified in EssentialCasks, EssentialCLIs and Fonts via homebrew
+# It doesn't install the contents of Extras
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd)
@@ -28,12 +31,11 @@ else
 	success "Homebrew already installed"
 fi
 
-brew bundle "$DOTFILES_ROOT/homebrew/Brewfile"
+brew bundle "$DOTFILES_ROOT/homebrew/EssentialCLIs"
 success "Installed CLI Tools"
 
-brew bundle "$DOTFILES_ROOT/homebrew/Caskfile"
+brew bundle "$DOTFILES_ROOT/homebrew/EssentialCasks"
 success "Installed GUI Tools"
 
-info "Installed Fonts"
-brew bundle "$DOTFILES_ROOT/homebrew/Fontfile"
+brew bundle "$DOTFILES_ROOT/homebrew/Fonts"
 success "Installing Fonts"

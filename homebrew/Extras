@@ -1,0 +1,11 @@
+# General Stuff
+
+cask install ynab
+cask install teamspeak-client
+cask install steam
+
+# Media
+
+cask install spotify
+cask install adapter
+cask install audio-hijack-pro
