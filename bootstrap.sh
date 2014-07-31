@@ -2,6 +2,8 @@
 #
 # Based on @holman's bootstrap file: https://github.com/holman/dotfiles
 # WARNING. Unlike @holman's script, this script will overwrite anything without asking the user.
+# This installs Homebrew, fish shell and dotfiles in the repo
+# After running this script, you'll need to run chsh to make fish your default shell
 
 cd "$(dirname "$0")"
 DOTFILES_ROOT=$(pwd)
