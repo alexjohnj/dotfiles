@@ -16,6 +16,12 @@ info () {
   printf "  [ \033[00;34m..\033[0m ] $1"
 }
 
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
+}
+
 link_file() {
 	local src=$1 dst=$2
 
@@ -46,6 +52,21 @@ install_homebrew() {
 }
 
 install_fish() {
+	# Install fish if it isn't already
+	if test ! $(which fish)
+	then
+		if [ "$(uname -s)" == "Darwin" ]
+		then
+			info "Installing fish shell"
+			brew install fish
+			success "Installing fish shell"
+		else
+			fail "Installing fish shell: Install manually"
+		fi
+	else
+		success "Fish shell already installed"
+	fi
+
 	# Install oh-my-fish if it isn't installed
 	if [ ! -d "$HOME/.oh-my-fish" ]
 	then
