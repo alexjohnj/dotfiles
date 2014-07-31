@@ -94,6 +94,16 @@ install_fish() {
 	success "Installing fish functions"
 }
 
+install_dotfiles() {
+	for src in $(find "$DOTFILES_ROOT" -maxdepth 2 -name "*.symlink")
+	do
+	    dst="$HOME/.$(basename "${src%.*}")"
+	    info "Linking $src to $dst"
+	    link_file "$src" "$dst"
+	    success "Linked $src to $dst"
+	done
+}
+
 install_homebrew
 install_fish
-
+install_dotfiles
