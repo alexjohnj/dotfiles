@@ -17,6 +17,7 @@
 		"SublimeLinter",
 		"SublimeLinter-coffee",
 		"SublimeLinter-coffeelint",
+		"SublimeLinter-contrib-scss-lint",
 		"Table Editor",
 		"Theme - Afterglow",
 		"TOML",
