@@ -3,6 +3,7 @@
 	"color_scheme": "Packages/User/base16-eighties.dark (SL).tmTheme",
 	"default_encoding": "UTF-8",
 	"detect_indentation": true,
+	"dictionary": "Packages/User/British Dict/English (British).dic",
 	"folder_exclude_patterns":
 	[
 		".svn",
