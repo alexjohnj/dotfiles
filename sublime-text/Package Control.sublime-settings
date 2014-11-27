@@ -4,7 +4,6 @@
 		"Base16 Color Schemes",
 		"Better CoffeeScript",
 		"Color Highlighter",
-		"ColorPicker",
 		"Emmet",
 		"fish-shell",
 		"GitGutter",
@@ -20,13 +19,14 @@
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
 		"SublimeLinter",
+		"SublimeLinter-annotations",
 		"SublimeLinter-coffee",
 		"SublimeLinter-coffeelint",
+		"SublimeLinter-contrib-mlint",
 		"SublimeLinter-contrib-scss-lint",
 		"Table Editor",
 		"Theme - Afterglow",
 		"TOML",
-		"Tomorrow Color Schemes",
 		"VDF"
 	]
 }
