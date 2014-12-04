@@ -14,4 +14,4 @@ set -gx HOMEBREW_CASK_OPTS --appdir=/Applications
 set -gx GNUTERM "x11" 
 
 # Set the PATH
-set -gx PATH $GOPATH/bin /Applications/MATLAB_R2014a.app/bin/maci64/ /usr/local/share/npm/bin /usr/local/opt/ruby/bin /usr/local/sbin /usr/local/bin $PATH
+set -gx PATH $GOPATH/bin /Applications/MATLAB_R2014a.app/bin/maci64 /usr/local/share/npm/bin /usr/local/opt/ruby/bin /usr/local/sbin /usr/local/bin $PATH
