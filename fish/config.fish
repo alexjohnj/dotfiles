@@ -16,3 +16,14 @@ set fish_theme agnoster
 # . "$HOME/.config/fish/functions/set_prompt.fish" # Load prompt
 . "$HOME/.config/fish/functions/aliases.fish" # Load Aliases
 . "$HOME/.config/fish/functions/exports.fish" # Load Exports
+
+# Fish Greeting
+function fish_greeting -d "Fish Greeting"
+  set packageCount (brew outdated | wc -l | tr -d ' ')
+
+  if test $packageCount -eq 1
+    echo $packageCount "Package can be updated" 
+  else if test $packageCount -gt 1
+    echo $packageCount "Pakages can be updated"
+  end
+end
