@@ -3,7 +3,9 @@
 	[
 		"Base16 Color Schemes",
 		"Better CoffeeScript",
+		"BracketGuard",
 		"Color Highlighter",
+		"Dayle Rees Color Schemes",
 		"Emmet",
 		"fish-shell",
 		"GitGutter",
@@ -26,7 +28,9 @@
 		"SublimeLinter-contrib-scss-lint",
 		"Table Editor",
 		"Theme - Afterglow",
+		"Theme - Spacegray",
 		"TOML",
-		"VDF"
+		"VDF",
+		"WordCount"
 	]
 }
