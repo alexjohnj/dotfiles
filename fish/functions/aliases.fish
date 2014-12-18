@@ -6,6 +6,9 @@ alias geographyas "cd ~/Dropbox/Documents/Development/Web/geographyas/"
 # Copy files with progress information
 alias cpv "rsync -avP"
 
+# Edit with Sublime Text
+alias subl "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
 # So my University requires that you connect via its VPN to SSH into the 
 # school's computers. This requires using a POS client that can not be quit
 # by killing the associated process because it restarts itself. Thus, these 
