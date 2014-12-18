@@ -24,6 +24,6 @@ function fish_greeting -d "Fish Greeting"
   if test $packageCount -eq 1
     echo $packageCount "Package can be updated" 
   else if test $packageCount -gt 1
-    echo $packageCount "Pakages can be updated"
+    echo $packageCount "Packages can be updated"
   end
 end
