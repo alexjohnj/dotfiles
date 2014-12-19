@@ -107,6 +107,14 @@ install_dotfiles() {
 	done
 }
 
+# Check git is installed
+info "Checking git installation"
+if ! type "git" > /dev/null 2>&1;then
+	fail "Checking git installation"
+	printf "Make sure git is installed and in your PATH\n"
+fi
+success "Checking git installation"
+
 install_homebrew
 install_fish
 install_dotfiles
