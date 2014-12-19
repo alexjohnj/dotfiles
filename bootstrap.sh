@@ -64,7 +64,7 @@ install_fish() {
 			brew install fish
 			success "Installing fish"
 		elif [ $(uname -s) = "Linux" ] && type "pacman" > /dev/null 2>&1;then
-			sudo pacman -S fish
+			sudo pacman -S --noconfirm fish
 			success "Installing fish"
 		elif [ $(uname -s) = "Linux" ] && type "apt-get" > /dev/null 2>&1;then
 			sudo apt-get install fish
