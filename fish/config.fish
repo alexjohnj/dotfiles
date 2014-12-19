@@ -19,11 +19,13 @@ set fish_theme agnoster
 
 # Fish Greeting
 function fish_greeting -d "Fish Greeting"
-  set packageCount (brew outdated | wc -l | tr -d ' ')
+  if type "brew" > /dev/null
+    set packageCount (brew outdated | wc -l | tr -d ' ')
 
-  if test $packageCount -eq 1
-    echo $packageCount "Package can be updated" 
-  else if test $packageCount -gt 1
-    echo $packageCount "Packages can be updated"
+    if test $packageCount -eq 1
+      echo $packageCount "Package can be updated" 
+    else if test $packageCount -gt 1
+      echo $packageCount "Packages can be updated"
+    end
   end
 end
