@@ -52,7 +52,7 @@ install_homebrew() {
 			success "Installing Homebrew (already installed)"
 		fi
 	else
-		info "Not Installing Homebrew"
+		success "Not Installing Homebrew (incompatible platform)"
 	fi
 }
 
