@@ -80,7 +80,7 @@ install_fish() {
 	# This bit is essentially oh-my-fish's default install script converted to bash with the giant fish at the end removed.
 	info "Installing oh-my-fish"
 	if ! [ -d "$HOME/.oh-my-fish" ];then
-		git clone https://github.com/bpinto/oh-my-fish.git $HOME/.oh-my-fish
+		git clone --quiet https://github.com/bpinto/oh-my-fish.git $HOME/.oh-my-fish
 		if [ -f $HOME/.config/fish/config.fish ];then
 			mv $HOME/.config/fish/config.{fish,orig}
 		fi
