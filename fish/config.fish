@@ -19,13 +19,15 @@ set fish_theme agnoster
 
 # Fish Greeting
 function fish_greeting -d "Fish Greeting"
-  if type "brew" > /dev/null
-    set packageCount (brew outdated | wc -l | tr -d ' ')
-
-    if test $packageCount -eq 1
-      echo $packageCount "Package can be updated" 
-    else if test $packageCount -gt 1
-      echo $packageCount "Packages can be updated"
+  # This needs some sort of service to check for updates every couple of hours
+  # and put the number of updates into a file called .homebrew-outdated. 
+  # Personally, I use a lunchd service to get the job done.
+  if [ -e $HOME/.homebrew-outdated ]
+    set packageCount (cat $HOME/.homebrew-outdated)
+    if [ $packageCount -eq 1 ]
+      printf "1 Package can be updated\n"
+    else if [ $packageCount -gt 1 ]
+      printf "%d Packages can be updated\n" $packageCount
     end
   end
 end
