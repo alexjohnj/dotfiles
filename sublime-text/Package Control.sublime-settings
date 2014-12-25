@@ -1,23 +1,27 @@
 {
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
-		"Base16 Color Schemes",
 		"Better CoffeeScript",
 		"BracketGuard",
-		"Color Highlighter",
-		"Dayle Rees Color Schemes",
 		"Emmet",
 		"fish-shell",
 		"GitGutter",
 		"GoSublime",
 		"HTML5",
-		"INI",
 		"JSONLint",
 		"Julia",
 		"LaTeX-cwl",
 		"LaTeXing",
 		"MarkdownEditing",
-		"MinimalFortran",
+		"Package Control",
 		"Pretty JSON",
 		"Sass",
 		"SideBarEnhancements",
@@ -29,10 +33,9 @@
 		"SublimeLinter-contrib-mlint",
 		"SublimeLinter-contrib-scss-lint",
 		"Table Editor",
-		"Theme - Afterglow",
-		"Theme - Spacegray",
+		"Theme - Gravity",
 		"TOML",
-		"VDF",
+		"Tomorrow Color Schemes",
 		"WordCount"
 	]
 }
