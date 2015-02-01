@@ -23,3 +23,4 @@ set autoread " Autoreloads unedited files if they're edited elsewhere
 "" Plugins
 execute pathogen#infect()
 set laststatus=2
+let g:airline_powerline_fonts = 1
