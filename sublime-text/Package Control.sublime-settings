@@ -2,11 +2,6 @@
 	"in_process_packages":
 	[
 	],
-	"installed_dependencies":
-	[
-		"0_package_control_loader",
-		"bz2"
-	],
 	"installed_packages":
 	[
 		"Better CoffeeScript",
@@ -18,7 +13,6 @@
 		"HTML5",
 		"JSONLint",
 		"Julia",
-		"JuliaCompletions",
 		"LaTeX-cwl",
 		"LaTeXing",
 		"MarkdownEditing",
