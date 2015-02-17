@@ -4,6 +4,7 @@
 	],
 	"installed_packages":
 	[
+		"AutoWrap",
 		"Better CoffeeScript",
 		"BracketGuard",
 		"Emmet",
