@@ -1,0 +1,12 @@
+tap 'homebrew/science'
+brew 'fish'
+brew 'git'
+brew 'tmux'
+brew 'reattach-to-user-namespace'
+brew 'go', args: ['with-cc-common']
+brew 'python'
+brew 'python3'
+brew 'ruby'
+brew 'vim'
+brew 'youtube-dl'
+brew 'imagemagick'

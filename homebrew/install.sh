@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 # 
-# This script installs the packages specified in EssentialCasks, EssentialCLIs and Fonts via homebrew
-# It doesn't install the contents of Extras
-
-cd "$(dirname "$0")/.."
-DOTFILES_ROOT=$(pwd)
-
+# Installs the brews in Brewfile. NB: You need to tap Homebrew/brewdler 
+# before running this script.
 set -e
 
 success () {
@@ -22,20 +18,31 @@ fail () {
   exit
 }
 
-if [ "$(uname -s)" == "Darwin" ] && test ! $(which brew)
-then
-	info "Installing Homebrew"
-	ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-	success "Installing Homebrew"
-else
-	success "Homebrew already installed"
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd)
+
+info "Tapping Homebrew/brewdler"
+if [ "$(uname -s)" != "Darwin" ];then
+  fail "Tapping Homebrew/brewdler (wrong platform)"
 fi
 
-brew bundle "$DOTFILES_ROOT/homebrew/EssentialCLIs"
-success "Installed CLI Tools"
+if ! type "brew" > /dev/null 2>&1;then
+  fail "Tapping Homebrew/brewdler (Homebrew not installed)"
+fi
+brew tap Homebrew/brewdler
 
-brew bundle "$DOTFILES_ROOT/homebrew/EssentialCasks"
-success "Installed GUI Tools"
+if [ $? -ne -];then
+  fail "Tapping Homebrew/brewdler"
+else
+  success "Tapping Homebrew/brewdler"
+fi
 
-brew bundle "$DOTFILES_ROOT/homebrew/Fonts"
-success "Installing Fonts"
+info "Installing Brewfile"
+cd "$DOTFILES_ROOT/homebrew/"
+brew brewdle
+
+if [ $? -ne 0 ];then
+  fail "Installing Brewfile"
+else
+  success "Installing Brewfile"  
+fi
