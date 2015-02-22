@@ -29,9 +29,10 @@ fi
 if ! type "brew" > /dev/null 2>&1;then
   fail "Tapping Homebrew/brewdler (Homebrew not installed)"
 fi
-brew tap Homebrew/brewdler
 
-if [ $? -ne -];then
+brew tap Homebrew/brewdler > /dev/null 2>&1
+
+if [ $? -ne 0 ];then
   fail "Tapping Homebrew/brewdler"
 else
   success "Tapping Homebrew/brewdler"
