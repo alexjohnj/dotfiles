@@ -10,7 +10,7 @@ end
 set -gx GOPATH $HOME/.go
 
 # Set the PATH
-set pathComponents $GOPATH/bin /Applications/MATLAB_R2014a.app/bin/maci64 /usr/local/share/npm/bin /usr/local/opt/ruby/bin /usr/local/bin /usr/local/sbin /usr/local/lib
+set pathComponents $GOPATH/bin /Applications/MATLAB_R2015a.app/bin /usr/local/share/npm/bin /usr/local/opt/ruby/bin /usr/local/bin /usr/local/sbin /usr/local/lib
 for component in $pathComponents[-1..1]
   if test -e $component
     set -gx PATH $component $PATH
