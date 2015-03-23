@@ -9,6 +9,9 @@ alias ls "ls -GF"
 # Copy files with progress information
 alias cpv "rsync -avP"
 
+# MATLAB Aliases
+alias matlab "matlab -nodesktop"
+
 # Edit with Sublime Text
 if [ -e "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]
   alias subl "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
