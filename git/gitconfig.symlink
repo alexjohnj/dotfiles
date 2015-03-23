@@ -1,0 +1,7 @@
+[core]
+  excludesfile = ~/.gitignore
+[user]
+  name = Alex Jackson
+  email = alex@alexj.org
+[push]
+  default = simple
