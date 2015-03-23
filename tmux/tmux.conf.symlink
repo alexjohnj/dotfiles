@@ -15,6 +15,11 @@ set -g status-utf8 on
 
 set-window-option -g utf8 on
 
+# Start new window in cwd
+bind-key c new-window -c '#{pane_current_path}'
+bind-key '"' split-window -c '#{pane_current_path}'
+bind-key % split-window -h -c '#{pane_current_path}'
+
 # Split (From: http://dotshare.it/dots/944/0/raw/)
 set-option -g pane-active-border-fg red
 set-option -g pane-active-border-bg default
