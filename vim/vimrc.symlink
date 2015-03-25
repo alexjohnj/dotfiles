@@ -17,6 +17,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 "" Other stuff
 set shell=/bin/bash " Needed for the majority of plugins to work with fish-shell
 set autoread " Autoreloads unedited files if they're edited elsewhere
