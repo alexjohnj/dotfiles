@@ -13,3 +13,6 @@
 [submodule "vim/vim.symlink/bundle/LaTeX-Box"]
 	path = vim/vim.symlink/bundle/LaTeX-Box
 	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
+[submodule "vim/vim.symlink/bundle/vim-markdown"]
+	path = vim/vim.symlink/bundle/vim-markdown
+	url = https://github.com/gabrielelana/vim-markdown.git
