@@ -81,6 +81,9 @@ install_fish() {
 	info "Installing oh-my-fish"
 	if ! [ -d "$HOME/.oh-my-fish" ];then
 		git clone --quiet https://github.com/bpinto/oh-my-fish.git $HOME/.oh-my-fish
+    if ! [ -d "$HOME/.config/fish" ];then
+      mkdir -p "$HOME/.config/fish"
+    fi
 		if [ -f $HOME/.config/fish/config.fish ];then
 			mv $HOME/.config/fish/config.{fish,orig}
 		fi
