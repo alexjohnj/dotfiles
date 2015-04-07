@@ -4,9 +4,6 @@
 [submodule "vim/vim.symlink/bundle/tabular"]
 	path = vim/vim.symlink/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "vim/vim.symlink/bundle/nerdtree"]
-	path = vim/vim.symlink/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule "vim/vim.symlink/bundle/ctrlp"]
 	path = vim/vim.symlink/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
