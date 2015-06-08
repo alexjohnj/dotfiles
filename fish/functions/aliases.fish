@@ -4,7 +4,11 @@ alias alexjohnj "cd ~/Dropbox/Documents/Development/Web/alexjohnj/"
 alias geographyas "cd ~/Dropbox/Documents/Development/Web/geographyas/"
 
 # ls Aliases
-alias ls "ls -GF"
+if ls --version 2>/dev/null | grep -q 'coreutils'
+    alias ls "ls --color=always"
+else
+    alias ls "ls -G"
+end
 
 # Copy files with progress information
 alias cpv "rsync -avP"
