@@ -46,7 +46,7 @@ install_homebrew() {
 	info "Installing Homebrew"
 	if [ $(uname -s) = "Darwin" ];then
 		if ! type "brew" > /dev/null 2>&1;then
-			ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+			ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 			success "Installing Homebrew"
 		else
 			success "Installing Homebrew (already installed)"
