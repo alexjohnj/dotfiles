@@ -1,3 +1,4 @@
+;; Package Config
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
@@ -14,3 +15,6 @@
 (use-package evil
 	     :ensure t
 	     :config (evil-mode 1))
+
+;; Appearance
+(set-face-attribute 'default nil :family "Inconsolata" :height 110)
