@@ -16,6 +16,12 @@
 	     :ensure t
 	     :config (evil-mode 1))
 
+;; Indentation
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+
 ;; Appearance
 (tool-bar-mode 0)
 (menu-bar-mode 0)
