@@ -17,4 +17,11 @@
 	     :config (evil-mode 1))
 
 ;; Appearance
-(set-face-attribute 'default nil :family "Inconsolata" :height 110)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+
+(set-face-attribute 'default nil :family "Source Code Pro" :height 100)
+
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'base16-eighties-dark t)
