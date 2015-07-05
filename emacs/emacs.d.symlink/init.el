@@ -1,38 +1,11 @@
 (setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 ;; Package Config
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org"   . "http://orgmode.org/elpa/")
                          ("gnu"   . "http://elpa.gnu.org/packages/")))
 (require 'package)
 (package-initialize)
-
-;; Bootstrap `use-package'
-;; From: http://www.lunaryorn.com/2015/01/06/my-emacs-configuration-with-use-package.html
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
- default (package-install 'use-package))
-
-(require 'use-package)
-(use-package evil
-  :ensure t
-  :config (evil-mode 1))
-
-(use-package ledger-mode
-  :ensure t
-  :config (if (eq system-type 'darwin) (setq ledger-binary-path "/usr/local/bin/ledger")))
-
-(use-package powerline
-  :ensure t
-  :config (powerline-default-theme))
-
-(use-package highlight-current-line
-  :ensure t
-  :config
-  (global-hl-line-mode t)
-  (setq highlight-current-line-globally t)
-  (setq highlight-current-line-high-faces nil)
-  (setq highlight-current-line-whole-line nil)
-  (setq hl-line-face (quote highlight)))
 
 ;; Indentation
 (setq-default indent-tabs-mode nil)
@@ -64,4 +37,27 @@
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
-(load custom-file)
+;; Configure/Install Packages
+;; Bootstrap `use-package'
+;; From: http://www.lunaryorn.com/2015/01/06/my-emacs-configuration-with-use-package.html
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+ default (package-install 'use-package))
+(require 'use-package)
+
+(use-package evil
+  :ensure t
+  :config (evil-mode 1))
+
+(use-package ledger-mode
+  :ensure t
+  :config (if (eq system-type 'darwin) (setq ledger-binary-path "/usr/local/bin/ledger")))
+
+(use-package highlight-current-line
+  :ensure t
+  :config
+  (global-hl-line-mode t)
+  (setq highlight-current-line-globally t)
+  (setq highlight-current-line-high-faces nil)
+  (setq highlight-current-line-whole-line nil)
+  (setq hl-line-face (quote highlight)))
