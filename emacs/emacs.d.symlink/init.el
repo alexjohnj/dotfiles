@@ -45,6 +45,10 @@
 (setq case-fold-search t)
 (setq require-final-newline t)
 
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
 ;; Appearance
 (tool-bar-mode 0)
 (menu-bar-mode 0)
