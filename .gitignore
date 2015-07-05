@@ -1,6 +1,7 @@
 # .emacs.d Folders
 auto-save-list/
 elpa/
+ido.last
 
 # vim Dictionaries
 en.utf-8.add*
