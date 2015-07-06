@@ -87,3 +87,14 @@
 (use-package matlab-mode
   :ensure t
   :config (add-to-list 'auto-mode-alist '("\\.m$" . matlab-mode)))
+
+;; Clojure for the Brave Packages
+(use-package paredit
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+  (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode))
+
+(use-package clojure-mode :ensure t)
+(use-package clojure-mode-extra-font-locking :ensure t)
+(use-package cider :ensure t)
