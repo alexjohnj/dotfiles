@@ -78,3 +78,7 @@
   (setq highlight-current-line-high-faces nil)
   (setq highlight-current-line-whole-line nil)
   (setq hl-line-face (quote highlight)))
+
+(use-package matlab-mode
+  :ensure t
+  :config (add-to-list 'auto-mode-alist '("\\.m$" . matlab-mode)))
