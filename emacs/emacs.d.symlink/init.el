@@ -46,6 +46,11 @@
  default (package-install 'use-package))
 (require 'use-package)
 
+(when (eq system-type 'darwin)
+  (use-package exec-path-from-shell
+    :ensure t
+    :config (exec-path-from-shell-initialize)))
+
 (use-package evil
   :ensure t
   :config (evil-mode 1))
