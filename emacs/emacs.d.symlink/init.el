@@ -1,12 +1,25 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 (add-to-list 'load-path "~/.emacs.d/site-packages/")
-;; Package Config
+(add-to-list 'load-path (expand-file-name "package-config/" user-emacs-directory))
+
+;;------------------------------------------------------------------------------
+;;                         Package Configuration
+;;------------------------------------------------------------------------------
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org"   . "http://orgmode.org/elpa/")
                          ("gnu"   . "http://elpa.gnu.org/packages/")))
 (require 'package)
 (package-initialize)
+;; Bootstrap use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+ default (package-install 'use-package))
+(require 'use-package)
+
+;;------------------------------------------------------------------------------
+;;                            Editor Settings
+;;------------------------------------------------------------------------------
 
 ;; Indentation
 (setq-default indent-tabs-mode nil)
@@ -42,65 +55,22 @@
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
-;; Configure/Install Packages
-;; Bootstrap `use-package'
-;; From: http://www.lunaryorn.com/2015/01/06/my-emacs-configuration-with-use-package.html
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
- default (package-install 'use-package))
-(require 'use-package)
+;;------------------------------------------------------------------------------
+;;                  Load Packages that need configuring 
+;;                  (i.e., everything in use-packages/)
+;;------------------------------------------------------------------------------
 
-(when (eq system-type 'darwin)
-  (use-package exec-path-from-shell
-    :ensure t
-    :config (exec-path-from-shell-initialize)))
+(require 'init-evil-mode)
+(require 'init-exec-path-from-shell)
+(require 'init-powerline)
+(require 'init-highlight-current-line)
+(require 'init-paredit)
+(require 'init-ledger-mode)
+(require 'init-matlab-mode)
 
-(use-package evil
-  :ensure t
-  :config (evil-mode 1))
-
-(use-package powerline
-  :ensure t
-  :config
-  (if (eq system-type 'darwin)
-      (progn
-        (load-library "powerline-srgb-offset")
-        (powerline-srgb-offset-add-theme "base16-eighties"
-                                         '('("mode-line" "#646464")
-                                           '("powerline-active1" "#484848")
-                                           '("powerline-active2" "#797979")
-                                           '("mode-line-inactive" "#494949")
-                                           '("powerline-inactive1" "#242424")
-                                           '("powerline-inactive2" "#424242")))
-        (powerline-srgb-offset-activate "base16-eighties")))
-  (powerline-default-theme))
-
-(use-package ledger-mode
-  :ensure t
-  :config
-  (if (eq system-type 'darwin) (setq ledger-binary-path "/usr/local/bin/ledger"))
-  (add-to-list 'auto-mode-alist '("\\.journal$" . ledger-mode))
-  (setq ledger-post-auto-adjust-amounts t))
-
-(use-package highlight-current-line
-  :ensure t
-  :config
-  (global-hl-line-mode t)
-  (setq highlight-current-line-globally t)
-  (setq highlight-current-line-high-faces nil)
-  (setq highlight-current-line-whole-line nil)
-  (setq hl-line-face (quote highlight)))
-
-(use-package matlab-mode
-  :ensure t
-  :config (add-to-list 'auto-mode-alist '("\\.m$" . matlab-mode)))
-
-;; Clojure for the Brave Packages
-(use-package paredit
-  :ensure t
-  :config
-  (add-hook 'clojure-mode-hook 'enable-paredit-mode)
-  (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode))
+;;------------------------------------------------------------------------------
+;;               Load Packages that DON'T need configuring
+;;------------------------------------------------------------------------------
 
 (use-package clojure-mode :ensure t)
 (use-package clojure-mode-extra-font-locking :ensure t)
