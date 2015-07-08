@@ -3,7 +3,12 @@ set fish_path $HOME/.oh-my-fish
 . $fish_path/oh-my-fish.fish
 
 # Theme Configuraiton
-Theme bobthefish
+if [ $TERM = "eterm-color" ]
+   Theme l
+else
+   Theme bobthefish
+ end
+
 set -g theme_display_git yes
 set -g theme_display_hg no
 set -g theme_display_virtualenv no
