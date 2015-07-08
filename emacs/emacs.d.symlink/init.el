@@ -26,6 +26,8 @@
 ;; Appearance
 (setq inhibit-startup-message t)
 (setq inhibit-startup-echo-area-message t)
+(fset 'yes-or-no-p 'y-or-n-p)
+
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
