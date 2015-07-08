@@ -1,6 +1,6 @@
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
-(add-to-list 'load-path "~/.emacs.d/site-packages/")
+(add-to-list 'load-path (expand-file-name "site-packages/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "package-config/" user-emacs-directory))
 
 ;;------------------------------------------------------------------------------
@@ -48,7 +48,7 @@
 
 (set-face-attribute 'default nil :family "Source Code Pro" :height 100)
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'custom-theme-load-path (expand-file-name "themes/" user-emacs-directory))
 (load-theme 'base16-eighties-dark t)
 ;; Match fringe colour to background colour
 (set-face-attribute 'fringe nil
