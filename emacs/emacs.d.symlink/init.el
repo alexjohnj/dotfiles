@@ -67,6 +67,7 @@
 (require 'init-paredit)
 (require 'init-ledger-mode)
 (require 'init-matlab-mode)
+(require 'init-markdown-mode)
 
 ;;------------------------------------------------------------------------------
 ;;               Load Packages that DON'T need configuring
