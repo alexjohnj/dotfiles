@@ -2,6 +2,8 @@
 auto-save-list/
 elpa/
 ido.last
+projectile.cache
+projectile-bookmarks.eld
 
 # vim Dictionaries
 en.utf-8.add*

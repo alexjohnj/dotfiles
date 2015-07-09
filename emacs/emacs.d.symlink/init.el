@@ -70,6 +70,8 @@
 (require 'init-powerline)
 (require 'init-highlight-current-line)
 (require 'init-paredit)
+(require 'init-projectile)
+
 (require 'init-ledger-mode)
 (require 'init-matlab-mode)
 (require 'init-markdown-mode)
