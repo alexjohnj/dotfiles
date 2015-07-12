@@ -26,6 +26,7 @@
 (setq-default tab-width 2)
 (defvaralias 'c-basic-offset 'tab-width)
 (defvaralias 'cperl-indent-level 'tab-width)
+(defvaralias 'css-indent-offset 'tab-width)
 
 ;; Editing
 (setq fill-column 79)
@@ -76,6 +77,7 @@
 (require 'init-ledger-mode)
 (require 'init-matlab-mode)
 (require 'init-markdown-mode)
+(require 'init-scss-mode)
 
 ;;------------------------------------------------------------------------------
 ;;               Load Packages that DON'T need configuring
