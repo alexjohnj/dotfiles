@@ -61,7 +61,7 @@
                     :background (face-background 'default))
 
 ;;------------------------------------------------------------------------------
-;;                  Load Packages that need configuring 
+;;                  Load Packages that need configuring
 ;;                  (i.e., everything in use-packages/)
 ;;------------------------------------------------------------------------------
 
@@ -71,6 +71,7 @@
 (require 'init-highlight-current-line)
 (require 'init-paredit)
 (require 'init-projectile)
+(require 'init-flycheck)
 
 (require 'init-ledger-mode)
 (require 'init-matlab-mode)
