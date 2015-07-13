@@ -27,6 +27,7 @@
 (defvaralias 'c-basic-offset 'tab-width)
 (defvaralias 'cperl-indent-level 'tab-width)
 (defvaralias 'css-indent-offset 'tab-width)
+(defvaralias 'js-indent-level 'tab-width)
 
 ;; Editing
 (setq fill-column 79)
