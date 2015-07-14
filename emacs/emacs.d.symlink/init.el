@@ -79,6 +79,7 @@
 (require 'init-matlab-mode)
 (require 'init-markdown-mode)
 (require 'init-scss-mode)
+(require 'init-web-mode)
 
 ;;------------------------------------------------------------------------------
 ;;               Load Packages that DON'T need configuring
