@@ -5,7 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (web-mode scss-mode flycheck-ledger flycheck projectile flx-ido markdown-mode clojure-mode-extra-font-locking paredit exec-path-from-shell clojure-mode cider matlab-mode use-package powerline ledger-mode highlight-current-line evil))))
+    (web-mode scss-mode flycheck-ledger flycheck projectile flx-ido markdown-mode clojure-mode-extra-font-locking paredit exec-path-from-shell clojure-mode cider matlab-mode use-package powerline ledger-mode highlight-current-line evil)))
+ '(safe-local-variable-values (quote ((engine . go)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
