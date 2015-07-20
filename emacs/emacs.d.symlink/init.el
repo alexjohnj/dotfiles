@@ -74,6 +74,7 @@
 (require 'init-paredit)
 (require 'init-projectile)
 (require 'init-flycheck)
+(require 'init-rainbow-delimiters)
 
 (require 'init-ledger-mode)
 (require 'init-matlab-mode)
