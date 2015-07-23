@@ -86,6 +86,7 @@
 ;;               Load Packages that DON'T need configuring
 ;;------------------------------------------------------------------------------
 
+(use-package osx-pseudo-daemon :ensure t)
 (use-package clojure-mode :ensure t)
 (use-package clojure-mode-extra-font-locking :ensure t)
 (use-package cider :ensure t)
