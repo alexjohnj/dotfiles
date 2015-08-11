@@ -30,6 +30,7 @@
 (defvaralias 'js-indent-level 'tab-width)
 
 ;; Editing
+(blink-cursor-mode 0)
 (setq fill-column 79)
 (setq case-fold-search t)
 (setq require-final-newline t)
