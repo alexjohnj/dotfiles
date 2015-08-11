@@ -35,6 +35,14 @@
 (setq case-fold-search t)
 (setq require-final-newline t)
 
+(require 'paren)
+(setq show-paren-delay 0)
+(setq show-paren-style 'parenthesis)
+(show-paren-mode 1)
+(set-face-background 'show-paren-match "#737369")
+(set-face-foreground 'show-paren-match (face-foreground 'default))
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+
 (use-package flx-ido
   :ensure t
   :config
