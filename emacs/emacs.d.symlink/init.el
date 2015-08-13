@@ -34,6 +34,7 @@
 (setq fill-column 79)
 (setq case-fold-search t)
 (setq require-final-newline t)
+(setq ns-right-alternate-modifier nil)
 
 (require 'paren)
 (setq show-paren-delay 0)
