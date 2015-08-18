@@ -36,6 +36,8 @@
 (setq require-final-newline t)
 (setq ns-right-alternate-modifier nil)
 
+(setq-default ispell-program-name "aspell")
+
 (require 'paren)
 (setq show-paren-delay 0)
 (setq show-paren-style 'parenthesis)
