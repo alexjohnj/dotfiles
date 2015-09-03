@@ -23,7 +23,7 @@ if type "node" > /dev/null
 end
 
 # Octave Configuration
-set -gx GNUTERM "x11" 
+set -gx GNUTERM "aqua" 
 
 # lpitsa env variables
 if type "lpitsa" > /dev/null 2>&1
