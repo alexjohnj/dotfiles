@@ -1,13 +1,7 @@
-# Path to your oh-my-fish.
-set fish_path $HOME/.oh-my-fish
-. $fish_path/oh-my-fish.fish
-
-# Theme Configuraiton
-if [ $TERM = "eterm-color" ]
-   Theme l
-else
-   Theme bobthefish
- end
+# Load oh-my-fish
+set -g OMF_PATH $HOME/.local/share/omf
+set -g OMF_CONFIG $HOME/.config/omf
+source $OMF_PATH/init.fish
 
 set -g theme_display_git yes
 set -g theme_display_hg no
