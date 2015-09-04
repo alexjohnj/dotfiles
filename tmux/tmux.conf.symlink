@@ -34,7 +34,7 @@ set-option -g message-fg brightred
 
 # Status Bar (Modified from: http://dotshare.it/dots/944/0/raw/)
 set -g status-left ''
-set -g status-right '#[fg=black,bold]#T #[fg=red]%Y-%M-%d #[fg=blue]%R '
+set -g status-right '#[fg=black,bold]#T #[fg=red]%Y-%m-%d #[fg=blue]%R '
 set -g status-right-length 100
 set -g status-bg default
 setw -g window-status-format '#[fg=cyan,bold,bg=black] #I #[fg=white,bold,bg=white] #W '
