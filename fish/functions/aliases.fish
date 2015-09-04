@@ -21,6 +21,9 @@ if [ -e "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]
   alias subl "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 end
 
+# Edit with Emacs
+alias e "emacsclient -n -a \"\""
+
 # So my University requires that you connect via its VPN to SSH into the 
 # school's computers. This requires using a POS client that can not be quit
 # by killing the associated process because it restarts itself. Thus, these 
