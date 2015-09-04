@@ -16,6 +16,7 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
+(server-mode 1)
 
 ;;------------------------------------------------------------------------------
 ;;                            Editor Settings
