@@ -99,6 +99,7 @@
 (require 'init-markdown-mode)
 (require 'init-scss-mode)
 (require 'init-web-mode)
+(require 'init-haskell-mode)
 
 ;;------------------------------------------------------------------------------
 ;;               Load Packages that DON'T need configuring
