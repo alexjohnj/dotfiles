@@ -1,41 +1,56 @@
 # dotfiles
 
-This is my attempt at a dotfiles repository. It's mainly to keep my computers in sync but other people may find it useful. My shell of choice is [fish][fish-shell] so there's no zsh or bash config files in here. Saying that, most of the install scripts are bash scripts for out of the box compatibility.
+This is my attempt at a dotfiles repository. It's mainly to keep my
+computers in sync but other people may find it useful. It contains
+configuration files for fish, Emacs (main text editor), vim (back-up
+editor) and tmux. The configuration files target OS X but try and
+maintain compatibility with other UNIX operating systems.
 
 ## Installation
 
-_N.B. You may (probably) need to install git before doing anything. If you're on OS X, install the Xcode command line tools._
+To get a new system up and running, there's a bootstrap script in the
+root of the project. The bootstrap script will set up symlinks for the
+configuration files in your home folder. **It'll overwrite any
+existing configuration files so be sure to make a backup.** The
+bootstrap script also attempts to install the following tools:
 
-To get started, **make a backup of your current configuration files**. Then, run `bootstrap.sh` from the root directory. `bootstrap.sh` **will not** ask you if you want to overwrite existing configuration files. It will just do it. `bootstrap.sh` will do the following:
+- Install [homebrew][homebrew-link] if you're on OS X.
+- Install [fish][fish-shell] if you're on OS X with homebrew installed
+  or on a Linux system with `apt-get` or `pacman` installed.
+- Install [oh-my-fish][oh-my-fish-link] to your home folder.
 
-- Install [homebrew][homebrew-link] if you're on OS X and haven't got it installed.
-- Install [fish][fish-shell] if you're on OS X, have homebrew and haven't got it installed.
-- Install [oh-my-fish][oh-my-fish-link] if you haven't got it installed.
-- Symlink the `fish/config.fish` file to `~/.config/fish/config.fish`
-- Symlink the `fish/functions/` folder to `~/.config/fish/functions/`
-- Symlink `*.symlink` files in the repo to `~/.*`
+[fish-shell]: http://fishshell.com
+[homebrew-link]: http://brew.sh
+[oh-my-fish-link]: http://github.com/oh-my-fish/oh-my-fish 
 
-`bootstrap.sh` _should_ work on Linux as well as OS X, it just won't install `fish` or `homebrew`.
+There are two requirements for the script, `bash` and `git`. These
+need to be installed for the script to work (it may work with `sh`
+instead of `bash`, but you'll need to replace the shebang).
 
-You're probably going to want to modify `fish/functions/aliases.fish` since these are specific to my projects.
+## Things to Modify
+
+Obviously some of these dotfiles are specific to my set up and you'll
+need to change them. The big one would be `git/gitconfig.symlink`
+which has my email address and name in it. You'll want to change that
+to your details. The other thing would be some of the aliases in
+`fish/functions/aliases.fish`. Some of these are shortcuts to projects
+on my computer, so you'll want to get rid of them.
 
 ## Other Things
 
-There's a few other scripts in the repository. `homebrew/install.sh` will install a variety of packages, apps and fonts using homebrew and homebrew cask. Read the `Brewfile`/`Caskfile`/`Fontfile` to see what gets installed. If you only want to install one of those files, you can run `brew bundle Somethingfile` to install a specific file.
+There's some additional scripts to be found in the repository. In the
+`osx` directory, there's a script called `osx.sh` which applies a
+bunch of settings to OS X. There's also `osx-revert.sh` which reverts
+them.
 
-`sublime-text/install.sh` will symlink your Sublime Text Preferences and Package Control Preferences files to the repository. Adding a package to `Package Control.sublime-settings` will cause it to be installed when you next start Sublime Text. Note that this script only works on OS X.
-
-Finally there's `osx/defaults.sh`. This script changes a few of OS X's settings to my liking. It's pretty bare-bones at the moment but should grow over time.
-
-[fish-shell]: http://fishshell.com
-
-[homebrew-link]: http://brew.sh
-
-[oh-my-fish-link]: https://github.com/bpinto/oh-my-fish
+In the `homebrew` directory there's a script called
+`install.sh`. Using homebrew, this installs the packages listed in
+`Brewfile` using the supplied arguments.
 
 ## Credits
 
-The way I organised this repository and the bootstrap script is based off of [Zach Holman's dotfiles repository][zach-dotfiles].
+The way I organised this repository and the bootstrap script is based
+off of [Zach Holman's dotfiles repository][zach-dotfiles].
 
 [zach-dotfiles]: https://github.com/holman/dotfiles 
 
