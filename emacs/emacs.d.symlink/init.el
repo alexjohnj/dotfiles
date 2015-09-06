@@ -36,6 +36,9 @@
 (setq case-fold-search t)
 (setq require-final-newline t)
 (setq ns-right-alternate-modifier nil)
+;; Backups
+(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 (setq-default ispell-program-name "aspell")
 
