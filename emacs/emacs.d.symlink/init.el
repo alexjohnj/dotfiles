@@ -36,6 +36,8 @@
 (setq case-fold-search t)
 (setq require-final-newline t)
 (setq ns-right-alternate-modifier nil)
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+
 ;; Backups
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
