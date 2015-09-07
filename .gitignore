@@ -4,6 +4,7 @@ elpa/
 ido.last
 projectile.cache
 projectile-bookmarks.eld
+srecode-map.el
 
 # vim Dictionaries
 en.utf-8.add*
