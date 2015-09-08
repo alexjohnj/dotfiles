@@ -61,6 +61,9 @@
   (setq ido-enable-flex-matching t)
   (setq ido-use-faces nil))
 
+;; Keybindings
+(global-set-key (kbd "C-x a r") 'align-regexp)
+
 ;; Appearance
 (setq inhibit-startup-message t)
 (setq inhibit-startup-echo-area-message t)
