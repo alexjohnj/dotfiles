@@ -100,6 +100,7 @@
 (require 'init-scss-mode)
 (require 'init-web-mode)
 (require 'init-haskell-mode)
+(require 'init-company)
 
 ;;------------------------------------------------------------------------------
 ;;               Load Packages that DON'T need configuring
