@@ -113,3 +113,4 @@
 (use-package clojure-mode :ensure t)
 (use-package clojure-mode-extra-font-locking :ensure t)
 (use-package cider :ensure t)
+(use-package yaml-mode :ensure t)
