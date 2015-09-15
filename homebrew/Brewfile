@@ -1,16 +1,35 @@
 tap 'homebrew/science'
+tap 'homebrew/python'
+tap 'staticfloat/julia'
+tap 'staticfloat/juliadeps'
+tap 'caskroom/cask'
+
 brew 'fish'
 brew 'git'
 brew 'tmux'
 brew 'reattach-to-user-namespace'
-brew 'go', args: ['with-cc-common']
-brew 'python'
-brew 'python3'
-brew 'ruby'
+brew 'emacs', args: ['with-cocoa', 'with-glib', 'with-gnutls', 'with-imagemagick', 'with-librsvg']
 brew 'vim'
-brew 'youtube-dl'
-brew 'imagemagick'
-brew 'pandoc'
-brew 'pandoc-citeproc'
+brew 'brew-cask'
+
+brew 'julia'
+brew 'python3'
+brew 'python'
+brew 'ruby'
+brew 'go', args: ['with-cc-common']
 brew 'ghc'
 brew 'cabal-install'
+
+brew 'xz'
+brew 'pxz'
+brew 'pigz'
+brew 'youtube-dl'
+brew 'pandoc'
+brew 'pandoc-citeproc'
+brew 'aspell'
+
+brew 'scipy', args: ['with-python3']
+brew 'numpy', args: ['with-python3']
+brew 'matplotlib', args: ['with-python3', 'with-tex', 'with-cairo', 'with-ghostscript']
+cask 'aquaterm'
+brew 'gnuplot', args: ['with-aquaterm', 'with-latex']
