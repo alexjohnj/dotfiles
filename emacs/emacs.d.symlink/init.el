@@ -43,6 +43,7 @@
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 (setq-default ispell-program-name "aspell")
+(setq ispell-dictionary "en_GB")
 
 (require 'paren)
 (setq show-paren-delay 0)
