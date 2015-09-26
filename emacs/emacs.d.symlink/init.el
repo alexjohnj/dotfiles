@@ -101,6 +101,7 @@
 (require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-rainbow-delimiters)
+(require 'init-magit)
 
 (require 'init-ledger-mode)
 (require 'init-matlab-mode)
