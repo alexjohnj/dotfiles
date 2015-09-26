@@ -75,7 +75,7 @@
 (scroll-bar-mode 0)
 (global-linum-mode t)
 
-(set-face-attribute 'default nil :font "Inconsolata-10")
+(set-face-attribute 'default nil :font "Source Code Pro-10")
 
 (add-to-list 'custom-theme-load-path (expand-file-name "themes/" user-emacs-directory))
 (load-theme 'base16-eighties-dark t)
