@@ -77,8 +77,10 @@
 
 (set-face-attribute 'default nil :font "Source Code Pro-10")
 
-(add-to-list 'custom-theme-load-path (expand-file-name "themes/" user-emacs-directory))
-(load-theme 'base16-eighties-dark t)
+(use-package ample-theme
+  :ensure t
+  :defer t
+  :init (progn (load-theme 'ample t)))
 ;; Match fringe colour to background colour
 (set-face-attribute 'fringe nil
                     :foreground (face-foreground 'default)
