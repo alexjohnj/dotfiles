@@ -5,6 +5,7 @@ ido.last
 projectile.cache
 projectile-bookmarks.eld
 srecode-map.el
+emacs/emacs.d.symlink/custom.el
 
 # vim Dictionaries
 en.utf-8.add*
