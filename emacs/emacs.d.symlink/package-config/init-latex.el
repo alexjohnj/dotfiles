@@ -8,6 +8,7 @@
   (progn
     (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
     (add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
+    (setq-default TeX-engine 'xelatex)
     (setq TeX-auto-save t
           TeX-parse-self t
           TeX-electric-math (cons "\\(" . "\\)")
