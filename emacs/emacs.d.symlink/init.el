@@ -86,6 +86,9 @@
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
+(global-hl-line-mode 1)
+(set-face-background hl-line-face "#2b2b2b")
+
 ;;------------------------------------------------------------------------------
 ;;                  Load Packages that need configuring
 ;;                  (i.e., everything in use-packages/)
@@ -94,7 +97,6 @@
 (require 'init-evil-mode)
 (require 'init-exec-path-from-shell)
 (require 'init-powerline)
-(require 'init-highlight-current-line)
 (require 'init-paredit)
 (require 'init-projectile)
 (require 'init-flycheck)
