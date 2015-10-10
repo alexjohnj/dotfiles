@@ -17,6 +17,12 @@ set -g status-utf8 on
 
 set-window-option -g utf8 on
 
+# Mouse Support
+setw -g mode-mouse on
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+set -g mouse-select-window on
+
 # Start new window in cwd
 bind-key c new-window -c '#{pane_current_path}'
 bind-key '"' split-window -c '#{pane_current_path}'
