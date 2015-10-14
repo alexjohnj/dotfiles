@@ -47,21 +47,21 @@ end
 
 function _print_lambda
   if [ $last_status -eq 0 ]
-    _make_prompt_segment normal blue "λ "
+    _make_prompt_segment normal blue "λ"
   else
-    _make_prompt_segment normal red "λ "
+    _make_prompt_segment normal red "λ"
   end
 end
 
 function _print_cwd
-  _make_prompt_segment normal normal (prompt_pwd)" "
+  _make_prompt_segment normal normal (prompt_pwd)
 end
 
-function _print_git_status
+function _print_git_status --description "Returns 0 if the status was printed, 1 otherwise"
   set -l git_branch (_git_branch_name)
 
   if not [ $git_branch ]
-    return
+    return 1
   end
 
   set git_info $git_branch
@@ -84,17 +84,29 @@ function _print_git_status
   end
 
   _make_prompt_segment red white " $git_info "
+  return 0
 end
 
 function _print_arrow
-  _make_prompt_segment normal blue " ❯ "
+  _make_prompt_segment normal blue "❯"
+end
+
+function _print_spacing
+  _make_prompt_segment normal normal " "
 end
 
 function fish_prompt
   set -g last_status $status
   
   _print_lambda
+  _print_spacing
   _print_cwd
+  _print_spacing
   _print_git_status
+  # Avoid double spacing between cwd and git status
+  if test $status -eq 0
+    _print_spacing
+  end
   _print_arrow
+  _print_spacing
 end
