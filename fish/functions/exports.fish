@@ -33,4 +33,4 @@ if type "lpitsa" > /dev/null 2>&1
 end
 
 # ledger environment variables 
-set -gx LEDGER_FILE "$HOME/Dropbox/Documents/ledger.journal"
+set -gx LEDGER_FILE "$HOME/Dropbox/Documents/ledger.journal.gpg"

@@ -24,6 +24,10 @@ end
 # Edit with Emacs
 alias e "emacsclient -n -a \"\""
 
+# Work with encrypted ledger files
+alias eledger "gpg --batch -d -q $LEDGER_FILE | ledger -f - "
+alias ehledger "gpg --batch -d -q $LEDGER_FILE | hledger -f -"
+
 # So my University requires that you connect via its VPN to SSH into the 
 # school's computers. This requires using a POS client that can not be quit
 # by killing the associated process because it restarts itself. Thus, these 
