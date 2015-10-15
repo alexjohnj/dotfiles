@@ -33,6 +33,11 @@ function _git_has_staged_changes --description "Returns 0 if there are staged ch
   return $status
 end
 
+function _is_ssh_session --description "Returns 0 if currently in SSH session, 1 otherwise"
+  test -n "$SSH_CLIENT"
+  return $status
+end
+
 function _make_prompt_segment
   set -l bg $argv[1]
   set -l fg $argv[2]
@@ -43,6 +48,14 @@ function _make_prompt_segment
   if [ -n "$argv[3]" ]
     echo -n -s $argv[3]
   end
+end
+
+function _print_ssh -d "Returns 0 if SSH was printed, 1 otherwise"
+  if _is_ssh_session 
+    _make_prompt_segment blue white "SSH"
+    return 0
+  end
+  return 1
 end
 
 function _print_lambda
@@ -98,6 +111,10 @@ end
 function fish_prompt
   set -g last_status $status
   
+  _print_ssh
+  if test $status -eq 0
+    _print_spacing
+  end
   _print_lambda
   _print_spacing
   _print_cwd
