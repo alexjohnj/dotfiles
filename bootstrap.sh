@@ -76,23 +76,6 @@ install_fish() {
 		success "Installing fish (already installed)"
 	fi
 
-	# Install oh-my-fish if it isn't installed
-	# This bit is essentially oh-my-fish's default install script converted to bash with the giant fish at the end removed.
-	info "Installing oh-my-fish"
-	if ! [ -d "$HOME/.oh-my-fish" ];then
-		git clone --quiet https://github.com/bpinto/oh-my-fish.git $HOME/.oh-my-fish
-    if ! [ -d "$HOME/.config/fish" ];then
-      mkdir -p "$HOME/.config/fish"
-    fi
-		if [ -f $HOME/.config/fish/config.fish ];then
-			mv $HOME/.config/fish/config.{fish,orig}
-		fi
-		cp $HOME/.oh-my-fish/templates/config.fish $HOME/.config/fish/config.fish
-		success "Installing oh-my-fish"
-	else
-		success "Installing oh-my-fish (already installed)"
-	fi
-
 	# Install fish dotfiles
 	fish_src="$DOTFILES_ROOT/fish/config.fish"
 	fish_dst="$HOME/.config/fish/config.fish"

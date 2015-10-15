@@ -1,8 +1,3 @@
-# Load oh-my-fish
-set -g OMF_PATH $HOME/.local/share/omf
-set -g OMF_CONFIG $HOME/.config/omf
-source $OMF_PATH/init.fish
-
 set -g theme_display_git yes
 set -g theme_display_hg no
 set -g theme_display_virtualenv no

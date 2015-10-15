@@ -17,11 +17,9 @@ bootstrap script also attempts to install the following tools:
 - Install [homebrew][homebrew-link] if you're on OS X.
 - Install [fish][fish-shell] if you're on OS X with homebrew installed
   or on a Linux system with `apt-get` or `pacman` installed.
-- Install [oh-my-fish][oh-my-fish-link] to your home folder.
 
 [fish-shell]: http://fishshell.com
 [homebrew-link]: http://brew.sh
-[oh-my-fish-link]: http://github.com/oh-my-fish/oh-my-fish 
 
 There are two requirements for the script, `bash` and `git`. These
 need to be installed for the script to work (it may work with `sh`
