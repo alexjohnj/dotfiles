@@ -52,7 +52,7 @@ end
 
 function _print_ssh -d "Returns 0 if SSH was printed, 1 otherwise"
   if _is_ssh_session 
-    _make_prompt_segment blue white "SSH"
+    _make_prompt_segment blue white " SSH "
     return 0
   end
   return 1
