@@ -29,19 +29,18 @@ bind-key '"' split-window -c '#{pane_current_path}'
 bind-key % split-window -h -c '#{pane_current_path}'
 
 # Split (From: http://dotshare.it/dots/944/0/raw/)
-set-option -g pane-active-border-fg red
+set-option -g pane-active-border-fg blue
 set-option -g pane-active-border-bg default
-set-option -g pane-border-fg red
+set-option -g pane-border-fg white  
 set-option -g pane-border-bg default
 
 # Command Bar
-set-option -g message-bg black
-set-option -g message-fg brightred
+set-option -g message-bg green
+set-option -g message-fg white
 
-# Status Bar (Modified from: http://dotshare.it/dots/944/0/raw/)
 set -g status-left ''
-set -g status-right '#[fg=black,bold]#T #[fg=red]%Y-%m-%d #[fg=blue]%R '
-set -g status-right-length 100
-set -g status-bg default
-setw -g window-status-format '#[fg=cyan,bold,bg=black] #I #[fg=white,bold,bg=white] #W '
-setw -g window-status-current-format '#[fg=black,bg=red] #I #[fg=black,bg=white,bold] #W '
+set -g status-right '#[fg=white]%a %b %d #[fg=white,bold]%R '
+set -g status-right-length 40
+set -g status-bg blue
+setw -g window-status-format '#[fg=white] [#I] #W '
+setw -g window-status-current-format '#[fg=white,bold,underscore,bg=brightblue] [#I] #W '
