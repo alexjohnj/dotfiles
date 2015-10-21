@@ -1,6 +1,4 @@
 # name: ajl
-# Heavily inspired by Jorge Israel Peña's prompt:
-# http://www.blaenkdenum.com/posts/terminal-customization/#prompt
 
 function _git_branch_name
   echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
@@ -52,18 +50,12 @@ end
 
 function _print_ssh -d "Returns 0 if SSH was printed, 1 otherwise"
   if _is_ssh_session 
-    _make_prompt_segment blue white " SSH "
+    _make_prompt_segment normal normal $USER
+    _make_prompt_segment normal blue "@"
+    _make_prompt_segment normal normal (hostname -s)
     return 0
   end
   return 1
-end
-
-function _print_lambda
-  if [ $last_status -eq 0 ]
-    _make_prompt_segment normal blue "λ"
-  else
-    _make_prompt_segment normal red "λ"
-  end
 end
 
 function _print_cwd
@@ -80,28 +72,20 @@ function _print_git_status --description "Returns 0 if the status was printed, 1
   set git_info $git_branch
 
   if  _git_is_clean
-    _make_prompt_segment green white " $git_info "
+    _make_prompt_segment normal green $git_info
     return
+  else
+    _make_prompt_segment normal red $git_info
   end
-
-  if _git_has_untracked_files
-    set git_info "$git_info ⦁"
-  end
-
-  if _git_has_changes
-    set git_info "$git_info ▲"
-  end
-
-  if _git_has_staged_changes
-    set git_info "$git_info ✚"
-  end
-
-  _make_prompt_segment red white " $git_info "
   return 0
 end
 
 function _print_arrow
-  _make_prompt_segment normal blue "❯"
+  if [ $last_status -eq 0 ]
+    _make_prompt_segment normal green "\$"
+  else
+    _make_prompt_segment normal red "\$"
+  end
 end
 
 function _print_spacing
@@ -115,15 +99,17 @@ function fish_prompt
   if test $status -eq 0
     _print_spacing
   end
-  _print_lambda
-  _print_spacing
-  _print_cwd
-  _print_spacing
-  _print_git_status
-  # Avoid double spacing between cwd and git status
-  if test $status -eq 0
-    _print_spacing
-  end
   _print_arrow
   _print_spacing
+end
+
+function fish_right_prompt
+  _make_prompt_segment normal normal "["
+  _print_cwd
+
+  if test -n (_git_branch_name)
+    _make_prompt_segment normal normal ":"
+  end
+  _print_git_status
+  _make_prompt_segment normal normal "]"
 end
