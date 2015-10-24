@@ -25,12 +25,5 @@ end
 # Octave Configuration
 set -gx GNUTERM "aqua" 
 
-# lpitsa env variables
-if type "lpitsa" > /dev/null 2>&1
-  set -gx PITSA_PRINTDEF_PATH_ENV /usr/local/bin/pitsa/pltdef/ # Trailing slash is important!
-  set -gx PITSA_CONFIG_PATH_ENV /usr/local/bin/pitsa/config/   # Again, slash == important!
-  set -gx PITSA_PRINTDEF_NAME_ENV "8X11_landscape.PS"
-end
-
 # ledger environment variables 
 set -gx LEDGER_FILE "$HOME/Dropbox/Documents/ledger.journal.gpg"
