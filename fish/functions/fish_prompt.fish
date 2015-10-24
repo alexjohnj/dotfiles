@@ -12,7 +12,7 @@ function _git_is_clean --description "Returns 0 if clean, 1 otherwise"
   not git diff-index --quiet HEAD
   set -l has_changes $status
 
-  test \( $has_untracked_files -eq 1 \) -a \( $has_changes -eq 1 \)
+  [ \( $has_untracked_files -eq 1 \) -a \( $has_changes -eq 1 \) ]
   return $status
 end
 
@@ -23,7 +23,7 @@ function _git_has_untracked_files --description "Returns 0 if there are untracke
 end
 
 function _is_ssh_session --description "Returns 0 if currently in SSH session, 1 otherwise"
-  test -n "$SSH_CLIENT"
+  [ -n "$SSH_CLIENT" ]
   return $status
 end
 
@@ -87,7 +87,7 @@ function fish_prompt
   set -g last_status $status
   
   _print_ssh
-  if test $status -eq 0
+  if [ $status -eq 0 ]
     _print_spacing
   end
   _print_arrow
@@ -98,7 +98,7 @@ function fish_right_prompt
   _make_prompt_segment normal normal "["
   _print_cwd
 
-  if test -n (_git_branch_name)
+  if [ -n (_git_branch_name) ]
     _make_prompt_segment normal normal ":"
   end
   _print_git_status
