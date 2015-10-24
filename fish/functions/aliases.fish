@@ -23,6 +23,7 @@ end
 
 # Edit with Emacs
 alias e "emacsclient -n -a \"\""
+alias et "emacsclient -nw -a \"\""
 
 # Work with encrypted ledger files
 alias eledger "gpg --batch -d -q $LEDGER_FILE | ledger -f - "
