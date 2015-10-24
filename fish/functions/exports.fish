@@ -10,10 +10,14 @@ end
 set -gx GOPATH $HOME/.go
 
 # Set the PATH
-set pathComponents $GOPATH/bin $HOME/.cabal/bin /Applications/MATLAB_R2015b.app/bin /usr/local/share/npm/bin /usr/local/opt/ruby/bin /usr/local/bin /usr/local/sbin /usr/local/lib
-for component in $pathComponents[-1..1]
-  if test -e $component
-    set -gx PATH $component $PATH
+set -l path_components \
+$HOME/bin \
+$GOPATH/bin \
+/Applications/MATLAB_R2015b.app/bin
+
+for c in $path_components[-1..1]
+  if begin not contains $c $PATH; and [ -e $c ]; end
+    set -x PATH $c $PATH
   end
 end
 
