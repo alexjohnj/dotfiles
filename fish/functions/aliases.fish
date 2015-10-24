@@ -1,8 +1,3 @@
-# cd Shortcuts
-alias dropdev "cd ~/Dropbox/Documents/Development/"
-alias alexjohnj "cd ~/Dropbox/Documents/Development/Web/alexjohnj/"
-alias geographyas "cd ~/Dropbox/Documents/Development/Web/geographyas/"
-
 # ls Aliases
 if ls --version 2>/dev/null | grep -q 'coreutils'
     alias ls "ls --color=always"
