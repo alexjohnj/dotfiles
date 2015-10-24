@@ -22,16 +22,6 @@ function _git_has_untracked_files --description "Returns 0 if there are untracke
   return $status
 end
 
-function _git_has_changes --description "Returns 0 if there are changes, 1 otherwise"
-  not git diff-files --quiet ^/dev/null
-  return $status
-end
-
-function _git_has_staged_changes --description "Returns 0 if there are staged changes, 1 otherwise"
-  not git diff-index --quiet --cached HEAD ^/dev/null
-  return $status
-end
-
 function _is_ssh_session --description "Returns 0 if currently in SSH session, 1 otherwise"
   test -n "$SSH_CLIENT"
   return $status
