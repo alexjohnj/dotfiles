@@ -1,6 +1,12 @@
 # Set up the editor
 set -gx EDITOR vim
 
+# Add PKG_PATH for OpenBSD
+if [ (uname -s) = "OpenBSD" ]
+  # Alberta mirror
+  set -gx PKG_PATH "http://ftp.openbsd.org/pub/OpenBSD/"(uname -r)"/packages/"(uname -p)"/"
+end
+
 # Set up Homebrew & Casks
 if type "brew" > /dev/null ^&1
   set -gx HOMEBREW_CASK_OPTS --appdir=/Applications
