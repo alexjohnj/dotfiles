@@ -2,7 +2,7 @@
 set -gx EDITOR vim
 
 # Set up Homebrew & Casks
-if type "brew" > /dev/null
+if type "brew" > /dev/null ^&1
   set -gx HOMEBREW_CASK_OPTS --appdir=/Applications
 end
 
@@ -18,7 +18,7 @@ for component in $pathComponents[-1..1]
 end
 
 # Set up node
-if type "node" > /dev/null
+if type "node" > /dev/null ^&1
   set -gx NODE_PATH /usr/local/lib/node
 end
 
