@@ -16,6 +16,23 @@ function _git_is_clean --description "Returns 0 if clean, 1 otherwise"
   return $status
 end
 
+function _get_git_origin_state
+# Echoes 'ok' if up to date, 'pull' if need to pull or 'push' if need
+# to push. From here:
+# http://stackoverflow.com/questions/3258243/git-check-if-pull-needed
+  set -l local (git rev-parse @\{0\})
+  set -l remote (git rev-parse @\{u\})
+  set -l base (git merge-base @ @\{u\})
+
+  if [ $local = $remote ]
+    echo "ok"
+  else if [ $local = $base ]
+    echo "pull"
+  else if [ $remote = $base ]
+    echo "push"
+  end
+end
+
 function _git_has_untracked_files --description "Returns 0 if there are untracked files, 1 otherwise"
   set -l git_ls_output (echo (git ls-files --exclude-standard --others))
   not [ -z $git_ls_output ]
@@ -62,11 +79,18 @@ function _print_git_status --description "Returns 0 if the status was printed, 1
 
   set git_info $git_branch
 
-  if  _git_is_clean
-    _make_prompt_segment normal green $git_info
-    return
-  else
+  if not _git_is_clean
     _make_prompt_segment normal red $git_info
+    return 0
+  end
+
+  set -l origin_state (_get_git_origin_state)
+  if [ $origin_state = "ok" ]
+    _make_prompt_segment normal green $git_info
+  else if [ $origin_state = "pull" ]
+    _make_prompt_segment normal blue $git_info
+  else if [ $origin_state = "push" ]
+    _make_prompt_segment normal yellow $git_info
   end
   return 0
 end
