@@ -17,7 +17,8 @@ function _git_is_clean --description "Returns 0 if clean, 1 otherwise"
 end
 
 function _git_has_untracked_files --description "Returns 0 if there are untracked files, 1 otherwise"
-  not test -z (git ls-files --exclude-standard --others ^/dev/null)
+  set -l git_ls_output (echo (git ls-files --exclude-standard --others))
+  not [ -z $git_ls_output ]
   return $status
 end
 
