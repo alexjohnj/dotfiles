@@ -18,11 +18,21 @@ end
 
 function _get_git_origin_state
 # Echoes 'ok' if up to date, 'pull' if need to pull or 'push' if need
-# to push. From here:
+# to push. Echoes "" if there's no remote. From here:
 # http://stackoverflow.com/questions/3258243/git-check-if-pull-needed
-  set -l local (git rev-parse @\{0\})
-  set -l remote (git rev-parse @\{u\})
-  set -l base (git merge-base @ @\{u\})
+  set -l local (git rev-parse @\{0\} ^/dev/null)
+  set -l remote (git rev-parse @\{u\} ^/dev/null)
+  set -l base (git merge-base @ @\{u\} ^/dev/null)
+
+  if [ -z $remote ]
+    echo ""
+    return
+  end
+
+  if [ -z $base ]
+    echo ""
+    return
+  end
 
   if [ $local = $remote ]
     echo "ok"
@@ -85,7 +95,7 @@ function _print_git_status --description "Returns 0 if the status was printed, 1
   end
 
   set -l origin_state (_get_git_origin_state)
-  if [ $origin_state = "ok" ]
+  if [ \( $origin_state = "ok" \) -o \( $origin_state = "" \) ]
     _make_prompt_segment normal green $git_info
   else if [ $origin_state = "pull" ]
     _make_prompt_segment normal blue $git_info
