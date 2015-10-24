@@ -16,11 +16,6 @@ alias cpv "rsync -avP"
 # MATLAB Aliases
 alias matlab "matlab -nodesktop"
 
-# Edit with Sublime Text
-if [ -e "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]
-  alias subl "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-end
-
 # Edit with Emacs
 alias e "emacsclient -n -a \"\""
 alias et "emacsclient -nw -a \"\""
