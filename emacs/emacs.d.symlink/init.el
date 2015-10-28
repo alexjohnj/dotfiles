@@ -120,6 +120,7 @@
 (require 'init-flycheck)
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
+(require 'init-which-key)
 
 (require 'init-ledger-mode)
 (require 'init-matlab-mode)
