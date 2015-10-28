@@ -35,7 +35,7 @@
 (setq fill-column 79)
 (setq case-fold-search t)
 (setq require-final-newline t)
-(setq ns-right-alternate-modifier nil)
+
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
 ;; Backups
@@ -65,6 +65,23 @@
 ;; Keybindings
 (global-set-key (kbd "C-x a r") 'align-regexp)
 
+;; In emacs-mac-port, make the ALT key META and the CMD key
+;; SUPER. Also free up the right ALT key for inputting special
+;; symbols. Oh, and add a couple of default OS X key bindings to the
+;; super key.
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier 'meta)
+  (setq mac-right-option-modifier nil)
+  (setq mac-command-modifier 'super)
+  (setq mac-pass-command-to-system t)
+  (global-set-key [(super a)] 'mark-whole-buffer)
+  (global-set-key [(super v)] 'yank)
+  (global-set-key [(super s)] 'save-buffer)
+  (global-set-key [(super w)] 'delete-frame)
+  (global-set-key [(super n)] 'make-frame)
+  (global-set-key [(super z)] 'undo)
+  (global-set-key [(super q)] 'save-buffers-kill-terminal))
+
 ;; Appearance
 (setq inhibit-startup-message t)
 (setq inhibit-startup-echo-area-message t)
@@ -81,6 +98,7 @@
   :ensure t
   :defer t
   :init (progn (load-theme 'ample t)))
+
 ;; Match fringe colour to background colour
 (set-face-attribute 'fringe nil
                     :foreground (face-foreground 'default)
