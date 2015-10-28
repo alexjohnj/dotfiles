@@ -131,7 +131,6 @@
 (require 'init-markdown-mode)
 (require 'init-scss-mode)
 (require 'init-web-mode)
-(require 'init-haskell-mode)
 (require 'init-company)
 (require 'init-latex)
 
