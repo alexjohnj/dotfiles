@@ -114,7 +114,7 @@
 
 (require 'init-evil-mode)
 (require 'init-exec-path-from-shell)
-(require 'init-powerline)
+(require 'init-spaceline)
 (require 'init-paredit)
 (require 'init-projectile)
 (require 'init-flycheck)
