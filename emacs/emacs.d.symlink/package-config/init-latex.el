@@ -17,9 +17,14 @@
 
 (use-package company-auctex
   :ensure t
-  :config
+  :defer t
+  :init
   (progn
-    (company-auctex-init)))
-  
+    (push 'company-auctex-labels company-backends)
+    (push 'company-auctex-bibs company-backends)
+    (push '(company-auctex-macros
+            company-auctex-symbols
+            company-auctex-environments) company-backends)))
+
 (provide 'init-latex)
 ;;; init-latex.el ends here
