@@ -71,8 +71,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (tool-bar-mode 0)
-(menu-bar-mode 0)
-(scroll-bar-mode 0)
+(when (display-graphic-p)
+  (menu-bar-mode 0)
+  (scroll-bar-mode 0))
 
 (set-face-attribute 'default nil :font "Source Code Pro-10")
 
