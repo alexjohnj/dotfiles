@@ -1,3 +1,9 @@
+(use-package evil-leader
+  :ensure t
+  :config (progn
+            (evil-leader/set-leader "<SPC>")
+            (global-evil-leader-mode)))
+
 (use-package evil
   :ensure t
   :config (evil-mode 1))
