@@ -173,6 +173,7 @@
 ;;               Load Packages that DON'T need configuring
 ;;------------------------------------------------------------------------------
 
+(use-package git-gutter-fringe :ensure t :diminish git-gutter-mode :init (global-git-gutter-mode t))
 (use-package osx-pseudo-daemon :ensure t)
 (use-package clojure-mode :ensure t)
 (use-package clojure-mode-extra-font-locking :ensure t)
