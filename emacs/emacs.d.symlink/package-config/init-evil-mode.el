@@ -6,7 +6,8 @@
 
 (use-package evil
   :ensure t
-  :config (evil-mode 1))
+  :config (progn
+            (evil-mode 1)))
 
 (use-package evil-escape
   :ensure t
@@ -16,6 +17,7 @@
 (use-package evil-commentary
   :ensure t
   :bind (("S-/" . evil-commentary))
-  :init (progn (evil-commentary-mode)))
+  :init (progn
+          (evil-commentary-mode)))
 
 (provide 'init-evil-mode)
