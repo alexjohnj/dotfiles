@@ -69,6 +69,23 @@
   "o a r" 'align-regexp
   "~" 'ansi-term)
 
+;; Window Management Key Bindings
+(evil-leader/set-key
+  "w =" 'balance-windows
+  "w c" 'delete-window
+  "w C" 'delete-other-windows
+  "w h" 'evil-window-left
+  "w H" 'evil-window-move-far-left
+  "w j" 'evil-window-down
+  "w J" 'evil-window-move-very-bottom
+  "w k" 'evil-window-up
+  "w K" 'evil-window-move-very-top
+  "w l" 'evil-window-right
+  "w L" 'evil-window-move-far-right
+  "w w" 'other-window
+  "w s" 'split-window-below
+  "w v" 'split-window-right)
+
 ;; Help Keybindings
 (evil-leader/set-key
   "h f" 'describe-function
