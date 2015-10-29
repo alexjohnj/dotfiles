@@ -39,6 +39,11 @@
 (setq case-fold-search t)
 (setq require-final-newline t)
 
+(use-package whitespace
+  :ensure t
+  :defer t
+  :init (progn (setq-default show-trailing-whitespace t)))
+
 ;; Backups
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
