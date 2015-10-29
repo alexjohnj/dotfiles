@@ -62,6 +62,15 @@
 
 ;; Keybindings
 (global-set-key (kbd "C-x a r") 'align-regexp)
+;; Help Keybindings
+(evil-leader/set-key
+  "h f" 'describe-function
+  "h m" 'describe-mode
+  "h v" 'describe-variable
+  "h b" 'describe-bindings
+  "h p" 'describe-package
+  "h i" 'info
+  "h M" 'man)
 
 ;; In emacs-mac-port, make the ALT key META and the CMD key
 ;; SUPER. Also free up the right ALT key for inputting special
