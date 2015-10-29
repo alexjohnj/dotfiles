@@ -96,7 +96,6 @@
 
 (use-package zenburn-theme
   :ensure t
-  :defer t
   :init (progn (load-theme 'zenburn t)))
 
 ;; (use-package ample-theme
