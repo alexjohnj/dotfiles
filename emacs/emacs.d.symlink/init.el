@@ -80,7 +80,7 @@
   (global-set-key [(super w)] 'delete-frame)
   (global-set-key [(super n)] 'make-frame)
   (global-set-key [(super z)] 'undo)
-  (global-set-key [(super q)] 'save-buffers-kill-terminal))
+  (global-set-key [(super q)] nil))
 
 ;; Appearance
 (setq inhibit-startup-message t)
