@@ -42,7 +42,9 @@
 (use-package whitespace
   :ensure t
   :defer t
-  :init (progn (setq-default show-trailing-whitespace t)))
+  :init (progn
+          (add-hook 'prog-mode-hook (lambda ()
+                                      (setq show-trailing-whitespace t)))))
 
 (use-package golden-ratio
   :ensure t
