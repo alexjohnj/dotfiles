@@ -18,6 +18,9 @@
 (require 'use-package)
 (server-mode 1)
 
+;; Load evil-mode and its plugins early on 
+(require 'init-evil-mode)
+
 ;;------------------------------------------------------------------------------
 ;;                            Editor Settings
 ;;------------------------------------------------------------------------------
@@ -110,7 +113,6 @@
 ;;                  (i.e., everything in use-packages/)
 ;;------------------------------------------------------------------------------
 
-(require 'init-evil-mode)
 (require 'init-exec-path-from-shell)
 (require 'init-spaceline)
 (require 'init-paredit)
