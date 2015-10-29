@@ -5,5 +5,9 @@
           (setq ispell-program-name "aspell"
                 ispell-dictionary "en_GB")
           (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-          (add-hook 'text-mode-hook 'flyspell-mode)))
+          (add-hook 'text-mode-hook 'flyspell-mode)
+          (evil-leader/set-key
+            "S t" 'flyspell-mode
+            "S s" 'ispell-buffer
+            "S S" 'flyspell-buffer)))
 (provide 'init-flyspell)
