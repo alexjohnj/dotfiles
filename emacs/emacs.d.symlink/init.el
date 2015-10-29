@@ -43,13 +43,12 @@
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
-(require 'paren)
-(setq show-paren-delay 0)
-(setq show-paren-style 'parenthesis)
-(show-paren-mode 1)
-(set-face-background 'show-paren-match "#737369")
-(set-face-foreground 'show-paren-match (face-foreground 'default))
-(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+(use-package paren
+  :ensure t
+  :init (progn
+          (setq show-paren-delay 0
+                show-paren-style 'parenthesis)
+          (add-hook 'prog-mode-hook 'show-paren-mode)))
 
 (use-package flx-ido
   :ensure t
