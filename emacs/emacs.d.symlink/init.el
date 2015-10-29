@@ -44,6 +44,12 @@
   :defer t
   :init (progn (setq-default show-trailing-whitespace t)))
 
+(use-package golden-ratio
+  :ensure t
+  :diminish golden-ratio-mode
+  :config (progn
+            (golden-ratio-mode 1)))
+
 ;; Backups
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
