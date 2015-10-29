@@ -108,6 +108,12 @@
   "h i" 'info
   "h M" 'man)
 
+;; Elisp Editing Bindings
+(evil-leader/set-key-for-mode 'emacs-lisp-mode
+  "m e b" 'eval-buffer
+  "m e r" 'eval-region
+  "m e e" 'eval-last-sexp)
+
 ;; In emacs-mac-port, make the ALT key META and the CMD key
 ;; SUPER. Also free up the right ALT key for inputting special
 ;; symbols. Oh, and add a couple of default OS X key bindings to the
