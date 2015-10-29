@@ -133,11 +133,6 @@
   :ensure t
   :init (progn (load-theme 'zenburn t)))
 
-;; (use-package ample-theme
-;;   :ensure t
-;;   :defer t
-;;   :init (progn (load-theme 'ample t)))
-
 ;; Match fringe colour to background colour
 (set-face-attribute 'fringe nil
                     :foreground (face-foreground 'default)
