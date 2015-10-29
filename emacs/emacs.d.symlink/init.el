@@ -60,8 +60,15 @@
   (setq ido-enable-flex-matching t)
   (setq ido-use-faces nil))
 
-;; Keybindings
-(global-set-key (kbd "C-x a r") 'align-regexp)
+;; ------------------------------------------------------------------------------
+;;                             Keybindings
+;; ------------------------------------------------------------------------------
+
+;; General/Random Keybindings
+(evil-leader/set-key
+  "o a r" 'align-regexp
+  "~" 'ansi-term)
+
 ;; Help Keybindings
 (evil-leader/set-key
   "h f" 'describe-function
