@@ -3,7 +3,7 @@
 ;;; Code:
 (use-package auctex
   :ensure t
-  :mode ("\\.tex" . latex-mode)
+  :mode ("\\.tex\\'" . latex-mode)
   :config
   (progn
     (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)

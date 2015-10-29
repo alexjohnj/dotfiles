@@ -1,6 +1,6 @@
 (use-package matlab-mode
   :ensure t
-  :mode ("\\.m$" . matlab-mode)
+  :mode ("\\.m\\'" . matlab-mode)
   :init (progn
           (setq matlab-indent-level 2)
           (evil-leader/set-key-for-mode 'matlab-mode

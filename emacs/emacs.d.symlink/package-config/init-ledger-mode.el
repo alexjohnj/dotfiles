@@ -1,6 +1,6 @@
 (use-package ledger-mode
   :ensure t
-  :mode ("\\.journal$" . ledger-mode)
+  :mode ("\\.journal\\'" . ledger-mode)
   :init (progn
             (if (eq system-type 'darwin) (setq ledger-binary-path "/usr/local/bin/ledger"))
             (setq ledger-post-amount-alignment-column 60
