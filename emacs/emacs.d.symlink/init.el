@@ -36,14 +36,9 @@
 (setq case-fold-search t)
 (setq require-final-newline t)
 
-(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-
 ;; Backups
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-
-(setq-default ispell-program-name "aspell")
-(setq ispell-dictionary "en_GB")
 
 (require 'paren)
 (setq show-paren-delay 0)
@@ -124,6 +119,7 @@
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
 (require 'init-which-key)
+(require 'init-flyspell)
 
 (require 'init-ledger-mode)
 (require 'init-matlab-mode)
