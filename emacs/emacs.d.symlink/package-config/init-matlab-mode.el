@@ -1,8 +1,15 @@
 (use-package matlab-mode
   :ensure t
-  :defer t
-  :config (progn
-            (add-to-list 'auto-mode-alist '("\\.m$" . matlab-mode))
-            (setq matlab-indent-level 2)))
+  :mode ("\\.m$" . matlab-mode)
+  :init (progn
+          (setq matlab-indent-level 2)
+          (evil-leader/set-key-for-mode 'matlab-mode
+            "mcc" 'matlab-ispell-comments
+            "mcs" 'matlab-ispell-strings
+            "ms<" 'matlab-show-matlab-shell-buffer
+            "msg" 'matlab-shell-save-and-go
+            "msv" 'matlab-shell-describe-variable
+            "msh" 'matlab-shell-describe-command
+            "mse" 'matlab-shell-last-error)))
 
 (provide 'init-matlab-mode)
