@@ -8,22 +8,21 @@ maintain compatibility with other UNIX operating systems.
 
 ## Installation
 
-To get a new system up and running, there's a bootstrap script in the
-root of the project. The bootstrap script will set up symlinks for the
-configuration files in your home folder. **It'll overwrite any
-existing configuration files so be sure to make a backup.** The
+To get a new system up and running, there's a script called
+`bootstrap.sh` in the root of the project. The bootstrap script will
+symlink the configuration files to your home folder. **It'll overwrite
+any existing configuration files so make sure you have a backup.** The
 bootstrap script also attempts to install the following tools:
 
-- Install [homebrew][homebrew-link] if you're on OS X.
-- Install [fish][fish-shell] if you're on OS X with homebrew installed
-  or on a Linux system with `apt-get` or `pacman` installed.
+- [Homebrew][homebrew-link] if you're on OS X.
+- [Fish][fish-shell] if you're on OS X.
 
 [fish-shell]: http://fishshell.com
 [homebrew-link]: http://brew.sh
 
-There are two requirements for the script, `bash` and `git`. These
-need to be installed for the script to work (it may work with `sh`
-instead of `bash`, but you'll need to replace the shebang).
+The script is written in `sh` and so should work on pretty much any
+system out of the box. If you want the script to handle installing
+fish and Homebrew, you'll also need to have `git` installed.
 
 ## Things to Modify
 
@@ -50,5 +49,4 @@ In the `homebrew` directory there's a script called
 The way I organised this repository and the bootstrap script is based
 off of [Zach Holman's dotfiles repository][zach-dotfiles].
 
-[zach-dotfiles]: https://github.com/holman/dotfiles 
-
+[zach-dotfiles]: https://github.com/holman/dotfiles
