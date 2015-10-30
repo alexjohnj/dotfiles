@@ -124,7 +124,6 @@ buffer. (From Spacemacs)"
 
 ;; General/Random Keybindings
 (evil-leader/set-key
-  "o a r" 'align-regexp
   "~" 'ansi-term)
 
 ;; Buffer Management Key Bindings
@@ -170,6 +169,14 @@ buffer. (From Spacemacs)"
   "h p" 'describe-package
   "h i" 'info
   "h M" 'man)
+
+;; Text Editing Keybindings
+(evil-leader/set-key
+  "x u"   'downcase-region
+  "x U"   'upcase-region
+  "x a r" 'align-regexp
+  "x d w" 'delete-trailing-whitespace
+  "x i r" 'indent-region)
 
 ;; Elisp Editing Bindings
 (evil-leader/set-key-for-mode 'emacs-lisp-mode
