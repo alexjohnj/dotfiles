@@ -18,7 +18,7 @@
 (require 'use-package)
 (server-mode 1)
 
-;; Load evil-mode and its plugins early on 
+;; Load evil-mode and its plugins early on
 (require 'init-evil-mode)
 
 ;;------------------------------------------------------------------------------
@@ -80,6 +80,13 @@
 (evil-leader/set-key
   "o a r" 'align-regexp
   "~" 'ansi-term)
+
+;; Buffer Management Key Bindings
+(evil-leader/set-key
+  "b b" 'switch-to-buffer
+  "b d" 'kill-this-buffer
+  "b k" 'ido-kill-buffer
+  "b l" 'list-buffers)
 
 ;; Window Management Key Bindings
 (evil-leader/set-key
