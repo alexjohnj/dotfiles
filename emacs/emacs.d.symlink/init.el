@@ -73,6 +73,52 @@
   (setq ido-use-faces nil))
 
 ;; ------------------------------------------------------------------------------
+;;                             Custom Functions
+;; ------------------------------------------------------------------------------
+
+(defun alex/delete-file-and-buffer ()
+  "Removes the file connected to the current buffer and kills the
+buffer. (From Spacemacs)"
+  (interactive)
+  (let ((filename (buffer-file-name))
+        (buffer (current-buffer))
+        (name (buffer-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (kill-this-buffer)
+      (when (yes-or-no-p "Are you sure you want to delete this file?")
+        (delete-file filename t)
+        (kill-buffer buffer)
+        (message "File '%s' successfully removed" filename)))))
+
+(defun alex/rename-current-buffer-file ()
+  "Renames the current buffer's file"
+  (interactive)
+  (let ((filename (buffer-file-name))
+        (name (buffer-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (error "Buffer '%s' is not visiting a file!" name)
+      (let ((new-name (read-file-name "New name: " filename)))
+        (cond ((get-buffer new-name)
+               (error "A buffer named '%s' already exists!" new-name))
+              (t
+               (let ((dir (file-name-directory new-name)))
+                 (when (and (not (file-exists-p dir)) (yes-or-no-p (format ("Create directory '%s'?" dir)))
+                            (make-directory dir t)))
+                 (rename-file filename new-name 1)
+                 (rename-buffer new-name)
+                 (set-visited-file-name new-name)
+                 (set-buffer-modified-p nil)
+                 (message "File '%s' renamed to '%s'" name (file-name-nondirectory new-name)))))))))
+
+(defun alex/show-buffer-name ()
+  "Print the current file's path in the minibuffer"
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if filename
+        (message filename)
+      (error "Buffer not visiting a file"))))
+
+;; ------------------------------------------------------------------------------
 ;;                             Keybindings
 ;; ------------------------------------------------------------------------------
 
@@ -87,6 +133,16 @@
   "b d" 'kill-this-buffer
   "b k" 'ido-kill-buffer
   "b l" 'list-buffers)
+
+;; File Management Key Bindings
+(evil-leader/set-key
+  "f f" 'find-file
+  "f d" 'dired
+  "f D" 'alex/delete-file-and-buffer
+  "f R" 'alex/rename-current-buffer-file
+  "f s" 'evil-write
+  "f S" 'evil-write-all
+  "f y" 'alex/show-buffer-name)
 
 ;; Window Management Key Bindings
 (evil-leader/set-key
