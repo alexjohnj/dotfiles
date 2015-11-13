@@ -19,7 +19,8 @@ set -gx GOPATH $HOME/.go
 set -l path_components \
 $HOME/bin \
 $GOPATH/bin \
-/Applications/MATLAB_R2015b.app/bin
+/Applications/MATLAB_R2015b.app/bin \
+/Applications/MATLAB_R2015b.app/bin/maci64
 
 for c in $path_components[-1..1]
   if begin not contains $c $PATH; and [ -e $c ]; end
