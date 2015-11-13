@@ -16,7 +16,10 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
-(server-mode 1)
+
+(require 'server)
+(unless (server-running-p)
+  (server-mode 1))
 
 ;; Load evil-mode and its plugins early on
 (require 'init-evil-mode)
