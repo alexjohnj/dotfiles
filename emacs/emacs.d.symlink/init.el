@@ -47,7 +47,8 @@
   :defer t
   :init (progn
           (add-hook 'prog-mode-hook (lambda ()
-                                      (setq show-trailing-whitespace t)))))
+                                      (setq show-trailing-whitespace t)))
+          (add-hook 'before-save-hook 'whitespace-cleanup)))
 
 (use-package golden-ratio
   :ensure t
