@@ -1,4 +1,4 @@
-;;; latex --- LaTeX Editing Modes
+;;; init-latex --- LaTeX Editing Modes
 ;;; Commentary:
 ;;; Code:
 (use-package auctex
@@ -13,7 +13,8 @@
           TeX-parse-self t
           TeX-electric-math (cons "\\(" . "\\)")
           LaTeX-electric-math-left-right-brace t
-          TeX-electric-sub-and-superscript t)))
+          TeX-electric-sub-and-superscript t
+          LaTeX-fill-break-at-separators '(\\\( \\\[))))
 
 (use-package company-auctex
   :ensure t

@@ -1,5 +1,6 @@
 (use-package projectile
   :ensure t
+  :diminish projectile-mode
   :init (progn
           (setq projectile-switch-project-action 'projectile-dired)
           (evil-leader/set-key

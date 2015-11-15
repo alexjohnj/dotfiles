@@ -1,5 +1,6 @@
 (use-package flyspell
   :ensure t
+  :diminish flyspell-mode
   :commands (flyspell-prog-mode flyspell-mode)
   :init (progn
           (setq ispell-program-name "aspell"
