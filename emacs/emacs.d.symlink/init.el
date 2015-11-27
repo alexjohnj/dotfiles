@@ -164,6 +164,14 @@ buffer. (From Spacemacs)"
   "w s" 'split-window-below
   "w v" 'split-window-right)
 
+(which-key-add-key-based-replacements
+  "SPC w" "Windows"
+  "SPC f" "Files"
+  "SPC x" "Text"
+  "SPC m" "Mode"
+  "SPC b" "Buffer"
+  "SPC h" "Help")
+
 ;; Help Keybindings
 (evil-leader/set-key
   "h f" 'describe-function

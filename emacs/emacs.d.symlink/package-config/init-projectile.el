@@ -10,7 +10,8 @@
             "pp" 'projectile-switch-project
             "pb" 'projectile-switch-to-buffer
             "pk" 'projectile-kill-buffers
-            "pD" 'projectile-dired))
+            "pD" 'projectile-dired)
+          (which-key-add-key-based-replacements "SPC p" "Project"))
   :config (progn
             (projectile-global-mode)))
 

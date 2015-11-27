@@ -10,6 +10,7 @@
             "gS" 'magit-stage-file
             "gC" 'magit-commit
             "gl" 'magit-log-all
-            "gL" 'magit-log-buffer-file)))
+            "gL" 'magit-log-buffer-file)
+          (which-key-add-key-based-replacements "SPC g" "Magit")))
 
 (provide 'init-magit)

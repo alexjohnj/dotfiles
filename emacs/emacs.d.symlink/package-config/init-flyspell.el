@@ -10,5 +10,6 @@
           (evil-leader/set-key
             "S t" 'flyspell-mode
             "S s" 'ispell-buffer
-            "S S" 'flyspell-buffer)))
+            "S S" 'flyspell-buffer)
+          (which-key-add-key-based-replacements "SPC S" "Spelling")))
 (provide 'init-flyspell)

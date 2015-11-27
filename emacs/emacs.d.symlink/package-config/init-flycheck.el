@@ -13,7 +13,8 @@
             "eC" 'flycheck-clear
             "el" 'flycheck-list-errors
             "ev" 'flycheck-verify-setup
-            "et" 'flycheck-mode))
+            "et" 'flycheck-mode)
+          (which-key-add-key-based-replacements "SPC e" "Flycheck"))
   :config (progn
             (add-hook 'after-init-hook #'global-flycheck-mode)))
 
