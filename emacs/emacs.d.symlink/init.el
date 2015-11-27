@@ -258,6 +258,7 @@ buffer. (From Spacemacs)"
 (require 'init-web-mode)
 (require 'init-company)
 (require 'init-latex)
+(require 'init-golang)
 
 ;;------------------------------------------------------------------------------
 ;;               Load Packages that DON'T need configuring
