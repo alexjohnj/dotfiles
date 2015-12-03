@@ -223,7 +223,7 @@ buffer. (From Spacemacs)"
   (menu-bar-mode 0)
   (scroll-bar-mode 0))
 
-(set-face-attribute 'default nil :font "Source Code Pro-11")
+(set-face-attribute 'default nil :font "Consolas-11")
 
 (use-package zenburn-theme
   :ensure t
