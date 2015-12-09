@@ -135,7 +135,8 @@ buffer. (From Spacemacs)"
   "b b" 'switch-to-buffer
   "b d" 'kill-this-buffer
   "b k" 'ido-kill-buffer
-  "b l" 'list-buffers)
+  "b l" 'list-buffers
+  "b K K" 'desktop-clear)
 
 ;; File Management Key Bindings
 (evil-leader/set-key
