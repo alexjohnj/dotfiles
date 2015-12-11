@@ -38,7 +38,7 @@
 
 ;; Editing
 (blink-cursor-mode 0)
-(setq fill-column 79)
+(setq-default fill-column 80)
 (setq case-fold-search t)
 (setq require-final-newline t)
 
