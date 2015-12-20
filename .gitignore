@@ -6,6 +6,7 @@ projectile.cache
 projectile-bookmarks.eld
 srecode-map.el
 emacs/emacs.d.symlink/custom.el
+emacs/emacs.d.symlink/games
 
 # vim Dictionaries
 en.utf-8.add*
