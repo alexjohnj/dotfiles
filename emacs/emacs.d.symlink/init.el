@@ -128,7 +128,8 @@ buffer. (From Spacemacs)"
 
 ;; General/Random Keybindings
 (evil-leader/set-key
-  "~" 'ansi-term)
+  "~" 'ansi-term
+  "`" 'mu4e)
 
 ;; Buffer Management Key Bindings
 (evil-leader/set-key
@@ -260,6 +261,8 @@ buffer. (From Spacemacs)"
 (require 'init-company)
 (require 'init-latex)
 (require 'init-golang)
+
+(require 'init-mu4e)
 
 ;;------------------------------------------------------------------------------
 ;;               Load Packages that DON'T need configuring
