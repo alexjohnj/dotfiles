@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>org.alexj.getmail</string>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StartInterval</key>
+    <integer>61</integer>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/local/bin/fish</string>
+      <string>/Users/alex/.bin/get-mail.fish</string>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/Users/alex/Library/Logs/get-mail/out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/alex/Library/Logs/get-mail/error.log</string>
+  </dict>
+</plist>
