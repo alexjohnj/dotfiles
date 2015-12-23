@@ -1,0 +1,34 @@
+# -*- mode: conf; -*-
+CopyArrivalDate yes
+Sync All
+
+IMAPAccount personal-fastmail
+Host mail.messagingengine.com
+User alexj@fastmail.com
+PassCmd "security find-internet-password -w -a alexj@fastmail.com"
+SSLType IMAPS
+
+IMAPStore personal-fastmail-remote
+Account personal-fastmail
+
+MaildirStore personal-fastmail-local
+Path ~/.mail/personal/
+Inbox ~/.mail/personal/INBOX/
+Flatten "."
+
+Channel personal-fastmail-inbox
+Master :personal-fastmail-remote:
+Slave :personal-fastmail-local:
+Patterns INBOX
+Create Slave
+SyncState *
+
+Channel personal-fastmail-rest
+Master :personal-fastmail-remote:
+Slave :personal-fastmail-local:
+Patterns * !INBOX
+Create Slave
+SyncState *
+
+Group personal-fastmail-group
+Channels personal-fastmail-inbox personal-fastmail-rest
