@@ -7,7 +7,7 @@
     <key>RunAtLoad</key>
     <true/>
     <key>StartInterval</key>
-    <integer>61</integer>
+    <integer>600</integer>
     <key>ProgramArguments</key>
     <array>
       <string>/usr/local/bin/fish</string>
