@@ -13,11 +13,10 @@
                 mu4e-change-filenames-when-moving t ; mbsync needs this to avoid UID errors
                 mu4e-html2text-command "w3m -T text/html")
 
-          (setq message-send-mail-function 'smtpmail-send-it
-                smtpmail-stream-type 'ssl
-                smtpmail-default-smtp-server "mail.messagingengine.com"
-                smtpmail-smtp-server "mail.messagingengine.com"
-                smtpmail-smtp-service 465)
+          (setq message-send-mail-function 'message-send-mail-with-sendmail
+                sendmail-program "/usr/local/bin/msmtp"
+                message-sendmail-extra-arguments '("--read-envelope-from")
+                message-sendmail-f-is-evil t)
 
           (setq user-mail-address "alex@alexj.org"
                 user-full-name "Alex Jackson")
@@ -28,22 +27,14 @@
                (mu4e-drafts-folder "/personal/Drafts")
                (alex/mu4e-trash-folder "/personal/Trash")
                (alex/mu4e-refile-folder "/personal/Archive")
-               (smtpmail-smtp-user "alexj@fastmail.com")
-               (smtpmail-default-smtp-server "mail.messagingengine.com")
-               (smtpmail-smtp-server "mail.messagingengine.com")
-               (smtpmail-smtp-service 465)
-               (user-mail-address "alex@alexj.org"))
-
+               (user-mail-address "alex@alexj.org")
               ("uofa"
                (mu4e-sent-folder "/uofa/[Gmail].Sent Mail")
                (mu4e-drafts-folder "/uofa/[Gmail].Drafts")
                (alex/mu4e-trash-folder "/uofa/[Gmail].Trash")
                (alex/mu4e-refile-folder "/uofa/[Gmail].All Mail")
-               (smtpmail-smtp-user "padillaj@ualberta.ca")
-               (smtpmail-default-smtp-server "smtp.gmail.com")
-               (smtpmail-smtp-server "smtp.gmail.com")
                (user-mail-address "padillaj@ualberta.ca")
-               (mu4e-sent-messages 'delete))))
+               (mu4e-sent-messages 'delete)))))
 
           (defun alex/mu4e-get-folder (msg folder)
             "Find the symbol FOLDER in alex/mu4e-account-alist for the account MSG belongs to."

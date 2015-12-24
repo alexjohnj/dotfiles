@@ -1,0 +1,23 @@
+# -*- mode: conf; -*-
+defaults
+tls on
+tls_starttls off
+tls_trust_file /usr/local/etc/openssl/cert.pem
+
+account personal
+tls on
+auth on
+host mail.messagingengine.com
+port 465
+from alex@alexj.org
+user alexj@fastmail.com
+passwordeval "security find-internet-password -w -a alexj@fastmail.com"
+
+account uofa
+tls on
+auth on
+host smtp.gmail.com
+port 465
+from padillaj@ualberta.ca
+user padillaj@ualberta.ca
+passwordeval "security find-internet-password -w -a padillaj@ualberta.ca"
