@@ -73,8 +73,11 @@
                         account-vars)
                 (error "No email account found"))))
 
-          ;; Always sign messages with PGP key
-          (add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
+          ;; Prompt to sign messages with PGP key
+          (add-hook 'message-send-hook
+                    '(lambda ()
+                       (when (yes-or-no-p "Sign message?")
+                         (mml-secure-message-sign-pgpmime))))
           ;; Set account when composing messages
           (add-hook 'mu4e-compose-pre-hook 'alex/mu4e-set-account)
 
