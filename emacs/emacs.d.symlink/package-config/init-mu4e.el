@@ -28,13 +28,21 @@
                (alex/mu4e-trash-folder "/personal/Trash")
                (alex/mu4e-refile-folder "/personal/Archive")
                (user-mail-address "alex@alexj.org")
+               (mu4e-sent-messages-behaviour 'sent))
               ("uofa"
                (mu4e-sent-folder "/uofa/[Gmail].Sent Mail")
                (mu4e-drafts-folder "/uofa/[Gmail].Drafts")
                (alex/mu4e-trash-folder "/uofa/[Gmail].Trash")
                (alex/mu4e-refile-folder "/uofa/[Gmail].All Mail")
                (user-mail-address "padillaj@ualberta.ca")
-               (mu4e-sent-messages 'delete)))))
+               (mu4e-sent-messages-behaviour 'delete))
+              ("leeds"
+               (mu4e-sent-folder "/leeds/Sent Items")
+               (mu4e-drafts-folder "/leeds/Drafts")
+               (alex/mu4e-trash-folder "/leeds/Deleted Items")
+               (alex/mu4-refile-folder "/leeds/Archive")
+               (user-mail-address "ee13ajpj@leeds.ac.uk")
+               (mu4e-sent-messages-behaviour 'sent))))
 
           (defun alex/mu4e-get-folder (msg folder)
             "Find the symbol FOLDER in alex/mu4e-account-alist for the account MSG belongs to."
