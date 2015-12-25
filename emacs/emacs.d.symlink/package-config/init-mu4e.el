@@ -11,6 +11,7 @@
                 mu4e-view-show-images t
                 message-kill-buffer-on-exit t
                 mu4e-change-filenames-when-moving t ; mbsync needs this to avoid UID errors
+                mu4e-completing-read-function 'ivy-completing-read
                 mu4e-html2text-command "w3m -T text/html")
 
           (setq message-send-mail-function 'message-send-mail-with-sendmail
