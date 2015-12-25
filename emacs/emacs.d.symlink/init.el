@@ -21,8 +21,9 @@
 (unless (server-running-p)
   (server-mode 1))
 
-;; Load evil-mode and its plugins early on
+;; Load evil-mode and swiper/ivy early on
 (require 'init-evil-mode)
+(require 'init-swiper)
 
 ;;------------------------------------------------------------------------------
 ;;                            Editor Settings
@@ -66,15 +67,6 @@
           (setq show-paren-delay 0
                 show-paren-style 'parenthesis)
           (add-hook 'prog-mode-hook 'show-paren-mode)))
-
-(use-package flx-ido
-  :ensure t
-  :config
-  (ido-mode t)
-  (ido-everywhere 1)
-  (flx-ido-mode 1)
-  (setq ido-enable-flex-matching t)
-  (setq ido-use-faces nil))
 
 ;; ------------------------------------------------------------------------------
 ;;                             Custom Functions
@@ -135,7 +127,7 @@ buffer. (From Spacemacs)"
 (evil-leader/set-key
   "b b" 'switch-to-buffer
   "b d" 'kill-this-buffer
-  "b k" 'ido-kill-buffer
+  "b k" 'kill-buffer
   "b l" 'list-buffers
   "b K K" 'desktop-clear)
 
