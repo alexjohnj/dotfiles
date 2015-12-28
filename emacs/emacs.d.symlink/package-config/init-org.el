@@ -34,7 +34,10 @@
             "m j f f" 'org-journal-search-forever
             "m j f m" 'org-journal-search-calendar-month
             "m j f w" 'org-journal-search-calender-week
-            "m j f y" 'org-journal-search-calendar-year)))
+            "m j f y" 'org-journal-search-calendar-year)
+          (evil-leader/set-key-for-mode 'org-journal-mode
+            "m j [" 'org-journal-open-previous-entry
+            "m j ]" 'org-journal-open-next-entry)))
 
 (provide 'init-org)
 ;;; init-org.el ends here
