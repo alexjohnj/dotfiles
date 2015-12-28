@@ -7,7 +7,7 @@
     <key>RunAtLoad</key>
     <true/>
     <key>StartInterval</key>
-    <integer>600</integer>
+    <integer>300</integer>
     <key>ProgramArguments</key>
     <array>
       <string>/usr/local/bin/fish</string>
@@ -16,6 +16,6 @@
     <key>StandardOutPath</key>
     <string>/Users/alex/Library/Logs/get-mail/out.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/alex/Library/Logs/get-mail/error.log</string>
+    <string>/Users/alex/Library/Logs/get-mail/out.log</string>
   </dict>
 </plist>
