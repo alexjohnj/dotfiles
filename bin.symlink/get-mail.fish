@@ -1,13 +1,21 @@
 #!/usr/bin/env fish
 
+function log
+  logger -s -t "[mail-sync]" $argv
+end
+
 # Make a folder for logs from launchd
 if not test -d "/Users/alex/Library/Logs/get-mail"
   mkdir -p "/Users/alex/Library/Logs/get-mail"
 end
 
 if pgrep mbsync
+  log "Killing previous mbsync processes."
   pkill mbsync
 end
 
-/usr/local/bin/mbsync -V -a
+log "Starting mbsync..."
+/usr/local/bin/mbsync -a
+log "Starting mu..."
 /usr/local/bin/mu index -q --maildir=/Users/alex/.mail
+log "Mail sync finished."
