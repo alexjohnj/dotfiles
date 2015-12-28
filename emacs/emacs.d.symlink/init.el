@@ -246,6 +246,8 @@ buffer. (From Spacemacs)"
 (require 'init-flyspell)
 
 (require 'init-calendar)
+(require 'init-org)
+
 (require 'init-ledger-mode)
 (require 'init-matlab-mode)
 (require 'init-markdown-mode)
