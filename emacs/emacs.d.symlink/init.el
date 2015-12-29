@@ -54,6 +54,17 @@
 (use-package golden-ratio
   :ensure t
   :diminish golden-ratio-mode
+  :init (progn
+          (setq golden-ratio-auto-scale t
+                golden-ratio-extra-commands
+                '(evil-window-left
+                  evil-window-move-far-left
+                  evil-window-down
+                  evil-window-move-very-bottom
+                  evil-window-up
+                  evil-window-move-very-top
+                  evil-window-right
+                  evil-window-move-far-right)))
   :config (progn
             (golden-ratio-mode 1)))
 
