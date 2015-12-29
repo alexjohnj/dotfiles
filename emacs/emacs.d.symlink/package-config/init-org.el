@@ -2,8 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package org
+(use-package org-plus-contrib
   :ensure t
+  :mode ("\\.org\\'" . org-mode)
   :init (progn
           (setq org-startup-indented t)))
 
