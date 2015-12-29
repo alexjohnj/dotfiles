@@ -4,8 +4,7 @@
   :ensure t
   :diminish (ivy-mode)
   :init (progn
-          (setq ivy-use-virtual-buffers t
-                projectile-completion-system 'ivy)
+          (setq projectile-completion-system 'ivy)
           (global-set-key (kbd "C-s") 'swiper)
           (with-eval-after-load "ivy"
             (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
