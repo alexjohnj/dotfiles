@@ -20,7 +20,7 @@
 
 (use-package flycheck-pos-tip
   :ensure t
-  :defer t
+  :commands (flycheck-pos-tip-error-messages)
   :init (progn
           (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages)))
 
