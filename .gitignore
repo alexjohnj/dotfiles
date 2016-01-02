@@ -8,6 +8,7 @@ srecode-map.el
 emacs/emacs.d.symlink/custom.el
 emacs/emacs.d.symlink/games
 emacs/emacs.d.symlink/url
+emacs/emacs.d.symlink/history
 
 # vim Dictionaries
 en.utf-8.add*
