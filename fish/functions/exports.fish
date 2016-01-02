@@ -37,5 +37,5 @@ end
 # Octave Configuration
 set -gx GNUTERM "aqua" 
 
-# ledger environment variables 
-set -gx LEDGER_FILE "$HOME/Dropbox/Documents/ledger.journal.gpg"
+# ledger environment variables
+set -gx LEDGER_FILE "$HOME/finance/ledger.journal"
