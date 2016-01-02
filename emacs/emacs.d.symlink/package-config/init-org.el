@@ -6,7 +6,10 @@
   :ensure t
   :mode ("\\.org\\'" . org-mode)
   :init (progn
-          (setq org-startup-indented t)))
+          (setq org-startup-indented t)
+          (setq org-modules '(org-drill)))
+  :config (progn
+            (org-load-modules-maybe)))
 
 (use-package org-crypt
   :config (setq org-crypt-key "B6CA4B58"))
