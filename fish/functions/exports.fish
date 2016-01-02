@@ -18,6 +18,7 @@ set -gx GOPATH $HOME/.go
 # Set the PATH
 set -l path_components \
 $HOME/bin \
+$HOME/.local/bin \
 $GOPATH/bin \
 /Applications/MATLAB_R2015b.app/bin \
 /Applications/MATLAB_R2015b.app/bin/maci64
