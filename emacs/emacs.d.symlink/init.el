@@ -51,6 +51,21 @@
                                       (setq show-trailing-whitespace t)))
           (add-hook 'before-save-hook 'whitespace-cleanup)))
 
+(defun alex/toggle-reading-mode ()
+  "Centres the current buffer's text according to the fill-column width."
+  (interactive)
+  (let ((left-margin (car (window-margins)))
+        (right-margin (cdr (window-margins))))
+    (if (or (eq left-margin nil) (eq right-margin nil))
+        (let ((new-width (/ (- (window-body-width) fill-column) 2)))
+          (setq left-margin-width new-width)
+          (setq right-margin-width new-width)
+          (set-window-margins nil new-width new-width))
+      (progn
+        (setq left-margin-width nil)
+        (setq right-margin-width nil)
+        (set-window-margins nil nil nil)))))
+
 (use-package golden-ratio
   :ensure t
   :diminish golden-ratio-mode
@@ -193,7 +208,8 @@ buffer. (From Spacemacs)"
   "x U"   'upcase-region
   "x a r" 'align-regexp
   "x d w" 'delete-trailing-whitespace
-  "x i r" 'indent-region)
+  "x i r" 'indent-region
+  "x C" 'alex/toggle-reading-mode)
 
 ;; Elisp Editing Bindings
 (evil-leader/set-key-for-mode 'emacs-lisp-mode
