@@ -3,12 +3,13 @@ tap 'homebrew/python'
 tap 'staticfloat/julia'
 tap 'staticfloat/juliadeps'
 tap 'caskroom/cask'
+tap 'railwaycat/emacsmacport'
 
 brew 'fish'
 brew 'git'
 brew 'tmux'
 brew 'reattach-to-user-namespace'
-brew 'emacs', args: ['with-cocoa', 'with-glib', 'with-gnutls', 'with-imagemagick', 'with-librsvg']
+brew 'emacs-mac', args: ['with-imagemagick', 'with-modern-icon', 'with-gnutls', 'with-xml2', 'with-dbus', 'with-glib']
 brew 'vim'
 brew 'brew-cask'
 
