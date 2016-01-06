@@ -292,7 +292,4 @@ buffer. (From Spacemacs)"
 
 (use-package git-gutter-fringe :ensure t :diminish git-gutter-mode :init (global-git-gutter-mode t))
 (use-package osx-pseudo-daemon :ensure t)
-(use-package clojure-mode :ensure t)
-(use-package clojure-mode-extra-font-locking :ensure t)
-(use-package cider :ensure t)
 (use-package yaml-mode :ensure t)
