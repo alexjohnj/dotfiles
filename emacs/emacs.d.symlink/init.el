@@ -232,7 +232,8 @@ buffer. (From Spacemacs)"
   (global-set-key [(super w)] 'delete-frame)
   (global-set-key [(super n)] 'make-frame)
   (global-set-key [(super z)] 'undo)
-  (global-set-key [(super q)] nil))
+  (global-set-key [(super q)] nil)
+  (global-set-key [(super ctrl f)] 'toggle-frame-fullscreen))
 
 ;; Appearance
 (setq inhibit-startup-message t)
