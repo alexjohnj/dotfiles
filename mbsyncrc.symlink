@@ -25,6 +25,7 @@ Slave :personal-fastmail-local:
 Patterns INBOX
 Create Slave
 SyncState *
+Expunge Both
 
 Channel personal-fastmail-rest
 Master :personal-fastmail-remote:
@@ -32,6 +33,7 @@ Slave :personal-fastmail-local:
 Patterns * !INBOX
 Create Slave
 SyncState *
+Expunge Both
 
 Group personal-fastmail-group
 Channels personal-fastmail-inbox personal-fastmail-rest
@@ -62,6 +64,7 @@ Slave :uofa-local:
 SyncState *
 Pattern * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/All Mail" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/Drafts"
 Create Slave
+Expunge Both
 
 ################################################################################
 ##                        University of Leeds Office 365
@@ -86,3 +89,4 @@ Slave :leeds-local:
 SyncState *
 Patterns INBOX Archive "Deleted Items" Drafts "Sent Items"
 Create Slave
+Expunge Both
