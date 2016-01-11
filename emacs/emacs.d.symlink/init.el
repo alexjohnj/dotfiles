@@ -24,6 +24,7 @@
 ;; Load evil-mode and swiper/ivy early on
 (require 'init-evil-mode)
 (require 'init-swiper)
+(require 'init-which-key)
 
 ;;------------------------------------------------------------------------------
 ;;                            Editor Settings
@@ -270,7 +271,6 @@ buffer. (From Spacemacs)"
 (require 'init-flycheck)
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
-(require 'init-which-key)
 (require 'init-flyspell)
 
 (require 'init-calendar)
