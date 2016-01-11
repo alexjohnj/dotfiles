@@ -2,6 +2,7 @@
 (use-package mu4e
   :commands (mu4e)
   :config (progn
+          (require 'mu4e-contrib)
           (setq mu4e-maildir (expand-file-name "~/.mail")
                 mu4e-sent-folder "/personal/Sent Items"
                 mu4e-drafts-folder "/personal/Drafts"
@@ -12,7 +13,7 @@
                 message-kill-buffer-on-exit t
                 mu4e-change-filenames-when-moving t ; mbsync needs this to avoid UID errors
                 mu4e-completing-read-function 'ivy-completing-read
-                mu4e-html2text-command "w3m -T text/html")
+                mu4e-html2text-command 'mu4e-shr2text)
 
           (setq message-send-mail-function 'message-send-mail-with-sendmail
                 sendmail-program "/usr/local/bin/msmtp"
