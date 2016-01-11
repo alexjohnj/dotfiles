@@ -42,7 +42,7 @@
                  (mu4e-sent-folder "/leeds/Sent Items")
                  (mu4e-drafts-folder "/leeds/Drafts")
                  (alex/mu4e-trash-folder "/leeds/Deleted Items")
-                 (alex/mu4-refile-folder "/leeds/Archive")
+                 (alex/mu4e-refile-folder "/leeds/Archive")
                  (user-mail-address "ee13ajpj@leeds.ac.uk")
                  (mu4e-sent-messages-behaviour 'sent))))
 
