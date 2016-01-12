@@ -46,6 +46,9 @@
                  (user-mail-address "ee13ajpj@leeds.ac.uk")
                  (mu4e-sent-messages-behaviour 'sent))))
 
+            (add-to-list 'mu4e-bookmarks
+                         '("maildir:/personal/INBOX OR maildir:/uofa/INBOX OR maildir:/leeds/INBOX" "Unified Inbox" ?i))
+
             (defun alex/mu4e-get-folder (msg folder)
               "Find the symbol FOLDER in alex/mu4e-account-alist for the account MSG belongs to."
               (let* ((account
