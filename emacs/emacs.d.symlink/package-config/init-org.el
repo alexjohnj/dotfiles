@@ -6,8 +6,10 @@
   :ensure t
   :mode ("\\.org\\'" . org-mode)
   :init (progn
-          (setq org-startup-indented t)
-          (setq org-modules '(org-drill)))
+          (setq org-startup-indented t
+                org-modules '(org-drill))
+          (setq org-latex-pdf-process
+                '("latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f")))
   :config (progn
             (org-load-modules-maybe)))
 
