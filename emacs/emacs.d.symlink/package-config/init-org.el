@@ -9,7 +9,11 @@
           (setq org-startup-indented t
                 org-modules '(org-drill))
           (setq org-latex-pdf-process
-                '("latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f")))
+                '("latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f"))
+          (evil-leader/set-key-for-mode 'org-mode
+            "m E" 'org-export-dispatch
+            "m p l" 'org-preview-latex-fragment
+            "m p i" 'org-toggle-inline-images))
   :config (progn
             (org-load-modules-maybe)))
 
