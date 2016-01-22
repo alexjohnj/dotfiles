@@ -40,3 +40,10 @@ set -gx GNUTERM "aqua"
 
 # ledger environment variables
 set -gx LEDGER_FILE "$HOME/finance/ledger.journal"
+
+# Set up Seismic Unix
+set -l su_path /usr/local/bin/su
+if [ -e $su_path ]
+  set -gx CWPROOT $su_path
+  set -x PATH $su_path/bin $PATH
+end
