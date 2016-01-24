@@ -4,16 +4,14 @@
   :config (progn
             (require 'mu4e-contrib)
             (setq mu4e-maildir (expand-file-name "~/.mail")
-                  mu4e-sent-folder "/personal/Sent Items"
-                  mu4e-drafts-folder "/personal/Drafts"
-                  mu4e-trash-folder (lambda (msg) (alex/mu4e-get-folder msg 'alex/mu4e-trash-folder))
-                  mu4e-refile-folder (lambda (msg) (alex/mu4e-get-folder msg 'alex/mu4e-refile-folder))
                   mu4e-attachment-dir "~/Downloads"
                   mu4e-view-show-images t
                   message-kill-buffer-on-exit t
                   mu4e-change-filenames-when-moving t ; mbsync needs this to avoid UID errors
                   mu4e-completing-read-function 'ivy-completing-read
-                  mu4e-html2text-command 'mu4e-shr2text)
+                  mu4e-html2text-command 'mu4e-shr2text
+                  mu4e-context-policy 'pick-first
+                  mu4e-compose-context-policy 'ask)
 
             (setq message-send-mail-function 'message-send-mail-with-sendmail
                   sendmail-program "/usr/local/bin/msmtp"
@@ -23,68 +21,54 @@
             (setq user-mail-address "alex@alexj.org"
                   user-full-name "Alex Jackson")
 
-            (defvar alex/mu4e-account-alist
-              '(("personal"
-                 (mu4e-sent-folder "/personal/Sent Items")
-                 (mu4e-drafts-folder "/personal/Drafts")
-                 (alex/mu4e-trash-folder "/personal/Trash")
-                 (alex/mu4e-refile-folder "/personal/Archive")
-                 (user-mail-address "alex@alexj.org")
-                 (mu4e-sent-messages-behaviour 'sent))
-                ("uofa"
-                 (mu4e-sent-folder "/uofa/[Gmail].Sent Mail")
-                 (mu4e-drafts-folder "/uofa/[Gmail].Drafts")
-                 (alex/mu4e-trash-folder "/uofa/[Gmail].Trash")
-                 (alex/mu4e-refile-folder "/uofa/[Gmail].All Mail")
-                 (user-mail-address "padillaj@ualberta.ca")
-                 (mu4e-sent-messages-behaviour 'delete))
-                ("leeds"
-                 (mu4e-sent-folder "/leeds/Sent Items")
-                 (mu4e-drafts-folder "/leeds/Drafts")
-                 (alex/mu4e-trash-folder "/leeds/Deleted Items")
-                 (alex/mu4e-refile-folder "/leeds/Archive")
-                 (user-mail-address "ee13ajpj@leeds.ac.uk")
-                 (mu4e-sent-messages-behaviour 'sent))))
+            (defun alex/mu4e-match-account (msg account)
+              (when msg
+                (let ((msg-account
+                       (let ((maildir (mu4e-message-field msg :maildir)))
+                         (string-match "/\\(.*?\\)/" maildir)
+                         (match-string 1 maildir))))
+                  (string= msg-account account))))
+
+            (setq mu4e-contexts
+                  `(,(make-mu4e-context
+                      :name "Personal"
+                      :match-func (lambda (msg) (alex/mu4e-match-account msg "personal"))
+                      :vars '((user-mail-address . "alex@alexj.org")
+                              (user-full-name . "Alex Jackson")
+                              (mu4e-sent-folder . "/personal/Sent Items")
+                              (mu4e-drafts-folder . "/personal/Drafts")
+                              (mu4e-trash-folder . "/personal/Trash")
+                              (mu4e-refile-folder . "/personal/Archive")
+                              (mu4e-sent-messages-behaviour . 'sent)))
+                    ,(make-mu4e-context
+                      :name "Alberta"
+                      :match-func (lambda (msg) (alex/mu4e-match-account msg "uofa"))
+                      :vars '((user-mail-address . "padillaj@ualberta.ca")
+                              (user-full-name . "Alex Jackson")
+                              (mu4e-sent-folder . "/uofa/[Gmail].Sent Mail")
+                              (mu4e-drafts-folder . "/uofa/[Gmail].Drafts")
+                              (mu4e-trash-folder . "/uofa/[Gmail].Trash")
+                              (mu4e-refile-folder . "/uofa/[Gmail].All Mail")
+                              (mu4e-sent-messages-behaviour . 'delete)))
+                    ,(make-mu4e-context
+                      :name "Leeds"
+                      :match-func (lambda (msg) (alex/mu4e-match-account msg "leeds"))
+                      :vars '((user-mail-address . "ee13ajpj@leeds.ac.uk")
+                              (user-full-name . "Alex Jackson")
+                              (mu4e-sent-folder . "/leeds/Sent Items")
+                              (mu4e-drafts-folder . "/leeds/Drafts")
+                              (mu4e-trash-folder . "/leeds/Deleted Items")
+                              (mu4e-refile-folder . "/leeds/Archive")
+                              (mu4e-sent-messages-behaviour . 'sent)))))
 
             (add-to-list 'mu4e-bookmarks
                          '("maildir:/personal/INBOX OR maildir:/uofa/INBOX OR maildir:/leeds/INBOX" "Unified Inbox" ?i))
-
-            (defun alex/mu4e-get-folder (msg folder)
-              "Find the symbol FOLDER in alex/mu4e-account-alist for the account MSG belongs to."
-              (let* ((account
-                      (let ((maildir (mu4e-message-field msg :maildir)))
-                        (string-match "/\\(.*?\\)/" maildir)
-                        (match-string 1 maildir)))
-                     (account-vars (cdr (assoc account alex/mu4e-account-alist))))
-                (if account-vars
-                    (cadr (assoc folder account-vars)))))
-
-            (defun alex/mu4e-set-account ()
-              "Set the account for composing a message."
-              (let* ((account
-                      (if mu4e-compose-parent-message
-                          (let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
-                            (string-match "/\\(.*?\\)/" maildir)
-                            (match-string 1 maildir))
-                        (completing-read (format "Compose with account: (%s) "
-                                                 (mapconcat #'(lambda (var) (car var))
-                                                            alex/mu4e-account-alist "/"))
-                                         (mapcar #'(lambda (var) (car var)) alex/mu4e-account-alist)
-                                         nil t nil nil (caar alex/mu4e-account-alist))))
-                     (account-vars (cdr (assoc account alex/mu4e-account-alist))))
-                (if account-vars
-                    (mapc #'(lambda (var)
-                              (set (car var) (cadr var)))
-                          account-vars)
-                  (error "No email account found"))))
 
             ;; Prompt to sign messages with PGP key
             (add-hook 'message-send-hook
                       '(lambda ()
                          (when (yes-or-no-p "Sign message?")
                            (mml-secure-message-sign-pgpmime))))
-            ;; Set account when composing messages
-            (add-hook 'mu4e-compose-pre-hook 'alex/mu4e-set-account)
 
             ;; Vimify Key Bindings
             (with-eval-after-load "mu4e"
