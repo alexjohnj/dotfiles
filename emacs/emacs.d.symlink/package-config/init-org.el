@@ -49,5 +49,12 @@
             "m j [" 'org-journal-open-previous-entry
             "m j ]" 'org-journal-open-next-entry)))
 
+(use-package org-research
+  :init (progn
+          (setq org-research-root "~/Dropbox/research")
+          (evil-leader/set-key-for-mode 'org-research-mode
+            "m r o" 'org-research-open-paper
+            "m r a" 'org-research-add-reference)))
+
 (provide 'init-org)
 ;;; init-org.el ends here

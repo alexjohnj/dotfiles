@@ -2,6 +2,7 @@
 (load custom-file)
 (add-to-list 'load-path (expand-file-name "site-packages/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "package-config/" user-emacs-directory))
+(add-to-list 'load-path "~/dev/elisp/org-research/")
 
 ;;------------------------------------------------------------------------------
 ;;                         Package Configuration
