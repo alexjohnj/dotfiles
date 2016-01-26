@@ -284,6 +284,7 @@ buffer. (From Spacemacs)"
 (require 'init-company)
 (require 'init-latex)
 (require 'init-golang)
+(require 'init-haskell)
 
 (require 'init-mu4e)
 
