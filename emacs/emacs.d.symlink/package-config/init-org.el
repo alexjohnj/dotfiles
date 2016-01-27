@@ -93,12 +93,24 @@
             "m j [" 'org-journal-open-previous-entry
             "m j ]" 'org-journal-open-next-entry)))
 
-(use-package org-research
+(use-package org-ref
+  :ensure t
   :init (progn
-          (setq org-research-root "~/Dropbox/research")
-          (evil-leader/set-key-for-mode 'org-research-mode
-            "m r o" 'org-research-open-paper
-            "m r a" 'org-research-add-reference)))
+          (setq reftex-default-bibliography '("~/Dropbox/research/references.bib")
+                org-ref-default-bibliography '("~/Dropbox/research/references.bib")
+                org-ref-bibliography-notes "~/Dropbox/research/notes.org"
+                org-ref-pdf-directory "~/Dropbox/research/bibtex-papers/")
+          (evil-leader/set-key
+            "r a d" 'doi-utils-add-bibtex-entry-from-doi
+            "r a c" 'doi-utils-add-entry-from-crossref-query
+            "r n" 'org-ref-open-notes-from-reftex)
+          (evil-leader/set-key-for-mode 'bibtex-mode
+            "m n" 'org-ref-open-bibtex-notes
+            "m o" 'org-ref-open-bibtex-pdf
+            "m b" 'org-ref-open-in-browser
+            "m c" 'org-ref-clean-bibtex-entry)
+          (evil-leader/set-key-for-mode 'org-mode
+            "m r o" 'org-ref-open-pdf-at-point)))
 
 (provide 'init-org)
 ;;; init-org.el ends here
