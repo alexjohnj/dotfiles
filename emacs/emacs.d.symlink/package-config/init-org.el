@@ -8,14 +8,58 @@
   :init (progn
           (setq org-startup-indented t
                 org-modules '(org-drill))
-          (setq org-latex-pdf-process
-                '("latexmk -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f"))
           (evil-leader/set-key-for-mode 'org-mode
             "m E" 'org-export-dispatch
             "m p l" 'org-preview-latex-fragment
             "m p i" 'org-toggle-inline-images))
   :config (progn
             (org-load-modules-maybe)))
+
+(use-package ox-latex
+  :init (progn
+          (setq org-latex-pdf-process
+                '("latexmk -outdir=auto -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f")
+                org-latex-listings 'minted))
+  :config (progn
+            (add-to-list 'org-latex-packages-alist '("" "minted"))
+            (add-to-list 'org-latex-classes
+                         '("alex-report"
+                           "\\documentclass{article}
+                           [NO-DEFAULT-PACKAGES]
+                           \\usepackage{fontspec}
+                           \\usepackage{polyglossia}
+                           \\setdefaultlanguage[variant=british]{english}
+                           \\setmonofont[Scale=MatchLowercase]{Consolas}
+                           \\usepackage[a4paper,top=31mm,bottom=31mm]{geometry}
+                           \\usepackage{microtype}
+                           \\usepackage{setspace}
+                           \\onehalfspacing
+                           \\usepackage[outputdir=auto/]{minted}
+                           \\usemintedstyle{bw}
+                           \\usepackage{gensymb}
+                           \\usepackage{amsmath}
+                           \\usepackage{amssymb}
+                           \\numberwithin{equation}{section}
+                           \\usepackage{graphicx}
+                           \\usepackage{float}
+                           \\usepackage{caption}
+                           \\usepackage{subcaption}
+                           \\usepackage{booktabs}
+                           \\usepackage{physics}
+                           \\usepackage{xfrac}
+                           \\usepackage{siunitx}
+                           \\sisetup{detect-all}
+                           [PACKAGES]
+                           \\usepackage{hyperref}
+                           \\usepackage{cleveref}
+                           \\crefname{figure}{Figure}{Figures}
+                           \\Crefname{figure}{Figure}{Figures}
+                           [EXTRA]"
+                           ("\\section{%s}" . "\\section*{%s}")
+                           ("\\subsection{%s}" . "\\subsection*{%s}")
+                           ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+                           ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                           ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))))
 
 (use-package org-crypt
   :config (setq org-crypt-key "B6CA4B58"))
