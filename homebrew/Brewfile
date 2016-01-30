@@ -11,6 +11,7 @@ brew 'tmux'
 brew 'reattach-to-user-namespace'
 brew 'emacs-mac', args: ['with-imagemagick', 'with-modern-icon', 'with-gnutls', 'with-xml2', 'with-dbus', 'with-glib']
 brew 'vim'
+brew 'mu', args: ['with-emacs']
 brew 'brew-cask'
 
 brew 'julia'
