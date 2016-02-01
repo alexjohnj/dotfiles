@@ -18,8 +18,9 @@
 (use-package ox-latex
   :init (progn
           (setq org-latex-pdf-process
-                '("latexmk -outdir=auto -pdflatex='lualatex -shell-escape -interaction nonstopmode' -pdf -f  %f")
-                org-latex-listings 'minted))
+                '("latexrun --latex-cmd=lualatex --latex-args=--shell-escape --bibtex-cmd biber -O auto %f")
+                org-latex-listings 'minted
+                org-latex-minted-options '(("baselinestretch" "0.95"))))
   :config (progn
             (add-to-list 'org-latex-packages-alist '("" "minted"))
             (add-to-list 'org-latex-classes
