@@ -97,6 +97,7 @@
 (use-package org-ref
   :ensure t
   :init (progn
+          (require 'org-ref-pdf)
           (setq reftex-default-bibliography '("~/Dropbox/research/references.bib")
                 org-ref-default-bibliography '("~/Dropbox/research/references.bib")
                 org-ref-bibliography-notes "~/Dropbox/research/notes.org"
