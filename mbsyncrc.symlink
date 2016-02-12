@@ -87,7 +87,8 @@ Channel leeds-channel
 Master :leeds-remote:
 Slave :leeds-local:
 SyncState *
-Patterns INBOX Archive "Deleted Items" Drafts "Sent Items"
+# Patterns INBOX Archive "Deleted Items" Drafts "Sent Items"
+Patterns * !Calendar !Clutter !Contacts !Journal !Notes !Outbox !Tasks
 Create Slave
 Expunge Both
 
