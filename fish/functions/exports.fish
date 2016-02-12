@@ -47,3 +47,10 @@ if [ -e $su_path ]
   set -gx CWPROOT $su_path
   set -x PATH $su_path/bin $PATH
 end
+
+# Set up SAC
+if [ -e /usr/local/bin/sac ]
+  set -gx SACHOME /usr/local/bin/sac
+  set -gx SACAUX $SACHOME/aux
+  set -x PATH $PATH $SACHOME/bin
+end
