@@ -19,8 +19,13 @@ set-window-option -g utf8 on
 
 # Mouse Support
 set-option -g -q mouse on
-bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
-bind -n WheelDownPane select-pane -t= \;                 send-keys -M
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
+bind -n WheelDownPane select-pane -t= \; send-keys -M
+bind -n C-WheelUpPane select-pane -t= \; copy-mode -e \; send-keys -M
+bind -t vi-copy    C-WheelUpPane   halfpage-up
+bind -t vi-copy    C-WheelDownPane halfpage-down
+bind -t emacs-copy C-WheelUpPane   halfpage-up
+bind -t emacs-copy C-WheelDownPane halfpage-down
 
 # Start new window in cwd
 bind-key c new-window -c '#{pane_current_path}'
