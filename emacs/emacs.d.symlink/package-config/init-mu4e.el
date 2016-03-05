@@ -10,6 +10,7 @@
                   mu4e-change-filenames-when-moving t ; mbsync needs this to avoid UID errors
                   mu4e-completing-read-function 'ivy-completing-read
                   mu4e-html2text-command 'mu4e-shr2text
+                  shr-color-visible-luminance-min  80
                   mu4e-context-policy 'pick-first
                   mu4e-compose-context-policy 'ask)
 
