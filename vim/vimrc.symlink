@@ -33,6 +33,6 @@ let g:airline_powerline_fonts = 0
 
 if has('gui_running')
   set background=dark
-  set guifont=Inconsolata-g\ for\ Powerline:h10
+  set guifont=Consolas:h11
   colorscheme base16-eighties
 endif
