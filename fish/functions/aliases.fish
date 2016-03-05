@@ -13,6 +13,8 @@ alias cpv "rsync -avP"
 # MATLAB Aliases
 alias matlab "matlab -nodesktop"
 
+abbr julia "julia -q"
+
 # Edit with Emacs
 alias e "emacsclient -n -a \"\""
 alias et "emacsclient -nw -a \"\""
