@@ -96,6 +96,11 @@
                 show-paren-style 'parenthesis)
           (add-hook 'prog-mode-hook 'show-paren-mode)))
 
+(use-package doc-view
+  :ensure t
+  :init (progn
+          (add-hook 'doc-view-mode-hook 'auto-revert-mode)))
+
 ;; ------------------------------------------------------------------------------
 ;;                             Custom Functions
 ;; ------------------------------------------------------------------------------
