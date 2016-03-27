@@ -68,23 +68,6 @@
         (setq right-margin-width nil)
         (set-window-margins nil nil nil)))))
 
-(use-package golden-ratio
-  :ensure t
-  :diminish golden-ratio-mode
-  :init (progn
-          (setq golden-ratio-auto-scale t
-                golden-ratio-extra-commands
-                '(evil-window-left
-                  evil-window-move-far-left
-                  evil-window-down
-                  evil-window-move-very-bottom
-                  evil-window-up
-                  evil-window-move-very-top
-                  evil-window-right
-                  evil-window-move-far-right)))
-  :config (progn
-            (golden-ratio-mode 1)))
-
 ;; Backups
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
