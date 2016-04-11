@@ -18,7 +18,7 @@
 (use-package ox-latex
   :init (progn
           (setq org-latex-pdf-process
-                '("latexrun --latex-cmd=lualatex --latex-args=--shell-escape --bibtex-cmd biber -O auto %f")
+                '("latexrun --latex-cmd=lualatex --latex-args=--shell-escape --bibtex-cmd biber -O latex.out %f")
                 org-latex-listings 'minted
                 org-latex-minted-options '(("baselinestretch" "0.95"))))
   :config (progn
@@ -27,28 +27,23 @@
                          '("alex-report"
                            "\\documentclass{article}
                            [NO-DEFAULT-PACKAGES]
+                           \\usepackage[british]{babel}
                            \\usepackage{fontspec}
-                           \\usepackage{polyglossia}
-                           \\setdefaultlanguage[variant=british]{english}
                            \\setmonofont[Scale=MatchLowercase]{Consolas}
                            \\usepackage[a4paper,top=31mm,bottom=31mm]{geometry}
                            \\usepackage{microtype}
-                           \\usepackage{setspace}
-                           \\onehalfspacing
-                           \\usepackage[outputdir=auto/]{minted}
-                           \\usemintedstyle{bw}
+                           \\frenchspacing
                            \\usepackage{gensymb}
                            \\usepackage{amsmath}
                            \\usepackage{amssymb}
-                           \\numberwithin{equation}{section}
                            \\usepackage{graphicx}
                            \\usepackage{float}
-                           \\usepackage{caption}
-                           \\usepackage{subcaption}
+                           \\usepackage[margin=1cm,font=small]{caption}
+                           \\usepackage[margin=1cm,font=small]{subcaption}
                            \\usepackage{booktabs}
                            \\usepackage{physics}
                            \\usepackage{xfrac}
-                           \\usepackage{siunitx}
+                           \\usepackage[separate-uncertainty=true,multi-part-units=single]{siunitx}
                            \\sisetup{detect-all}
                            [PACKAGES]
                            \\usepackage{hyperref}
