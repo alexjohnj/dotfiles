@@ -237,9 +237,10 @@ buffer. (From Spacemacs)"
 
 (set-face-attribute 'default nil :font "Consolas-11")
 
-(use-package zenburn-theme
+(use-package leuven-theme
   :ensure t
-  :init (progn (load-theme 'zenburn t)))
+  :init (progn (load-theme 'leuven t)))
+
 
 ;; Match fringe colour to background colour
 (set-face-attribute 'fringe nil
