@@ -16,7 +16,16 @@
             "et" 'flycheck-mode)
           (which-key-add-key-based-replacements "SPC e" "Flycheck"))
   :config (progn
-            (add-hook 'after-init-hook #'global-flycheck-mode)))
+            (add-hook 'after-init-hook #'global-flycheck-mode)
+            (flycheck-define-checker proselint
+              "A linter for prose."
+              :command ("proselint" source-inplace)
+              :error-patterns
+              ((warning line-start (file-name) ":" line ":" column ": "
+                        (id (one-or-more (not (any " "))))
+                        (message) line-end))
+              :modes (text-mode markdown-mode gfm-mode mu4e-compose-mode))
+            (add-to-list 'flycheck-checkers 'proselint)))
 
 (use-package flycheck-pos-tip
   :ensure t
