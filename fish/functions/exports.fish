@@ -10,6 +10,7 @@ end
 # Set up Homebrew & Casks
 if type "brew" > /dev/null ^&1
   set -gx HOMEBREW_CASK_OPTS --appdir=/Applications
+  set -gx HOMEBREW_NO_ANALYTICS 1
 end
 
 # Set up golang dev environment
