@@ -13,3 +13,6 @@
 [submodule "vim/vim.symlink/bundle/julia-vim"]
 	path = vim/vim.symlink/bundle/julia-vim
 	url = https://github.com/JuliaLang/julia-vim.git
+[submodule "vim/vim.symlink/bundle/vim-fish"]
+	path = vim/vim.symlink/bundle/vim-fish
+	url = https://github.com/dag/vim-fish.git
