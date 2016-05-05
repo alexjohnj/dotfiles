@@ -235,7 +235,9 @@ buffer. (From Spacemacs)"
   (menu-bar-mode 0)
   (scroll-bar-mode 0))
 
-(set-face-attribute 'default nil :font "Consolas-11")
+(let ((font-name "Consolas"))
+  (when (member font-name (font-family-list))
+      (set-face-attribute 'default nil :font font-name :height 110)))
 
 (use-package leuven-theme
   :ensure t
