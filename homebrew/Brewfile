@@ -12,6 +12,8 @@ brew 'reattach-to-user-namespace'
 brew 'emacs-mac', args: ['with-imagemagick', 'with-modern-icon', 'with-gnutls', 'with-xml2', 'with-dbus', 'with-glib']
 brew 'vim'
 brew 'mu', args: ['with-emacs']
+brew 'msmtp'
+brew 'isync'
 brew 'brew-cask'
 
 brew 'julia'
@@ -32,6 +34,6 @@ brew 'aspell'
 
 brew 'scipy', args: ['with-python3']
 brew 'numpy', args: ['with-python3']
-brew 'matplotlib', args: ['with-python3', 'with-tex', 'with-cairo', 'with-ghostscript']
+brew 'matplotlib', args: ['with-python3', 'with-cairo', 'with-ghostscript']
 cask 'aquaterm'
 brew 'gnuplot', args: ['with-aquaterm', 'with-latex']
