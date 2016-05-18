@@ -99,7 +99,9 @@
               (evil-make-overriding-map mu4e-view-mode-map 'normal t)
               (evil-define-key 'normal mu4e-view-mode-map
                 "j" 'evil-next-line
-                "k" 'evil-previous-line))
+                "k" 'evil-previous-line
+                "oo" 'mu4e-view-go-to-url
+                "oa" 'mu4e-view-open-attachment))
             (evil-set-initial-state 'mu4e-mode 'normal)
             (evil-set-initial-state 'mu4e-main-mode 'normal)
             (evil-set-initial-state 'mu4e-headers-mode 'normal)
