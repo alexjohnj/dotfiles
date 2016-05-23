@@ -84,10 +84,6 @@
   :init (progn
           (add-hook 'doc-view-mode-hook 'auto-revert-mode)))
 
-;; Set environment variables for SSH with gpg-agent
-(when (file-exists-p (expand-file-name ".gnupg/S.gpg-agent.ssh" "~"))
-  (setenv "SSH_AUTH_SOCK" (expand-file-name ".gnupg/S.gpg-agent.ssh" "~")))
-
 ;; ------------------------------------------------------------------------------
 ;;                             Custom Functions
 ;; ------------------------------------------------------------------------------
