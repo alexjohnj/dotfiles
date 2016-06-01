@@ -4,6 +4,10 @@
 (add-to-list 'load-path (expand-file-name "package-config/" user-emacs-directory))
 (add-to-list 'load-path "~/dev/elisp/org-research/")
 
+;; Frame Configuration
+(add-to-list 'default-frame-alist '(height . 45))
+(add-to-list 'default-frame-alist '(width . 90))
+
 ;;------------------------------------------------------------------------------
 ;;                         Package Configuration
 ;;------------------------------------------------------------------------------
