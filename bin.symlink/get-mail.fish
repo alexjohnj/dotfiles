@@ -18,6 +18,9 @@ end
 
 log "Starting mbsync..."
 /usr/local/bin/mbsync -a -q
+if test $status -ne 0
+  osascript -e 'display notification "From get-mail.sh" with title "Error fetching mail"'
+end
 log "Starting mu..."
 /usr/local/bin/mu index -q --maildir=/Users/alex/.mail
 log "Mail sync finished."
