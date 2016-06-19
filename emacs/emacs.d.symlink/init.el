@@ -134,6 +134,10 @@ buffer. (From Spacemacs)"
         (message filename)
       (error "Buffer not visiting a file"))))
 
+(defun alex/indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
 ;; ------------------------------------------------------------------------------
 ;;                             Keybindings
 ;; ------------------------------------------------------------------------------
@@ -203,6 +207,7 @@ buffer. (From Spacemacs)"
   "x a r" 'align-regexp
   "x d w" 'delete-trailing-whitespace
   "x i r" 'indent-region
+  "x i b" 'alex/indent-buffer
   "x C" 'alex/toggle-reading-mode)
 
 ;; Elisp Editing Bindings
@@ -241,7 +246,7 @@ buffer. (From Spacemacs)"
 
 (let ((font-name "Consolas"))
   (when (member font-name (font-family-list))
-      (set-face-attribute 'default nil :font font-name :height 110)))
+    (set-face-attribute 'default nil :font font-name :height 110)))
 
 (use-package leuven-theme
   :ensure t
