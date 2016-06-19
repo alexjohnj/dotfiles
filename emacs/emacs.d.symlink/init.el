@@ -268,6 +268,7 @@ buffer. (From Spacemacs)"
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
 (require 'init-flyspell)
+(require 'init-paradox)
 
 (require 'init-calendar)
 (require 'init-org)
