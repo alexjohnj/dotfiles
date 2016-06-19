@@ -35,11 +35,17 @@
           (add-hook 'reftex-load-hook 'imenu-add-menubar-index)
           (add-hook 'reftex-mode-hook 'imenu-add-menubar-index)
           (setq reftex-plug-into-AUCTeX t)
+          (evil-define-key 'normal reftex-toc-mode-map
+            (kbd "j") 'reftex-toc-next
+            (kbd "k") 'reftex-toc-previous
+            (kbd "Q") 'reftex-toc-quit-and-kill
+            (kbd "%") 'reftex-toc-rename-label)
           (evil-leader/set-key-for-mode 'latex-mode
             "m r c" 'reftex-citation
             "m r r" 'reftex-reference
             "m r l" 'reftex-label
-            "m r t" 'reftex-toc)))
+            "m r t" 'reftex-toc
+            "m r v" 'reftex-view-crossref)))
 
 (use-package company-auctex
   :ensure t
