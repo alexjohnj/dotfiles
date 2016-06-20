@@ -5,7 +5,9 @@
           (if (eq system-type 'darwin) (setq ledger-binary-path "/usr/local/bin/ledger"))
           (setq ledger-post-amount-alignment-column 60
                 ledger-post-auto-adjust-amounts t
-                ledger-highlight-xact-under-point nil)
+                ledger-highlight-xact-under-point nil
+                ledger-use-iso-dates t
+                ledger-reconcile-default-commodity "GBP")
           (evil-leader/set-key-for-mode 'ledger-mode
             "mn" 'ledger-navigate-next-xact-or-directive
             "mN" 'ledger-navigate-prev-xact-or-directive
@@ -25,6 +27,20 @@
             "mos" 'ledger-report-save
             "mi" 'alex/ledger-attach-receipt
             "mI" 'alex/ledger-open-attached-receipt)
+
+          (evil-define-key 'normal ledger-reconcile-mode-map
+            "l" 'ledger-reconcile-refresh
+            "a" 'ledger-reconcile-add
+            "p" 'ledger-display-balance
+            "d" 'ledger-reconcile-delete
+            "r" 'ledger-reconcile
+            "j" 'next-line
+            "k" 'previous-line
+            "q" 'ledger-reconcile-quit
+            "s" 'ledger-reconcile-save
+            "c" 'ledger-reconcile-change-target
+            "t" 'ledger-reconcile-toggle
+            "RET" 'ledger-reconcile-visit)
 
           ;; Custom functions for attaching receipts to transactions
           (defvar alex/ledger-receipt-folder "~/finance/receipts")
