@@ -11,6 +11,7 @@
             "pq" 'projectile-switch-open-project
             "pk" 'projectile-kill-buffers
             "pD" 'projectile-dired
+            "pr" 'projectile-replace
             "psg" 'projectile-grep
             "pss" 'projectile-ag
             "pS" 'projectile-save-project-buffers
