@@ -12,11 +12,6 @@ set -g default-terminal "screen-256color"
 set -g base-index 1
 set -g pane-base-index 1
 
-set -g utf8
-set -g status-utf8 on
-
-set-window-option -g utf8 on
-
 # Mouse Support
 set-option -g -q mouse on
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
