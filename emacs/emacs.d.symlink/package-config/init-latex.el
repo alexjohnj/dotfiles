@@ -32,8 +32,6 @@
   :ensure t
   :init (progn
           (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-          (add-hook 'reftex-load-hook 'imenu-add-menubar-index)
-          (add-hook 'reftex-mode-hook 'imenu-add-menubar-index)
           (setq reftex-plug-into-AUCTeX t)
           (evil-define-key 'normal reftex-toc-mode-map
             (kbd "j") 'reftex-toc-next
