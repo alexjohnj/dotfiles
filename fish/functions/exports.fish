@@ -55,11 +55,12 @@ if [ -e /usr/local/bin/sac ]
   set -x PATH $PATH $SACHOME/bin
 end
 
-# Set up gpg-agent with SSH
-if [ -S $HOME/.gnupg/S.gpg-agent ]
-  set -gx GPG_AGENT_INFO $HOME/.gnupg/S.gpg-agent
-end
-if [ -S $HOME/.gnupg/S.gpg-agent.ssh ]
-  set -gx SSH_AUTH_SOCK $HOME/.gnupg/S.gpg-agent.ssh
+# Set up gpg-agent with SSH. I don't eval the .gpg-agent-info file after
+# applying sed here because the Emacs exec-path-from-shell package doesn't pick
+# up the variables if I do.
+if [ -e $HOME/.gpg-agent-info ]
+  set -gx GPG_AGENT_INFO (cat $HOME/.gpg-agent-info | grep GPG_AGENT_INFO | sed 's/.*=//')
+  set -gx SSH_AUTH_SOCK (cat $HOME/.gpg-agent-info | grep SSH_AUTH_SOCK | sed 's/.*=//')
+  set -gx SSH_AGENT_PID (cat $HOME/.gpg-agent-info | grep SSH_AGENT_PID | sed 's/.*=//')
 end
 set -gx GPG_TTY (tty)
