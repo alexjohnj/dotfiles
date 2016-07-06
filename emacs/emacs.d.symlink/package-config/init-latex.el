@@ -5,7 +5,6 @@
   :ensure auctex
   :mode ("\\.tex\\'" . LaTeX-mode)
   :config (progn
-            (message "Hi from auctex")
             (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
             (add-hook 'TeX-mode-hook 'turn-on-auto-fill)
             (setq-default TeX-engine 'lualatex)
