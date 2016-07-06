@@ -3,6 +3,7 @@
 [user]
   name = Alex Jackson
   email = alex@alexj.org
+	signingkey = 2DD08BF1
 [push]
   default = simple
 [credential]
