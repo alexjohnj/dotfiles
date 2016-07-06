@@ -3,8 +3,11 @@ tap 'homebrew/python'
 tap 'staticfloat/julia'
 tap 'staticfloat/juliadeps'
 tap 'caskroom/cask'
+tap 'caskroom/fonts'
 tap 'railwaycat/emacsmacport'
 
+brew 'brew-cask'
+brew 'mas'
 brew 'fish'
 brew 'git'
 brew 'tmux'
@@ -14,26 +17,50 @@ brew 'vim'
 brew 'mu', args: ['with-emacs']
 brew 'msmtp'
 brew 'isync'
-brew 'brew-cask'
+brew 'gpg'
+brew 'gpg2'
+brew 'ledger'
+brew 'trash'
+
+cask 'arq'
+cask 'dropbox'
+cask 'google-chrome'
+cask 'firefox'
+cask 'spotify'
+cask 'spectacle'
+cask 'transmission'
+cask 'aquaterm'
+cask 'sketch'
+cask 'hex-fiend'
+cask 'flux'
+
+mas '1Password', id: 443987910
+mas 'Amphetamine', id: 937984704
+mas '1Blocker', id: 1107421413
+mas '2Do', id: 477670270
+mas 'Dash', id: 449589707
+mas 'Tweetbot', id: 557168941
+mas 'Reeder', id: 880001334
+mas 'PDF Expert', id: 1055273043
+mas 'Slack', id: 803453959
+mas 'Marked', id: 890031187
+mas 'Deliveries', id: 924726344
+mas 'Pages', id: 409201541
+mas 'Keynote', id: 409183694
+mas 'Numbers', id: 409203825
 
 brew 'julia'
 brew 'python3'
 brew 'python'
 brew 'ruby'
 brew 'go', args: ['with-cc-common']
-brew 'ghc'
-brew 'cabal-install'
 
 brew 'xz'
 brew 'pxz'
 brew 'pigz'
 brew 'youtube-dl'
-brew 'pandoc'
-brew 'pandoc-citeproc'
 brew 'aspell'
 
 brew 'scipy', args: ['with-python3']
 brew 'numpy', args: ['with-python3']
 brew 'matplotlib', args: ['with-python3', 'with-cairo', 'with-ghostscript']
-cask 'aquaterm'
-brew 'gnuplot', args: ['with-aquaterm', 'with-latex']

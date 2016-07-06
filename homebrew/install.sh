@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# 
-# Installs the brews in Brewfile. NB: You need to tap Homebrew/brewdler 
+#
+# Installs the brews in Brewfile. NB: You need to tap Homebrew/brewdler
 # before running this script.
 set -e
 
@@ -30,7 +30,7 @@ if ! type "brew" > /dev/null 2>&1;then
   fail "Tapping Homebrew/brewdler (Homebrew not installed)"
 fi
 
-brew tap Homebrew/brewdler > /dev/null 2>&1
+brew tap Homebrew/bundle > /dev/null 2>&1
 
 if [ $? -ne 0 ];then
   fail "Tapping Homebrew/brewdler"
@@ -40,10 +40,10 @@ fi
 
 info "Installing Brewfile"
 cd "$DOTFILES_ROOT/homebrew/"
-brew brewdle
+brew bundle
 
 if [ $? -ne 0 ];then
   fail "Installing Brewfile"
 else
-  success "Installing Brewfile"  
+  success "Installing Brewfile"
 fi
