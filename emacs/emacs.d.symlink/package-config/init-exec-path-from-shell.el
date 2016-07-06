@@ -1,10 +1,10 @@
-(when (eq system-type 'darwin)
-  (use-package exec-path-from-shell
-    :ensure t
-    :config (progn
-              (exec-path-from-shell-initialize)
-              (exec-path-from-shell-copy-env "GPG_AGENT_INFO")
-              (exec-path-from-shell-copy-env "SSH_AUTH_SOCK")
-              (exec-path-from-shell-copy-env "SSH_AGENT_PID"))))
+(use-package exec-path-from-shell
+  :if (memq window-system '(mac ns))
+  :ensure t
+  :config (progn
+            (add-to-list 'exec-path-from-shell-variables "GPG_AGENT_INFO")
+            (add-to-list 'exec-path-from-shell-variables "SSH_AUTH_SOCK")
+            (add-to-list 'exec-path-from-shell-variables "SSH_AGENT_PID")
+            (exec-path-from-shell-initialize)))
 
 (provide 'init-exec-path-from-shell)
