@@ -67,32 +67,6 @@ Create Slave
 Expunge Both
 
 ################################################################################
-##                        University of Leeds Office 365
-################################################################################
-IMAPAccount leeds
-Host outlook.office365.com
-User ee13ajpj@leeds.ac.uk
-PassCmd "security find-internet-password -w -a ee13ajpj@leeds.ac.uk"
-SSLType IMAPS
-AuthMechs LOGIN
-
-IMAPStore leeds-remote
-Account leeds
-
-MaildirStore leeds-local
-Path ~/.mail/leeds/
-Inbox ~/.mail/leeds/INBOX
-
-Channel leeds-channel
-Master :leeds-remote:
-Slave :leeds-local:
-SyncState *
-# Patterns INBOX Archive "Deleted Items" Drafts "Sent Items"
-Patterns * !Calendar !Clutter !Contacts !Journal !Notes !Outbox !Tasks
-Create Slave
-Expunge Both
-
-################################################################################
 ##                             Geography AS Email
 ################################################################################
 

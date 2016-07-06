@@ -22,15 +22,6 @@ from padillaj@ualberta.ca
 user padillaj@ualberta.ca
 passwordeval "security find-internet-password -w -a padillaj@ualberta.ca"
 
-account leeds
-tls_starttls on
-auth on
-host smtp.office365.com
-port 587
-from ee13ajpj@leeds.ac.uk
-user ee13ajpj@leeds.ac.uk
-passwordeval "security find-internet-password -w -a ee13ajpj@leeds.ac.uk"
-
 account geography
 tls on
 auth on
