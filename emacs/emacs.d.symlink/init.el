@@ -295,6 +295,6 @@ buffer. (From Spacemacs)"
 ;;               Load Packages that DON'T need configuring
 ;;------------------------------------------------------------------------------
 
-(use-package git-gutter-fringe :ensure t :diminish git-gutter-mode :init (global-git-gutter-mode t))
+(use-package git-gutter-fringe :ensure t :diminish git-gutter-mode :config (global-git-gutter-mode t))
 (use-package osx-pseudo-daemon :ensure t :if (memq window-system '(mac ns)))
 (use-package yaml-mode :ensure t)
