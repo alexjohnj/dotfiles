@@ -21,6 +21,7 @@ brew 'gpg'
 brew 'gpg2'
 brew 'ledger'
 brew 'trash'
+brew 'ag'
 
 cask 'arq'
 cask 'dropbox'
