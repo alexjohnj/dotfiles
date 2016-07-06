@@ -266,7 +266,6 @@ buffer. (From Spacemacs)"
 ;;------------------------------------------------------------------------------
 
 (require 'init-exec-path-from-shell)
-(require 'init-spaceline)
 (require 'init-paredit)
 (require 'init-projectile)
 (require 'init-flycheck)
