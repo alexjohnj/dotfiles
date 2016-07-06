@@ -1,5 +1,6 @@
 (use-package ag
   :ensure t
+  :commands (ag)
   :config (progn
             (evil-define-key 'motion ag-mode-map
               "j" 'compilation-next-error
