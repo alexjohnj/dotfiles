@@ -274,6 +274,7 @@ buffer. (From Spacemacs)"
 (require 'init-flyspell)
 (require 'init-paradox)
 (require 'init-ag)
+(require 'init-diff-hl)
 
 (require 'init-calendar)
 (require 'init-org)
@@ -293,12 +294,6 @@ buffer. (From Spacemacs)"
 ;;------------------------------------------------------------------------------
 ;;           Load packages that don't need tonnes of configuration
 ;;------------------------------------------------------------------------------
-
-(use-package git-gutter
-  :ensure t
-  :config (progn
-            (setq git-gutter:update-interval 2)
-            (global-git-gutter-mode 1)))
 
 (use-package osx-pseudo-daemon :ensure t :if (memq window-system '(mac ns)))
 (use-package yaml-mode :ensure t)
