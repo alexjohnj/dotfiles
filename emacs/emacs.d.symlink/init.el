@@ -291,9 +291,14 @@ buffer. (From Spacemacs)"
 (require 'init-mu4e)
 
 ;;------------------------------------------------------------------------------
-;;               Load Packages that DON'T need configuring
+;;           Load packages that don't need tonnes of configuration
 ;;------------------------------------------------------------------------------
 
-(use-package git-gutter-fringe :ensure t :diminish git-gutter-mode :config (global-git-gutter-mode t))
+(use-package git-gutter
+  :ensure t
+  :config (progn
+            (setq git-gutter:update-interval 2)
+            (global-git-gutter-mode 1)))
+
 (use-package osx-pseudo-daemon :ensure t :if (memq window-system '(mac ns)))
 (use-package yaml-mode :ensure t)
