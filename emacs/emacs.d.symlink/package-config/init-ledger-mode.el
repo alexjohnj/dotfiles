@@ -1,7 +1,7 @@
 (use-package ledger-mode
   :ensure t
   :mode ("\\.journal\\'" . ledger-mode)
-  :init (progn
+  :config (progn
           (if (eq system-type 'darwin) (setq ledger-binary-path "/usr/local/bin/ledger"))
           (setq ledger-post-amount-alignment-column 60
                 ledger-post-auto-adjust-amounts t
@@ -98,6 +98,8 @@ as a comment to the transaction."
                                                                (file-name-extension receipt-hash-fname t))))))
           ))
 
-(use-package flycheck-ledger :ensure t :defer t)
+(use-package flycheck-ledger
+  :ensure t
+  :after (ledger flycheck))
 
 (provide 'init-ledger-mode)
