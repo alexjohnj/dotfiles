@@ -298,3 +298,4 @@ buffer. (From Spacemacs)"
 (use-package osx-pseudo-daemon :ensure t :if (memq window-system '(mac ns)))
 (use-package yaml-mode :ensure t)
 (use-package fish-mode :ensure t :mode ("\\.fish\\'" . fish-mode))
+(use-package julia-mode :ensure t :mode ("\\.jl\\'" . julia-mode))
