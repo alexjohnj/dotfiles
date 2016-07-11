@@ -35,6 +35,7 @@ cask 'aquaterm'
 cask 'sketch'
 cask 'hex-fiend'
 cask 'flux'
+cask 'qlstephen'
 
 mas '1Password', id: 443987910
 mas 'Amphetamine', id: 937984704
