@@ -57,8 +57,8 @@ defaults write com.apple.dock orientation left
 # Auto hide the dock
 defaults write com.apple.dock autohide -bool true
 
-# Set Dock Icon Size to 32px
-defaults write com.apple.dock tilesize -int 32
+# Set Dock Icon Size to 24px
+defaults write com.apple.dock tilesize -int 24
 
 ##########################
 # Safari
@@ -82,7 +82,7 @@ sudo -p "Enter the admin's password to disable Spotlight indexing of external dr
 # Restart anything that needs restarting
 for app in "Dock" "Finder"
 do
-	killAll "$app"
+  killAll "$app"
 done
 
 printf "Done. You may need to log out and back in to enable all changes.\n"
