@@ -56,7 +56,7 @@ brew 'julia'
 brew 'python3'
 brew 'python'
 brew 'ruby'
-brew 'go', args: ['with-cc-common']
+brew 'go'
 
 brew 'xz'
 brew 'pxz'
