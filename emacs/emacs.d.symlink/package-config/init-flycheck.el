@@ -27,7 +27,7 @@
               ((warning line-start (file-name) ":" line ":" column ": "
                         (id (one-or-more (not (any " "))))
                         (message) line-end))
-              :modes (text-mode markdown-mode gfm-mode mu4e-compose-mode))
+              :modes (text-mode markdown-mode gfm-mode mu4e-compose-mode org-mode))
             (add-to-list 'flycheck-checkers 'proselint)))
 
 (use-package flycheck-pos-tip
