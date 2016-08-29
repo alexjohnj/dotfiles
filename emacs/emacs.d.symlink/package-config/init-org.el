@@ -6,6 +6,7 @@
   :ensure t
   :mode ("\\.org\\'" . org-mode)
   :config (progn
+            (add-hook 'org-mode-hook 'auto-fill-mode)
             (setq org-startup-indented t)
             (evil-leader/set-key-for-mode 'org-mode
               "m E" 'org-export-dispatch
