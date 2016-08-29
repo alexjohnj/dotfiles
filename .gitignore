@@ -99,3 +99,5 @@ tramp
 
 # cask packages
 .cask/
+/emacs/emacs.d.symlink/recentf
+/emacs/emacs.d.symlink/bookmarks
