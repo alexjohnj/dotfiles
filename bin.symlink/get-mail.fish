@@ -11,6 +11,12 @@ if not test -d "/Users/alex/Library/Logs/get-mail"
   mkdir -p "/Users/alex/Library/Logs/get-mail"
 end
 
+# Test for network connectivity
+if not ping -Q -c 1 -W 1 google.com > /dev/null ^&1
+  log "No network connection. Skipping this sync."
+  exit 1
+end
+
 if pgrep mbsync
   log "mbsync in process. Skipping this sync."
   exit 2
