@@ -16,6 +16,9 @@ end
 # Set up golang dev environment
 set -gx GOPATH $HOME/.go
 
+# XZ
+set -gx XZ_OPT "--threads=0"
+
 # Set the PATH
 set -l path_components \
 $HOME/bin \
