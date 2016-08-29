@@ -157,7 +157,7 @@ buffer. (From Spacemacs)"
 
 ;; File Management Key Bindings
 (evil-leader/set-key
-  "f f" 'find-file
+  "f f" 'counsel-find-file
   "f d" 'dired
   "f D" 'alex/delete-file-and-buffer
   "f R" 'alex/rename-current-buffer-file
@@ -192,9 +192,9 @@ buffer. (From Spacemacs)"
 
 ;; Help Keybindings
 (evil-leader/set-key
-  "h f" 'describe-function
+  "h f" 'counsel-describe-function
   "h m" 'describe-mode
-  "h v" 'describe-variable
+  "h v" 'counsel-describe-variable
   "h b" 'describe-bindings
   "h p" 'describe-package
   "h i" 'info
