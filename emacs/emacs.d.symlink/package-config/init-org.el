@@ -12,6 +12,7 @@
               "m E" 'org-export-dispatch
               "m p l" 'org-preview-latex-fragment
               "m p i" 'org-toggle-inline-images
+              "m p u" 'org-toggle-pretty-entities
               "m n s" 'org-narrow-to-subtree
               "m n b" 'org-narrow-to-block
               "m n w" 'widen
