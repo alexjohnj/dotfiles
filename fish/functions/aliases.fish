@@ -22,3 +22,4 @@ alias et "emacsclient -nw -a \"\""
 # Work with encrypted ledger files
 alias eledger "gpg --batch -d -q $LEDGER_FILE | ledger -f - "
 alias ehledger "gpg --batch -d -q $LEDGER_FILE | hledger -f -"
+alias done "osascript -e 'display notification with title \"Done\"'"
