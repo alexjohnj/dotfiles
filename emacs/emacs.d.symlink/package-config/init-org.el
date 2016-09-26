@@ -23,7 +23,7 @@
   :ensure t)
 
 (use-package org-ref
-  :after (org reftex)
+  :after (org reftex latex)
   :ensure t
   :init (progn
           (setq org-ref-completion-library 'org-ref-helm-cite))
@@ -38,7 +38,9 @@
               "m n" 'org-ref-open-bibtex-notes
               "m o" 'org-ref-open-bibtex-pdf
               "m b" 'org-ref-open-in-browser
-              "m c" 'org-ref-clean-bibtex-entry)))
+              "m c" 'org-ref-clean-bibtex-entry)
+            (evil-leader/set-key-for-mode 'latex-mode
+              "m r c" 'org-ref-helm-insert-cite-link)))
 
 (use-package doi-utils
   :commands (doi-utils-add-bibtex-entry-from-doi

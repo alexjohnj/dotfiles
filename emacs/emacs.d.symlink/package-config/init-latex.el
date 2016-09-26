@@ -40,7 +40,6 @@
               (kbd "Q") 'reftex-toc-quit-and-kill
               (kbd "%") 'reftex-toc-rename-label)
             (evil-leader/set-key-for-mode 'latex-mode
-              "m r c" 'reftex-citation
               "m r r" 'reftex-reference
               "m r l" 'reftex-label
               "m r t" 'reftex-toc
