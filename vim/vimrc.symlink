@@ -31,6 +31,9 @@ silent! execute pathogen#infect()
 set laststatus=2
 let g:airline_powerline_fonts = 0
 
+"" vim-commentary
+autocmd FileType matlab setlocal commentstring=%\ %s
+
 if has('gui_running')
   set background=dark
   set guifont=Consolas:h11
