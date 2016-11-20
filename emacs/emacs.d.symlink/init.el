@@ -58,12 +58,12 @@
           (add-hook 'before-save-hook 'whitespace-cleanup)))
 
 (defun alex/toggle-reading-mode ()
-  "Centres the current buffer's text according to the fill-column width."
+  "Centres the current buffer's text according to the 'fill-column' width + a small buffer region."
   (interactive)
   (let ((left-margin (car (window-margins)))
         (right-margin (cdr (window-margins))))
     (if (or (eq left-margin nil) (eq right-margin nil))
-        (let ((new-width (/ (- (window-body-width) fill-column) 2)))
+        (let ((new-width (- (/ (- (window-body-width) fill-column) 2) 30)))
           (setq left-margin-width new-width)
           (setq right-margin-width new-width)
           (set-window-margins nil new-width new-width))
