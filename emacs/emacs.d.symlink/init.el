@@ -248,10 +248,9 @@ buffer. (From Spacemacs)"
   (when (member font-name (font-family-list))
     (set-face-attribute 'default nil :font font-name :height 110)))
 
-(use-package leuven-theme
+(use-package apropospriate-theme
   :ensure t
-  :init (progn (load-theme 'leuven t)))
-
+  :config (progn (load-theme 'apropospriate-dark t)))
 
 ;; Match fringe colour to background colour
 (set-face-attribute 'fringe nil
