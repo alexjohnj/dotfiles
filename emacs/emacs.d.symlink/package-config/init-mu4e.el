@@ -60,10 +60,20 @@
                               (mu4e-drafts-folder . "/geography/[Gmail].Drafts")
                               (mu4e-trash-folder . "/geography/[Gmail].Trash")
                               (mu4e-refile-folder . "/geography/[Gmail].All Mail")
-                              (mu4e-sent-messsages-behaviour . 'delete)))))
+                              (mu4e-sent-messsages-behaviour . 'delete)))
+                    ,(make-mu4e-context
+                      :name "Leeds"
+                      :match-func (lambda (msg) (alex/mu4e-match-account msg "leeds"))
+                      :vars '((user-mail-address . "ee13ajpj@leeds.ac.uk")
+                              (user-full-name . "Alex Jackson")
+                              (mu4e-sent-folder . "/leeds/Sent Items")
+                              (mu4e-drafts-folder . "/leeds/Drafts")
+                              (mu4e-trash-folder . "/leeds/Deleted Items")
+                              (mu4e-refile-folder . "/leeds/Archive")
+                              (mu4e-sent-messages-behaviour . 'sent)))))
 
             (add-to-list 'mu4e-bookmarks
-                         '("maildir:/personal/INBOX OR maildir:/uofa/INBOX OR maildir:/geography/INBOX" "Unified Inbox" ?i))
+                         '("maildir:/personal/INBOX OR maildir:/uofa/INBOX OR maildir:/geography/INBOX OR maildir:/leeds/INBOX" "Unified Inbox" ?i))
 
             ;; Prompt to sign messages with PGP key
             (add-hook 'message-send-hook
