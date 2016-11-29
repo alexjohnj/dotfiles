@@ -1,5 +1,5 @@
-(use-package matlab-mode
-  :ensure t
+(use-package matlab
+  :ensure matlab-mode
   :mode ("\\.m\\'" . matlab-mode)
   :init (progn
           (setq matlab-indent-level 2)
