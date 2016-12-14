@@ -13,7 +13,6 @@
               "m s g" 'matlab-shell-save-and-go
               "m s v" 'matlab-shell-describe-variable
               "m s h" 'matlab-shell-describe-command
-              "m s e" 'matlab-shell-last-error)
-            (add-to-list 'company-backends 'company-matlab-shell)))
+              "m s e" 'matlab-shell-last-error)))
 
 (provide 'init-matlab-mode)
