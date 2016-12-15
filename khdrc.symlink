@@ -1,0 +1,76 @@
+khd kwm on
+
+khd mode prefix prefix on
+khd mode timeout 1
+khd mode prefix restore default
+khd mode prefix color 0xFF458588
+
+khd mode default color 0xFFD57E7E
+
+# Change window layout
+lalt - space : kwmc window -t focused
+lalt + shift - t : kwmc window -c split-mode toggle
+lalt + shift + lctrl - r: kwmc tree rotate 90
+
+lalt + shift - x : kwmc window -mk focused
+lalt + shift - v : kwmc window -m mark
+
+# Change window focus
+lalt - up : kwmc window -f north
+lalt - right : kwmc window -f east
+lalt - down : kwmc window -f south
+lalt - left : kwmc window -f west
+
+lalt - h : kwmc window -f west
+lalt - j : kwmc window -f south
+lalt - k : kwmc window -f north
+lalt - l : kwmc window -f east
+
+# Swap windows
+lalt + shift - up : kwmc window -s north
+lalt + shift - right : kwmc window -s east
+lalt + shift - down : kwmc window -s south
+lalt + shift - left : kwmc window -s west
+
+lalt + shift - h : kwmc window -s west
+lalt + shift - j : kwmc window -s south
+lalt + shift - k : kwmc window -s north
+lalt + shift - l : kwmc window -s east
+
+# Move windows
+lalt + lctrl - up : kwmc window -m north
+lalt + lctrl - right : kwmc window -m east
+lalt + lctrl - down : kwmc window -m south
+lalt + lctrl - left : kwmc window -m west
+
+# Resize windows
+lalt + shift - r : khd -e "mode activate prefix"
+
+prefix - left : kwmc window -c expand 0.05 west
+prefix + shift - left : kwmc window -c reduce 0.05 west
+prefix - down : kwmc window -c expand 0.05 south
+prefix + shift - down : kwmc window -c reduce 0.05 south
+prefix - up : kwmc window -c expand 0.05 north
+prefix + shift - up : kwmc window -c reduce 0.05 north
+prefix - right : kwmc window -c expand 0.05 east
+prefix + shift - right : kwmc window -c reduce 0.05 east
+
+# Manage Spaces
+lalt - 1 : kwmc space -fExperimental 1
+lalt - 2 : kwmc space -fExperimental 2
+lalt - 3 : kwmc space -fExperimental 3
+lalt - 4 : kwmc space -fExperimental 4
+lalt - 5 : kwmc space -fExperimental 5
+lalt - 6 : kwmc space -fExperimental 6
+
+lalt + shift - 1 : kwmc window -m space 1
+lalt + shift - 2 : kwmc window -m space 2
+lalt + shift - 3 : kwmc window -m space 3
+lalt + shift - 4 : kwmc window -m space 4
+lalt + shift - 5 : kwmc window -m space 5
+lalt + shift - 6 : kwmc window -m space 6
+
+lalt + lctrl + shift - r : brew services restart kwm
+
+# Open a new terminal
+lalt - return : open -a "/Applications/iTerm.app"
