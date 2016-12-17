@@ -10,7 +10,7 @@ khd mode default color 0xFFD57E7E
 # Change window layout
 lalt - space : kwmc window -t focused
 lalt + shift - t : kwmc window -c split-mode toggle
-lalt + shift + lctrl - r: kwmc tree rotate 90
+lalt + shift - r: kwmc tree rotate 90
 
 lalt + shift - x : kwmc window -mk focused
 lalt + shift - v : kwmc window -m mark
