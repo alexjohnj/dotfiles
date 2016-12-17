@@ -7,6 +7,8 @@
   :mode ("\\.org\\'" . org-mode)
   :config (progn
             (add-hook 'org-mode-hook 'auto-fill-mode)
+            (add-hook 'org-mode-hook (lambda ()
+                                       (define-key evil-normal-state-map (kbd "TAB") 'org-cycle)))
             (setq org-startup-indented t)
             (evil-leader/set-key-for-mode 'org-mode
               "m E" 'org-export-dispatch
