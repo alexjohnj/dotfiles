@@ -73,4 +73,4 @@ lalt + shift - 6 : kwmc window -m space 6
 lalt + lctrl + shift - r : brew services restart kwm
 
 # Open a new terminal
-lalt - return : open -a "/Applications/iTerm.app"
+lalt - return : open -a "/Applications/Utilities/Terminal.app"
