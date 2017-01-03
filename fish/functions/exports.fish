@@ -35,6 +35,10 @@ for c in $path_components[-1..1]
   end
 end
 
+# virtualenv wrapper for Fish
+set -x VIRTUALFISH_HOME "$HOME/.virtualenvs"
+eval (python3 -m virtualfish)
+
 # Set up node
 if type "node" > /dev/null ^&1
   set -gx NODE_PATH /usr/local/lib/node
