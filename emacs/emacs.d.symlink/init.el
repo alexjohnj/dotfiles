@@ -246,7 +246,7 @@ buffer. (From Spacemacs)"
 
 (let ((font-name "Consolas"))
   (when (member font-name (font-family-list))
-    (set-face-attribute 'default nil :font font-name :height 110)))
+    (set-face-attribute 'default nil :font font-name :height 120)))
 
 (use-package apropospriate-theme
   :ensure t
@@ -288,6 +288,7 @@ buffer. (From Spacemacs)"
 (require 'init-latex)
 (require 'init-golang)
 (require 'init-haskell)
+(require 'init-swift)
 
 (require 'init-mu4e)
 
