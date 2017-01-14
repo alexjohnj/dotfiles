@@ -18,8 +18,8 @@ if not ping -Q -c 1 -W 1 google.com > /dev/null ^&1
 end
 
 if pgrep mbsync
-  log "mbsync in process. Skipping this sync."
-  exit 2
+  log "mbsync already in process. Killing..."
+  pkill mbsync
 end
 
 log "Starting mbsync..."
