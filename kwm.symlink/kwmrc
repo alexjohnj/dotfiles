@@ -42,3 +42,4 @@ kwmc config space 0 6 name other
 kwmc rule owner="Tweetbot" properties={float="true"}
 kwmc rule owner="Dash" properties={float="true"}
 kwmc rule owner="Finder" role="AXDialog" properties={float="true"}
+kwmc rule owner="GKSTerm" properties={float="true"}
