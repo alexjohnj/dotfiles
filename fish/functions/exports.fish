@@ -64,12 +64,20 @@ if [ -e /usr/local/bin/sac ]
   set -x PATH $PATH $SACHOME/bin
 end
 
-# Set up gpg-agent with SSH. I don't eval the .gpg-agent-info file after
-# applying sed here because the Emacs exec-path-from-shell package doesn't pick
-# up the variables if I do.
-if [ -e $HOME/.gpg-agent-info ]
-  set -gx GPG_AGENT_INFO (cat $HOME/.gpg-agent-info | grep GPG_AGENT_INFO | sed 's/.*=//')
-  set -gx SSH_AUTH_SOCK (cat $HOME/.gpg-agent-info | grep SSH_AUTH_SOCK | sed 's/.*=//')
-  set -gx SSH_AGENT_PID (cat $HOME/.gpg-agent-info | grep SSH_AGENT_PID | sed 's/.*=//')
+# Set up gpg-agent with SSH. First we try and use the autostart mechanisms in
+# GnuPG 2.1. If this isn't available, we make use of an environment file to set
+# the appropriate env vars. This assumes gpg-agent has already been started by
+# something like launchd.
+if gpgconf --launch gpg-agent > /dev/null ^&1
+  set -e SSH_AUTH_SOCK
+  set -Ux SSH_AUTH_SOCK (gpgconf --list-dir agent-ssh-socket)
+  set -Ux GPG_TTY (tty)
+else if [ -e $HOME/.gpg-agent-info ]
+  set -e GPG_AGENT_INFO
+  set -e SSH_AUTH_SOCK
+  set -e SSH_AGENT_PID
+  set -Ux GPG_AGENT_INFO (cat $HOME/.gpg-agent-info | grep GPG_AGENT_INFO | sed 's/.*=//')
+  set -Ux SSH_AUTH_SOCK (cat $HOME/.gpg-agent-info | grep SSH_AUTH_SOCK | sed 's/.*=//')
+  set -Ux SSH_AGENT_PID (cat $HOME/.gpg-agent-info | grep SSH_AGENT_PID | sed 's/.*=//')
+  set -Ux GPG_TTY (tty)
 end
-set -gx GPG_TTY (tty)
