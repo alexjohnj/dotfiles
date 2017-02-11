@@ -248,9 +248,9 @@ buffer. (From Spacemacs)"
   (when (member font-name (font-family-list))
     (set-face-attribute 'default nil :font font-name :height 130)))
 
-(use-package apropospriate-theme
+(use-package color-theme-sanityinc-tomorrow
   :ensure t
-  :config (progn (load-theme 'apropospriate-dark t)))
+  :config (progn (color-theme-sanityinc-tomorrow-day)))
 
 ;; Match fringe colour to background colour
 (set-face-attribute 'fringe nil
