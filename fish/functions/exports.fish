@@ -71,7 +71,7 @@ end
 if gpgconf --launch gpg-agent > /dev/null ^&1
   set -e SSH_AUTH_SOCK
   set -e GPG_TTY
-  set -Ux SSH_AUTH_SOCK (gpgconf --list-dir agent-ssh-socket)
+  set -Ux SSH_AUTH_SOCK (gpgconf --list-dir | grep agent-socket | awk -F ':' '{print $2}').ssh
   set -x GPG_TTY (tty)
 else if [ -e $HOME/.gpg-agent-info ]
   set -e GPG_AGENT_INFO
