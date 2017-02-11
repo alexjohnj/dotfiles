@@ -44,7 +44,7 @@ lalt + lctrl - down : kwmc window -m south
 lalt + lctrl - left : kwmc window -m west
 
 # Resize windows
-lalt + shift - r : khd -e "mode activate prefix"
+lalt - r : khd -e "mode activate prefix"
 
 prefix - left : kwmc window -c expand 0.05 west
 prefix + shift - left : kwmc window -c reduce 0.05 west
