@@ -13,7 +13,7 @@ kwmc config float-non-resizable on
 kwmc config lock-to-container on
 kwmc config cycle-focus on
 kwmc config mouse-drag on
-kwmc config mouse-drag mod alt
+kwmc config mouse-drag mod alt+shift
 kwmc config optimal-ratio 1.618
 
 kwmc config border focused on
