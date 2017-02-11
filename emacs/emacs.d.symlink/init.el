@@ -244,9 +244,9 @@ buffer. (From Spacemacs)"
   (menu-bar-mode 0)
   (scroll-bar-mode 0))
 
-(let ((font-name "Consolas"))
+(let ((font-name "Iosevka"))
   (when (member font-name (font-family-list))
-    (set-face-attribute 'default nil :font font-name :height 120)))
+    (set-face-attribute 'default nil :font font-name :height 130)))
 
 (use-package apropospriate-theme
   :ensure t
