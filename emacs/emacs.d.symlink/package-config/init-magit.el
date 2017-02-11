@@ -6,11 +6,15 @@
              magit-stage-file)
   :init (progn
           (evil-leader/set-key
-            "gs" 'magit-status
-            "gS" 'magit-stage-file
-            "gC" 'magit-commit
-            "gl" 'magit-log-all
-            "gL" 'magit-log-buffer-file)
+            "g s" 'magit-status
+            "g S" 'magit-stage-file
+            "g C" 'magit-commit
+            "g l" 'magit-log-all
+            "g L" 'magit-log-buffer-file)
           (which-key-add-key-based-replacements "SPC g" "Magit")))
+
+(use-package evil-magit
+  :ensure t
+  :after (magit))
 
 (provide 'init-magit)
