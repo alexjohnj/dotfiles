@@ -37,7 +37,7 @@ end
 
 # virtualenv wrapper for Fish
 set -x VIRTUALFISH_HOME "$HOME/.virtualenvs"
-eval (python3 -m virtualfish)
+python3 -m virtualfish | source
 
 # Set up node
 if type "node" > /dev/null ^&1
