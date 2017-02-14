@@ -26,8 +26,6 @@ $HOME/.local/bin \
 $GOPATH/bin \
 /Applications/MATLAB_R2016a.app/bin \
 /Applications/MATLAB_R2016a.app/bin/maci64 \
-/usr/local/bin/taup/bin \
-/usr/local/bin/cps/bin
 
 for c in $path_components[-1..1]
   if begin not contains $c $PATH; and [ -e $c ]; end
