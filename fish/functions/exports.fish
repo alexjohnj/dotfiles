@@ -23,6 +23,8 @@ set -gx XZ_OPT "--threads=0"
 set -l path_components \
 $HOME/bin \
 $HOME/.local/bin \
+$HOME/Library/Python/3.6/bin \
+$HOME/Library/Python/2.7/bin \
 $GOPATH/bin \
 /Applications/MATLAB_R2016a.app/bin \
 /Applications/MATLAB_R2016a.app/bin/maci64 \
