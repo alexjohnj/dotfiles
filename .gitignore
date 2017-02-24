@@ -1,3 +1,6 @@
+# Fish generated files
+config/fish.symlink/fishd*
+
 # .emacs.d Folders
 auto-save-list/
 elpa/
