@@ -1,5 +1,4 @@
 (use-package exec-path-from-shell
-  :if (memq window-system '(mac ns))
   :ensure t
   :config (progn
             (add-to-list 'exec-path-from-shell-variables "GPG_AGENT_INFO")
