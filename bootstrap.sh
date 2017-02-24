@@ -55,67 +55,6 @@ install_dotfiles() {
     done
 }
 
-install_homebrew() {
-    if ! [ "$(uname -s)" = "Darwin" ] || type "brew" > /dev/null 2>&1
-    then
-        return
-    fi
-
-    while true
-    do
-        printf "Install homebrew? [y/n] > "
-        read yn
-        case $yn in
-            [Yy]* ) break;;
-            [Nn]* ) return;;
-        esac
-    done
-
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-    if [ $? -ne 0 ]
-    then
-        info "Failed to install homebrew"
-        fail_c "Failed to install homebrew"
-    else
-        info "Installed homebrew"
-        success "Installed homebrew"
-    fi
-}
-
-install_fish() {
-    if type "fish" > /dev/null 2>&1
-    then
-        return
-    fi
-
-    if ! [ $(uname -s) = "Darwin" ] || ! type "brew" > /dev/null 2>&1
-    then
-        return
-    fi
-
-    while true
-    do
-        printf "Install fish? [y/n] > "
-        read yn
-        case $yn in
-            [Yy]* ) break;;
-            [Nn]* ) return;;
-        esac
-    done
-
-    brew install fish
-    if [ $? -ne 0 ]
-    then
-        info "Failed to install fish"
-        fail_c "Failed to install fish"
-    else
-        info "Installed fish"
-        success "Installed fish"
-    fi
-
-}
-
 # Link ./config/*.slink to $HOME/.config/
 install_config_directory() {
     for file in "$DOTFILES_ROOT"/config/*.symlink
@@ -142,6 +81,5 @@ do
     esac
 done
 
-install_fish
-install_config_directory
 install_dotfiles
+install_config_directory
