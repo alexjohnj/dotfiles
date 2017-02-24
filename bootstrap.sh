@@ -9,21 +9,21 @@ cd "$(dirname "$0")" || exit
 DOTFILES_ROOT=$(pwd)
 
 success() {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+    printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
 }
 
 info() {
-  printf "\r\033[2k  [ \033[00;34m..\033[0m ] %s" "$1"
+    printf "\r\033[2k  [ \033[00;34m..\033[0m ] %s" "$1"
 }
 
 fail() {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
-  echo ''
-  exit
+    printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+    echo ''
+    exit
 }
 
 fail_c() {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
+    printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
 }
 
 link_file() {
@@ -48,7 +48,7 @@ install_dotfiles() {
         link_file "$src" "$dst"
         if [ $? -eq 1 ]
         then
-           fail_c "Linking $src to $dst"
+            fail_c "Linking $src to $dst"
         else
             success "Linking $src to $dst"
         fi
@@ -66,8 +66,8 @@ install_homebrew() {
         printf "Install homebrew? [y/n] > "
         read yn
         case $yn in
-             [Yy]* ) break;;
-             [Nn]* ) return;;
+            [Yy]* ) break;;
+            [Nn]* ) return;;
         esac
     done
 
@@ -75,8 +75,8 @@ install_homebrew() {
 
     if [ $? -ne 0 ]
     then
-       info "Failed to install homebrew"
-       fail_c "Failed to install homebrew"
+        info "Failed to install homebrew"
+        fail_c "Failed to install homebrew"
     else
         info "Installed homebrew"
         success "Installed homebrew"
@@ -99,8 +99,8 @@ install_fish() {
         printf "Install fish? [y/n] > "
         read yn
         case $yn in
-             [Yy]* ) break;;
-             [Nn]* ) return;;
+            [Yy]* ) break;;
+            [Nn]* ) return;;
         esac
     done
 
@@ -113,29 +113,22 @@ install_fish() {
         info "Installed fish"
         success "Installed fish"
     fi
-        
+
 }
 
-install_fish_dotfiles() {
-    while true
+# Link ./config/*.slink to $HOME/.config/
+install_config_directory() {
+    for file in "$DOTFILES_ROOT"/config/*.symlink
     do
-        printf "Install fish dotfiles? [y/n] > "
-        read yn
-        case $yn in
-            [Yy]* ) break;;
-            [Nn]* ) return;;
-        esac
+        destination="$HOME/.config/$(basename $file .symlink)"
+        link_file "$file" "$destination"
+        if [ $? -eq 1 ]
+        then
+            fail_c "Linking $file to $destination"
+        else
+            success "Linking $file to $destination"
+        fi
     done
-
-	fish_src="$DOTFILES_ROOT/fish/config.fish"
-	fish_dst="$HOME/.config/fish/config.fish"
-	fish_func_src="$DOTFILES_ROOT/fish/functions"
-	fish_func_dst="$HOME/.config/fish/functions"
-
-	info "Linking fish dotfiles"
-	link_file "$fish_src" "$fish_dst"
-	link_file "$fish_func_src" "$fish_func_dst"
-	success "Linking fish dotfiles"
 }
 
 printf "\033[0;31mWARNING.\033[0m This script will overwrite any previously installed dotfiles!\nContinue? [y/n] >> "
@@ -149,7 +142,6 @@ do
     esac
 done
 
-
 install_fish
-install_fish_dotfiles
+install_config_directory
 install_dotfiles
