@@ -245,7 +245,7 @@ buffer. (From Spacemacs)"
 
 (let ((font-name "Iosevka"))
   (when (member font-name (font-family-list))
-    (set-face-attribute 'default nil :font font-name :height 130)))
+    (set-face-attribute 'default nil :font font-name :height 110)))
 
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
