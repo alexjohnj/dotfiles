@@ -157,6 +157,7 @@ bar {
 exec --no-startup-id sh ~/.fehbg
 
 # Programs to launch on startup
+exec --no-startup-id emacs
 exec --no-startup-id pcmanfm --daemon-mode
 exec --no-startup-id redshift-gtk -t 6500:3500
 exec --no-startup-id dropbox start
