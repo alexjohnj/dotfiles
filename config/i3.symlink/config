@@ -78,9 +78,10 @@ bindsym $mod+a focus parent
 for_window [class="Firefox"] border none, move container to workspace 2:web
 for_window [class="Spotify"] border none, move container to workspace 3:music
 for_window [class="Slack"] border none, move container to workspace 4:chat
+for_window [class="Emacs"] border none, move container to workspace 1:emacs
 
 # switch to workspace
-bindsym $mod+1 workspace 1:main
+bindsym $mod+1 workspace 1:emacs
 bindsym $mod+2 workspace 2:web
 bindsym $mod+3 workspace 3:music
 bindsym $mod+4 workspace 4:chat
@@ -92,7 +93,7 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:main
+bindsym $mod+Shift+1 move container to workspace 1:emacs
 bindsym $mod+Shift+2 move container to workspace 2:web
 bindsym $mod+Shift+3 move container to workspace 3:music
 bindsym $mod+Shift+4 move container to workspace 4:chat
