@@ -162,3 +162,4 @@ exec --no-startup-id pcmanfm --daemon-mode
 exec --no-startup-id redshift-gtk -t 6500:3500
 exec --no-startup-id dropbox start
 exec --no-startup-id zeal
+exec --no-startup-id slack
