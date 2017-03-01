@@ -18,6 +18,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# Start a file manager
+bindsym $mod+Shift+f exec pcmanfm
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
