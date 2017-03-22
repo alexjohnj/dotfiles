@@ -8,7 +8,8 @@
             "p-" 'alex/projectile-remove-known-project)
           (which-key-add-key-based-replacements "SPC p" "Project"))
   :config (progn
-            (setq projectile-switch-project-action 'projectile-dired)
+            (setq projectile-switch-project-action 'projectile-dired
+                  projectile-enable-caching t)
             (evil-leader/set-key
               "pb" 'projectile-switch-to-buffer
               "pq" 'projectile-switch-open-project
