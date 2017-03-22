@@ -2,6 +2,7 @@
 (use-package diff-hl
   :ensure t
   :commands (turn-on-diff-hl-mode)
+  :disabled
   :init (progn
           (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
           (add-hook 'vc-dir-mode 'turn-on-diff-hl-mode))
