@@ -1,0 +1,24 @@
+directory: ~/Music/beets
+library: ~/Music/beets/library.db
+
+import:
+  # Write metadata to files. Copy files from the import directory, don't move
+  # them.
+  write: yes
+  copy: yes
+  move: no
+
+  autotag: yes
+  timid: no
+
+plugins: fetchart embedart lyrics
+
+fetchart:
+  auto: yes
+  cautious: yes
+
+embedart:
+  auto: yes
+
+lyrics:
+  auto: yes
