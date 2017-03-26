@@ -97,24 +97,24 @@ Expunge Both
 ################################################################################
 ##                        University of Leeds Office 365
 ################################################################################
-IMAPAccount leeds
-Host outlook.office365.com
-Port 993
-User ee13ajpj@leeds.ac.uk
-PassCmd "security find-internet-password -w -a ee13ajpj@leeds.ac.uk -r imap"
-SSLType IMAPS
+# IMAPAccount leeds
+# Host outlook.office365.com
+# Port 993
+# User ee13ajpj@leeds.ac.uk
+# PassCmd "security find-internet-password -w -a ee13ajpj@leeds.ac.uk -r imap"
+# SSLType IMAPS
 
-IMAPStore leeds-remote
-Account leeds
+# IMAPStore leeds-remote
+# Account leeds
 
-MaildirStore leeds-local
-Path ~/.mail/leeds/
-Inbox ~/.mail/leeds/INBOX
+# MaildirStore leeds-local
+# Path ~/.mail/leeds/
+# Inbox ~/.mail/leeds/INBOX
 
-Channel leeds-channel
-Master :leeds-remote:
-Slave :leeds-local:
-Patterns * !Calendar !Clutter !Contacts !Journal !Notes !Outbox !Tasks
-SyncState *
-Create Slave
-Expunge Both
+# Channel leeds-channel
+# Master :leeds-remote:
+# Slave :leeds-local:
+# Patterns * !Calendar !Clutter !Contacts !Journal !Notes !Outbox !Tasks
+# SyncState *
+# Create Slave
+# Expunge Both
