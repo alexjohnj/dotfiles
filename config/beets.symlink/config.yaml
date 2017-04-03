@@ -11,7 +11,7 @@ import:
   autotag: yes
   timid: no
 
-plugins: fetchart embedart lyrics
+plugins: fetchart embedart lyrics convert
 
 fetchart:
   auto: yes
@@ -22,3 +22,6 @@ embedart:
 
 lyrics:
   auto: yes
+
+convert:
+  auto: no
