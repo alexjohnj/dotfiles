@@ -14,5 +14,3 @@
   required = true
 [alias]
   st = status -s
-[gpg]
-	program = gpg2
