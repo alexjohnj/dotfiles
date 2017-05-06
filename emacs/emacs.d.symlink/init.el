@@ -259,6 +259,8 @@ buffer. (From Spacemacs)"
                     :background (face-background 'default))
 
 (global-hl-line-mode 1)
+(line-number-mode)
+(column-number-mode)
 
 ;;------------------------------------------------------------------------------
 ;;                  Load Packages that need configuring
