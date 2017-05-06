@@ -1,69 +1,116 @@
-tap 'homebrew/science'
-tap 'homebrew/python'
-tap 'staticfloat/julia'
-tap 'staticfloat/juliadeps'
+# Taps
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
+tap 'homebrew/python'
+tap 'homebrew/science'
+tap 'homebrew/services'
+tap 'koekeishiya/formulae'
 tap 'railwaycat/emacsmacport'
+tap 'staticfloat/julia'
+tap 'staticfloat/juliadeps'
 
-brew 'brew-cask'
+# Languages
+brew 'ruby'
+brew 'python'
+brew 'python3'
+brew 'go'
+brew 'julia'
+brew 'rust'
+
+# Core Utilities
 brew 'mas'
-brew 'fish'
-brew 'git'
-brew 'tmux'
-brew 'reattach-to-user-namespace'
-brew 'emacs-mac', args: ['with-imagemagick', 'with-modern-icon', 'with-gnutls', 'with-xml2', 'with-dbus', 'with-glib']
-brew 'vim'
-brew 'mu', args: ['with-emacs']
-brew 'msmtp'
-brew 'isync'
-brew 'ledger'
-brew 'trash'
+
 brew 'ag'
+brew 'coreutils'
+brew 'fish'
+brew 'htop'
+brew 'hugo'
+brew 'pigz'
+brew 'pxz'
+brew 'reattach-to-user-namespace'
+brew 'tmux'
+brew 'trash'
+brew 'tree'
+brew 'xz'
+
+# Dev Tools
+brew 'carthage'
+brew 'emacs-mac', args: ['with-imagemagick', 'with-modern-icon', 'with-gnutls', 'with-xml2', 'with-dbus', 'with-glib']
+brew 'git'
+brew 'node'
+brew 'vim'
+
+# Email
+brew 'isync'
+brew 'msmtp'
+brew 'mu', args: ['with-emacs']
+
+# Security
 brew 'gnupg'
 brew 'gnupg2'
+brew 'gpg-agent'
 brew 'pinentry-mac'
 
-cask 'arq'
-cask 'dropbox'
-cask 'google-chrome'
-cask 'firefox'
-cask 'spotify'
-cask 'spectacle'
-cask 'transmission'
-cask 'aquaterm'
-cask 'sketch'
-cask 'hex-fiend'
-cask 'flux'
-cask 'qlstephen'
-
-mas '1Password', id: 443987910
-mas 'Amphetamine', id: 937984704
-mas '1Blocker', id: 1107421413
-mas '2Do', id: 477670270
-mas 'Dash', id: 449589707
-mas 'Tweetbot', id: 557168941
-mas 'Reeder', id: 880001334
-mas 'PDF Expert', id: 1055273043
-mas 'Slack', id: 803453959
-mas 'Marked', id: 890031187
-mas 'Deliveries', id: 924726344
-mas 'Pages', id: 409201541
-mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-
-brew 'julia'
-brew 'python3'
-brew 'python'
-brew 'ruby'
-brew 'go'
-
-brew 'xz'
-brew 'pxz'
-brew 'pigz'
-brew 'youtube-dl'
+# Other Tools
 brew 'aspell'
+brew 'ffmpeg'
+brew 'ledger'
+brew 'pandoc'
+brew 'youtube-dl'
 
-brew 'scipy', args: ['with-python3']
-brew 'numpy', args: ['with-python3']
+# Libraries
+brew 'cairo'
+
+# Python Libraries
 brew 'matplotlib', args: ['with-python3', 'with-cairo', 'with-ghostscript']
+brew 'numpy', args: ['with-python3']
+brew 'scipy', args: ['with-python3']
+
+# macOS Software
+brew 'khd'
+brew 'kwm'
+
+cask 'anki'
+cask 'appcleaner'
+cask 'arq'
+cask 'calibre'
+cask 'dash'
+cask 'dropbox'
+cask 'firefox'
+cask 'flux'
+cask 'google-chrome'
+cask 'handbrake'
+cask 'hex-fiend'
+cask 'keka'
+cask 'qlstephen'
+cask 'sketch'
+cask 'skype'
+cask 'smcfancontrol'
+cask 'spotify'
+cask 'subler'
+cask 'transmission'
+cask 'viscosity'
+cask 'vlc'
+cask 'vmware-fusion'
+cask 'xquartz'
+
+mas '1Blocker', id: 1107421413
+mas '1Password', id: 443987910
+mas '2Do', id: 477670270
+mas 'Amphetamine', id: 937984704
+mas 'Deliveries', id: 924726344
+mas 'Marked', id: 890031187
+mas 'PDF Expert', id: 1055273043
+mas 'Reeder', id: 880001334
+mas 'Slack', id: 803453959
+
+# Fonts
+cask 'font-cabin'
+cask 'font-cardo'
+cask 'font-fira-code'
+cask 'font-fira-mono'
+cask 'font-fira-sans'
+cask 'font-iosevka'
+cask 'font-lato'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
