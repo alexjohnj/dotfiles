@@ -276,7 +276,6 @@ buffer. (From Spacemacs)"
 (require 'init-flyspell)
 (require 'init-paradox)
 (require 'init-ag)
-(require 'init-diff-hl)
 
 (require 'init-calendar)
 (require 'init-org)
