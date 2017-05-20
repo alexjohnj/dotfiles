@@ -12,7 +12,7 @@
             (setq org-startup-indented t)
             (evil-leader/set-key-for-mode 'org-mode
               "m E" 'org-export-dispatch
-              "m p l" 'org-preview-latex-fragment
+              "m p l" 'org-toggle-latex-fragment
               "m p i" 'org-toggle-inline-images
               "m p u" 'org-toggle-pretty-entities
               "m n s" 'org-narrow-to-subtree
