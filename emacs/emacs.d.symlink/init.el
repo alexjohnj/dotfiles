@@ -277,7 +277,6 @@ buffer. (From Spacemacs)"
 (require 'init-paradox)
 (require 'init-ag)
 (require 'init-diff-hl)
-(require 'init-helm-bibtex)
 
 (require 'init-calendar)
 (require 'init-org)
