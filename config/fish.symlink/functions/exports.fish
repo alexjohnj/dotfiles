@@ -40,13 +40,6 @@ set -gx GNUTERM "aqua"
 # ledger environment variables
 set -gx LEDGER_FILE "$HOME/finance/ledger.journal"
 
-# Set up SAC
-if [ -e /usr/local/bin/sac ]
-  set -gx SACHOME /usr/local/bin/sac
-  set -gx SACAUX $SACHOME/aux
-  set -x PATH $PATH $SACHOME/bin
-end
-
 # Set up gpg-agent with SSH. First we try and use the autostart mechanisms in
 # GnuPG 2.1. If this isn't available, we make use of an environment file to set
 # the appropriate env vars. This assumes gpg-agent has already been started by
