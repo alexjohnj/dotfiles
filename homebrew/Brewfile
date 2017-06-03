@@ -104,6 +104,7 @@ mas 'Marked', id: 890031187
 mas 'PDF Expert', id: 1055273043
 mas 'Reeder', id: 880001334
 mas 'Slack', id: 803453959
+mas 'Transmit', id: 403388562
 
 # Fonts
 cask 'font-cabin'
