@@ -8,6 +8,7 @@
                 ledger-highlight-xact-under-point nil
                 ledger-use-iso-dates t
                 ledger-reconcile-default-commodity "GBP")
+                ledger-schedule-file "~/finance/ledger-schedule.journal")
           (evil-leader/set-key-for-mode 'ledger-mode
             "mn" 'ledger-navigate-next-xact-or-directive
             "mN" 'ledger-navigate-prev-xact-or-directive
