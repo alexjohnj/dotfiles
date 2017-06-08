@@ -6,8 +6,8 @@
           (setq ledger-post-amount-alignment-column 60
                 ledger-post-auto-adjust-amounts t
                 ledger-highlight-xact-under-point nil
-                ledger-use-iso-dates t
-                ledger-reconcile-default-commodity "GBP")
+                ledger-default-date-format ledger-iso-date-format
+                ledger-reconcile-default-commodity "GBP"
                 ledger-schedule-file "~/finance/ledger-schedule.journal")
           (evil-leader/set-key-for-mode 'ledger-mode
             "mn" 'ledger-navigate-next-xact-or-directive
