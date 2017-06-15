@@ -24,3 +24,6 @@ alias eledger "gpg --batch -d -q $LEDGER_FILE | ledger -f - "
 alias ehledger "gpg --batch -d -q $LEDGER_FILE | hledger -f -"
 alias done "osascript -e 'display notification with title \"Done\"'"
 abbr ledger "ledger --strict"
+
+# Aliases for Beets
+abbr beet-flac2alac "beet convert -k -f alac -d . format:FLAC"
