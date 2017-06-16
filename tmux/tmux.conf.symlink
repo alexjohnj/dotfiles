@@ -4,11 +4,12 @@ set-option -sg escape-time 0
 
 if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
 
+# Reload configuration file with "Prefix-r" key
 unbind-key r
 bind-key r source-file ~/.tmux.conf
 set-option -g default-terminal "screen-256color"
-# set -ga terminal-overrides ',xterm*:smcup@:rmcup@' # Enable terminal native scrollback
 
+# 1-based indexing.
 set-option -g base-index 1
 set-option -g pane-base-index 1
 
@@ -27,16 +28,18 @@ bind-key c new-window -c '#{pane_current_path}'
 bind-key '"' split-window -c '#{pane_current_path}'
 bind-key % split-window -h -c '#{pane_current_path}'
 
-# Split (From: http://dotshare.it/dots/944/0/raw/)
+# APPEARANCE
+## Split (From: http://dotshare.it/dots/944/0/raw/)
 set-option -g pane-active-border-fg blue
 set-option -g pane-active-border-bg default
 set-option -g pane-border-fg white
 set-option -g pane-border-bg default
 
-# Command Bar
+## Command Bar
 set-option -g message-bg green
 set-option -g message-fg white
 
+## Status bar
 set-option -g status-left ''
 set-option -g status-right '#[fg=white]%a %b %d #[fg=white,bold]%R '
 set-option -g status-right-length 40
