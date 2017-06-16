@@ -16,13 +16,6 @@ set-option -g pane-base-index 1
 
 # Mouse Support
 set-option -g -q mouse on
-bind-key -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
-bind-key -n WheelDownPane select-pane -t= \; send-keys -M
-bind-key -n C-WheelUpPane select-pane -t= \; copy-mode -e \; send-keys -M
-bind-key -t vi-copy    C-WheelUpPane   halfpage-up
-bind-key -t vi-copy    C-WheelDownPane halfpage-down
-bind-key -t emacs-copy C-WheelUpPane   halfpage-up
-bind-key -t emacs-copy C-WheelDownPane halfpage-down
 
 # Start new window in cwd
 bind-key c new-window -c '#{pane_current_path}'
