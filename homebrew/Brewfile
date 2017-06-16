@@ -54,7 +54,7 @@ brew 'pinentry-mac'
 
 # Other Tools
 brew 'aspell'
-brew 'ffmpeg'
+brew 'ffmpeg', args: ['with-x265']
 brew 'ledger'
 brew 'pandoc'
 brew 'youtube-dl'
