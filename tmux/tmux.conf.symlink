@@ -3,8 +3,6 @@ set-option -g prefix C-a
 set-option -sg escape-time 0
 set-window-option -g mode-keys vi
 
-if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
-
 # Reload configuration file with "Prefix-r" key
 unbind-key r
 bind-key r source-file ~/.tmux.conf
@@ -40,3 +38,6 @@ set-option -g status-right-length 40
 set-option -g status-bg blue
 set-window-option -g window-status-format '#[fg=white] [#I] #W '
 set-window-option -g window-status-current-format '#[fg=white,bold,underscore,bg=brightblue] [#I] #W '
+
+# OS Specific configuration
+if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
