@@ -8,6 +8,10 @@ unbind-key r
 bind-key r source-file ~/.tmux.conf
 set-option -g default-terminal "screen-256color"
 
+# Copy and Paste config
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi y send -X copy-selection
+
 # 1-based indexing.
 set-option -g base-index 1
 set-option -g pane-base-index 1
