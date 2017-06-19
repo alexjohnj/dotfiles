@@ -1,11 +1,8 @@
-khd kwm on
+khd mode prefix on_enter kwmc config border focused color 0xFF458588
 
 khd mode prefix prefix on
 khd mode timeout 1
 khd mode prefix restore default
-khd mode prefix color 0xFF458588
-
-khd mode default color 0xFFD57E7E
 
 # Change window layout
 lalt - space : kwmc window -t focused
