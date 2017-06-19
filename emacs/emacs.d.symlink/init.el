@@ -249,10 +249,9 @@ buffer. (From Spacemacs)"
         (set-face-attribute 'default nil :font font-name :height 130)
       (set-face-attribute 'default nil :font font-name :height 110))))
 
-(use-package doom-themes
+(use-package color-theme-sanityinc-tomorrow
   :ensure t
-  :config (progn
-            (load-theme 'doom-tomorrow-night t)))
+  :config (progn (color-theme-sanityinc-tomorrow-day)))
 
 ;; Match fringe colour to background colour
 (set-face-attribute 'fringe nil
