@@ -6,15 +6,13 @@ tap 'homebrew/science'
 tap 'homebrew/services'
 tap 'koekeishiya/formulae'
 tap 'railwaycat/emacsmacport'
-tap 'staticfloat/julia'
-tap 'staticfloat/juliadeps'
 
 # Languages
 brew 'ruby'
 brew 'python'
 brew 'python3'
 brew 'go'
-brew 'julia'
+cask 'julia'
 brew 'rust'
 
 # Core Utilities
