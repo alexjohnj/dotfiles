@@ -43,3 +43,6 @@ kwmc rule owner="Tweetbot" properties={float="true"}
 kwmc rule owner="Dash" properties={float="true"}
 kwmc rule owner="Finder" role="AXDialog" properties={float="true"}
 kwmc rule owner="GKSTerm" properties={float="true"}
+
+kwmc config add-role AXWindow Emacs
+kwmc rule owner="Emacs" properties={role="AXStandardWindow"}
