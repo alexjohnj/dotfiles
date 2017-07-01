@@ -19,9 +19,7 @@ $HOME/bin \
 $HOME/.local/bin \
 $HOME/Library/Python/3.6/bin \
 $HOME/Library/Python/2.7/bin \
-$GOPATH/bin \
-/Applications/MATLAB_R2016a.app/bin \
-/Applications/MATLAB_R2016a.app/bin/maci64 \
+$GOPATH/bin
 
 for c in $path_components[-1..1]
   if begin not contains $c $PATH; and [ -e $c ]; end
