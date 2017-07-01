@@ -19,7 +19,8 @@ $HOME/bin \
 $HOME/.local/bin \
 $HOME/Library/Python/3.6/bin \
 $HOME/Library/Python/2.7/bin \
-$GOPATH/bin
+$GOPATH/bin \
+/usr/local/sbin
 
 for c in $path_components[-1..1]
   if begin not contains $c $PATH; and [ -e $c ]; end
