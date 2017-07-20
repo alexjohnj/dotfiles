@@ -13,7 +13,6 @@ brew 'python'
 brew 'python3'
 brew 'go'
 cask 'julia'
-brew 'rust'
 
 # Core Utilities
 brew 'mas'
