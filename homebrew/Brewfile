@@ -5,7 +5,7 @@ tap 'homebrew/python'
 tap 'homebrew/science'
 tap 'homebrew/services'
 tap 'koekeishiya/formulae'
-tap 'railwaycat/emacsmacport'
+tap 'd12frosted/emacs-plus'
 
 # Languages
 brew 'ruby'
@@ -33,7 +33,7 @@ brew 'xz'
 
 # Dev Tools
 brew 'carthage'
-brew 'emacs-mac', args: ['with-imagemagick', 'with-modern-icon', 'with-gnutls', 'with-xml2', 'with-dbus', 'with-glib']
+brew 'emacs-plus', args: ['with-mailutils', 'with-dbus', 'HEAD']
 brew 'git'
 brew 'node'
 brew 'vim'
