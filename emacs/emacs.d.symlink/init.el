@@ -251,7 +251,7 @@ buffer. (From Spacemacs)"
 
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
-  :config (progn (color-theme-sanityinc-tomorrow-day)))
+  :config (progn (color-theme-sanityinc-tomorrow-eighties)))
 
 ;; Match fringe colour to background colour
 (set-face-attribute 'fringe nil
