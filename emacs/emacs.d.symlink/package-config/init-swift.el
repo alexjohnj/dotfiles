@@ -4,7 +4,9 @@
 
 (use-package flycheck-swift
   :ensure t
-  :after (flycheck)
-  :config (flycheck-swift-setup))
+  :after (flycheck swift-mode)
+  :config (progn
+            (add-to-list 'flycheck-checkers 'swift)))
+
 
 (provide 'init-swift)
