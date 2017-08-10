@@ -92,8 +92,7 @@
 ;; ------------------------------------------------------------------------------
 
 (defun alex/delete-file-and-buffer ()
-  "Removes the file connected to the current buffer and kills the
-buffer. (From Spacemacs)"
+  "Remove the file connected to the current buffer and kill the buffer (from Spacemacs)."
   (interactive)
   (let ((filename (buffer-file-name))
         (buffer (current-buffer))
@@ -106,7 +105,7 @@ buffer. (From Spacemacs)"
         (message "File '%s' successfully removed" filename)))))
 
 (defun alex/rename-current-buffer-file ()
-  "Renames the current buffer's file"
+  "Renames the current buffer's file."
   (interactive)
   (let ((filename (buffer-file-name))
         (name (buffer-name)))
@@ -126,7 +125,7 @@ buffer. (From Spacemacs)"
                  (message "File '%s' renamed to '%s'" name (file-name-nondirectory new-name)))))))))
 
 (defun alex/show-buffer-name ()
-  "Print the current file's path in the minibuffer"
+  "Print the current file's path in the minibuffer."
   (interactive)
   (let ((filename (buffer-file-name)))
     (if filename
@@ -134,6 +133,7 @@ buffer. (From Spacemacs)"
       (error "Buffer not visiting a file"))))
 
 (defun alex/indent-buffer ()
+  "Indent the current buffer."
   (interactive)
   (indent-region (point-min) (point-max)))
 
