@@ -13,15 +13,6 @@ from alex@alexj.org
 user alexj@fastmail.com
 passwordeval "security find-internet-password -w -a alexj@fastmail.com"
 
-account uofa
-tls on
-auth on
-host smtp.gmail.com
-port 465
-from padillaj@ualberta.ca
-user padillaj@ualberta.ca
-passwordeval "security find-internet-password -w -a padillaj@ualberta.ca"
-
 account geography
 tls on
 auth on

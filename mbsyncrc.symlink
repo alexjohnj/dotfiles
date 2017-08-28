@@ -39,34 +39,6 @@ Group personal-fastmail-group
 Channels personal-fastmail-inbox personal-fastmail-rest
 
 ################################################################################
-##                           University of Alberta Gmail
-################################################################################
-
-IMAPAccount uofa
-Host imap.gmail.com
-User padillaj@ualberta.ca
-PassCmd "security find-internet-password -w -a padillaj@ualberta.ca"
-SSLType IMAPS
-AuthMechs LOGIN
-CertificateFile /usr/local/etc/openssl/cert.pem
-
-IMAPStore uofa-remote
-Account uofa
-
-MaildirStore uofa-local
-Path ~/.mail/uofa/
-Inbox ~/.mail/uofa/INBOX
-Flatten "."
-
-Channel uofa-channel
-Master :uofa-remote:
-Slave :uofa-local:
-SyncState *
-Pattern * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/All Mail" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/Drafts"
-Create Slave
-Expunge Both
-
-################################################################################
 ##                             Geography AS Email
 ################################################################################
 
