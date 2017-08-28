@@ -1,3 +1,7 @@
+(setq gc-cons-threshold 64000000)
+(add-hook 'after-init-hook #'(lambda ()
+                               (setq gc-cons-threshold 800000)))
+
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 (add-to-list 'load-path (expand-file-name "site-packages/" user-emacs-directory))
