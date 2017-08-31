@@ -285,6 +285,7 @@
 (require 'init-org)
 
 (require 'init-ledger-mode)
+(require 'init-beancount-mode)
 (require 'init-matlab-mode)
 (require 'init-markdown-mode)
 (require 'init-scss-mode)
