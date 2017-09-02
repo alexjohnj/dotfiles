@@ -38,6 +38,7 @@ set -gx GNUTERM "aqua"
 
 # ledger environment variables
 set -gx LEDGER_FILE "$HOME/finance/ledger.journal"
+set -gx BEANCOUNT_FILE "$HOME/finance/ledger.beancount"
 
 # Set up gpg-agent with SSH. First we try and use the autostart mechanisms in
 # GnuPG 2.1. If this isn't available, we make use of an environment file to set
