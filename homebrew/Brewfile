@@ -56,9 +56,6 @@ brew 'ledger'
 brew 'pandoc'
 brew 'youtube-dl'
 
-# Libraries
-brew 'cairo'
-
 # Python Libraries
 brew 'matplotlib', args: ['with-python3', 'with-cairo', 'with-ghostscript']
 brew 'numpy', args: ['with-python3']
