@@ -2,7 +2,6 @@
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/python'
-tap 'homebrew/science'
 tap 'homebrew/services'
 tap 'd12frosted/emacs-plus'
 
