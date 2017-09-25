@@ -4,7 +4,6 @@ tap 'caskroom/fonts'
 tap 'homebrew/python'
 tap 'homebrew/science'
 tap 'homebrew/services'
-tap 'koekeishiya/formulae'
 tap 'd12frosted/emacs-plus'
 
 # Languages
@@ -62,9 +61,6 @@ brew 'numpy', args: ['with-python3']
 brew 'scipy', args: ['with-python3']
 
 # macOS Software
-brew 'khd'
-brew 'kwm'
-
 cask 'anki'
 cask 'appcleaner'
 cask 'arq'
