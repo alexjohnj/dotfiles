@@ -6,6 +6,7 @@
 // Temporary / Backup Files
 *~
 .*.swp
+.#*
 
 // OS-generated files (OS X)
 (?d) .DS_Store
