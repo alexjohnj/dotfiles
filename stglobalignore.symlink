@@ -1,0 +1,20 @@
+// .stglobalignore
+
+// Ignore the global ignore file so it can be symlinked in
+.stglobalignore
+
+// Temporary / Backup Files
+*~
+.*.swp
+
+// OS-generated files (OS X)
+(?d) .DS_Store
+(?d) .localized
+(?d) .Spotlight-V100
+(?d) .Trashes
+
+// OS-generated files (Windows)
+(?d) desktop.ini
+(?d) ehthumbs.db
+(?d) Thumbs.db
+
