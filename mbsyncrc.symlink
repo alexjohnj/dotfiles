@@ -16,27 +16,17 @@ Account personal-fastmail
 
 MaildirStore personal-fastmail-local
 Path ~/.mail/personal/
-Inbox ~/.mail/personal/INBOX/
+Inbox ~/.mail/personal/INBOX
 Flatten "."
 
-Channel personal-fastmail-inbox
+Channel personal-fastmail
 Master :personal-fastmail-remote:
 Slave :personal-fastmail-local:
-Patterns INBOX
-Create Slave
+Patterns *
 SyncState *
-Expunge Both
-
-Channel personal-fastmail-rest
-Master :personal-fastmail-remote:
-Slave :personal-fastmail-local:
-Patterns * !INBOX
 Create Slave
-SyncState *
+Remove Slave
 Expunge Both
-
-Group personal-fastmail-group
-Channels personal-fastmail-inbox personal-fastmail-rest
 
 ################################################################################
 ##                             Geography AS Email
@@ -61,7 +51,8 @@ Flatten "."
 Channel geography-channel
 Master :geography-remote:
 Slave :geography-local:
-SyncState *
 Pattern * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/All Mail" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/Drafts"
+SyncState *
 Create Slave
+Remove Slave
 Expunge Both
