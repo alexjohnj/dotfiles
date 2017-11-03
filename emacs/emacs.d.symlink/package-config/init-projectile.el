@@ -20,7 +20,8 @@
               "pr" 'projectile-replace
               "psg" 'projectile-grep
               "pss" 'projectile-ag
-              "pS" 'projectile-save-project-buffers)
+              "pS" 'projectile-save-project-buffers
+              "p c" 'projectile-compile-project)
             (projectile-global-mode)))
 
 (defun alex/projectile-remove-known-project ()
