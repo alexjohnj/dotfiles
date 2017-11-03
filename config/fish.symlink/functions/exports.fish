@@ -39,23 +39,3 @@ set -gx GNUTERM "aqua"
 # ledger environment variables
 set -gx LEDGER_FILE "$HOME/finance/ledger.journal"
 set -gx BEANCOUNT_FILE "$HOME/finance/ledger.beancount"
-
-# Set up gpg-agent with SSH. First we try and use the autostart mechanisms in
-# GnuPG 2.1. If this isn't available, we make use of an environment file to set
-# the appropriate env vars. This assumes gpg-agent has already been started by
-# something like launchd.
-if gpgconf --launch gpg-agent > /dev/null ^&1
-  set -e SSH_AUTH_SOCK
-  set -e GPG_TTY
-  set -Ux SSH_AUTH_SOCK (gpgconf --list-dir | grep agent-socket | awk -F ':' '{print $2}').ssh
-  set -x GPG_TTY (tty)
-else if [ -e $HOME/.gpg-agent-info ]
-  set -e GPG_AGENT_INFO
-  set -e SSH_AUTH_SOCK
-  set -e SSH_AGENT_PID
-  set -e GPG_TTY
-  set -Ux GPG_AGENT_INFO (cat $HOME/.gpg-agent-info | grep GPG_AGENT_INFO | sed 's/.*=//')
-  set -Ux SSH_AUTH_SOCK (cat $HOME/.gpg-agent-info | grep SSH_AUTH_SOCK | sed 's/.*=//')
-  set -Ux SSH_AGENT_PID (cat $HOME/.gpg-agent-info | grep SSH_AGENT_PID | sed 's/.*=//')
-  set -x GPG_TTY (tty)
-end
