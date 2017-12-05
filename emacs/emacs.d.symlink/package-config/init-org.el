@@ -24,5 +24,14 @@
   :after org
   :ensure t)
 
+(use-package org-journal
+  :after org
+  :ensure t
+  :config (progn
+            (setq org-journal-dir (expand-file-name "~/documents/journal/")
+                  org-journal-file-format "%Y-%m-%d.org"
+                  org-journal-date-format "%Y-%m-%d")
+            (evil-leader/set-key "o j" 'org-journal-new-entry)))
+
 (provide 'init-org)
 ;;; init-org.el ends here
