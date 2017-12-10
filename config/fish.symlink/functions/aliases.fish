@@ -7,6 +7,12 @@ else if ls -G > /dev/null ^&1 # BSD
   alias ls "ls -G"
 end
 
+# Prevent rm commands from being added to HISTORY. The number of times I've done
+# C-p followed by return in my home folder just to run 'rm -rf $SOMETHING' is
+# scary. Fortunately that command's never been 'rm -rf *' but it's bound to
+# happen someday.
+abbr rm " rm"
+
 # Copy files with progress information
 alias cpv "rsync -avP"
 
