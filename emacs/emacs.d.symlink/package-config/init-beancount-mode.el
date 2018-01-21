@@ -62,5 +62,12 @@
       (alex/beancount--indent-line)
       (forward-line 1))))
 
+(defun alex/beancount-format-file ()
+  (interactive)
+  (let ((line-no (line-number-at-pos)))
+    (call-process-region (point-min) (point-max) "bean-format" t (current-buffer))
+    (goto-line line-no)
+    (recenter)))
+
 (provide 'init-beancount-mode)
 ;;; init-beancount-mode.el ends here
