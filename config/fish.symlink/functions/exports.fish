@@ -10,6 +10,9 @@ end
 # Set up golang dev environment
 set -gx GOPATH $HOME/.go
 
+# Ruby environment
+set -gx GEM_HOME "$HOME/.gem"
+
 # XZ
 set -gx XZ_OPT "--threads=0"
 
@@ -19,6 +22,7 @@ $HOME/bin \
 $HOME/.local/bin \
 $HOME/Library/Python/3.6/bin \
 $HOME/Library/Python/2.7/bin \
+$GEM_HOME/bin \
 $GOPATH/bin \
 /usr/local/sbin
 
