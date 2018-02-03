@@ -19,6 +19,6 @@
 (?d) ehthumbs.db
 (?d) Thumbs.db
 
-node_modules
+(?d) node_modules
 
 Pods
