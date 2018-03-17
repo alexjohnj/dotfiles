@@ -2,6 +2,7 @@
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/services'
+tap 'homebrew/science'
 
 # Languages
 brew 'ruby'
