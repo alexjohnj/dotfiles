@@ -13,6 +13,8 @@ end
 # happen someday.
 abbr rm " rm"
 
+abbr bex "bundle exec"
+
 # Copy files with progress information
 alias cpv "rsync -avP"
 
