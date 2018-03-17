@@ -3,14 +3,12 @@ tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/python'
 tap 'homebrew/services'
-tap 'd12frosted/emacs-plus'
 
 # Languages
 brew 'ruby'
 brew 'python'
 brew 'python3'
 brew 'go'
-cask 'julia'
 
 # Core Utilities
 brew 'mas'
@@ -31,15 +29,10 @@ brew 'xz'
 
 # Dev Tools
 brew 'carthage'
-brew 'emacs-plus', args: ['with-mailutils', 'with-dbus', 'HEAD']
 brew 'git'
 brew 'node'
 brew 'vim'
-
-# Email
-brew 'isync'
-brew 'msmtp'
-brew 'mu', args: ['with-emacs']
+brew 'mysql'
 
 # Security
 brew 'gnupg'
@@ -62,38 +55,44 @@ brew 'scipy', args: ['with-python3']
 # macOS Software
 cask 'anki'
 cask 'appcleaner'
+cask 'appcode'
 cask 'arq'
 cask 'calibre'
+cask 'daisydisk'
 cask 'dash'
+cask 'db-browser-for-sqlite'
 cask 'dropbox'
+cask 'emacs'
 cask 'firefox'
 cask 'flux'
 cask 'google-chrome'
 cask 'handbrake'
 cask 'hex-fiend'
 cask 'keka'
+cask 'mysqlworkbench'
 cask 'qlstephen'
 cask 'sketch'
 cask 'skype'
 cask 'smcfancontrol'
+cask 'spectacle'
 cask 'spotify'
 cask 'subler'
+cask 'superduper'
 cask 'transmission'
 cask 'transmit'
 cask 'viscosity'
 cask 'vlc'
 cask 'vmware-fusion'
-cask 'xquartz'
 
 mas '1Blocker', id: 1107421413
 mas '1Password', id: 443987910
-mas '2Do', id: 477670270
 mas 'Amphetamine', id: 937984704
 mas 'Deliveries', id: 924726344
 mas 'Marked', id: 890031187
 mas 'PDF Expert', id: 1055273043
 mas 'Reeder', id: 880001334
 mas 'Slack', id: 803453959
+mas 'Things 3', id: 904280696
 
 # Fonts
 cask 'font-cabin'
