@@ -1,7 +1,6 @@
 # Taps
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
-tap 'homebrew/python'
 tap 'homebrew/services'
 
 # Languages
