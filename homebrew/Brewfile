@@ -2,7 +2,6 @@
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/services'
-tap 'homebrew/science'
 
 # Languages
 brew 'ruby'
@@ -49,7 +48,6 @@ brew 'syncthing'
 brew 'youtube-dl'
 
 # Python Libraries
-brew 'matplotlib', args: ['with-python3', 'with-cairo', 'with-ghostscript']
 brew 'numpy', args: ['with-python3']
 brew 'scipy', args: ['with-python3']
 
