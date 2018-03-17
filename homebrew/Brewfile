@@ -45,6 +45,7 @@ brew 'aspell'
 brew 'ffmpeg', args: ['with-x265']
 brew 'ledger'
 brew 'pandoc'
+brew 'syncthing'
 brew 'youtube-dl'
 
 # Python Libraries
