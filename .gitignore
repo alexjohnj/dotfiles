@@ -16,6 +16,7 @@ emacs/emacs.d.symlink/custom.el
 emacs/emacs.d.symlink/games
 emacs/emacs.d.symlink/url
 emacs/emacs.d.symlink/history
+emacs/emacs.d.symlink/network-security.data
 
 # vim Dictionaries
 en.utf-8.add*
