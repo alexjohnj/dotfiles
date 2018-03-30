@@ -2,28 +2,28 @@
 ################################################################################
 ##                            Personal Fastmail
 ################################################################################
-CopyArrivalDate yes
-Sync All
 
-IMAPAccount personal-fastmail
+IMAPAccount alexj-fastmail
 Host mail.messagingengine.com
+SSLType IMAPS
 User alexj@fastmail.com
 PassCmd "security find-internet-password -w -a alexj@fastmail.com"
-SSLType IMAPS
 
-IMAPStore personal-fastmail-remote
-Account personal-fastmail
+IMAPStore alexj-remote
+Account alexj-fastmail
 
-MaildirStore personal-fastmail-local
-Path ~/.mail/personal/
-Inbox ~/.mail/personal/INBOX
+MaildirStore alexj-local
+Path ~/.mail/alexj/
+Inbox ~/.mail/alexj/INBOX
 Flatten "."
 
-Channel personal-fastmail
-Master :personal-fastmail-remote:
-Slave :personal-fastmail-local:
+Channel alexj
+Master :alexj-remote:
+Slave :alexj-local:
 Patterns *
 SyncState *
+Expunge Both
 Create Slave
 Remove Slave
-Expunge Both
+CopyArrivalDate yes
+Sync All
