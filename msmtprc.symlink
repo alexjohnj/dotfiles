@@ -12,12 +12,3 @@ port 465
 from alex@alexj.org
 user alexj@fastmail.com
 passwordeval "security find-internet-password -w -a alexj@fastmail.com"
-
-account geography
-tls on
-auth on
-host smtp.gmail.com
-port 465
-from alex@geographyas.info
-user alex@geographyas.info
-passwordeval "security find-internet-password -w -a alex@geographyas.info"

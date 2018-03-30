@@ -27,32 +27,3 @@ SyncState *
 Create Slave
 Remove Slave
 Expunge Both
-
-################################################################################
-##                             Geography AS Email
-################################################################################
-
-IMAPAccount geography
-Host imap.gmail.com
-User alex@geographyas.info
-PassCmd "security find-internet-password -w -a alex@geographyas.info"
-SSLType IMAPS
-AuthMechs LOGIN
-CertificateFile /usr/local/etc/openssl/cert.pem
-
-IMAPStore geography-remote
-Account geography
-
-MaildirStore geography-local
-Path ~/.mail/geography/
-Inbox ~/.mail/geography/INBOX
-Flatten "."
-
-Channel geography-channel
-Master :geography-remote:
-Slave :geography-local:
-Pattern * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/All Mail" "[Gmail]/Starred" "[Gmail]/Trash" "[Gmail]/Drafts"
-SyncState *
-Create Slave
-Remove Slave
-Expunge Both
