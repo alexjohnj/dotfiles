@@ -4,10 +4,10 @@
 ################################################################################
 
 IMAPAccount alexj-fastmail
-Host mail.messagingengine.com
+Host imap.fastmail.com
 SSLType IMAPS
 User alexj@fastmail.com
-PassCmd "security find-internet-password -w -a alexj@fastmail.com"
+PassCmd "security find-internet-password -w -r imap -a alexj@fastmail.com"
 
 IMAPStore alexj-remote
 Account alexj-fastmail

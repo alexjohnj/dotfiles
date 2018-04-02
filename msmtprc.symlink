@@ -5,10 +5,10 @@ tls_starttls off
 tls_trust_file /usr/local/etc/openssl/cert.pem
 
 account alexj
-host mail.messagingengine.com
+host smtp.messagingengine.com
 port 465
 tls on
 auth on
 from alex@alexj.org
 user alexj@fastmail.com
-passwordeval "security find-internet-password -w -a alexj@fastmail.com"
+passwordeval "security find-internet-password -w -r smtp -a alexj@fastmail.com"
