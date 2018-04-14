@@ -16,11 +16,16 @@
 ;;------------------------------------------------------------------------------
 (require 'package)
 
-(setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("gnu" . "https://elpa.gnu.org/packages/")))
+;; Configure package archives. Bind `proto` to http on windows or if gnutls
+;; isn't available, otherwise use https.
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos)) (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (setq package-archives `(("melpa-stable" . ,(concat proto "://stable.melpa.org/packages/"))
+                           ("melpa" . ,(concat proto "://melpa.org/packages/"))
+                           ("org" . ,(concat proto "://orgmode.org/elpa/"))
+                           ("gnu" . ,(concat proto "://elpa.gnu.org/packages/")))))
 
+;; Configure package archive priorities to prefer stable packages.
 (setq package-archive-priorities '(("melpa-stable" . 20)
                                    ("org" . 15)
                                    ("gnu" . 10)
@@ -310,7 +315,7 @@
 ;;           Load packages that don't need tonnes of configuration
 ;;------------------------------------------------------------------------------
 
-; Use gpg2 for compatibility with Yubikey 4
+;; Use gpg2 for compatibility with Yubikey 4
 (use-package epa :ensure t :config (progn (setq epg-gpg-program "gpg2")))
 (use-package yaml-mode :ensure t)
 (use-package fish-mode :ensure t :mode ("\\.fish\\'" . fish-mode))
