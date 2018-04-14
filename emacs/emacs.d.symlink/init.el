@@ -297,14 +297,11 @@
 
 (require 'init-ledger-mode)
 (require 'init-beancount-mode)
-(require 'init-matlab-mode)
 (require 'init-markdown-mode)
 (require 'init-scss-mode)
 (require 'init-web-mode)
 (require 'init-company)
 (require 'init-latex)
-(require 'init-golang)
-(require 'init-haskell)
 (require 'init-swift)
 
 (require 'init-mu4e)
@@ -317,4 +314,3 @@
 (use-package epa :ensure t :config (progn (setq epg-gpg-program "gpg2")))
 (use-package yaml-mode :ensure t)
 (use-package fish-mode :ensure t :mode ("\\.fish\\'" . fish-mode))
-(use-package julia-mode :ensure t :mode ("\\.jl\\'" . julia-mode))
