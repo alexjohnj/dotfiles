@@ -1,5 +1,6 @@
 (use-package exec-path-from-shell
   :ensure t
+  :if (memq window-system '(mac ns))
   :config (progn
             (add-to-list 'exec-path-from-shell-variables "GPG_AGENT_INFO")
             (add-to-list 'exec-path-from-shell-variables "SSH_AUTH_SOCK")
