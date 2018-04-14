@@ -14,11 +14,22 @@
 ;;------------------------------------------------------------------------------
 ;;                         Package Configuration
 ;;------------------------------------------------------------------------------
-(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("org"   . "http://orgmode.org/elpa/")
-                         ("gnu"   . "http://elpa.gnu.org/packages/")))
 (require 'package)
+
+(setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("gnu" . "https://elpa.gnu.org/packages/")))
+
+(setq package-archive-priorities '(("melpa-stable" . 20)
+                                   ("org" . 15)
+                                   ("gnu" . 10)
+                                   ("melpa" . 5)))
+
+(setq package-pinned-packages '((use-package . "melpa")))
+
 (package-initialize)
+
 ;; Bootstrap use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
