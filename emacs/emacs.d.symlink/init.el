@@ -17,6 +17,10 @@
 (add-to-list 'default-frame-alist '(height . 45))
 (add-to-list 'default-frame-alist '(width . 90))
 
+;; Say hi
+(setq user-full-name "Alex Jackson"
+      user-mail-address "alex@alexj.org")
+
 
 ;;; Package Manager Configuration
 (require 'package)
