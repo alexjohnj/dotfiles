@@ -113,7 +113,12 @@
          ("M-x" . 'counsel-M-x)
          ("C-x C-f" . 'counsel-find-file)))
 
-(require 'init-which-key)
+(use-package which-key
+  :diminish which-key-mode
+  :init (progn
+          (setq which-key-idle-delay 0.3)
+          (which-key-setup-side-window-right-bottom)
+          (which-key-mode)))
 
 
 ;;; Editor Settings
