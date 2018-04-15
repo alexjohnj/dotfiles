@@ -29,17 +29,7 @@
                         (message) line-end))
               :modes (text-mode markdown-mode gfm-mode mu4e-compose-mode org-mode latex-mode))
 
-            ;; From https://github.com/tasuwo/.emacs.d
-            (flycheck-define-command-checker 'mlint
-              "A linter for MATLAB"
-              :command `("mlint" source)
-              :error-patterns
-              '((warning line-start "L " line " (C " (1+ digit) "): " (message) line-end)
-                (warning line-start "L " line " (C " (1+ digit) "-" (1+ digit) "): " (message) line-end))
-              :modes '(matlab-mode))
-
-            (add-to-list 'flycheck-checkers 'proselint)
-            (add-to-list 'flycheck-checkers 'mlint)))
+            (add-to-list 'flycheck-checkers 'proselint)))
 
 (use-package flycheck-pos-tip
   :ensure t
