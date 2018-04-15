@@ -19,8 +19,8 @@
 (add-to-list 'load-path (expand-file-name "package-config/" user-emacs-directory)) ; Package configuration
 
 ;; Configure a default frame size
-(add-to-list 'default-frame-alist '(height . 45))
-(add-to-list 'default-frame-alist '(width . 90))
+(add-to-list 'default-frame-alist (cons 'height (display-pixel-height)))
+(add-to-list 'default-frame-alist '(width . 120))
 
 ;; Say hi
 (setq user-full-name "Alex Jackson"
