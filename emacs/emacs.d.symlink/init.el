@@ -96,9 +96,23 @@
   :bind (("S-/" . evil-commentary))
   :init (progn (evil-commentary-mode)))
 
-;; Evil, Swiper/Ivy and which-key are loaded early on in init since so much of
-;; the subsequent configuration relies on them.
-(require 'init-swiper)
+(use-package swiper
+  :diminish ivy-mode
+  :config (progn
+            (evil-leader/set-key "s" 'ivy-resume)
+            (setq ivy-use-virtual-buffers t
+                  projectile-completion-system 'ivy)
+            (with-eval-after-load "ivy"
+              (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
+              (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
+              (define-key ivy-minibuffer-map [escape] (kbd "C-g")))
+            (ivy-mode)))
+
+(use-package counsel
+  :bind (("C-s" . 'counsel-grep-or-swiper)
+         ("M-x" . 'counsel-M-x)
+         ("C-x C-f" . 'counsel-find-file)))
+
 (require 'init-which-key)
 
 
@@ -163,7 +177,7 @@
 (let ((font-name "Iosevka"))
   (when (member font-name (font-family-list))
     (if (memq window-system '(mac ns)) ; Font scaling is a bit different between
-                                       ; macOS and other platforms.
+                                        ; macOS and other platforms.
         (set-face-attribute 'default nil :font font-name :height 130)
       (set-face-attribute 'default nil :font font-name :height 110))))
 
@@ -272,58 +286,58 @@
 
 ;; Buffer Management.
 (alex/evil-leader--prefix "b"
-  "b" 'switch-to-buffer
-  "d" 'kill-this-buffer
-  "k" 'kill-buffer
-  "l" 'list-buffers
-  "K K" 'desktop-clear)
+                          "b" 'switch-to-buffer
+                          "d" 'kill-this-buffer
+                          "k" 'kill-buffer
+                          "l" 'list-buffers
+                          "K K" 'desktop-clear)
 
 ;; File Management
 (alex/evil-leader--prefix "f"
-  "f" 'counsel-find-file
-  "d" 'dired
-  "D" 'alex/delete-file-and-buffer
-  "R" 'alex/rename-current-buffer-file
-  "s" 'evil-write
-  "S" 'evil-write-all
-  "y" 'alex/show-buffer-name)
+                          "f" 'counsel-find-file
+                          "d" 'dired
+                          "D" 'alex/delete-file-and-buffer
+                          "R" 'alex/rename-current-buffer-file
+                          "s" 'evil-write
+                          "S" 'evil-write-all
+                          "y" 'alex/show-buffer-name)
 
 ;; Window Management
 (alex/evil-leader--prefix "w"
-  "=" 'balance-windows
-  "c" 'delete-window
-  "C" 'delete-other-windows
-  "h" 'evil-window-left
-  "H" 'evil-window-move-far-left
-  "j" 'evil-window-down
-  "J" 'evil-window-move-very-bottom
-  "k" 'evil-window-up
-  "K" 'evil-window-move-very-top
-  "l" 'evil-window-right
-  "L" 'evil-window-move-far-right
-  "w" 'other-window
-  "s" 'split-window-below
-  "v" 'split-window-right)
+                          "=" 'balance-windows
+                          "c" 'delete-window
+                          "C" 'delete-other-windows
+                          "h" 'evil-window-left
+                          "H" 'evil-window-move-far-left
+                          "j" 'evil-window-down
+                          "J" 'evil-window-move-very-bottom
+                          "k" 'evil-window-up
+                          "K" 'evil-window-move-very-top
+                          "l" 'evil-window-right
+                          "L" 'evil-window-move-far-right
+                          "w" 'other-window
+                          "s" 'split-window-below
+                          "v" 'split-window-right)
 
 ;; Help System
 (alex/evil-leader--prefix "h"
-  "f" 'counsel-describe-function
-  "m" 'describe-mode
-  "v" 'counsel-describe-variable
-  "b" 'describe-bindings
-  "p" 'describe-package
-  "i" 'info
-  "M" 'man)
+                          "f" 'counsel-describe-function
+                          "m" 'describe-mode
+                          "v" 'counsel-describe-variable
+                          "b" 'describe-bindings
+                          "p" 'describe-package
+                          "i" 'info
+                          "M" 'man)
 
 ;; Text Editing
 (alex/evil-leader--prefix "x"
-  "u"   'downcase-region
-  "U"   'upcase-region
-  "a r" 'align-regexp
-  "d w" 'delete-trailing-whitespace
-  "i r" 'indent-region
-  "i b" 'alex/indent-buffer
-  "C" 'alex/toggle-reading-mode)
+                          "u"   'downcase-region
+                          "U"   'upcase-region
+                          "a r" 'align-regexp
+                          "d w" 'delete-trailing-whitespace
+                          "i r" 'indent-region
+                          "i b" 'alex/indent-buffer
+                          "C" 'alex/toggle-reading-mode)
 
 ;; Elisp Editing
 (evil-leader/set-key-for-mode 'emacs-lisp-mode
