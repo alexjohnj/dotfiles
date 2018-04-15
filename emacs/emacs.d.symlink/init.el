@@ -6,7 +6,12 @@
                                (setq gc-cons-threshold 800000)))
 
 ;; Stop Emacs from dumping customise values in init file.
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(let ((custom (expand-file-name "custom.el" user-emacs-directory)))
+  (unless (file-exists-p custom)
+    (with-temp-buffer
+      (write-file custom)))
+  (setq custom-file custom))
+
 (load custom-file)
 
 ;; Setup the load path
