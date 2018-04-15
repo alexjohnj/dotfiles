@@ -9,6 +9,10 @@
   :config (progn
             (setq flycheck-indication-mode 'left-fringe
                   flycheck-display-errors-delay 0.5)
+
+            ;; Disable flycheck elisp documentation checker
+            (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+
             (evil-leader/set-key
               "ec" 'flycheck-buffer
               "en" 'flycheck-next-error
