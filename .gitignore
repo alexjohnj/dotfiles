@@ -109,3 +109,6 @@ tramp
 .cask/
 /emacs/emacs.d.symlink/recentf
 /emacs/emacs.d.symlink/bookmarks
+
+# Server files generated on Windows
+/emacs/emacs.d.symlink/server/
