@@ -94,11 +94,6 @@ mas 'Things 3', id: 904280696
 
 # Fonts
 cask 'font-cabin'
-cask 'font-cardo'
-cask 'font-fira-code'
-cask 'font-fira-mono'
-cask 'font-fira-sans'
 cask 'font-iosevka'
 cask 'font-lato'
-cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
