@@ -1,23 +1,31 @@
+;;; Basic Configuration
+
+;; Increase garbage collection threshold during init to improve performance.
 (setq gc-cons-threshold 64000000)
 (add-hook 'after-init-hook #'(lambda ()
                                (setq gc-cons-threshold 800000)))
 
+;; Stop Emacs from dumping customise values in init file.
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
-(add-to-list 'load-path (expand-file-name "site-packages/" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "package-config/" user-emacs-directory))
 
-;; Frame Configuration
+;; Setup the load path
+(add-to-list 'load-path (expand-file-name "site-packages/" user-emacs-directory)) ; Non-ELPA packages
+(add-to-list 'load-path (expand-file-name "package-config/" user-emacs-directory)) ; Package configuration
+
+;; Configure a default frame size
 (add-to-list 'default-frame-alist '(height . 45))
 (add-to-list 'default-frame-alist '(width . 90))
 
-;;------------------------------------------------------------------------------
-;;                         Package Configuration
-;;------------------------------------------------------------------------------
+
+;;; Package Manager Configuration
 (require 'package)
 
-;; Configure package archives. Bind `proto` to http on windows or if gnutls
-;; isn't available, otherwise use https.
+
+;; Set package sources as MELPA-stable, MELPA, org and GNU. If GnuTLS is
+;; available, use HTTPS versions of these sources. Otherwise, fallback to HTTP
+;; versions. I sometimes run Emacs on Windows, so this check is necessary
+;; otherwise package management will be broken.
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos)) (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
   (setq package-archives `(("melpa-stable" . ,(concat proto "://stable.melpa.org/packages/"))
@@ -25,36 +33,48 @@
                            ("org" . ,(concat proto "://orgmode.org/elpa/"))
                            ("gnu" . ,(concat proto "://elpa.gnu.org/packages/")))))
 
-;; Configure package archive priorities to prefer stable packages.
+;; Prefer stable versions of packages over snapshots. I've had essential tools
+;; like magit break too many times using snapshots.
 (setq package-archive-priorities '(("melpa-stable" . 20)
                                    ("org" . 15)
                                    ("gnu" . 10)
                                    ("melpa" . 5)))
 
+;; Pin use-package to a snapshot build because the last stable version is from
+;; 2016 but I switched to using stable packages in 2018. As a result, much of my
+;; configuration is written for newer versions of use-package.
 (setq package-pinned-packages '((use-package . "melpa")))
 
 (package-initialize)
 
-;; Bootstrap use-package
+;; Bootstrap use-package on new systems. use-package will be used from now on
+;; for package management.
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
 
+
+;;; Emacs Server/Daemon
+
+;; Start a new Emacs server instance if one isn't running.
 (require 'server)
 (unless (server-running-p)
   (server-mode 1))
 
-;; Load evil-mode and swiper/ivy early on
+
+;;; Eager Packages
+
+;; Evil, Swiper/Ivy and which-key are loaded early on in init since so much of
+;; the subsequent configuration relies on them.
 (require 'init-evil-mode)
 (require 'init-swiper)
 (require 'init-which-key)
 
-;;------------------------------------------------------------------------------
-;;                            Editor Settings
-;;------------------------------------------------------------------------------
+
+;;; Editor Settings
 
-;; Indentation
+;; Set the correct indentation level and character.
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (defvaralias 'c-basic-offset 'tab-width)
@@ -62,20 +82,70 @@
 (defvaralias 'css-indent-offset 'tab-width)
 (defvaralias 'js-indent-level 'tab-width)
 
-;; Editing
-(blink-cursor-mode 0)
-(setq-default fill-column 80)
-(setq case-fold-search t)
-(setq require-final-newline t)
+(blink-cursor-mode 0) ; Disable blinking cursor
 
+(global-auto-revert-mode 1)
+(setq-default fill-column 80)
+(setq require-final-newline t) ; Insert newline at end of file when saved.
+(setq-default show-trailing-whitespace t)
+(setq case-fold-search t) ; Makes searches case-insensitive
+(fset 'yes-or-no-p 'y-or-n-p) ; Change yes-no prompts to y-n
+
+;; Hide window accessories
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+
+;; Editing contextual info
+(global-hl-line-mode 1)
+(line-number-mode)
+(column-number-mode)
+
+;; Save backups to a temporary directory instead of the current directory
+(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
+;; Trim tidy whitespace before saving
 (use-package whitespace
   :ensure t
-  :defer t
-  :init (progn
-          (add-hook 'prog-mode-hook (lambda ()
-                                      (setq show-trailing-whitespace t)))
-          (add-hook 'before-save-hook 'whitespace-cleanup)))
+  :hook (before-save . whitespace-cleanup))
 
+;; Highlight matching parentheses
+(use-package paren
+  :init (progn
+          (setq show-paren-delay 0
+                show-paren-style 'parenthesis))
+  :hook (prog-mode . show-paren-mode))
+
+
+;;; Appearance
+
+;; Disable the noisy startup messages
+(setq inhibit-startup-message t)
+(setq inhibit-startup-echo-area-message t)
+
+;; Use my custom font if it's installed.
+(let ((font-name "Iosevka"))
+  (when (member font-name (font-family-list))
+    (if (memq window-system '(mac ns)) ; Font scaling is a bit different between
+                                       ; macOS and other platforms.
+        (set-face-attribute 'default nil :font font-name :height 130)
+      (set-face-attribute 'default nil :font font-name :height 110))))
+
+;; Load theme
+(use-package color-theme-sanityinc-tomorrow
+  :ensure t
+  :config (progn (color-theme-sanityinc-tomorrow-eighties)))
+
+;; Match the fringe colour to the theme's background colour
+(set-face-attribute 'fringe nil
+                    :foreground (face-foreground 'default)
+                    :background (face-background 'default))
+
+
+;;; Editing Functions
+
+;; Wrap and centre the buffer's text to make reading on a widescreen monitor a bit more pleasant.
 (defun alex/toggle-reading-mode ()
   "Centres the current buffer's text according to the 'fill-column' width + a small buffer region."
   (interactive)
@@ -91,25 +161,17 @@
         (setq right-margin-width nil)
         (set-window-margins nil nil nil)))))
 
-;; Backups
-(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+;; Indent the contents of the current buffer.
+(defun alex/indent-buffer ()
+  "Indent the current buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
 
-(use-package paren
-  :ensure t
-  :init (progn
-          (setq show-paren-delay 0
-                show-paren-style 'parenthesis)
-          (add-hook 'prog-mode-hook 'show-paren-mode)))
+
+;;; Buffer Management
 
-(use-package doc-view
-  :ensure t
-  :init (progn
-          (add-hook 'doc-view-mode-hook 'auto-revert-mode)))
-
-;; ------------------------------------------------------------------------------
-;;                             Custom Functions
-;; ------------------------------------------------------------------------------
+;; Here I've defined some custom functions for buffer management. I ripped them
+;; from Spacemacs a few years ago. They're bound in the "Keybindings" section.
 
 (defun alex/delete-file-and-buffer ()
   "Remove the file connected to the current buffer and kill the buffer (from Spacemacs)."
@@ -152,55 +214,89 @@
         (message filename)
       (error "Buffer not visiting a file"))))
 
-(defun alex/indent-buffer ()
-  "Indent the current buffer."
-  (interactive)
-  (indent-region (point-min) (point-max)))
+
+;;; Basic Keybindings
 
-;; ------------------------------------------------------------------------------
-;;                             Keybindings
-;; ------------------------------------------------------------------------------
+;; I define keybindings for general editor functionality in this section. Mode
+;; specific keybindings are defined in their use-package configurations. I use
+;; evil-leader extensively with different categories of keybindings prefixed by
+;; a common key.
 
-;; General/Random Keybindings
+;; Little helper to avoid repeating the prefix for definitions.
+(defun alex/evil-leader--prefix (prefix key def &rest bindings)
+  "Define evil-leader keys under PREFIX. So the shortcut becomes LEADER PREFIX KEY to execute DEF."
+  (while key
+    (evil-leader/set-key (concat prefix key) def)
+    (setq key (pop bindings)
+          def (pop bindings))))
+
+;; General bindings. These don't have a common prefix.
 (evil-leader/set-key
   "~" 'ansi-term
   "`" 'mu4e)
 
-;; Buffer Management Key Bindings
-(evil-leader/set-key
-  "b b" 'switch-to-buffer
-  "b d" 'kill-this-buffer
-  "b k" 'kill-buffer
-  "b l" 'list-buffers
-  "b K K" 'desktop-clear)
+;; Buffer Management.
+(alex/evil-leader--prefix "b"
+  "b" 'switch-to-buffer
+  "d" 'kill-this-buffer
+  "k" 'kill-buffer
+  "l" 'list-buffers
+  "K K" 'desktop-clear)
 
-;; File Management Key Bindings
-(evil-leader/set-key
-  "f f" 'counsel-find-file
-  "f d" 'dired
-  "f D" 'alex/delete-file-and-buffer
-  "f R" 'alex/rename-current-buffer-file
-  "f s" 'evil-write
-  "f S" 'evil-write-all
-  "f y" 'alex/show-buffer-name)
+;; File Management
+(alex/evil-leader--prefix "f"
+  "f" 'counsel-find-file
+  "d" 'dired
+  "D" 'alex/delete-file-and-buffer
+  "R" 'alex/rename-current-buffer-file
+  "s" 'evil-write
+  "S" 'evil-write-all
+  "y" 'alex/show-buffer-name)
 
-;; Window Management Key Bindings
-(evil-leader/set-key
-  "w =" 'balance-windows
-  "w c" 'delete-window
-  "w C" 'delete-other-windows
-  "w h" 'evil-window-left
-  "w H" 'evil-window-move-far-left
-  "w j" 'evil-window-down
-  "w J" 'evil-window-move-very-bottom
-  "w k" 'evil-window-up
-  "w K" 'evil-window-move-very-top
-  "w l" 'evil-window-right
-  "w L" 'evil-window-move-far-right
-  "w w" 'other-window
-  "w s" 'split-window-below
-  "w v" 'split-window-right)
+;; Window Management
+(alex/evil-leader--prefix "w"
+  "=" 'balance-windows
+  "c" 'delete-window
+  "C" 'delete-other-windows
+  "h" 'evil-window-left
+  "H" 'evil-window-move-far-left
+  "j" 'evil-window-down
+  "J" 'evil-window-move-very-bottom
+  "k" 'evil-window-up
+  "K" 'evil-window-move-very-top
+  "l" 'evil-window-right
+  "L" 'evil-window-move-far-right
+  "w" 'other-window
+  "s" 'split-window-below
+  "v" 'split-window-right)
 
+;; Help System
+(alex/evil-leader--prefix "h"
+  "f" 'counsel-describe-function
+  "m" 'describe-mode
+  "v" 'counsel-describe-variable
+  "b" 'describe-bindings
+  "p" 'describe-package
+  "i" 'info
+  "M" 'man)
+
+;; Text Editing
+(alex/evil-leader--prefix "x"
+  "u"   'downcase-region
+  "U"   'upcase-region
+  "a r" 'align-regexp
+  "d w" 'delete-trailing-whitespace
+  "i r" 'indent-region
+  "i b" 'alex/indent-buffer
+  "C" 'alex/toggle-reading-mode)
+
+;; Elisp Editing
+(evil-leader/set-key-for-mode 'emacs-lisp-mode
+  "m e b" 'eval-buffer
+  "m e r" 'eval-region
+  "m e e" 'eval-last-sexp)
+
+;; Set up which-key hints for leader prefixes.
 (which-key-add-key-based-replacements
   "SPC w" "Windows"
   "SPC f" "Files"
@@ -209,36 +305,9 @@
   "SPC b" "Buffer"
   "SPC h" "Help")
 
-;; Help Keybindings
-(evil-leader/set-key
-  "h f" 'counsel-describe-function
-  "h m" 'describe-mode
-  "h v" 'counsel-describe-variable
-  "h b" 'describe-bindings
-  "h p" 'describe-package
-  "h i" 'info
-  "h M" 'man)
-
-;; Text Editing Keybindings
-(evil-leader/set-key
-  "x u"   'downcase-region
-  "x U"   'upcase-region
-  "x a r" 'align-regexp
-  "x d w" 'delete-trailing-whitespace
-  "x i r" 'indent-region
-  "x i b" 'alex/indent-buffer
-  "x C" 'alex/toggle-reading-mode)
-
-;; Elisp Editing Bindings
-(evil-leader/set-key-for-mode 'emacs-lisp-mode
-  "m e b" 'eval-buffer
-  "m e r" 'eval-region
-  "m e e" 'eval-last-sexp)
-
-;; In emacs-mac-port, make the ALT key META and the CMD key
-;; SUPER. Also free up the right ALT key for inputting special
-;; symbols. Oh, and add a couple of default OS X key bindings to the
-;; super key.
+;; In emacs-mac-port, make the ALT key META and the CMD key SUPER. Also free up
+;; the right ALT key for inputting special symbols. Oh, and add a couple of
+;; default OS X key bindings to the super key.
 (when (eq system-type 'darwin)
   (setq mac-option-modifier 'meta)
   (setq mac-right-option-modifier nil)
@@ -253,39 +322,8 @@
   (global-set-key [(super q)] nil)
   (global-set-key [(super ctrl f)] 'toggle-frame-fullscreen))
 
-;; Appearance
-(setq inhibit-startup-message t)
-(setq inhibit-startup-echo-area-message t)
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(tool-bar-mode 0)
-(when (display-graphic-p)
-  (menu-bar-mode 0)
-  (scroll-bar-mode 0))
-
-(let ((font-name "Iosevka"))
-  (when (member font-name (font-family-list))
-    (if (memq window-system '(mac ns))
-        (set-face-attribute 'default nil :font font-name :height 130)
-      (set-face-attribute 'default nil :font font-name :height 110))))
-
-(use-package color-theme-sanityinc-tomorrow
-  :ensure t
-  :config (progn (color-theme-sanityinc-tomorrow-eighties)))
-
-;; Match fringe colour to background colour
-(set-face-attribute 'fringe nil
-                    :foreground (face-foreground 'default)
-                    :background (face-background 'default))
-
-(global-hl-line-mode 1)
-(line-number-mode)
-(column-number-mode)
-
-;;------------------------------------------------------------------------------
-;;                  Load Packages that need configuring
-;;                  (i.e., everything in use-packages/)
-;;------------------------------------------------------------------------------
+
+;;; Core Packages
 
 (require 'init-exec-path-from-shell)
 (require 'init-paredit)
@@ -297,8 +335,13 @@
 (require 'init-paradox)
 (require 'init-ag)
 
-(require 'init-calendar)
-(require 'init-org)
+(use-package epa
+  :ensure t
+  :config (progn
+            (setq epg-gpg-program "gpg2"))) ; Use gpg2 for Yubikey 4 compatibility
+
+
+;;; Language Packages
 
 (require 'init-ledger-mode)
 (require 'init-beancount-mode)
@@ -309,13 +352,21 @@
 (require 'init-latex)
 (require 'init-swift)
 
+(use-package yaml-mode
+  :ensure t
+  :mode ("\\.yaml\\'" . yaml-mode))
+
+(use-package fish-mode
+  :ensure t
+  :mode ("\\.fish\\'" . fish-mode))
+
+
+;;; Org Packages
+
+(require 'init-calendar)
+(require 'init-org)
+
+
+;;; Email
+
 (require 'init-mu4e)
-
-;;------------------------------------------------------------------------------
-;;           Load packages that don't need tonnes of configuration
-;;------------------------------------------------------------------------------
-
-;; Use gpg2 for compatibility with Yubikey 4
-(use-package epa :ensure t :config (progn (setq epg-gpg-program "gpg2")))
-(use-package yaml-mode :ensure t)
-(use-package fish-mode :ensure t :mode ("\\.fish\\'" . fish-mode))
