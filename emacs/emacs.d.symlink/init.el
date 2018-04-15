@@ -117,6 +117,11 @@
                 show-paren-style 'parenthesis))
   :hook (prog-mode . show-paren-mode))
 
+;; Pretty print line-feed characters. I think the only place I use line-feeds is in this file!
+(use-package page-break-lines
+  :ensure t
+  :hook (emacs-lisp-mode . page-break-lines-mode))
+
 
 ;;; Appearance
 
