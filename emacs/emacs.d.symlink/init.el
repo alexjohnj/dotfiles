@@ -78,9 +78,26 @@
             (add-to-list 'exec-path-from-shell-variables "SSH_AGENT_PID")
             (exec-path-from-shell-initialize)))
 
+;; Load evil and associated packages. Note evil-leader must be loaded BEFORE
+;; evil.
+(use-package evil-leader
+  :config (progn
+            (evil-leader/set-leader "<SPC>")
+            (global-evil-leader-mode)))
+
+(use-package evil
+  :after evil-leader
+  :diminish undo-tree-mode
+  :config (progn (evil-mode 1)))
+
+(use-package evil-commentary
+  :after evil
+  :diminish evil-commentary-mode
+  :bind (("S-/" . evil-commentary))
+  :init (progn (evil-commentary-mode)))
+
 ;; Evil, Swiper/Ivy and which-key are loaded early on in init since so much of
 ;; the subsequent configuration relies on them.
-(require 'init-evil-mode)
 (require 'init-swiper)
 (require 'init-which-key)
 
