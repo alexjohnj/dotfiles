@@ -116,6 +116,8 @@
               (define-key ivy-minibuffer-map (kbd "<C-M-return>") 'ivy-immediate-done)
               (define-key ivy-minibuffer-map (kbd "C-j") 'ivy-next-line)
               (define-key ivy-minibuffer-map (kbd "C-k") 'ivy-previous-line)
+              (define-key ivy-minibuffer-map (kbd "C-f") 'ivy-scroll-up-command)
+              (define-key ivy-minibuffer-map (kbd "C-b") 'ivy-scroll-down-command)
               (define-key ivy-minibuffer-map [escape] (kbd "C-g")))
             (ivy-mode)))
 
