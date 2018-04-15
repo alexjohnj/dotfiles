@@ -21,7 +21,6 @@
 ;;; Package Manager Configuration
 (require 'package)
 
-
 ;; Set package sources as MELPA-stable, MELPA, org and GNU. If GnuTLS is
 ;; available, use HTTPS versions of these sources. Otherwise, fallback to HTTP
 ;; versions. I sometimes run Emacs on Windows, so this check is necessary
@@ -63,7 +62,19 @@
   (server-mode 1))
 
 
-;;; Eager Packages
+;;; Core Packages
+
+;; I've set up the configuration for core packages early in init because they're used so much later on.
+
+;; Ensure the system PATH is picked up properly by Emacs
+(use-package exec-path-from-shell
+  :ensure t
+  :unless (memq system-type '(windows-nt ms-dos))
+  :config (progn
+            (add-to-list 'exec-path-from-shell-variables "GPG_AGENT_INFO")
+            (add-to-list 'exec-path-from-shell-variables "SSH_AUTH_SOCK")
+            (add-to-list 'exec-path-from-shell-variables "SSH_AGENT_PID")
+            (exec-path-from-shell-initialize)))
 
 ;; Evil, Swiper/Ivy and which-key are loaded early on in init since so much of
 ;; the subsequent configuration relies on them.
@@ -330,7 +341,6 @@
 
 ;;; Core Packages
 
-(require 'init-exec-path-from-shell)
 (require 'init-paredit)
 (require 'init-projectile)
 (require 'init-flycheck)
