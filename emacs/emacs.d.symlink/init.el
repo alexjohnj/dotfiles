@@ -105,6 +105,14 @@
   :bind (("S-/" . evil-commentary))
   :init (progn (evil-commentary-mode)))
 
+(use-package evil-escape
+  :ensure t
+  :after evil
+  :init (evil-escape-mode)
+  :config (progn
+            (setq-default evil-escape-key-sequence "fd"
+                          evil-escape-delay 0.1)))
+
 (use-package swiper
   :diminish ivy-mode
   :config (progn
