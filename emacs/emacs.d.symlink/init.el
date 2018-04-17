@@ -157,9 +157,11 @@
 (global-auto-revert-mode 1)
 (setq-default fill-column 80)
 (setq require-final-newline t) ; Insert newline at end of file when saved.
-(setq-default show-trailing-whitespace t)
 (setq case-fold-search t) ; Makes searches case-insensitive
 (fset 'yes-or-no-p 'y-or-n-p) ; Change yes-no prompts to y-n
+
+(add-hook 'prog-mode-hook
+          '(lambda () (setq-default show-trailing-whitespace t)))
 
 ;; Hide window accessories
 (tool-bar-mode 0)
@@ -208,9 +210,9 @@
       (set-face-attribute 'default nil :font font-name :height 110))))
 
 ;; Load theme
-(use-package color-theme-sanityinc-tomorrow
+(use-package zerodark-theme
   :ensure t
-  :config (progn (color-theme-sanityinc-tomorrow-eighties)))
+  :config (load-theme 'zerodark t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
