@@ -358,6 +358,13 @@
                           "i" 'info
                           "M" 'man)
 
+(alex/evil-leader--prefix "h a"
+                          "a" 'apropos
+                          "c" 'apropos-command
+                          "d" 'apropos-documentation
+                          "v" 'apropos-variable
+                          "o" 'apropos-user-option)
+
 ;; Text Editing
 (alex/evil-leader--prefix "x"
                           "u"   'downcase-region
