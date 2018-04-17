@@ -162,9 +162,10 @@
 (fset 'yes-or-no-p 'y-or-n-p) ; Change yes-no prompts to y-n
 
 ;; Hide window accessories
-(tool-bar-mode 0)
-(menu-bar-mode 0)
-(scroll-bar-mode 0)
+(when (display-graphic-p)
+  (tool-bar-mode 0)
+  (menu-bar-mode 0)
+  (scroll-bar-mode 0))
 
 ;; Editing contextual info
 (global-hl-line-mode 1)
