@@ -444,6 +444,11 @@
   :ensure t
   :mode ("\\.fish\\'" . fish-mode))
 
+;; For the rare time I have to view PHP code
+(use-package php-mode
+  :ensure t
+  :mode ("\\.php\\'" . php-mode))
+
 
 ;;; Org Packages
 
