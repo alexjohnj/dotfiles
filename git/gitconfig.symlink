@@ -3,9 +3,11 @@
 [user]
   name = Alex Jackson
   email = alex@alexj.org
-	signingkey = 2DD08BF1
+  signingkey = 2DD08BF1
 [push]
   default = simple
+[pull]
+  ff = only
 [credential]
   helper = osxkeychain
 [filter "lfs"]
