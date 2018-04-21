@@ -161,7 +161,7 @@
 (fset 'yes-or-no-p 'y-or-n-p) ; Change yes-no prompts to y-n
 
 (add-hook 'prog-mode-hook
-          '(lambda () (setq-default show-trailing-whitespace t)))
+          '(lambda () (setq show-trailing-whitespace t)))
 
 ;; Hide window accessories
 (when (display-graphic-p)
