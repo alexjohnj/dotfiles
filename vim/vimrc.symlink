@@ -22,6 +22,22 @@ let mapleader = " "
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+"" Window Management (set to match Emacs)
+nnoremap <Leader>ws :split<cr>
+nnoremap <Leader>wv :vsplit<cr>
+nnoremap <Leader>wc :close<cr>
+nnoremap <Leader>wC :only<cr>
+nnoremap <Leader>wj :wincmd j<cr>
+nnoremap <Leader>wh :wincmd h<cr>
+nnoremap <Leader>wl :wincmd l<cr>
+nnoremap <Leader>wk :wincmd k<cr>
+nnoremap <Leader>wJ <C-W>J
+nnoremap <Leader>wK <C-W>K
+nnoremap <Leader>wH <C-W>H
+nnoremap <Leader>wL <C-W>L
+nnoremap <Leader>w= <C-W>=
+nnoremap <Leader>ww <C-W>w
+
 "" Other stuff
 set shell=/bin/bash " Needed for the majority of plugins to work with fish-shell
 set autoread " Autoreloads unedited files if they're edited elsewhere
