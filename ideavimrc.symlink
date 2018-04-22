@@ -1,0 +1,24 @@
+"" Leader Key
+let mapleader = " "
+
+"" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+"" Window Management (set to match Emacs)
+nnoremap <Leader>ws :split<cr>
+nnoremap <Leader>wv :vsplit<cr>
+nnoremap <Leader>wc <C-w>c
+nnoremap <Leader>wC :only<cr>
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wJ <C-W>J
+nnoremap <Leader>wK <C-W>K
+nnoremap <Leader>wH <C-W>H
+nnoremap <Leader>wL <C-W>L
+nnoremap <Leader>w= <C-W>=
+nnoremap <Leader>ww <C-W>w
