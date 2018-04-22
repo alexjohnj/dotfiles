@@ -6,6 +6,8 @@
   signingkey = 2DD08BF1
 [push]
   default = simple
+[merge]
+  ff = only
 [pull]
   ff = only
 [credential]
