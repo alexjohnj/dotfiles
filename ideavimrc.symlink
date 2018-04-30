@@ -7,6 +7,9 @@ set incsearch
 set ignorecase
 set smartcase
 
+"" Escape
+inoremap fd <Esc>
+
 "" Window Management (set to match Emacs)
 nnoremap <Leader>ws :split<cr>
 nnoremap <Leader>wv :vsplit<cr>

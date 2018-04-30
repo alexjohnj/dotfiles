@@ -3,6 +3,7 @@ syntax on
 set encoding=utf-8
 set showcmd
 filetype plugin indent on
+inoremap fd <Esc>
 
 "" Whitespace Configuration
 set wrap
