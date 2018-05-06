@@ -18,6 +18,9 @@ abbr bex "bundle exec"
 # Copy files with progress information
 alias cpv "rsync -avP"
 
+# Mirror two directories
+alias rmirror "rsync -ah --delete --progress"
+
 # MATLAB Aliases
 alias matlab "matlab -nodesktop"
 
