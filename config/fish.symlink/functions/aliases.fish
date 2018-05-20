@@ -40,3 +40,6 @@ abbr ledger "ledger --strict"
 abbr beet-flac2alac "beet convert -k -f alac -d . format:FLAC"
 alias bean-bal-halifax "bean-report $BEANCOUNT_FILE bal -e Assets:Halifax"
 alias bean-bal-assets "bean-report $BEANCOUNT_FILE bal -e Assets:"
+
+# Aliases for macOS diskutil
+abbr dut "diskutil"
