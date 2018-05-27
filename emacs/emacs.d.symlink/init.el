@@ -195,6 +195,11 @@
   :ensure t
   :hook (emacs-lisp-mode . page-break-lines-mode))
 
+;; Unfill text
+(use-package unfill
+  :ensure t
+  :bind (("C-M-q" . unfill-paragraph)))
+
 
 ;;; Appearance
 
