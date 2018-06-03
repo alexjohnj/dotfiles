@@ -13,6 +13,7 @@ brew 'go'
 brew 'mas'
 
 brew 'ag'
+brew 'cloc'
 brew 'coreutils'
 brew 'fish'
 brew 'htop'
@@ -63,10 +64,10 @@ cask 'db-browser-for-sqlite'
 cask 'dropbox'
 cask 'emacs'
 cask 'firefox'
-cask 'flux'
 cask 'google-chrome'
 cask 'handbrake'
 cask 'hex-fiend'
+cask 'iina'
 cask 'keka'
 cask 'mysqlworkbench'
 cask 'qlstephen'
@@ -79,8 +80,6 @@ cask 'superduper'
 cask 'transmission'
 cask 'transmit'
 cask 'viscosity'
-cask 'vlc'
-cask 'vmware-fusion'
 
 mas '1Blocker', id: 1107421413
 mas '1Password', id: 443987910
@@ -88,7 +87,6 @@ mas 'Amphetamine', id: 937984704
 mas 'Deliveries', id: 924726344
 mas 'Marked', id: 890031187
 mas 'PDF Expert', id: 1055273043
-mas 'Reeder', id: 880001334
 mas 'Slack', id: 803453959
 mas 'Things 3', id: 904280696
 
