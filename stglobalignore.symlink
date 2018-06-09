@@ -19,6 +19,7 @@
 (?d) ehthumbs.db
 (?d) Thumbs.db
 
-(?d) node_modules
-
+// dev directories
+(?d) Carthage
 (?d) Pods
+(?d) node_modules
