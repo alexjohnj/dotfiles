@@ -20,7 +20,7 @@ set -gx XZ_OPT "--threads=0"
 set -l path_components \
 $HOME/bin \
 $HOME/.local/bin \
-$HOME/Library/Python/3.6/bin \
+$HOME/Library/Python/3.7/bin \
 $HOME/Library/Python/2.7/bin \
 $GEM_HOME/bin \
 $GOPATH/bin \
