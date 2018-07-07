@@ -9,17 +9,17 @@
 .#*
 
 // OS-generated files (OS X)
-(?d) .DS_Store
-(?d) .localized
-(?d) .Spotlight-V100
-(?d) .Trashes
+(?i)(?d) .DS_Store
+(?i)(?d) .localized
+(?i)(?d) .Spotlight-V100
+(?i)(?d) .Trashes
 
 // OS-generated files (Windows)
-(?d) desktop.ini
-(?d) ehthumbs.db
-(?d) Thumbs.db
+(?i)(?d) desktop.ini
+(?i)(?d) ehthumbs.db
+(?i)(?d) Thumbs.db
 
 // dev directories
-(?d) Carthage
-(?d) Pods
-(?d) node_modules
+(?i)(?d) Carthage
+(?i)(?d) Pods
+(?i)(?d) node_modules
