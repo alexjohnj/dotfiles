@@ -428,6 +428,7 @@
 (require 'init-flyspell)
 (require 'init-paradox)
 (require 'init-ag)
+(require 'init-deft)
 
 (use-package epa
   :ensure t
