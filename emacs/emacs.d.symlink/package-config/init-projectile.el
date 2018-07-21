@@ -1,9 +1,10 @@
 (use-package projectile
   :ensure t
   :diminish projectile-mode
-  :commands (projectile-switch-project projectile-project-p)
+  :commands (projectile-switch-project projectile-project-p projectile-find-file)
   :init (progn
           (evil-leader/set-key
+            "pf" 'projectile-find-file
             "pp" 'projectile-switch-project
             "p-" 'alex/projectile-remove-known-project)
           (which-key-add-key-based-replacements "SPC p" "Project"))
@@ -14,7 +15,6 @@
               "pb" 'projectile-switch-to-buffer
               "pq" 'projectile-switch-open-project
               "pd" 'projectile-find-dir
-              "pf" 'projectile-find-file
               "pk" 'projectile-kill-buffers
               "pD" 'projectile-dired
               "pr" 'projectile-replace
