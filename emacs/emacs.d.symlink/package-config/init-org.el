@@ -24,6 +24,7 @@
               "m n i" 'org-tree-to-indirect-buffer)))
 
 (use-package evil-org
+  :pin melpa
   :after org
   :ensure t)
 
