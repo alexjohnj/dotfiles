@@ -11,7 +11,10 @@
             "g C" 'magit-commit
             "g l" 'magit-log-all
             "g L" 'magit-log-buffer-file)
-          (which-key-add-key-based-replacements "SPC g" "Magit")))
+          (which-key-add-key-based-replacements "SPC g" "Magit"))
+  :config (progn
+            (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
+            ))
 
 (use-package evil-magit
   :ensure t
