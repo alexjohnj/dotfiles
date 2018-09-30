@@ -429,6 +429,7 @@
 (require 'init-paradox)
 (require 'init-ag)
 (require 'init-deft)
+(require 'init-ediff)
 
 (use-package epa
   :ensure t
