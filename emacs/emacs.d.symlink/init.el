@@ -439,6 +439,7 @@
 
 ;;; Language Packages
 
+(require 'init-lsp)
 (require 'init-ledger-mode)
 (require 'init-beancount-mode)
 (require 'init-markdown-mode)

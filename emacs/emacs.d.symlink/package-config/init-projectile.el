@@ -10,7 +10,8 @@
           (which-key-add-key-based-replacements "SPC p" "Project"))
   :config (progn
             (setq projectile-switch-project-action 'projectile-dired
-                  projectile-enable-caching t)
+                  projectile-enable-caching t
+                  projectile-require-project-root nil)
             (evil-leader/set-key
               "pb" 'projectile-switch-to-buffer
               "pq" 'projectile-switch-open-project
