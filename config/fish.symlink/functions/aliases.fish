@@ -43,3 +43,5 @@ alias bean-bal-assets "bean-report $BEANCOUNT_FILE bal -e Assets:"
 
 # Aliases for macOS diskutil
 abbr dut "diskutil"
+
+abbr simctl "xcrun simctl"
