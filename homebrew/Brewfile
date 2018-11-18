@@ -15,12 +15,12 @@ brew 'mas'
 brew 'ag'
 brew 'cloc'
 brew 'coreutils'
+brew 'fd'
 brew 'fish'
 brew 'htop'
 brew 'hugo'
 brew 'nmap'
 brew 'pigz'
-brew 'pxz'
 brew 'reattach-to-user-namespace'
 brew 'tmux'
 brew 'trash'
@@ -32,12 +32,10 @@ brew 'carthage'
 brew 'git'
 brew 'node'
 brew 'vim'
-brew 'mysql'
 
 # Security
 brew 'gnupg'
 brew 'gnupg2'
-brew 'gpg-agent'
 brew 'pinentry-mac'
 
 # Other Tools
@@ -55,7 +53,6 @@ brew 'scipy', args: ['with-python3']
 # macOS Software
 cask 'anki'
 cask 'appcleaner'
-cask 'appcode'
 cask 'arq'
 cask 'calibre'
 cask 'daisydisk'
@@ -64,12 +61,11 @@ cask 'db-browser-for-sqlite'
 cask 'dropbox'
 cask 'emacs'
 cask 'firefox'
-cask 'google-chrome'
 cask 'handbrake'
 cask 'hex-fiend'
 cask 'iina'
+cask 'istat-menus'
 cask 'keka'
-cask 'mysqlworkbench'
 cask 'provisionql'
 cask 'qlstephen'
 cask 'sketch'
@@ -83,7 +79,7 @@ cask 'transmit'
 cask 'viscosity'
 
 mas '1Blocker', id: 1107421413
-mas '1Password', id: 443987910
+mas '1Password 7', id: 1333542190
 mas 'Amphetamine', id: 937984704
 mas 'Deliveries', id: 924726344
 mas 'Marked', id: 890031187
