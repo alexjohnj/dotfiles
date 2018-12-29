@@ -212,6 +212,15 @@
 (setq inhibit-startup-message t)
 (setq inhibit-startup-echo-area-message t)
 
+;; Flash the mode line instead of playing the bell sound.
+(setq ring-bell-function
+      (lambda ()
+        (let ((orig-fg (face-foreground 'mode-line)))
+          (set-face-foreground 'mode-line "#F2804F")
+          (run-with-idle-timer 0.1 nil
+                               (lambda (fg) (set-face-foreground 'mode-line fg))
+                               orig-fg))))
+
 ;; Use my custom font if it's installed.
 (let ((font-name "Iosevka"))
   (when (member font-name (font-family-list))
