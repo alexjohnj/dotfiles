@@ -11,7 +11,7 @@ import:
   autotag: yes
   timid: no
 
-plugins: fetchart embedart lyrics convert
+plugins: fetchart embedart lyrics convert lastgenre
 
 fetchart:
   auto: yes
@@ -25,3 +25,6 @@ lyrics:
 
 convert:
   auto: no
+
+lastgenre:
+  force: no
