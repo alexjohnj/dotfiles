@@ -9,7 +9,7 @@
             "p-" 'alex/projectile-remove-known-project)
           (which-key-add-key-based-replacements "SPC p" "Project"))
   :config (progn
-            (setq projectile-switch-project-action 'projectile-dired
+            (setq projectile-switch-project-action 'magit-status
                   projectile-enable-caching t
                   projectile-require-project-root nil)
             (evil-leader/set-key
@@ -23,7 +23,7 @@
               "pss" 'projectile-ag
               "pS" 'projectile-save-project-buffers
               "p c" 'projectile-compile-project)
-            (projectile-global-mode)))
+            (projectile-mode)))
 
 (defun alex/projectile-remove-known-project ()
   "Removes the current project if you're in one, otherwise prompts for a project to remove."
