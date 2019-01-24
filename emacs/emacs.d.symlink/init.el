@@ -354,7 +354,6 @@
 (alex/evil-leader--prefix "w"
                           "=" 'balance-windows
                           "c" 'delete-window
-                          "C" 'delete-other-windows
                           "h" 'evil-window-left
                           "H" 'evil-window-move-far-left
                           "j" 'evil-window-down
@@ -363,9 +362,16 @@
                           "K" 'evil-window-move-very-top
                           "l" 'evil-window-right
                           "L" 'evil-window-move-far-right
-                          "w" 'other-window
                           "s" 'split-window-below
                           "v" 'split-window-right)
+
+(use-package ace-window
+  :ensure t
+  :commands ace-window
+  :init (alex/evil-leader--prefix "w"
+                                  "w" 'ace-window
+                                  "C" 'ace-delete-window
+                                  "S" 'ace-swap-window))
 
 ;; Help System
 (alex/evil-leader--prefix "h"
