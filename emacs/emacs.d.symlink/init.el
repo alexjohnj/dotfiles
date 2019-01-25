@@ -464,6 +464,11 @@
 (require 'init-latex)
 (require 'init-swift)
 
+(use-package json-mode
+  :ensure t
+  :pin melpa
+  :mode ("\\.json\\'" . json-mode))
+
 (use-package yaml-mode
   :ensure t
   :mode ("\\.yaml\\'" . yaml-mode))
