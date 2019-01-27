@@ -14,6 +14,7 @@ end
 abbr rm " rm"
 
 abbr bex "bundle exec"
+abbr gem-nuke "gem uninstall -aIx" # Uninstalls all gems
 
 # Copy files with progress information
 alias cpv "rsync -avP"
