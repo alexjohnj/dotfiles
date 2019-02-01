@@ -253,10 +253,9 @@
         (set-face-attribute 'default nil :font font-name :height 130)
       (set-face-attribute 'default nil :font font-name :height 110))))
 
-;; Load theme
-(use-package zerodark-theme
+(use-package zenburn-theme
   :ensure t
-  :config (load-theme 'zerodark t))
+  :config (load-theme 'zenburn t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
