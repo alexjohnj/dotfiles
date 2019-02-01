@@ -214,6 +214,11 @@
   :ensure t
   :bind (("C-M-q" . unfill-paragraph)))
 
+;; Aggressively indent code in certain modes
+(use-package aggressive-indent
+  :ensure t
+  :hook (emacs-lisp-mode . aggressive-indent-mode))
+
 
 ;;; Appearance
 
