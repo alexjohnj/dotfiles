@@ -262,6 +262,9 @@
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
+;; Keep the modeline neat and tidy
+(require 'diminish)
+
 
 ;;; Editing Functions
 
