@@ -20,9 +20,4 @@
   :ensure t
   :after (magit))
 
-(use-package magit-todos
-  :ensure t
-  :after (magit)
-  :hook (magit-mode . magit-todos-mode))
-
 (provide 'init-magit)
