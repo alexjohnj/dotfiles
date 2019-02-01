@@ -380,6 +380,7 @@
 (alex/evil-leader--prefix "w"
                           "=" 'balance-windows
                           "c" 'delete-window
+                          "C" 'delete-other-windows
                           "h" 'evil-window-left
                           "H" 'evil-window-move-far-left
                           "j" 'evil-window-down
@@ -396,7 +397,7 @@
   :commands ace-window
   :init (alex/evil-leader--prefix "w"
                                   "w" 'ace-window
-                                  "C" 'ace-delete-window
+                                  "d" 'ace-delete-window
                                   "S" 'ace-swap-window))
 
 ;; Help System
