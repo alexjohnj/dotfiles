@@ -118,6 +118,7 @@
   :ensure t
   :after evil
   :init (evil-escape-mode)
+  :diminish evil-escape-mode
   :config (progn
             (setq-default evil-escape-key-sequence "fd"
                           evil-escape-delay 0.1)))
