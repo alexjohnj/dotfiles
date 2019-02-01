@@ -172,11 +172,19 @@
 (add-hook 'prog-mode-hook
           '(lambda () (setq show-trailing-whitespace t)))
 
+;; Enable emoji, and stop the UI from freezing when trying to display them on a Mac.
+(when (and (eq system-type 'darwin)
+           (fboundp 'set-fontset-font))
+  (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend))
+
 ;; Hide window accessories
 (when (display-graphic-p)
   (tool-bar-mode 0)
-  (menu-bar-mode 0)
-  (scroll-bar-mode 0))
+  (scroll-bar-mode 0)
+  ;; Hide the menu bar on everything except macOS.
+  (if (eq system-type 'darwin)
+      (menu-bar-mode +1)
+    (menu-bar-mode 0)))
 
 (when (and (eq system-type 'darwin)
            (version<= "26.1" emacs-version))
@@ -204,7 +212,8 @@
                 show-paren-style 'parenthesis))
   :hook (prog-mode . show-paren-mode))
 
-;; Pretty print line-feed characters. I think the only place I use line-feeds is in this file!
+;; Pretty print line-feed characters. I think the only place I use line-feeds is
+;; in this file!
 (use-package page-break-lines
   :ensure t
   :hook (emacs-lisp-mode . page-break-lines-mode))
