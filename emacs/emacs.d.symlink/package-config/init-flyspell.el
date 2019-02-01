@@ -4,11 +4,14 @@
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode))
   :init (progn
-          (setq ispell-program-name "aspell"
-                ispell-dictionary "en_GB")
-          (evil-leader/set-key
-            "S t" 'flyspell-mode
-            "S s" 'ispell-buffer
-            "S S" 'flyspell-buffer)
-          (which-key-add-key-based-replacements "SPC S" "Spelling")))
+          (which-key-add-key-based-replacements "SPC S" "Spelling"))
+  :config (progn
+            (setq ispell-program-name "aspell"
+                  ispell-dictionary "en_GB"
+                  ispell-extra-args '("--sug-mode=ultra"))
+            (evil-leader/set-key
+              "S t" 'flyspell-mode
+              "S s" 'ispell-buffer
+              "S S" 'flyspell-buffer)))
+
 (provide 'init-flyspell)
