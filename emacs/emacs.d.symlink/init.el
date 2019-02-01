@@ -1,10 +1,19 @@
 ;;; Basic Configuration
 
+;; The following performance tweaks are taken from Doom Emacs.
 ;; Increase garbage collection threshold during init to improve performance.
-(setq gc-cons-threshold 64000000)
-(add-hook 'after-init-hook #'(lambda ()
-                               (setq gc-cons-threshold 800000)))
+(setq gc-cons-threshold 402653184
+      gc-cons-percentage 0.6)
 
+;; Temporarily disable the file handler list during startup for improved performance.
+(defvar alex--file-name-handler-alist file-name-handler-alist)
+(setq file-name-handler-alist nil)
+
+;; Restore default settings after Emacs has started up.
+(add-hook 'emacs-startup-hook '(lambda ()
+                                 (setq gc-cons-threshold 16777216
+                                       gc-cons-percentage 0.1
+                                       file-name-handler-alist alex--file-name-handler-alist)))
 ;; Stop Emacs from dumping customise values in init file.
 (let ((custom (expand-file-name "custom.el" user-emacs-directory)))
   (unless (file-exists-p custom)
