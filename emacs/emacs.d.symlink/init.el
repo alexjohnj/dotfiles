@@ -96,6 +96,11 @@
             (add-to-list 'exec-path-from-shell-variables "SSH_AGENT_PID")
             (exec-path-from-shell-initialize)))
 
+;; Keep the modeline neat and tidy
+(use-package diminish
+  :ensure t
+  :commands diminish)
+
 ;; Load evil and associated packages. Note evil-leader must be loaded BEFORE
 ;; evil.
 (use-package evil-leader
@@ -261,9 +266,6 @@
 (set-face-attribute 'fringe nil
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
-
-;; Keep the modeline neat and tidy
-(require 'diminish)
 
 
 ;;; Editing Functions
