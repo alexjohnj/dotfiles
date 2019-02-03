@@ -39,15 +39,14 @@ brew 'pinentry-mac'
 
 # Other Tools
 brew 'aspell'
-brew 'ffmpeg', args: ['with-x265']
-brew 'ledger'
+brew 'ffmpeg'
 brew 'pandoc'
 brew 'syncthing'
 brew 'youtube-dl'
 
 # Python Libraries
-brew 'numpy', args: ['with-python3']
-brew 'scipy', args: ['with-python3']
+brew 'numpy'
+brew 'scipy'
 
 # macOS Software
 cask 'anki'
