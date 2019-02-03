@@ -19,9 +19,6 @@ abbr gem-nuke "gem uninstall -aIx" # Uninstalls all gems
 # Copy files with progress information
 abbr cpv "rsync -avP"
 
-# Mirror two directories
-abbr rmirror "rsync -ah --delete --progress"
-
 # Edit with Emacs
 abbr e "emacsclient -n -a \"\""
 abbr et "emacsclient -nw -a \"\""
@@ -31,7 +28,6 @@ abbr beet-flac2alac "beet convert -k -f alac -d . format:FLAC"
 alias bean-bal-halifax "bean-report $BEANCOUNT_FILE bal -e Assets:Halifax"
 alias bean-bal-assets "bean-report $BEANCOUNT_FILE bal -e Assets:"
 
-# Aliases for macOS diskutil
+# macOS Aliases
 abbr dut "diskutil"
-
 abbr simctl "xcrun simctl"
