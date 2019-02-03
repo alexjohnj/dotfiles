@@ -24,7 +24,6 @@ abbr e "emacsclient -n -a \"\""
 abbr et "emacsclient -nw -a \"\""
 
 # Aliases for Beets
-abbr beet-flac2alac "beet convert -k -f alac -d . format:FLAC"
 alias bean-bal-halifax "bean-report $BEANCOUNT_FILE bal -e Assets:Halifax"
 alias bean-bal-assets "bean-report $BEANCOUNT_FILE bal -e Assets:"
 
