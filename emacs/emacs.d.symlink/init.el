@@ -492,6 +492,7 @@
 (require 'init-company)
 (require 'init-latex)
 (require 'init-swift)
+(require 'init-ruby)
 
 (use-package json-mode
   :ensure t
