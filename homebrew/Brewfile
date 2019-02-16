@@ -1,20 +1,18 @@
 # Taps
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
 tap 'homebrew/services'
 
 # Languages
 brew 'ruby'
 brew 'python'
 brew 'python3'
-brew 'go'
 
 # Core Utilities
 brew 'mas'
 
 brew 'ag'
 brew 'cloc'
-brew 'coreutils'
 brew 'fd'
 brew 'fish'
 brew 'htop'
@@ -29,12 +27,12 @@ brew 'xz'
 # Dev Tools
 brew 'carthage'
 brew 'git'
+brew 'git-lfs'
 brew 'node'
 brew 'vim'
 
 # Security
 brew 'gnupg'
-brew 'gnupg2'
 brew 'pinentry-mac'
 
 # Other Tools
@@ -43,10 +41,6 @@ brew 'ffmpeg'
 brew 'pandoc'
 brew 'syncthing'
 brew 'youtube-dl'
-
-# Python Libraries
-brew 'numpy'
-brew 'scipy'
 
 # macOS Software
 cask 'anki'
@@ -63,6 +57,8 @@ cask 'firefox'
 cask 'handbrake'
 cask 'hex-fiend'
 cask 'iina'
+cask 'insomnia'
+cask 'intel-power-gadget'
 cask 'istat-menus'
 cask 'keka'
 cask 'provisionql'
@@ -76,6 +72,7 @@ cask 'superduper'
 cask 'transmission'
 cask 'transmit'
 cask 'viscosity'
+cask 'zeplin'
 
 mas '1Blocker', id: 1107421413
 mas '1Password 7', id: 1333542190
@@ -87,7 +84,6 @@ mas 'Slack', id: 803453959
 mas 'Things 3', id: 904280696
 
 # Fonts
-cask 'font-cabin'
 cask 'font-iosevka'
 cask 'font-lato'
 cask 'font-source-sans-pro'
