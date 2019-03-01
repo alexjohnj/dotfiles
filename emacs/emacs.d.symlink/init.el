@@ -512,6 +512,9 @@
   :ensure t
   :mode ("\\.php\\'" . php-mode))
 
+(use-package gitignore-mode
+  :mode "\\.gitignore\\'")
+
 
 ;;; Org Packages
 
