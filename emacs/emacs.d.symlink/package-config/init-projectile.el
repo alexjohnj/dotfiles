@@ -14,6 +14,7 @@
                   projectile-require-project-root nil)
             (evil-leader/set-key
               "pb" 'projectile-switch-to-buffer
+              "p C-f" 'projectile-invalidate-cache
               "pq" 'projectile-switch-open-project
               "pd" 'projectile-find-dir
               "pk" 'projectile-kill-buffers
