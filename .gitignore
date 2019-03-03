@@ -5,6 +5,7 @@ config/beets.symlink/state.pickle
 # Fish generated files
 config/fish.symlink/fishd*
 config/fish.symlink/fish_variables
+config/fish.symlink/fish_history
 
 # .emacs.d Folders
 auto-save-list/
