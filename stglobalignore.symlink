@@ -1,7 +1,5 @@
-// .stglobalignore
-
 // Ignore the global ignore file so it can be symlinked in
-.stglobalignore
+(?d).stglobalignore
 
 // Temporary / Backup Files
 *~
@@ -9,17 +7,17 @@
 .#*
 
 // OS-generated files (OS X)
-(?i)(?d) .DS_Store
-(?i)(?d) .localized
-(?i)(?d) .Spotlight-V100
-(?i)(?d) .Trashes
+(?i)(?d).DS_Store
+(?i)(?d).localized
+(?i)(?d).Spotlight-V100
+(?i)(?d).Trashes
 
 // OS-generated files (Windows)
-(?i)(?d) desktop.ini
-(?i)(?d) ehthumbs.db
-(?i)(?d) Thumbs.db
+(?i)(?d)desktop.ini
+(?i)(?d)ehthumbs.db
+(?i)(?d)Thumbs.db
 
 // dev directories
-(?i)(?d) Carthage
-(?i)(?d) Pods
-(?i)(?d) node_modules
+(?i)(?d)Carthage
+(?i)(?d)Pods
+(?i)(?d)node_modules
