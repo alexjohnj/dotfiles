@@ -18,6 +18,7 @@
 (?i)(?d)Thumbs.db
 
 // dev directories
+(?i)(?d).build
 (?i)(?d)Carthage
 (?i)(?d)Pods
 (?i)(?d)node_modules
