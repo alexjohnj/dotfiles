@@ -11,7 +11,13 @@ import:
   autotag: yes
   timid: no
 
-plugins: fetchart embedart lyrics convert lastgenre
+plugins:
+  - fetchart
+  - embedart
+  - lyrics
+  - convert
+  - lastgenre
+  - scrub
 
 fetchart:
   auto: yes
