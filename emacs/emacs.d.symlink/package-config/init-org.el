@@ -10,10 +10,13 @@
                   org-list-indent-offset 1
                   org-goto-interface 'outline-path-completion
                   org-goto-max-level 10
-                  org-outline-path-complete-in-steps nil)
+                  org-outline-path-complete-in-steps nil
+                  org-cycle-separator-lines 0)
+
             (add-hook 'org-mode-hook 'auto-fill-mode)
             (add-hook 'org-mode-hook (lambda ()
                                        (define-key evil-normal-state-map (kbd "TAB") 'org-cycle)))
+
             (evil-leader/set-key-for-mode 'org-mode
               "m E" 'org-export-dispatch
               "m p l" 'org-toggle-latex-fragment
