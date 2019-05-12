@@ -24,6 +24,8 @@ $HOME/Library/Python/3.7/bin \
 $HOME/Library/Python/2.7/bin \
 $GEM_HOME/bin \
 $GOPATH/bin \
+/opt/local/bin \
+/opt/local/sbin \
 /usr/local/sbin
 
 for c in $path_components[-1..1]
@@ -31,6 +33,8 @@ for c in $path_components[-1..1]
     set -x PATH $c $PATH
   end
 end
+
+set -x MANPATH /opt/local/share/man $MANPATH
 
 # Set up node
 if type "node" > /dev/null ^&1
