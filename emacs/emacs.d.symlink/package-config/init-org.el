@@ -7,6 +7,7 @@
   :mode ("\\.org\\'" . org-mode)
   :config (progn
             (setq org-startup-indented t
+                  org-list-indent-offset 1
                   org-goto-interface 'outline-path-completion
                   org-goto-max-level 10
                   org-outline-path-complete-in-steps nil)
