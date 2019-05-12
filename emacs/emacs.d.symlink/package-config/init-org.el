@@ -11,6 +11,7 @@
                   org-goto-interface 'outline-path-completion
                   org-goto-max-level 10
                   org-outline-path-complete-in-steps nil
+                  org-catch-invisible-edits 'show-and-error
                   org-cycle-separator-lines 0)
 
             (add-hook 'org-mode-hook 'auto-fill-mode)
