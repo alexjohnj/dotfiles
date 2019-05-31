@@ -34,7 +34,9 @@ for c in $path_components[-1..1]
   end
 end
 
-set -x MANPATH /opt/local/share/man $MANPATH
+if test -e "/opt/local/share/man"
+  set -x MANPATH /opt/local/share/man $MANPATH
+end
 
 # Set up node
 if type "node" > /dev/null ^&1
