@@ -186,11 +186,12 @@
 ;; Hide window accessories
 (when (display-graphic-p)
   (tool-bar-mode 0)
-  (scroll-bar-mode 0)
-  ;; Hide the menu bar on everything except macOS.
-  (if (eq system-type 'darwin)
-      (menu-bar-mode +1)
-    (menu-bar-mode 0)))
+  (scroll-bar-mode 0))
+
+;; Hide the menu bar on everything except macOS.
+(if (and (eq system-type 'darwin) (display-graphic-p))
+    (menu-bar-mode +1)
+  (menu-bar-mode -1))
 
 (when (and (eq system-type 'darwin)
            (version<= "26.1" emacs-version))
