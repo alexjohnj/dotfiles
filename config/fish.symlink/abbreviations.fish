@@ -33,3 +33,4 @@ abbr ytdl "youtube-dl -o '~/Downloads/%(title)s.%(ext)s'"
 # macOS Aliases
 abbr dut "diskutil"
 abbr simctl "xcrun simctl"
+abbr marked "open -a Marked\ 2"
