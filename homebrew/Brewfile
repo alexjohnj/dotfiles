@@ -43,7 +43,6 @@ brew 'syncthing'
 brew 'youtube-dl'
 
 # macOS Software
-cask 'anki'
 cask 'appcleaner'
 cask 'arq'
 cask 'calibre'
@@ -51,7 +50,6 @@ cask 'charles'
 cask 'daisydisk'
 cask 'dash'
 cask 'db-browser-for-sqlite'
-cask 'dropbox'
 cask 'emacs'
 cask 'firefox'
 cask 'handbrake'
@@ -85,5 +83,3 @@ mas 'Things 3', id: 904280696
 
 # Fonts
 cask 'font-iosevka'
-cask 'font-lato'
-cask 'font-source-sans-pro'
