@@ -5,7 +5,8 @@
   :ensure t
   :bind (([f2]  . paradox-list-packages))
   :config (progn
-            (setq paradox-automatically-star nil)
+            (setq paradox-automatically-star nil
+                  paradox-execute-asynchronously nil)
             (evil-define-key 'normal paradox-menu-mode-map
               "RET" 'paradox-push-button
               "j" 'paradox-next-entry
@@ -22,10 +23,7 @@
               "U" 'package-menu-mark-upgrades
               "x" 'package-menu-execute
               "~" 'package-menu-mark-obsolete-for-deletion
-              "?" 'package-menu-describe-package
-              ;; (kbd "g") nil
-              ;; (kbd "g g")'evil-goto-first-line
-              )
+              "?" 'package-menu-describe-package)
             (evil-leader/set-key-for-mode 'paradox-menu-mode
               "m s s" 'paradox-sort-by-status
               "m s p" 'paradox-sort-by-package
