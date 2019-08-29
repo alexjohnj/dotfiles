@@ -19,7 +19,7 @@
 
             (evil-leader/set-key
               "pb" 'projectile-switch-to-buffer
-              "p C-f" 'projectile-invalidate-cache
+              "p C-f" 'alex/projectile-invalidate-and-search
               "pq" 'projectile-switch-open-project
               "pd" 'projectile-find-dir
               "pk" 'projectile-kill-buffers
@@ -37,5 +37,10 @@
   (if (projectile-project-p)
       (projectile-remove-current-project-from-known-projects)
     (call-interactively 'projectile-remove-known-project)))
+
+(defun alex/projectile-invalidate-and-search ()
+  (interactive)
+  (projectile-invalidate-cache nil)
+  (projectile-find-file))
 
 (provide 'init-projectile)
