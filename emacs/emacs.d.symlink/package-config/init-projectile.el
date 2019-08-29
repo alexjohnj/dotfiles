@@ -12,6 +12,11 @@
             (setq projectile-switch-project-action 'magit-status
                   projectile-enable-caching t
                   projectile-require-project-root nil)
+
+            (when (executable-find "fd")
+              (setq projectile-generic-command "fd . --type f -0"
+                    projectile-git-command "fd . --type f -0"))
+
             (evil-leader/set-key
               "pb" 'projectile-switch-to-buffer
               "p C-f" 'projectile-invalidate-cache
