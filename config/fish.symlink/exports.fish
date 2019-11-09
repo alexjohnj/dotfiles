@@ -45,3 +45,7 @@ set -gx GNUTERM "aqua"
 # ledger environment variables
 set -gx LEDGER_FILE "$HOME/finance/ledger.journal"
 set -gx BEANCOUNT_FILE "$HOME/finance/ledger.beancount"
+
+# bat Configuration
+
+set -x BAT_STYLE "plain"
