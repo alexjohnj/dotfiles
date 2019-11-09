@@ -34,3 +34,8 @@ abbr ytdl "youtube-dl -o '~/Downloads/%(title)s.%(ext)s'"
 abbr dut "diskutil"
 abbr simctl "xcrun simctl"
 abbr marked "open -a Marked\ 2"
+
+# Replace default tools with more modern ones
+if type "bat" > /dev/null ^&1
+    abbr "cat" "bat"
+end
