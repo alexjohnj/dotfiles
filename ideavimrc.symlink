@@ -1,6 +1,10 @@
 "" Leader Key
 let mapleader = " "
 
+"" Plugins
+set surround
+set commentary
+
 "" Searching
 set hlsearch
 set incsearch
