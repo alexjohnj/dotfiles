@@ -119,6 +119,11 @@
   :bind (("S-/" . evil-commentary))
   :init (progn (evil-commentary-mode)))
 
+(use-package evil-surround
+  :ensure t
+  :after evil
+  :init (global-evil-surround-mode 1))
+
 (use-package evil-escape
   :ensure t
   :after evil
