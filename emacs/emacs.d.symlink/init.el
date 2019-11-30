@@ -148,7 +148,11 @@
 (use-package counsel
   :bind (("C-s" . 'counsel-grep-or-swiper)
          ("M-x" . 'counsel-M-x)
-         ("C-x C-f" . 'counsel-find-file)))
+         ("C-x C-f" . 'counsel-find-file))
+  :config (progn
+            (when (executable-find "rg")
+              (setq counsel-grep-base-command
+                    "rg -i --no-heading --line-number --color never '%s' %s"))))
 
 (use-package which-key
   :diminish which-key-mode
