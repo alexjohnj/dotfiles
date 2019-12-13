@@ -10,7 +10,7 @@
                  (interactive)
                  (magit-popup-quit)
                  (magit-status)))
-            (setq magit-display-buffer-function 'magit-display-buffer-fullcolumn-most-v1)
+            (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
             (magit-define-popup-switch
               'magit-log-popup
               ?1 "First parent" "--first-parent")))
