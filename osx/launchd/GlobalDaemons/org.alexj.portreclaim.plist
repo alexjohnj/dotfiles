@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>org.alexj.portreclaim</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/opt/local/bin/port</string>
+      <string>-N</string>
+      <string>reclaim</string>
+    </array>
+    <key>ProcessType</key>
+    <string>Background</string>
+    <key>CalendarInterval</key>
+    <dict>
+      <key>Hour</key>
+      <integer>0</integer>
+      <key>Minute</key>
+      <integer>0</integer>
+      <key>Weekday</key>
+      <integer>7</integer>
+    </dict>
+  </dict>
+</plist>
