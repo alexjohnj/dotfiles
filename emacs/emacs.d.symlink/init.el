@@ -238,6 +238,7 @@
 ;; Aggressively indent code in certain modes
 (use-package aggressive-indent
   :ensure t
+  :pin melpa
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
 
@@ -499,6 +500,7 @@
 (require 'init-latex)
 (require 'init-swift)
 (require 'init-ruby)
+(require 'init-elixir)
 
 (use-package json-mode
   :ensure t
