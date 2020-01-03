@@ -471,7 +471,12 @@
 
 ;;; Core Packages
 
-(require 'init-paredit)
+(use-package smartparens
+  :pin melpa
+  :init (progn
+          (require 'smartparens-config)
+          (smartparens-global-mode t)))
+
 (require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-rainbow-delimiters)
