@@ -133,16 +133,32 @@
             (setq-default evil-escape-key-sequence "fd"
                           evil-escape-delay 0.1)))
 
-(use-package swiper
-  :diminish ivy-mode
+(use-package ivy
+  :diminish ivy
+  :hook (after-init . ivy-mode)
   :config (progn
             (evil-leader/set-key "s" 'ivy-resume)
-            (setq ivy-use-virtual-buffers t)
+            (setq ivy-use-virtual-buffers t
+                  ivy-count-format "(%d/%d)"
+                  ivy-initial-inputs-alist nil)
             (with-eval-after-load "ivy"
               (define-key ivy-minibuffer-map (kbd "<C-return>") 'ivy-dispatching-done)
               (define-key ivy-minibuffer-map (kbd "<C-M-return>") 'ivy-immediate-done)
-              (define-key ivy-minibuffer-map [escape] (kbd "C-g")))
-            (ivy-mode)))
+              (define-key ivy-minibuffer-map [escape] (kbd "C-g")))))
+
+(use-package swiper
+  :after ivy
+  :diminish ivy-mode)
+
+(use-package ivy-posframe
+  :after ivy
+  :diminish
+  :config (progn
+            (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-bottom-window-center))
+                  ivy-posframe-height-alist '((t . 20))
+                  ivy-posframe-parameters '((internal-border-width . 10)))
+            (setq ivy-posframe-width 70)
+            (ivy-posframe-mode +1)))
 
 (use-package counsel
   :bind (("C-s" . 'counsel-grep-or-swiper)
