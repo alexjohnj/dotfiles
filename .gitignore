@@ -20,6 +20,9 @@ emacs/emacs.d.symlink/url
 emacs/emacs.d.symlink/history
 emacs/emacs.d.symlink/network-security.data
 
+emacs/emacs.d.symlink/transient/
+emacs/emacs.d.symlink/.lsp-session-v1
+
 # vim Dictionaries
 en.utf-8.add*
 
