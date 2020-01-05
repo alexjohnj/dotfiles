@@ -473,6 +473,7 @@
 
 (use-package smartparens
   :pin melpa
+  :diminish
   :init (progn
           (require 'smartparens-config)
           (smartparens-global-mode t)))
