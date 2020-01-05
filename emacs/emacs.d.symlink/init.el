@@ -137,8 +137,7 @@
   :diminish ivy-mode
   :config (progn
             (evil-leader/set-key "s" 'ivy-resume)
-            (setq ivy-use-virtual-buffers t
-                  projectile-completion-system 'ivy)
+            (setq ivy-use-virtual-buffers t)
             (with-eval-after-load "ivy"
               (define-key ivy-minibuffer-map (kbd "<C-return>") 'ivy-dispatching-done)
               (define-key ivy-minibuffer-map (kbd "<C-M-return>") 'ivy-immediate-done)

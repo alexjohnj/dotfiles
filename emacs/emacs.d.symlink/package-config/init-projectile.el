@@ -1,4 +1,5 @@
 (use-package projectile
+  :after ivy ;; Depends on ivy for the completion system
   :ensure t
   :diminish projectile-mode
   :commands (projectile-switch-project projectile-project-p projectile-find-file)
@@ -11,7 +12,8 @@
   :config (progn
             (setq projectile-switch-project-action 'magit-status
                   projectile-enable-caching t
-                  projectile-require-project-root nil)
+                  projectile-require-project-root nil
+                  projectile-completion-system 'ivy)
 
             (when (executable-find "fd")
               (setq projectile-generic-command "fd . --type f -0"
