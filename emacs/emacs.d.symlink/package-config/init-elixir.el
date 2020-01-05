@@ -1,11 +1,11 @@
 (use-package elixir-mode
   :ensure t
-  :mode "\\.ex\\'"
-  :mode "\\.exs\\'"
   :pin melpa
+  :mode (("\\.exs?\\'" . elixir-mode))
   :config (progn
-            (add-hook 'elixir-mode-hook (lambda ()
-                                          (add-hook 'before-save-hook 'elixir-format nil t)))
-            (add-hook 'elixir-mode-hook 'aggressive-indent-mode)))
+            (add-hook 'elixir-mode-hook 'alex/set-elixir-format-hook)))
+
+(defun alex/set-elixir-format-hook ()
+  (add-hook 'before-save-hook 'elixir-format nil t))
 
 (provide 'init-elixir)
