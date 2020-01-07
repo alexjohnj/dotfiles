@@ -30,7 +30,8 @@
               "psg" 'projectile-grep
               "pss" 'projectile-ag
               "pS" 'projectile-save-project-buffers
-              "p c" 'projectile-compile-project)
+              "p c" 'projectile-compile-project
+              "p t" 'projectile-find-test-file)
             (projectile-mode)))
 
 (defun alex/projectile-remove-known-project ()
