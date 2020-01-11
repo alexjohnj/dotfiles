@@ -280,9 +280,10 @@
         (set-face-attribute 'default nil :font font-name :height 130)
       (set-face-attribute 'default nil :font font-name :height 110))))
 
-(use-package zenburn-theme
+(use-package doom-themes
   :ensure t
-  :config (load-theme 'zenburn t))
+  :pin melpa
+  :config (load-theme 'doom-nord t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
