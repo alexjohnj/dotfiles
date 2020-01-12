@@ -55,11 +55,11 @@ install_dotfiles() {
     done
 }
 
-# Link ./config/*.slink to $HOME/.config/
+# Link all directories in the config folder to $HOME/.config
 install_config_directory() {
-    for file in "$DOTFILES_ROOT"/config/*.symlink
+    for file in "$DOTFILES_ROOT"/config/*
     do
-        destination="$HOME/.config/$(basename $file .symlink)"
+        destination="$HOME/.config/$(basename $file)"
         link_file "$file" "$destination"
         if [ $? -eq 1 ]
         then

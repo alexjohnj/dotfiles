@@ -1,11 +1,11 @@
 # beets generated files
-config/beets.symlink/library.db
-config/beets.symlink/state.pickle
+config/beets/library.db
+config/beets/state.pickle
 
 # Fish generated files
-config/fish.symlink/fishd*
-config/fish.symlink/fish_variables
-config/fish.symlink/fish_history
+config/fish/fishd*
+config/fish/fish_variables
+config/fish/fish_history
 
 # .emacs.d Folders
 auto-save-list/
