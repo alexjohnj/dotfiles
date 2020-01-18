@@ -161,9 +161,11 @@
             (ivy-posframe-mode +1)))
 
 (use-package counsel
+  :commands counsel-imenu
   :bind (("C-s" . 'counsel-grep-or-swiper)
          ("M-x" . 'counsel-M-x)
          ("C-x C-f" . 'counsel-find-file))
+  :init (evil-leader/set-key "i" 'counsel-imenu)
   :config (progn
             (when (executable-find "rg")
               (setq counsel-grep-base-command
