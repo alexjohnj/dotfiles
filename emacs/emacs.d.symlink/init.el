@@ -150,16 +150,6 @@
   :after ivy
   :diminish ivy-mode)
 
-(use-package ivy-posframe
-  :after ivy
-  :diminish
-  :config (progn
-            (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-bottom-window-center))
-                  ivy-posframe-height-alist '((t . 20))
-                  ivy-posframe-parameters '((internal-border-width . 10)))
-            (setq ivy-posframe-width 70)
-            (ivy-posframe-mode +1)))
-
 (use-package counsel
   :commands counsel-imenu
   :bind (("C-s" . 'counsel-grep-or-swiper)
