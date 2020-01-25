@@ -1,15 +1,14 @@
 (use-package magit
   :ensure t
-  :commands (magit-dispatch-popup magit-status)
+  :commands (magit-dispatch-popup magit-status magit-blame-popup magit-log-popup)
   :init (progn
-          (evil-leader/set-key "g" 'magit-dispatch-popup)
+          (alex/evil-leader--prefix "g"
+                                    "g" 'magit-dispatch-popup
+                                    "s" 'magit-status
+                                    "b" 'magit-blame-popup
+                                    "l" 'magit-log-popup)
           (which-key-add-key-based-replacements "SPC g" "Magit"))
   :config (progn
-            (define-key magit-popup-mode-map (kbd "s")
-              '(lambda ()
-                 (interactive)
-                 (magit-popup-quit)
-                 (magit-status)))
             (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
             (magit-define-popup-switch
               'magit-log-popup
