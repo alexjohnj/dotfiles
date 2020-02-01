@@ -272,10 +272,10 @@
         (set-face-attribute 'default nil :font font-name :height 130)
       (set-face-attribute 'default nil :font font-name :height 110))))
 
-(use-package doom-themes
+(use-package solarized-theme
   :ensure t
   :pin melpa
-  :config (load-theme 'doom-nord t))
+  :config (load-theme 'solarized-light t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
