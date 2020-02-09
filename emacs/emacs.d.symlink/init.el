@@ -205,11 +205,6 @@
     (menu-bar-mode +1)
   (menu-bar-mode -1))
 
-(when (and (eq system-type 'darwin)
-           (version<= "26.1" emacs-version))
-  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist '(ns-appearance . dark)))
-
 ;; Editing contextual info
 (global-hl-line-mode 1)
 (line-number-mode)
