@@ -260,7 +260,7 @@
                                orig-fg))))
 
 ;; Use my custom font if it's installed.
-(let ((font-name "Iosevka"))
+(let ((font-name "JetBrains Mono"))
   (when (member font-name (font-family-list))
     (if (memq window-system '(mac ns)) ; Font scaling is a bit different between
                                         ; macOS and other platforms.
