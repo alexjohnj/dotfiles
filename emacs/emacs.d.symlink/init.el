@@ -270,7 +270,11 @@
 (use-package solarized-theme
   :ensure t
   :pin melpa
-  :config (load-theme 'solarized-light t))
+  :config (progn
+            (setq solarized-use-variable-pitch nil
+                  solarized-scale-org-headlines nil
+                  solarized-scale-outline-headlines nil)
+            (load-theme 'solarized-light t)))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
