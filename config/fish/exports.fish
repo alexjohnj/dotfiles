@@ -2,10 +2,8 @@
 set -gx EDITOR vim
 
 # Set up Homebrew & Casks
-if type "brew" > /dev/null ^&1
-  set -gx HOMEBREW_CASK_OPTS --appdir=/Applications
-  set -gx HOMEBREW_NO_ANALYTICS 1
-end
+set -gx HOMEBREW_CASK_OPTS --appdir=/Applications
+set -gx HOMEBREW_NO_ANALYTICS 1
 
 # Set up golang dev environment
 set -gx GOPATH $HOME/.go
@@ -30,15 +28,13 @@ $GOPATH/bin \
 /usr/local/sbin
 
 for c in $path_components[-1..1]
-  if begin not contains $c $PATH; and [ -e $c ]; end
-    set -x PATH $c $PATH
-  end
+    if begin not contains $c $PATH; and [ -e $c ]; end
+        set -x PATH $c $PATH
+    end
 end
 
 # Set up node
-if type "node" > /dev/null ^&1
-  set -gx NODE_PATH /usr/local/lib/node
-end
+set -gx NODE_PATH /usr/local/lib/node
 
 # Octave Configuration
 set -gx GNUTERM "aqua"

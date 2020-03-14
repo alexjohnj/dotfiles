@@ -1,9 +1,9 @@
 # Enable colourised output in ls. This tries to be compatible with GNU ls, BSD
 # ls w/ colour support and BSD ls w/o colour support (e.g., OpenBSD).
-if ls --color=always > /dev/null ^&1 # GNU
-  alias ls "ls --color=always"
-else if ls -G > /dev/null ^&1 # BSD
-  alias ls "ls -G"
+if min_fish_version 3.1.0
+    source "$HOME/.config/fish/abbreviations-3.1.0.fish"
+else
+    source "$HOME/.config/fish/abbreviations-before-3.1.0.fish"
 end
 
 # Prevent rm commands from being added to HISTORY. The number of times I've done
@@ -36,6 +36,6 @@ abbr simctl "xcrun simctl"
 abbr marked "open -a Marked\ 2"
 
 # Replace default tools with more modern ones
-if type "bat" > /dev/null ^&1
+if type -q "bat"
     abbr "cat" "bat"
 end
