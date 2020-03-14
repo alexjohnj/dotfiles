@@ -30,7 +30,14 @@ lyrics:
   auto: yes
 
 convert:
+  format: aac
   auto: no
+  dest: ~/Music/beets_converted
+  never_convert_lossy_files: yes
+  formats:
+    aac:
+      command: ffmpeg -i $source -y -vn -acodec aac -aq 2 $dest
+      extension: m4a
 
 lastgenre:
   force: no
