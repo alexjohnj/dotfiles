@@ -10,7 +10,7 @@
 
 ;; Indentation code
 (defconst alex/beancount--transaction-regexp
-  "^[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\s-\\{1\\}\\(txn\\|\\*\\|!\\).*$")
+  "^[0-9]\\{4\\}-[0-9]\\{2\\}-[0-9]\\{2\\}\\s-\\{1\\}\\(txn\\|\\*\\|!\\|commodity\\).*$")
 
 (defconst alex/beancount--key-value-regexp
   "^\\s-+\\w+:\\s-\\{1\\}.+$")
