@@ -46,3 +46,4 @@ set -gx BEANCOUNT_FILE "$HOME/finance/ledger.beancount"
 # bat Configuration
 
 set -x BAT_STYLE "plain"
+set -x BAT_THEME "GitHub"
