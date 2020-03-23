@@ -536,6 +536,17 @@
 (use-package gitignore-mode
   :mode "\\.gitignore\\'")
 
+(use-package rust-mode
+  :ensure t
+  :pin melpa
+  :mode ("\\.rs\\'" . rust-mode)
+  :bind (:map rust-mode-map
+              ("C-c C-r" . rust-run)
+              ("C-c C-c" . 'rust-compile)
+              ("C-c C-t" . 'rust-test))
+  :config (progn
+            (setq rust-format-on-save t)))
+
 
 ;;; Org Packages
 
