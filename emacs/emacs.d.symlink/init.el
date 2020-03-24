@@ -457,7 +457,6 @@
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
 (require 'init-flyspell)
-(require 'init-paradox)
 (require 'init-ag)
 (require 'init-deft)
 (require 'init-ediff)
