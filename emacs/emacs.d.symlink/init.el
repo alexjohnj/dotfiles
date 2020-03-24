@@ -36,42 +36,22 @@
       user-mail-address "alex@alexj.org")
 
 
-;;; Package Manager Configuration
-(require 'package)
+;; Bootstrap straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-;; Set package sources as MELPA-stable, MELPA, org and GNU. If GnuTLS is
-;; available, use HTTPS versions of these sources. Otherwise, fallback to HTTP
-;; versions. I sometimes run Emacs on Windows, so this check is necessary
-;; otherwise package management will be broken.
-(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos)) (not (gnutls-available-p))))
-       (proto (if no-ssl "http" "https")))
-  (setq package-archives `(("melpa-stable" . ,(concat proto "://stable.melpa.org/packages/"))
-                           ("melpa" . ,(concat proto "://melpa.org/packages/"))
-                           ("org" . ,(concat proto "://orgmode.org/elpa/"))
-                           ("gnu" . ,(concat proto "://elpa.gnu.org/packages/")))))
-
-;; Prefer stable versions of packages over snapshots. I've had essential tools
-;; like magit break too many times using snapshots.
-(setq package-archive-priorities '(("melpa-stable" . 20)
-                                   ("org" . 15)
-                                   ("gnu" . 10)
-                                   ("melpa" . 5)))
-
-;; Pin use-package to a snapshot build because the last stable version is from
-;; 2016 but I switched to using stable packages in 2018. As a result, much of my
-;; configuration is written for newer versions of use-package.
-(setq package-pinned-packages '((use-package . "melpa")))
-
-(package-initialize)
-
-;; Bootstrap use-package on new systems. use-package will be used from now on
-;; for package management.
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-always-ensure t)
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
 
 ;;; Emacs Server/Daemon
