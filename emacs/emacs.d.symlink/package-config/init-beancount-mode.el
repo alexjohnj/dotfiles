@@ -1,5 +1,4 @@
 (use-package beancount
-  :ensure nil
   :mode ("\\.beancount\\'" . beancount-mode)
   :config (progn
             (add-hook

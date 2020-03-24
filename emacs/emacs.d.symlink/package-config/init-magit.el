@@ -1,5 +1,4 @@
 (use-package magit
-  :ensure t
   :commands (magit-dispatch-popup magit-status magit-blame-popup magit-log-popup)
   :init (progn
           (alex/evil-leader--prefix "g"
@@ -15,7 +14,6 @@
               ?1 "First parent" "--first-parent")))
 
 (use-package evil-magit
-  :ensure t
   :after (magit))
 
 (provide 'init-magit)

@@ -2,7 +2,6 @@
 ;;; Commentary: This is mostly just evil key bindings. paradox-github-token is
 ;;; set in custom.el which is kept out of vc.
 (use-package paradox
-  :ensure t
   :bind (([f2]  . paradox-list-packages))
   :config (progn
             (setq paradox-automatically-star nil

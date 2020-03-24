@@ -1,6 +1,5 @@
 (use-package projectile
   :after ivy ;; Depends on ivy for the completion system
-  :ensure t
   :diminish projectile-mode
   :commands (projectile-switch-project projectile-project-p projectile-find-file)
   :init (progn

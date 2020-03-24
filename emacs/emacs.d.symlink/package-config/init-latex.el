@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 (use-package tex-site
-  :ensure auctex
   :mode ("\\.tex\\'" . LaTeX-mode)
   :config (progn
             (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
@@ -28,7 +27,6 @@
               "m ="   'TeX-master-file-ask)))
 
 (use-package reftex
-  :ensure t
   :commands (turn-on-reftex)
   :init (progn
           (add-hook 'LaTeX-mode-hook 'turn-on-reftex))
@@ -46,7 +44,6 @@
               "m r v" 'reftex-view-crossref)))
 
 (use-package company-auctex
-  :ensure t
   :after (latex)
   :config (progn
             (company-auctex-init)))

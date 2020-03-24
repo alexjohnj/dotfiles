@@ -3,7 +3,6 @@
 ;;; Code:
 
 (use-package org
-  :ensure t
   :mode ("\\.org\\'" . org-mode)
   :config (progn
             (setq org-startup-indented t
@@ -30,8 +29,7 @@
 
 (use-package evil-org
   :pin melpa
-  :after org
-  :ensure t)
+  :after org)
 
 (provide 'init-org)
 ;;; init-org.el ends here

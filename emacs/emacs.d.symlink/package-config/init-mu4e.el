@@ -1,6 +1,5 @@
 ;;; init-mu4e --- mu4e email client configuration
 (use-package mu4e
-  :ensure nil
   :commands (mu4e)
   :config (progn
             (require 'mu4e-contrib)

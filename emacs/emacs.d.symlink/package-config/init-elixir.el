@@ -1,5 +1,4 @@
 (use-package elixir-mode
-  :ensure t
   :pin melpa
   :mode (("\\.exs?\\'" . elixir-mode))
   :config (progn

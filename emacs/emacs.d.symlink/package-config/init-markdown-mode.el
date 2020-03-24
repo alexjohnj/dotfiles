@@ -1,5 +1,4 @@
 (use-package markdown-mode
-  :ensure t
   :mode (("\\.markdown\\'" . gfm-mode)
          ("\\.md\\'" . gfm-mode))
   :hook (markdown-mode . flyspell-mode)

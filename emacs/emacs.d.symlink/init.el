@@ -88,7 +88,6 @@
 
 ;; Ensure the system PATH is picked up properly by Emacs
 (use-package exec-path-from-shell
-  :ensure t
   :unless (memq system-type '(windows-nt ms-dos))
   :config (progn
             (add-to-list 'exec-path-from-shell-variables "GPG_AGENT_INFO")
@@ -98,7 +97,6 @@
 
 ;; Keep the modeline neat and tidy
 (use-package diminish
-  :ensure t
   :commands diminish)
 
 ;; Load evil and associated packages. Note evil-leader must be loaded BEFORE
@@ -120,12 +118,10 @@
   :init (progn (evil-commentary-mode)))
 
 (use-package evil-surround
-  :ensure t
   :after evil
   :init (global-evil-surround-mode 1))
 
 (use-package evil-escape
-  :ensure t
   :after evil
   :init (evil-escape-mode)
   :diminish evil-escape-mode
@@ -216,7 +212,6 @@
 
 ;; Trim tidy whitespace before saving
 (use-package whitespace
-  :ensure t
   :hook (before-save . whitespace-cleanup))
 
 ;; Highlight matching parentheses
@@ -229,17 +224,14 @@
 ;; Pretty print line-feed characters. I think the only place I use line-feeds is
 ;; in this file!
 (use-package page-break-lines
-  :ensure t
   :hook (emacs-lisp-mode . page-break-lines-mode))
 
 ;; Unfill text
 (use-package unfill
-  :ensure t
   :bind (("C-M-q" . unfill-paragraph)))
 
 ;; Aggressively indent code in certain modes
 (use-package aggressive-indent
-  :ensure t
   :pin melpa
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
@@ -268,7 +260,6 @@
       (set-face-attribute 'default nil :font font-name :height 110))))
 
 (use-package solarized-theme
-  :ensure t
   :pin melpa
   :config (progn
             (setq solarized-use-variable-pitch nil
@@ -409,7 +400,6 @@
                           "v" 'split-window-right)
 
 (use-package ace-window
-  :ensure t
   :commands ace-window
   :init (alex/evil-leader--prefix "w"
                                   "w" 'ace-window
@@ -496,7 +486,6 @@
 (require 'init-ediff)
 
 (use-package epa
-  :ensure t
   :config (progn
             (setq epg-gpg-program "gpg2"))) ; Use gpg2 for Yubikey 4 compatibility
 
@@ -516,28 +505,23 @@
 (require 'init-elixir)
 
 (use-package json-mode
-  :ensure t
   :pin melpa
   :mode ("\\.json\\'" . json-mode))
 
 (use-package yaml-mode
-  :ensure t
   :mode ("\\.yaml\\'" . yaml-mode))
 
 (use-package fish-mode
-  :ensure t
   :mode ("\\.fish\\'" . fish-mode))
 
 ;; For the rare time I have to view PHP code
 (use-package php-mode
-  :ensure t
   :mode ("\\.php\\'" . php-mode))
 
 (use-package gitignore-mode
   :mode "\\.gitignore\\'")
 
 (use-package rust-mode
-  :ensure t
   :pin melpa
   :mode ("\\.rs\\'" . rust-mode)
   :bind (:map rust-mode-map

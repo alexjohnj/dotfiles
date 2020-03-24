@@ -1,5 +1,4 @@
 (use-package flyspell
-  :ensure t
   :diminish flyspell-mode
   :hook ((prog-mode . flyspell-prog-mode)
          (text-mode . flyspell-mode))

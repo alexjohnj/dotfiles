@@ -2,7 +2,6 @@
 ;; Code:
 
 (use-package flycheck
-  :ensure t
   :diminish flycheck-mode
   :init (progn
           (add-hook 'after-init-hook #'global-flycheck-mode))
@@ -36,7 +35,6 @@
             (add-to-list 'flycheck-checkers 'proselint)))
 
 (use-package flycheck-pos-tip
-  :ensure t
   :after flycheck
   :commands (flycheck-pos-tip-error-messages)
   :config (progn
