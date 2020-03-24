@@ -232,7 +232,6 @@
 
 ;; Aggressively indent code in certain modes
 (use-package aggressive-indent
-  :pin melpa
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
 
@@ -260,7 +259,6 @@
       (set-face-attribute 'default nil :font font-name :height 110))))
 
 (use-package solarized-theme
-  :pin melpa
   :config (progn
             (setq solarized-use-variable-pitch nil
                   solarized-scale-org-headlines nil
@@ -469,7 +467,6 @@
 ;;; Core Packages
 
 (use-package smartparens
-  :pin melpa
   :diminish
   :init (progn
           (require 'smartparens-config)
@@ -505,7 +502,6 @@
 (require 'init-elixir)
 
 (use-package json-mode
-  :pin melpa
   :mode ("\\.json\\'" . json-mode))
 
 (use-package yaml-mode
@@ -522,7 +518,6 @@
   :mode "\\.gitignore\\'")
 
 (use-package rust-mode
-  :pin melpa
   :mode ("\\.rs\\'" . rust-mode)
   :bind (:map rust-mode-map
               ("C-c C-r" . rust-run)

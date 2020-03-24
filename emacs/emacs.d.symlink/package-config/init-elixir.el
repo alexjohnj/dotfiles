@@ -1,5 +1,4 @@
 (use-package elixir-mode
-  :pin melpa
   :mode (("\\.exs?\\'" . elixir-mode))
   :config (progn
             (add-hook 'elixir-mode-hook 'alex/set-elixir-format-hook)))
