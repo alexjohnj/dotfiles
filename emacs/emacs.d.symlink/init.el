@@ -340,8 +340,7 @@
 
 ;; General bindings. These don't have a common prefix.
 (evil-leader/set-key
-  "~" 'ansi-term
-  "`" 'mu4e)
+  "~" 'ansi-term)
 
 ;; Buffer Management.
 (alex/evil-leader--prefix "b"
@@ -510,8 +509,3 @@
 
 (require 'init-calendar)
 (require 'init-org)
-
-
-;;; Email
-
-(require 'init-mu4e)
