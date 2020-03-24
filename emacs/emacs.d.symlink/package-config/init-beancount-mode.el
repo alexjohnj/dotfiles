@@ -1,4 +1,5 @@
 (use-package beancount
+  :straight (beancount :type built-in)
   :mode ("\\.beancount\\'" . beancount-mode)
   :config (progn
             (add-hook
