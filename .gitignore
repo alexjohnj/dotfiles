@@ -23,6 +23,8 @@ emacs/emacs.d.symlink/network-security.data
 emacs/emacs.d.symlink/transient/
 emacs/emacs.d.symlink/.lsp-session-v1
 
+emacs/emacs.d.symlink/straight/
+
 # vim Dictionaries
 en.utf-8.add*
 
