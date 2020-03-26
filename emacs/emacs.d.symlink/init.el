@@ -118,38 +118,37 @@
 
 (use-package ivy
   :diminish ivy
-  :hook (after-init . ivy-mode)
-  :config (progn
-            (evil-leader/set-key "s" 'ivy-resume)
-            (setq ivy-use-virtual-buffers t
-                  ivy-count-format "(%d/%d)"
-                  ivy-initial-inputs-alist nil)
-            (with-eval-after-load "ivy"
-              (define-key ivy-minibuffer-map (kbd "<C-return>") 'ivy-dispatching-done)
-              (define-key ivy-minibuffer-map (kbd "<C-M-return>") 'ivy-immediate-done)
-              (define-key ivy-minibuffer-map [escape] (kbd "C-g")))))
+  :config
+  (evil-leader/set-key "s" 'ivy-resume)
+  (setq ivy-use-virtual-buffers t
+        ivy-count-format "(%d/%d)"
+        ivy-initial-inputs-alist nil)
+  (define-key ivy-minibuffer-map (kbd "<C-return>") #'ivy-dispatching-done)
+  (define-key ivy-minibuffer-map (kbd "<C-M-return>") #'ivy-immediate-done)
+  (define-key ivy-minibuffer-map [escape] (kbd "C-g"))
+  (ivy-mode))
 
 (use-package swiper
   :after ivy
   :diminish ivy-mode)
 
 (use-package counsel
-  :commands counsel-imenu
-  :bind (("C-s" . 'counsel-grep-or-swiper)
-         ("M-x" . 'counsel-M-x)
-         ("C-x C-f" . 'counsel-find-file))
-  :init (evil-leader/set-key "i" 'counsel-imenu)
-  :config (progn
-            (when (executable-find "rg")
-              (setq counsel-grep-base-command
-                    "rg -i --no-heading --line-number --color never '%s' %s"))))
+  :after ivy
+  :config
+  (when (executable-find "rg")
+    (setq counsel-grep-base-command
+          "rg -i --no-heading --line-number --color never '%s' %s"))
+  (global-set-key (kbd "C-s") #'counsel-grep-or-swiper)
+  (global-set-key (kbd "M-x") #'counsel-M-x)
+  (global-set-key (kbd "C-x C-f") #'counsel-find-file)
+  (evil-leader/set-key "i" #'counsel-imenu))
 
 (use-package which-key
   :diminish which-key-mode
-  :init (progn
-          (setq which-key-idle-delay 0.3)
-          (which-key-setup-side-window-right-bottom)
-          (which-key-mode)))
+  :config
+  (setq which-key-idle-delay 0.3)
+  (which-key-setup-side-window-right-bottom)
+  (which-key-mode))
 
 
 ;;; Editor Settings
