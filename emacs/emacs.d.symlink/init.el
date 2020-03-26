@@ -85,32 +85,36 @@
 ;; Load evil and associated packages. Note evil-leader must be loaded BEFORE
 ;; evil.
 (use-package evil-leader
-  :config (progn
-            (evil-leader/set-leader "<SPC>")
-            (global-evil-leader-mode)))
+  :config
+  (evil-leader/set-leader "<SPC>")
+  (global-evil-leader-mode))
 
 (use-package evil
   :after evil-leader
-  :diminish undo-tree-mode
-  :config (progn (evil-mode 1)))
+  :diminish
+  undo-tree-mode
+  :config
+  (evil-mode))
 
 (use-package evil-commentary
   :after evil
   :diminish evil-commentary-mode
-  :bind (("S-/" . evil-commentary))
-  :init (progn (evil-commentary-mode)))
+  :config
+  (global-set-key (kbd "s-/") #'evil-commentary)
+  (evil-commentary-mode))
 
 (use-package evil-surround
   :after evil
-  :init (global-evil-surround-mode 1))
+  :config
+  (global-evil-surround-mode))
 
 (use-package evil-escape
   :after evil
-  :init (evil-escape-mode)
   :diminish evil-escape-mode
-  :config (progn
-            (setq-default evil-escape-key-sequence "fd"
-                          evil-escape-delay 0.1)))
+  :config
+  (setq-default evil-escape-key-sequence "fd"
+                evil-escape-delay 0.1)
+  (evil-escape-mode))
 
 (use-package ivy
   :diminish ivy
