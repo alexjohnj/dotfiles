@@ -1,9 +1,10 @@
 (use-package lsp-mode
   :commands lsp
-  :init (progn
-          (add-hook 'python-mode-hook #'lsp)))
+  :hook ((python-mode . lsp)
+         (rust-mode . lsp)))
 
 (use-package lsp-ui
+  :after lsp-mode
   :commands lsp-ui-mode)
 
 (use-package company-lsp
