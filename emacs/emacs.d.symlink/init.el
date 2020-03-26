@@ -463,10 +463,6 @@
 (require 'init-deft)
 (require 'init-ediff)
 
-(use-package epa
-  :config (progn
-            (setq epg-gpg-program "gpg2"))) ; Use gpg2 for Yubikey 4 compatibility
-
 
 ;;; Language Packages
 
