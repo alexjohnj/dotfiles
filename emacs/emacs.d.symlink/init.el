@@ -37,6 +37,10 @@
 
 
 ;; Bootstrap straight.el
+
+(setq straight-use-package-by-default t
+      straight-check-for-modifications '(check-on-save find-when-checking))
+
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -51,7 +55,6 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
 
 
 ;;; Emacs Server/Daemon
