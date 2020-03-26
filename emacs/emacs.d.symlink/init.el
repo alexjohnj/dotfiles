@@ -453,9 +453,9 @@
 
 (use-package smartparens
   :diminish
-  :init (progn
-          (require 'smartparens-config)
-          (smartparens-global-mode t)))
+  :config
+  (require 'smartparens-config)
+  (smartparens-global-mode))
 
 (require 'init-projectile)
 (require 'init-flycheck)
