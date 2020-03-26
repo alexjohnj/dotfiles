@@ -143,6 +143,10 @@
   (global-set-key (kbd "C-x C-f") #'counsel-find-file)
   (evil-leader/set-key "i" #'counsel-imenu))
 
+(use-package ivy-rich
+  :after ivy
+  :config (ivy-rich-mode))
+
 (use-package which-key
   :diminish which-key-mode
   :config

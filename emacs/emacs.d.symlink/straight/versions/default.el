@@ -15,6 +15,7 @@
  ("git-modes" . "55468314a5f6b77d2c96be62c7005ac94545e217")
  ("gnu-elpa-mirror" . "bc2110cbf5ae44a167c87b89b113cfca1a6ed3ca")
  ("goto-chg" . "1829a13026c597e358f716d2c7793202458120b5")
+ ("ivy-rich" . "596874d1469667f896b83731914d7d4456025553")
  ("json-mode" . "0e819e519ae17a2686e0881c4ca51fa873fa9b83")
  ("json-reformat" . "8eb6668ed447988aea06467ba8f42e1f2178246f")
  ("json-snatcher" . "c4cecc0a5051bd364373aa499c47a1bb7a5ac51c")
