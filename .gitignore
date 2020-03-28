@@ -26,6 +26,7 @@ emacs/emacs.d.symlink/.lsp-session-v1
 !emacs/emacs.d.symlink/straight/versions/
 emacs/emacs.d.symlink/straight/build/
 emacs/emacs.d.symlink/straight/repos/
+emacs/emacs.d.symlink/straight/links/
 emacs/emacs.d.symlink/straight/build-cache.el
 
 # vim Dictionaries
