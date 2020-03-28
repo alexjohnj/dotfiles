@@ -27,10 +27,6 @@
 (add-to-list 'load-path (expand-file-name "site-packages/" user-emacs-directory)) ; Non-ELPA packages
 (add-to-list 'load-path (expand-file-name "package-config/" user-emacs-directory)) ; Package configuration
 
-;; Configure a default frame size
-(add-to-list 'default-frame-alist (cons 'height (display-pixel-height)))
-(add-to-list 'default-frame-alist '(width . 120))
-
 ;; Say hi
 (setq user-full-name "Alex Jackson"
       user-mail-address "alex@alexj.org")
@@ -180,16 +176,6 @@
 (when (and (eq system-type 'darwin)
            (fboundp 'set-fontset-font))
   (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend))
-
-;; Hide window accessories
-(when (display-graphic-p)
-  (tool-bar-mode 0)
-  (scroll-bar-mode 0))
-
-;; Hide the menu bar on everything except macOS.
-(if (and (eq system-type 'darwin) (display-graphic-p))
-    (menu-bar-mode +1)
-  (menu-bar-mode -1))
 
 ;; Editing contextual info
 (global-hl-line-mode 1)
