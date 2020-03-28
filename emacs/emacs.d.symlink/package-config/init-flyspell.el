@@ -5,9 +5,10 @@
   :init (progn
           (which-key-add-key-based-replacements "SPC S" "Spelling"))
   :config (progn
-            (setq ispell-program-name "aspell"
-                  ispell-dictionary "en_GB"
-                  ispell-extra-args '("--sug-mode=ultra"))
+            (when (executable-find "aspell")
+              (setq ispell-program-name "aspell"
+                    ispell-dictionary "en_GB"
+                    ispell-extra-args '("--sug-mode=ultra")))
             (evil-leader/set-key
               "S t" 'flyspell-mode
               "S s" 'ispell-buffer
