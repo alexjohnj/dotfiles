@@ -1,5 +1,4 @@
 (use-package projectile
-  :after ivy ;; Depends on ivy for the completion system
   :diminish projectile-mode
   :commands (projectile-switch-project projectile-project-p projectile-find-file)
   :init (progn
@@ -9,7 +8,7 @@
             "p-" 'alex/projectile-remove-known-project)
           (which-key-add-key-based-replacements "SPC p" "Project"))
   :config (progn
-            (setq projectile-switch-project-action 'magit-status
+            (setq projectile-switch-project-action #'alex/projectile-switch-project
                   projectile-enable-caching t
                   projectile-require-project-root nil
                   projectile-completion-system 'ivy)
@@ -44,5 +43,11 @@
   (interactive)
   (projectile-invalidate-cache nil)
   (projectile-find-file))
+
+(defun alex/projectile-switch-project ()
+  (require 'magit)
+  (if (magit-git-repo-p default-directory)
+      (magit-status)
+    (projectile-dired)))
 
 (provide 'init-projectile)
