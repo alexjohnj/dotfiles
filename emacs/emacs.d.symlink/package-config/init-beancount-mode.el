@@ -1,12 +1,9 @@
 (use-package beancount
   :straight (beancount :type built-in)
-  :mode ("\\.beancount\\'" . beancount-mode)
-  :config (progn
-            (add-hook
-             'beancount-mode-hook
-             (lambda ()
-               (setq-local indent-line-function 'alex/beancount--indent-line)
-               (setq-local indent-region-function 'alex/beancount--indent-region)))))
+  :mode (("\\.beancount\\'" . beancount-mode))
+  :config
+  (add-hook 'beancount-mode-hook #'alex/beancount--configure-indentation)
+  (add-hook 'beancount-mode-hook #'alex/beancount--set-local-hooks nil t))
 
 ;; Indentation code
 (defconst alex/beancount--transaction-regexp
@@ -69,6 +66,13 @@
     (call-process-region (point-min) (point-max) "bean-format" t (current-buffer))
     (goto-line line-no)
     (recenter)))
+
+(defun alex/beancount--configure-indentation ()
+  (setq-local indent-line-function 'alex/beancount--indent-line)
+  (setq-local indent-region-function 'alex/beancount--indent-region))
+
+(defun alex/beancount--set-local-hooks ()
+  (add-hook 'before-save-hook #'alex/beancount-format-file nil t))
 
 (provide 'init-beancount-mode)
 ;;; init-beancount-mode.el ends here
