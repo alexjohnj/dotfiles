@@ -25,7 +25,7 @@
  ("rust-mode" . "2df6cf72163db57fd0c79fefd0e79f38f29f7d93")
  ("smartparens" . "7c61a5a197fbf785fe26a5f8f790244fb4da6421")
  ("solarized-emacs" . "8de268144ab2171896906c8553be7763d5c45fa5")
- ("straight.el" . "e8f9cd51a3e51744f37dbc89bbd6cc7bf8bbc452")
+ ("straight.el" . "0eadafc40c5d9403c0c051a60fd8b45c3f4d900d")
  ("swiper" . "64f05f4735bba8b708bc12cfc2cbfb7fb7706787")
  ("undo-tree" . "5b6df03781495d8a25695d846b0cce496d3d3058")
  ("unfill" . "02c36a04364bcb586477ab79d2b5e0d4e6ae6d47")
