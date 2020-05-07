@@ -9,7 +9,8 @@
         web-mode-enable-engine-detection t
         web-mode-enable-current-element-highlight t)
 
-  (add-hook 'web-mode-hook #'alex/web-mode--configure-eex-pairing))
+  (add-hook 'web-mode-hook #'alex/web-mode--configure-eex-pairing)
+  (add-hook 'web-mode-hook #'aggressive-indent-mode))
 
 (provide 'init-web-mode)
 
