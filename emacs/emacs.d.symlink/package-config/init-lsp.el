@@ -1,8 +1,7 @@
 (use-package lsp-mode
   :commands lsp
   :hook ((python-mode . lsp)
-         (rust-mode . lsp)
-         (swift-mode . lsp)))
+         (rust-mode . lsp)))
 
 (use-package lsp-ui
   :after lsp-mode
