@@ -2,8 +2,11 @@
 
 ;; The following performance tweaks are taken from Doom Emacs.
 ;; Increase garbage collection threshold during init to improve performance.
-(setq gc-cons-threshold 402653184
+(setq gc-cons-threshold most-positive-fixnum
       gc-cons-percentage 0.6)
+
+(defconst alex/IS-MAC (eq system-type 'darwin))
+(defconst alex/IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
 
 ;; Temporarily disable the file handler list during startup for improved performance.
 (defvar alex--file-name-handler-alist file-name-handler-alist)
@@ -14,6 +17,7 @@
                                  (setq gc-cons-threshold 16777216
                                        gc-cons-percentage 0.1
                                        file-name-handler-alist alex--file-name-handler-alist)))
+
 ;; Stop Emacs from dumping customise values in init file.
 (let ((custom (expand-file-name "custom.el" user-emacs-directory)))
   (unless (file-exists-p custom)
@@ -59,6 +63,66 @@
 (require 'server)
 (unless (server-running-p)
   (server-mode 1))
+
+
+;;; Performance Optimisations (from doom-emacs)
+
+;; Disable bidirectional text rendering for a modest performance boost. I've set
+;; this to `nil' in the past, but the `bidi-display-reordering's docs say that
+;; is an undefined state and suggest this to be just as good:
+(setq-default bidi-display-reordering 'left-to-right
+              bidi-paragraph-direction 'left-to-right)
+
+;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
+;; in non-focused windows.
+(setq-default cursor-in-non-selected-windows nil)
+(setq highlight-nonselected-windows nil)
+
+;; More performant rapid scrolling over unfontified regions. May cause brief
+;; spells of inaccurate syntax highlighting right after scrolling, which should
+;; quickly self-correct.
+(setq fast-but-imprecise-scrolling t)
+
+;; Resizing the Emacs frame can be a terribly expensive part of changing the
+;; font. By inhibiting this, we halve startup times, particularly when we use
+;; fonts that are larger than the system default (which would resize the frame).
+(setq frame-inhibit-implied-resize t)
+
+;; Don't ping things that look like domain names.
+(setq ffap-machine-p-known 'reject)
+
+;; Font compacting can be terribly expensive, especially for rendering icon
+;; fonts on Windows. Whether it has a notable affect on Linux and Mac hasn't
+;; been determined, but we inhibit it there anyway.
+(setq inhibit-compacting-font-caches t)
+
+;; Performance on Windows is considerably worse than elsewhere, especially if
+;; WSL is involved. We'll need everything we can get.
+(when alex/IS-WINDOWS
+  (setq w32-get-true-file-attributes nil)) ; slightly faster IO
+
+;; Adopt a sneaky garbage collection strategy of waiting until idle time to
+;; collect; staving off the collector while the user is working.
+;;
+;; This is set up a little different to how doom-emacs sets it up.
+;;
+(use-package gcmh
+  :config
+  (setq gcmh-idle-delay 10
+        gcmh-high-cons-threshold 16777216 ; 16 MB
+        gc-cons-percentage 0.1)
+  (add-hook 'focus-out-hook #'gcmh-idle-garbage-collect)
+  (gcmh-mode))
+
+;; HACK `tty-run-terminal-initialization' is *tremendously* slow for some
+;;      reason. Disabling it completely could have many side-effects, so we
+;;      defer it until later, at which time it (somehow) runs very quickly.
+(unless (daemonp)
+  (advice-add #'tty-run-terminal-initialization :override #'ignore)
+  (add-hook 'window-setup-hook
+            (defun doom-init-tty-h ()
+              (advice-remove #'tty-run-terminal-initialization #'ignore)
+              (tty-run-terminal-initialization (selected-frame) nil t))))
 
 
 ;;; Core Packages
@@ -173,7 +237,7 @@
           '(lambda () (setq show-trailing-whitespace t)))
 
 ;; Enable emoji, and stop the UI from freezing when trying to display them on a Mac.
-(when (and (eq system-type 'darwin)
+(when (and alex/IS-MAC
            (fboundp 'set-fontset-font))
   (set-fontset-font t 'unicode "Apple Color Emoji" nil 'prepend))
 
@@ -185,6 +249,9 @@
 ;; Save backups to a temporary directory instead of the current directory
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
+;; Send files to the trash.
+(setq delete-by-moving-to-trash alex/IS-MAC)
 
 ;; Trim tidy whitespace before saving
 (use-package whitespace
@@ -424,7 +491,7 @@
 ;; In emacs-mac-port, make the ALT key META and the CMD key SUPER. Also free up
 ;; the right ALT key for inputting special symbols. Oh, and add a couple of
 ;; default OS X key bindings to the super key.
-(when (eq system-type 'darwin)
+(when alex/IS-MAC
   (setq mac-option-modifier 'meta)
   (setq mac-right-option-modifier nil)
   (setq mac-command-modifier 'super)

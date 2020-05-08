@@ -27,6 +27,7 @@
  ("flycheck-ledger" . "628e25ba66604946085571652a94a54f4d1ad96f")
  ("flycheck-pos-tip" . "909113977d37739387c7f099d74a724cfe6efcec")
  ("flycheck-swift" . "4c5ad401252400a78da395fd56a71e67ff8c2761")
+ ("gcmh" . "b1bde5089169a74f62033d027e06e98cbeedd43f")
  ("git-modes" . "55468314a5f6b77d2c96be62c7005ac94545e217")
  ("gnu-elpa-mirror" . "bc2110cbf5ae44a167c87b89b113cfca1a6ed3ca")
  ("goto-chg" . "1829a13026c597e358f716d2c7793202458120b5")

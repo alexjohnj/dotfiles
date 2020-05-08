@@ -12,7 +12,7 @@
   :config
   (setq projectile-switch-project-action #'alex/projectile-switch-project
         projectile-enable-caching t
-        projectile-globally-ignored-files '(".DS_Store" "Icon", "TAGS")
+        projectile-globally-ignored-files '(".DS_Store" "Icon" "TAGS")
         projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o")
         projectile-ignored-projects '("~/" "/tmp")
         projectile-completion-system 'ivy)
