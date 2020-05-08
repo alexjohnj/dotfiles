@@ -42,7 +42,7 @@
  ("lsp-mode" . "f939b45de5098c45899b044c2902a24c0abcf9f8")
  ("lsp-sourcekit" . "04d75b6a0be5894fea4a55fec0b2ccedf5b3be58")
  ("lsp-ui" . "134d9b725d21f8889f3dc72dddc418c6c6561f0e")
- ("magit" . "68b5a13fa1b6b122d4a2547b8c415aadff83d8ca")
+ ("magit" . "9a388a61d95761b9c748dc186602ba7c691d580f")
  ("markdown-mode" . "e9dff50d572caa96b68a7466c18c97a8d6ed651c")
  ("melpa" . "c4f8b0a0766bcff6b716b9e35da25c00b8a91abd")
  ("org" . "fffba5b7fdc6cc7b5d92cc31a1a2929fea86de96")
