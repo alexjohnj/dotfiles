@@ -39,6 +39,7 @@
  ("ledger-mode" . "7d78645479e6b01764951d37e5ee737e80778221")
  ("let-alist" . "ef3c02fa292b6e32769945bbbfb7f2e5ac574b64")
  ("lsp-mode" . "f939b45de5098c45899b044c2902a24c0abcf9f8")
+ ("lsp-sourcekit" . "04d75b6a0be5894fea4a55fec0b2ccedf5b3be58")
  ("lsp-ui" . "134d9b725d21f8889f3dc72dddc418c6c6561f0e")
  ("magit" . "68b5a13fa1b6b122d4a2547b8c415aadff83d8ca")
  ("markdown-mode" . "e9dff50d572caa96b68a7466c18c97a8d6ed651c")
