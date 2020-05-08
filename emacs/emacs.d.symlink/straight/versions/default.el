@@ -57,7 +57,7 @@
  ("smartparens" . "7c61a5a197fbf785fe26a5f8f790244fb4da6421")
  ("solarized-emacs" . "8de268144ab2171896906c8553be7763d5c45fa5")
  ("spinner" . "2daa167bec1c7566d662d48613a94453536b524a")
- ("straight.el" . "0eadafc40c5d9403c0c051a60fd8b45c3f4d900d")
+ ("straight.el" . "21c431c0d5144790df666b3888122a1594090d4f")
  ("swift-mode" . "1268425311ab20f1618df4e52cb1b79e28b553df")
  ("swiper" . "64f05f4735bba8b708bc12cfc2cbfb7fb7706787")
  ("transient" . "a269614c69ad8b2703e6e5093d0017d6afad6cca")
