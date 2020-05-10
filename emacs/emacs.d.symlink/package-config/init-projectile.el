@@ -2,13 +2,18 @@
   :diminish projectile-mode
   :commands (projectile-switch-project
              projectile-project-p
-             projectile-find-file)
+             projectile-find-file
+             projectile-add-known-project)
+
   :init
   (evil-leader/set-key
-    "pf" 'projectile-find-file
-    "pp" 'projectile-switch-project
-    "p-" 'alex/projectile-remove-known-project)
+    "pf" #'projectile-find-file
+    "pp" #'projectile-switch-project
+    "p-" #'alex/projectile-remove-known-project
+    "p C--" #'projectile-remove-known-project
+    "p+" #'alex/projectile-smart-add-known-projectile)
   (which-key-add-key-based-replacements "SPC p" "Project")
+
   :config
   (setq projectile-switch-project-action #'alex/projectile-switch-project
         projectile-enable-caching t
@@ -44,6 +49,13 @@
   (if (projectile-project-p)
       (projectile-remove-current-project-from-known-projects)
     (call-interactively 'projectile-remove-known-project)))
+
+(defun alex/projectile-smart-add-known-projectile ()
+  "If the current directory looks like a project, adds it as a project. Otherwise asks for a directory"
+  (interactive)
+  (if (projectile-project-p)
+      (projectile-add-known-project (projectile-project-root))
+    (projectile-add-known-project)))
 
 (defun alex/projectile-invalidate-and-search ()
   (interactive)
