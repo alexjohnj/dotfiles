@@ -19,7 +19,7 @@
  ("evil-commentary" . "395f91014b69844b81660c155f42eb9b1b3d199d")
  ("evil-escape" . "f4e9116bfbaac8c9d210c17ad488e0982291245f")
  ("evil-leader" . "39f7014bcf8b36463e0c7512c638bda4bac6c2cf")
- ("evil-magit" . "0b79aa33a478770865716dc0e09f95d91ec042a2")
+ ("evil-magit" . "253c644807013fe92429acdef418748794b8f254")
  ("evil-surround" . "9b0b17f06cef9bac81ee4800d121265e54718a17")
  ("exec-path-from-shell" . "d17c4e0b73fc5ffeb2bc28156785c6bdda058654")
  ("f.el" . "1814209e2ff43cf2e6d38c4cd476218915f550fb")
