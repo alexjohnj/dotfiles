@@ -163,6 +163,7 @@ This is a wrapper around `eval-after-load' that:
 ;; This is set up a little different to how doom-emacs sets it up.
 ;;
 (use-package gcmh
+  :diminish
   :config
   (setq gcmh-idle-delay 10
         gcmh-high-cons-threshold 16777216 ; 16 MB
