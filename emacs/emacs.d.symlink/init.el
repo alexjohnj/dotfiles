@@ -181,6 +181,10 @@ This is a wrapper around `eval-after-load' that:
               (advice-remove #'tty-run-terminal-initialization #'ignore)
               (tty-run-terminal-initialization (selected-frame) nil t))))
 
+;; Making the initial major mode fundamental mode avoids loading in packages
+;; only used for emacs-lisp-mode.
+(setq initial-major-mode 'fundamental-mode)
+
 
 ;;; Core Packages
 
