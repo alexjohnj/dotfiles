@@ -571,9 +571,10 @@ This is a wrapper around `eval-after-load' that:
 
 (use-package smartparens
   :diminish
+  :hook ((prog-mode . smartparens-global-mode)
+         (text-mode . smartparens-global-mode))
   :config
-  (require 'smartparens-config)
-  (smartparens-global-mode))
+  (require 'smartparens-config))
 
 (require 'init-projectile)
 (require 'init-flycheck)
