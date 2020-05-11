@@ -55,6 +55,7 @@
   (load bootstrap-file nil 'nomessage))
 
 (straight-use-package 'use-package)
+(setq use-package-compute-statistics t)
 
 
 ;;; Supporting functions/macros
