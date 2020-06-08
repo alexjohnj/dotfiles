@@ -41,8 +41,8 @@ chflags nohidden ~/Library
 # Disable the damn warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Enable column view for new finder windows by default
-defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+# Enable list view for new finder windows by default
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Enable AirDrop for all network interfaces
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
@@ -51,14 +51,17 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 # The Dock
 ##########################
 
-# Move the dock to the left of the screen
-defaults write com.apple.dock orientation left
+# Move the dock to the right of the screen
+defaults write com.apple.dock orientation right
 
 # Auto hide the dock
 defaults write com.apple.dock autohide -bool true
 
-# Set Dock Icon Size to 24px
-defaults write com.apple.dock tilesize -int 24
+# Set Dock Icon Size to 40px
+defaults write com.apple.dock tilesize -int 40
+
+# Hide process indicators
+defaults write com.apple.doc show-process-indicators -bool false
 
 ##########################
 # Safari
