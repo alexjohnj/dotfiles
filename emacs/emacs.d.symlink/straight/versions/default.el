@@ -38,7 +38,7 @@
  ("json-reformat" . "8eb6668ed447988aea06467ba8f42e1f2178246f")
  ("json-snatcher" . "c4cecc0a5051bd364373aa499c47a1bb7a5ac51c")
  ("ledger-mode" . "7d78645479e6b01764951d37e5ee737e80778221")
- ("let-alist" . "ef3c02fa292b6e32769945bbbfb7f2e5ac574b64")
+ ("let-alist" . "b299c78897cc307f9d5521927376fbd06a26f123")
  ("lsp-mode" . "f939b45de5098c45899b044c2902a24c0abcf9f8")
  ("lsp-sourcekit" . "04d75b6a0be5894fea4a55fec0b2ccedf5b3be58")
  ("lsp-ui" . "134d9b725d21f8889f3dc72dddc418c6c6561f0e")
@@ -58,7 +58,7 @@
  ("smartparens" . "7c61a5a197fbf785fe26a5f8f790244fb4da6421")
  ("solarized-emacs" . "8de268144ab2171896906c8553be7763d5c45fa5")
  ("spinner" . "2daa167bec1c7566d662d48613a94453536b524a")
- ("straight.el" . "21c431c0d5144790df666b3888122a1594090d4f")
+ ("straight.el" . "5d046ad09413f3aba6198229e392cdd3f07e77ee")
  ("swift-mode" . "1268425311ab20f1618df4e52cb1b79e28b553df")
  ("swiper" . "64f05f4735bba8b708bc12cfc2cbfb7fb7706787")
  ("transient" . "a269614c69ad8b2703e6e5093d0017d6afad6cca")
@@ -69,4 +69,4 @@
  ("with-editor" . "4fe66d4d55c8eacebda53a13cc38e01d32bdaaa2")
  ("yaml-mode" . "cecf4b106b0c4236931b14919fdf87ff3546e2c9")
  ("yasnippet" . "3bf9a3b1af37174a004798b7195826af0123fa6a"))
-:alpha
+:beta
