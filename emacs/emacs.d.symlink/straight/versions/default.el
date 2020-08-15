@@ -64,7 +64,7 @@
  ("transient" . "a269614c69ad8b2703e6e5093d0017d6afad6cca")
  ("undo-tree" . "5b6df03781495d8a25695d846b0cce496d3d3058")
  ("unfill" . "02c36a04364bcb586477ab79d2b5e0d4e6ae6d47")
- ("use-package" . "c873d5529c9c80cb58222f22873a4f081c307cb2")
+ ("use-package" . "4fb1f9a68f1e7e7d614652afc017a6652fd029f1")
  ("web-mode" . "b0bb4ab82ba64b6fa789212f03ad808bdaf77d68")
  ("with-editor" . "4fe66d4d55c8eacebda53a13cc38e01d32bdaaa2")
  ("yaml-mode" . "cecf4b106b0c4236931b14919fdf87ff3546e2c9")
