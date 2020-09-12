@@ -14,7 +14,7 @@ import:
 plugins:
   - fetchart
   - embedart
-  - lyrics
+  # - lyrics
   - convert
   - lastgenre
   - scrub
