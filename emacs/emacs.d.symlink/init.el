@@ -314,9 +314,14 @@ This is a wrapper around `eval-after-load' that:
 ;; Send files to the trash.
 (setq delete-by-moving-to-trash alex/IS-MAC)
 
+(use-package xcodeproj-mode
+  :straight (xcodeproj-mode :type built-in))
+
 ;; Trim tidy whitespace before saving
 (use-package whitespace
-  :hook (before-save . whitespace-cleanup))
+  :hook (before-save . whitespace-cleanup)
+  :config
+  (add-hook 'xcodeproj-mode-hook '(lambda () (remove-hook 'before-save-hook 'whitespace-cleanup))))
 
 ;; Highlight matching parentheses
 (use-package paren
