@@ -14,11 +14,15 @@ set -gx GEM_HOME "$HOME/.gem"
 # XZ
 set -gx XZ_OPT "--threads=0"
 
+# Flutter
+set -gx FLUTTER_HOME "$HOME/.local/bin/flutter"
+
 # Set the PATH
 set -l path_components \
 $HOME/bin \
 $HOME/.local/bin \
 $HOME/.cargo/bin \
+$FLUTTER_HOME/bin \
 $HOME/Library/Python/3.7/bin \
 $HOME/Library/Python/2.7/bin \
 $GEM_HOME/bin \
