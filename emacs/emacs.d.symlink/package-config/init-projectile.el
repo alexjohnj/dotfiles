@@ -37,7 +37,7 @@
     "pD" 'projectile-dired
     "pr" 'projectile-replace
     "psg" 'projectile-grep
-    "pss" 'projectile-ag
+    "pss" 'rg-dwim-project-dir
     "pS" 'projectile-save-project-buffers
     "p c" 'projectile-compile-project
     "p t" 'projectile-find-test-file)

@@ -586,7 +586,7 @@ This is a wrapper around `eval-after-load' that:
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
 (require 'init-flyspell)
-(require 'init-ag)
+(require 'init-rg)
 (require 'init-deft)
 (require 'init-ediff)
 
