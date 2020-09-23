@@ -1,14 +1,9 @@
 (use-package lsp-mode
   :commands lsp
   :hook ((python-mode . lsp)
-         (rust-mode . lsp)))
-
-(use-package lsp-ui
-  :after lsp-mode
-  :commands lsp-ui-mode)
-
-(use-package company-lsp
-  :commands company-lsp)
+         (rust-mode . lsp)
+         (dart-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration)))
 
 (use-package lsp-sourcekit
   :after lsp-mode

@@ -630,8 +630,8 @@ This is a wrapper around `eval-after-load' that:
   :config (progn
             (setq rust-format-on-save t)))
 
-(use-package lsp-dart
-  :hook (dart-mode . lsp))
+(use-package dart-mode)
+(use-package lsp-dart)
 
 
 ;;; Org Packages
