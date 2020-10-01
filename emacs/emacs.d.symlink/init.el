@@ -633,6 +633,9 @@ This is a wrapper around `eval-after-load' that:
 (use-package dart-mode)
 (use-package lsp-dart)
 
+(use-package csharp-mode
+  :mode ("\\.cs\\'" . csharp-mode))
+
 (use-package kotlin-mode
   :mode ("\\.kt\\'" . kotlin-mode))
 
