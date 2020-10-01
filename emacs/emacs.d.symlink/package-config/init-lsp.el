@@ -3,7 +3,8 @@
   :hook ((python-mode . lsp)
          (rust-mode . lsp)
          (dart-mode . lsp)
-         (lsp-mode . lsp-enable-which-key-integration)))
+         (lsp-mode . lsp-enable-which-key-integration)
+         (lsp-mode . yas-minor-mode-on)))
 
 (use-package lsp-sourcekit
   :after lsp-mode
