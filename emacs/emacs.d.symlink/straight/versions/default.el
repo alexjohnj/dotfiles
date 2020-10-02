@@ -59,7 +59,7 @@
  ("solarized-emacs" . "8de268144ab2171896906c8553be7763d5c45fa5")
  ("spinner" . "2daa167bec1c7566d662d48613a94453536b524a")
  ("straight.el" . "5d046ad09413f3aba6198229e392cdd3f07e77ee")
- ("swift-mode" . "1268425311ab20f1618df4e52cb1b79e28b553df")
+ ("swift-mode" . "e65a80a659c74d0a62b00dff183a0f7fc8385ce1")
  ("swiper" . "64f05f4735bba8b708bc12cfc2cbfb7fb7706787")
  ("transient" . "a269614c69ad8b2703e6e5093d0017d6afad6cca")
  ("undo-tree" . "5b6df03781495d8a25695d846b0cce496d3d3058")
