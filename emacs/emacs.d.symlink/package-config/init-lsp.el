@@ -4,7 +4,9 @@
          (rust-mode . lsp)
          (dart-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration)
-         (lsp-mode . yas-minor-mode-on)))
+         (lsp-mode . yas-minor-mode-on))
+  :config
+  (setq lsp-enable-on-type-formatting nil))
 
 (use-package lsp-sourcekit
   :after lsp-mode
