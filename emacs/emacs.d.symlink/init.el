@@ -451,6 +451,14 @@ This is a wrapper around `eval-after-load' that:
         (message filename)
       (error "Buffer not visiting a file"))))
 
+(defun alex/kill-buffer-name()
+  "Add the path to the current buffer's file to the kill ring"
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (when filename
+      (kill-new filename)
+      (message filename))))
+
 
 ;;; Basic Keybindings
 
@@ -487,7 +495,8 @@ This is a wrapper around `eval-after-load' that:
                           "R" 'alex/rename-current-buffer-file
                           "s" 'evil-write
                           "S" 'evil-write-all
-                          "y" 'alex/show-buffer-name)
+                          "y" 'alex/show-buffer-name
+                          "Y" 'alex/kill-buffer-name)
 
 ;; Window Management
 (alex/evil-leader--prefix "w"
