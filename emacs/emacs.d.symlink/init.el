@@ -613,6 +613,7 @@ This is a wrapper around `eval-after-load' that:
 (require 'init-swift)
 (require 'init-ruby)
 (require 'init-elixir)
+(require 'init-dart)
 
 (use-package json-mode
   :mode ("\\.json\\'" . json-mode))
@@ -638,9 +639,6 @@ This is a wrapper around `eval-after-load' that:
               ("C-c C-t" . 'rust-test))
   :config (progn
             (setq rust-format-on-save t)))
-
-(use-package dart-mode)
-(use-package lsp-dart)
 
 (use-package csharp-mode
   :mode ("\\.cs\\'" . csharp-mode))
