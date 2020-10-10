@@ -6,6 +6,7 @@
  ("dart-mode" . "04fcd649f19d49390079fbf2920a10bf37f6a634")
  ("dash.el" . "721436b04da4e2795387cb48a98ac6de37ece0fd")
  ("diminish.el" . "96b47cf90360e4bd19138fe82dc59bfa86c7bf7d")
+ ("dumb-jump" . "fbbe6b0c3010bea8a6eaac2297080137319160e2")
  ("emacs-fish" . "db257db81058b0b12f788c324c264cc59b9a5bf4")
  ("emacs-which-key" . "8b49ae978cceca65967f3544c236f32964ddbed0")
  ("emacsmirror-mirror" . "9687b34f10a9925678ada1112e5a9e009baee673")

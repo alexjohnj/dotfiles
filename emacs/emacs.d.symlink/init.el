@@ -597,6 +597,14 @@ This is a wrapper around `eval-after-load' that:
   :config
   (require 'smartparens-config))
 
+(use-package dumb-jump
+  :commands dumb-jump-xref-activate
+  :init
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  :custom
+  (when alex/rg-available
+    (dumb-jump-prefer-searcher 'rg)))
+
 (require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-rainbow-delimiters)
