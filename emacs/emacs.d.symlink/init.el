@@ -196,11 +196,14 @@ This is a wrapper around `eval-after-load' that:
 ;; Ensure the system PATH is picked up properly by Emacs
 (use-package exec-path-from-shell
   :unless (memq system-type '(windows-nt ms-dos))
-  :config (progn
-            (add-to-list 'exec-path-from-shell-variables "GPG_AGENT_INFO")
-            (add-to-list 'exec-path-from-shell-variables "SSH_AUTH_SOCK")
-            (add-to-list 'exec-path-from-shell-variables "SSH_AGENT_PID")
-            (exec-path-from-shell-initialize)))
+  :config
+  (add-to-list 'exec-path-from-shell-variables "GPG_AGENT_INFO")
+  (add-to-list 'exec-path-from-shell-variables "SSH_AUTH_SOCK")
+  (add-to-list 'exec-path-from-shell-variables "SSH_AGENT_PID")
+  (exec-path-from-shell-initialize))
+
+(defconst alex/rg-available (if (executable-find "rg") t nil)
+  "t if the rg executable is available on this system")
 
 ;; Keep the modeline neat and tidy
 (use-package diminish
@@ -259,7 +262,7 @@ This is a wrapper around `eval-after-load' that:
 (use-package counsel
   :after ivy
   :config
-  (when (executable-find "rg")
+  (when alex/rg-available
     (setq counsel-grep-base-command
           "rg -i --no-heading --line-number --color never '%s' %s"))
   (global-set-key (kbd "C-s") #'counsel-grep-or-swiper)
