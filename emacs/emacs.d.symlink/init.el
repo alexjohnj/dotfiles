@@ -367,12 +367,13 @@ This is a wrapper around `eval-after-load' that:
         (set-face-attribute 'default nil :font font-name :height 140)
       (set-face-attribute 'default nil :font font-name :height 110))))
 
-(use-package solarized-theme
-  :config (progn
-            (setq solarized-use-variable-pitch nil
-                  solarized-scale-org-headlines nil
-                  solarized-scale-outline-headlines nil)
-            (load-theme 'solarized-dark t)))
+(use-package modus-vivendi-theme
+  :custom
+  (modus-vivendi-theme-intense-hl-line t)
+  (modus-vivendi-theme-scale-headings t)
+  (modus-vivendi-theme-headings '((t . rainbow-section)))
+  :config
+  (load-theme 'modus-vivendi t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
