@@ -5,6 +5,9 @@
 (setq gc-cons-threshold most-positive-fixnum
       gc-cons-percentage 0.6)
 
+(when (version< emacs-version "27")
+  (load (expand-file-name "early-init.el" user-emacs-directory)))
+
 (defconst alex/IS-MAC (eq system-type 'darwin))
 (defconst alex/IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
 
