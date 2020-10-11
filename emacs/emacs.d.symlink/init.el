@@ -217,11 +217,13 @@ This is a wrapper around `eval-after-load' that:
   (global-evil-leader-mode))
 
 (use-package evil
-  :after evil-leader
-  :diminish
-  undo-tree-mode
   :config
   (evil-mode))
+
+(use-package undo-fu
+  :bind (:map evil-normal-state-map
+              ("u" . undo-fu-only-undo)
+              ("C-r" . undo-fu-only-redo)))
 
 (use-package evil-commentary
   :after evil
