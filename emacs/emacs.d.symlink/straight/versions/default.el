@@ -4,6 +4,7 @@
  ("bui.el" . "28a9b0a36cb69b931cf32db7546ad5c6589752cf")
  ("dap-mode" . "15390e58d105b4eee6431c7a7df74d224081f108")
  ("dart-mode" . "04fcd649f19d49390079fbf2920a10bf37f6a634")
+ ("dash-at-point" . "4d795a23a8428c421d5107f1b005c9d8e0d1816c")
  ("dash.el" . "721436b04da4e2795387cb48a98ac6de37ece0fd")
  ("diminish.el" . "96b47cf90360e4bd19138fe82dc59bfa86c7bf7d")
  ("dumb-jump" . "fbbe6b0c3010bea8a6eaac2297080137319160e2")

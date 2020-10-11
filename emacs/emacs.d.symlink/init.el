@@ -612,6 +612,12 @@ This is a wrapper around `eval-after-load' that:
   (when alex/rg-available
     (dumb-jump-prefer-searcher 'rg)))
 
+(use-package dash-at-point
+  :when alex/IS-MAC
+  :bind (([f1] . dash-at-point))
+  :config
+  (add-to-list 'dash-at-point-mode-alist '(swift-mode . "o")))
+
 (require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-rainbow-delimiters)
