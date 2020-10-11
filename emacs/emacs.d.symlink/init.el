@@ -376,6 +376,7 @@ This is a wrapper around `eval-after-load' that:
       (set-face-attribute 'default nil :font font-name :height 110))))
 
 (use-package moody
+  :when (display-graphic-p)
   :config
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode))
