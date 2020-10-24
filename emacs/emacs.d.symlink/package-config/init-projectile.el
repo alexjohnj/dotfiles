@@ -22,7 +22,7 @@
         projectile-ignored-projects '("~/" "/tmp")
         projectile-completion-system 'ivy)
 
-  (when (executable-find "fd")
+  (when alex/fd-available
     (setq projectile-generic-command "fd . -0 -H -E .git --color=never --type file --type symlink --follow"
           projectile-git-command projectile-generic-command
           projectile-git-submodule-command nil

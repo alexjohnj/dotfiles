@@ -203,7 +203,10 @@ This is a wrapper around `eval-after-load' that:
   (exec-path-from-shell-initialize))
 
 (defconst alex/rg-available (if (executable-find "rg") t nil)
-  "t if the rg executable is available on this system")
+  "t if the rg executable is available on this system.")
+
+(defconst alex/fd-available  (if (executable-find "fd") t nil)
+  "t if the fd executable is available on this system.")
 
 ;; Keep the modeline neat and tidy
 (use-package diminish
