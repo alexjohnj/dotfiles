@@ -49,6 +49,8 @@
   (if (projectile-project-p)
       (projectile-remove-current-project-from-known-projects)
     (call-interactively 'projectile-remove-known-project)))
+  (projectile-register-project-type 'dart '("pubspec.yaml"))
+  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
 
 (defun alex/projectile-smart-add-known-projectile ()
   "If the current directory looks like a project, adds it as a project. Otherwise asks for a directory"
