@@ -4,14 +4,12 @@
              projectile-project-p
              projectile-find-file
              projectile-add-known-project)
-
   :init
   (evil-leader/set-key
-    "pf" #'projectile-find-file
-    "pp" #'projectile-switch-project
-    "p-" #'alex/projectile-remove-known-project
-    "p C--" #'projectile-remove-known-project
-    "p+" #'alex/projectile-smart-add-known-projectile)
+    "p f" #'projectile-find-file
+    "p p" #'projectile-switch-project
+    "p -" #'projectile-remove-known-project
+    "p +" #'alex/projectile-smart-add-known-projectile)
   (which-key-add-key-based-replacements "SPC p" "Project")
 
   :config
@@ -41,23 +39,18 @@
     "pS" 'projectile-save-project-buffers
     "p c" 'projectile-compile-project
     "p t" 'projectile-find-test-file)
-  (projectile-mode))
 
-(defun alex/projectile-remove-known-project ()
-  "Removes the current project if you're in one, otherwise prompts for a project to remove."
-  (interactive)
-  (if (projectile-project-p)
-      (projectile-remove-current-project-from-known-projects)
-    (call-interactively 'projectile-remove-known-project)))
   (projectile-register-project-type 'dart '("pubspec.yaml"))
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+
+  (projectile-mode))
 
 (defun alex/projectile-smart-add-known-projectile ()
   "If the current directory looks like a project, adds it as a project. Otherwise asks for a directory"
   (interactive)
   (if (projectile-project-p)
       (projectile-add-known-project (projectile-project-root))
-    (projectile-add-known-project)))
+    (projectile-add-known-project (pwd))))
 
 (defun alex/projectile-invalidate-and-search ()
   (interactive)
