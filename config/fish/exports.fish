@@ -23,7 +23,7 @@ set -l path_components \
     $HOME/.local/bin \
     $HOME/.cargo/bin \
     $PUB_CACHE/bin \
-    $HOME/Library/Python/3.7/bin \
+    $HOME/Library/Python/3.8/bin \
     $HOME/Library/Python/2.7/bin \
     $GEM_HOME/bin \
     $GOPATH/bin \
