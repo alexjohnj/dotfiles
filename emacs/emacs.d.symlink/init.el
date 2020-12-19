@@ -275,6 +275,15 @@ This is a wrapper around `eval-after-load' that:
   (global-set-key (kbd "C-x C-f") #'counsel-find-file)
   (evil-leader/set-key "i" #'counsel-imenu))
 
+(use-package prescient
+  :config
+  (prescient-persist-mode t))
+
+(use-package ivy-prescient
+  :after counsel
+  :config
+  (ivy-prescient-mode t))
+
 (use-package ivy-rich
   :after ivy
   :config (ivy-rich-mode))

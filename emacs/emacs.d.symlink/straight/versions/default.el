@@ -63,6 +63,7 @@
  ("popup-el" . "13364d7674535db225789b03da766746734a4f28")
  ("pos-tip" . "179cc126b363f72ca12fab1e0dc462ce0ee79742")
  ("posframe" . "e1552c82dffaadc5e7de09a44880a498197ffbee")
+ ("prescient.el" . "b12f8b06d591bf14bb641ccf321d6750f459a02c")
  ("projectile" . "05ab27e34d7d9c5276bad9a4a9cf396354aad618")
  ("rainbow-delimiters" . "f43d48a24602be3ec899345a3326ed0247b960c6")
  ("rg.el" . "151f3ed7dd0d5829a8aacc0e911d445ad00046cd")

@@ -124,3 +124,4 @@ tramp
 
 # Server files generated on Windows
 /emacs/emacs.d.symlink/server/
+/emacs/emacs.d.symlink/var/
