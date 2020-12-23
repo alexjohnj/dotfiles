@@ -393,14 +393,14 @@ This is a wrapper around `eval-after-load' that:
   (moody-replace-mode-line-buffer-identification)
   (moody-replace-vc-mode))
 
-(use-package modus-vivendi-theme
+(use-package modus-themes
   :custom
-  (modus-vivendi-theme-intense-hl-line t)
-  (modus-vivendi-theme-scale-headings t)
-  (modus-vivendi-theme-headings '((t . rainbow-section)))
+  (modus-themes-intense-hl-line t)
+  (modus-themes-scale-headings t)
+  (modus-themes-headings '((t . rainbow-section)))
   :config
   (when (featurep 'moody)
-    (setq modus-vivendi-theme-mode-line 'moody))
+    (setq modus-themes-mode-line 'moody))
   (load-theme 'modus-vivendi t))
 
 ;; Match the fringe colour to the theme's background colour

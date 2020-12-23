@@ -53,7 +53,7 @@
  ("magit" . "acfe22ab60a56c61aae3ca6d4f2b7b826fe3b071")
  ("markdown-mode" . "39cc7176d3ba33d88e02cdd0707d4dac23836977")
  ("melpa" . "2c8ad93fcf71be990ab1b97c4fbe7526ce66ca69")
- ("modus-vivendi-theme" . "95357b0d5b5c25855d842e6971e922107cd15c60")
+ ("modus-themes" . "e86cf90e9b81e0527c53ada88d76c9322eed9826")
  ("moody" . "f6bebfe6fe51b728ebd013b7084becad23cabad3")
  ("org" . "2bae9a3e49f5719a0f4c00614fbb32f72edd036b")
  ("page-break-lines" . "34cd91d841e5334c6966e25fbfd971a2dfbcee69")
