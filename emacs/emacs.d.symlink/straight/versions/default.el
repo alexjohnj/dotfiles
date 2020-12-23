@@ -72,7 +72,7 @@
  ("scss-mode" . "cf58dbec5394280503eb5502938f3b5445d1b53d")
  ("smartparens" . "b8bdd9265e6950e038bbcd68ead5582c6964baf2")
  ("spinner" . "61f59fab44d22cd5add61a1baf3f0b88a5d829d7")
- ("straight.el" . "f6663b1de0fb5d9c64528e4f7f8bb914f49bb6d2")
+ ("straight.el" . "2d407bccd9378f1d5218f8ba2ae85c6be73fbaf1")
  ("swift-mode" . "0bc8d8d80736d6d874edf8f59c0b37618368b183")
  ("swiper" . "ae9b121b834a68d11f79ca27b1e5c8790149ba2f")
  ("transient" . "0d79ccfaf899f6192151d1191fbc234795489923")
