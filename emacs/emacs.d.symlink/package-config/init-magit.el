@@ -1,12 +1,12 @@
 (use-package magit
-  :commands (magit-dispatch-popup
+  :commands (magit-dispatch
              magit-status
-             magit-blame)
+             magit-file-dispatch)
   :init
   (alex/evil-leader--prefix "g"
-                            "g" 'magit-dispatch-popup
+                            "g" 'magit-dispatch
                             "s" 'magit-status
-                            "b" 'magit-blame)
+                            "f" 'magit-file-dispatch)
   (which-key-add-key-based-replacements "SPC g" "Magit")
   :custom
   (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1))
