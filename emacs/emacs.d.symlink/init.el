@@ -401,7 +401,7 @@ This is a wrapper around `eval-after-load' that:
   :config
   (when (featurep 'moody)
     (setq modus-themes-mode-line 'moody))
-  (load-theme 'modus-vivendi t))
+  (load-theme 'modus-operandi t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
