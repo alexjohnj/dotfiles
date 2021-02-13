@@ -4,6 +4,7 @@ set -gx EDITOR vim
 # Set up Homebrew & Casks
 set -gx HOMEBREW_CASK_OPTS --appdir=/Applications
 set -gx HOMEBREW_NO_ANALYTICS 1
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
 
 # Set up golang dev environment
 set -gx GOPATH $HOME/.go
