@@ -1,85 +1,30 @@
-# Taps
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/services'
+tap "beeftornado/rmtree"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
 
-# Languages
-brew 'ruby'
-brew 'python'
-brew 'python3'
+brew "asdf"
+brew "bundletool"
+brew "dust"
+brew "lorem"
+brew "swiftlint"
 
-# Core Utilities
-brew 'mas'
-
-brew 'ag'
-brew 'cloc'
-brew 'fd'
-brew 'fish'
-brew 'htop'
-brew 'hugo'
-brew 'pigz'
-brew 'reattach-to-user-namespace'
-brew 'tmux'
-brew 'trash'
-brew 'tree'
-brew 'xz'
-
-# Dev Tools
-brew 'carthage'
-brew 'git'
-brew 'git-lfs'
-brew 'node'
-brew 'vim'
-
-# Security
-brew 'gnupg'
-brew 'pinentry-mac'
-
-# Other Tools
-brew 'aspell'
-brew 'ffmpeg'
-brew 'pandoc'
-brew 'syncthing'
-brew 'youtube-dl'
-
-# macOS Software
-cask 'appcleaner'
-cask 'arq'
-cask 'calibre'
-cask 'charles'
-cask 'daisydisk'
-cask 'dash'
-cask 'db-browser-for-sqlite'
-cask 'emacs'
-cask 'firefox'
-cask 'handbrake'
-cask 'hex-fiend'
-cask 'iina'
-cask 'insomnia'
-cask 'intel-power-gadget'
-cask 'istat-menus'
-cask 'keka'
-cask 'provisionql'
-cask 'qlstephen'
-cask 'reveal'
-cask 'sketch'
-cask 'spectacle'
-cask 'spotify'
-cask 'subler'
-cask 'superduper'
-cask 'transmission'
-cask 'transmit'
-cask 'viscosity'
-cask 'zeplin'
-
-mas '1Blocker', id: 1107421413
-mas '1Password 7', id: 1333542190
-mas 'Amphetamine', id: 937984704
-mas 'Deliveries', id: 924726344
-mas 'Marked', id: 890031187
-mas 'PDF Expert', id: 1055273043
-mas 'Slack', id: 803453959
-mas 'Things 3', id: 904280696
-
-# Fonts
-cask 'font-iosevka'
+cask "appcleaner"
+cask "calibre"
+cask "dash"
+cask "discord"
+cask "hex-fiend"
+cask "iina"
+cask "imageoptim"
+cask "kitty"
+cask "mailmate"
+cask "microsoft-teams"
+cask "paw"
+cask "proxyman"
+cask "red-eye"
+cask "reveal"
+cask "spectacle"
+cask "spotify"
+cask "superduper"
+cask "transmit"
