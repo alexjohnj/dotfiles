@@ -1,5 +1,6 @@
-# Set up the editor
+# Preferences
 set -gx EDITOR vim
+set -gx PGP_KEY_ID D5716AB9B3C403F8700FB842086F38162DD08BF1
 
 # Set up Homebrew & Casks
 set -gx HOMEBREW_CASK_OPTS --appdir=/Applications
@@ -49,6 +50,5 @@ set -gx LEDGER_FILE "$HOME/finance/ledger.journal"
 set -gx BEANCOUNT_FILE "$HOME/finance/ledger.beancount"
 
 # bat Configuration
-
 set -x BAT_STYLE "plain"
 set -x BAT_THEME "base16"
