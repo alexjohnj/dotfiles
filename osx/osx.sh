@@ -51,8 +51,8 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 # The Dock
 ##########################
 
-# Move the dock to the right of the screen
-defaults write com.apple.dock orientation right
+# Move the dock to the left of the screen
+defaults write com.apple.dock orientation left
 
 # Auto hide the dock
 defaults write com.apple.dock autohide -bool true
