@@ -64,6 +64,8 @@ defaults write com.apple.dock autohide-delay -int 0
 
 # Hide process indicators
 defaults write com.apple.doc show-process-indicators -bool false
+# Disable resizing of the dock (without using the above command)
+defaults write com.apple.dock size-immutable -int 1
 
 ##########################
 # Safari
