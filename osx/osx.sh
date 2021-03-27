@@ -62,8 +62,6 @@ defaults write com.apple.dock tilesize -int 40
 # Remove the delay from automatically hiding/showing the dock
 defaults write com.apple.dock autohide-delay -int 0
 
-# Hide process indicators
-defaults write com.apple.doc show-process-indicators -bool false
 # Disable resizing of the dock (without using the above command)
 defaults write com.apple.dock size-immutable -int 1
 
