@@ -59,6 +59,8 @@ defaults write com.apple.dock autohide -bool true
 
 # Set Dock Icon Size to 40px
 defaults write com.apple.dock tilesize -int 40
+# Remove the delay from automatically hiding/showing the dock
+defaults write com.apple.dock autohide-delay -int 0
 
 # Hide process indicators
 defaults write com.apple.doc show-process-indicators -bool false
