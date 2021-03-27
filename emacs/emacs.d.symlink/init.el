@@ -338,10 +338,10 @@ This is a wrapper around `eval-after-load' that:
   :straight (xcodeproj-mode :type built-in))
 
 ;; Trim tidy whitespace before saving
-(use-package whitespace
-  :hook (before-save . whitespace-cleanup)
+(use-package ws-butler
   :config
-  (add-hook 'xcodeproj-mode-hook '(lambda () (remove-hook 'before-save-hook 'whitespace-cleanup))))
+  (ws-butler-global-mode)
+  (add-hook 'xcodeproj-mode-hook '(lambda () (ws-butler-mode nil))))
 
 ;; Highlight matching parentheses
 (use-package paren
