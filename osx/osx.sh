@@ -57,10 +57,11 @@ defaults write com.apple.dock orientation left
 # Auto hide the dock
 defaults write com.apple.dock autohide -bool true
 
-# Set Dock Icon Size to 40px
-defaults write com.apple.dock tilesize -int 40
 # Remove the delay from automatically hiding/showing the dock
 defaults write com.apple.dock autohide-delay -int 0
+
+# Set Dock Icon Size to 48px
+defaults write com.apple.dock tilesize -int 48
 
 # Disable resizing of the dock (without using the above command)
 defaults write com.apple.dock size-immutable -int 1
