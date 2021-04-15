@@ -22,3 +22,4 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   lgs = lg --stat
   rnotes = log --no-merges --pretty=format:'* %s'
+  tag-history = tag --sort=-taggerdate --format='%(refname:strip=2) - %(taggerdate)'
