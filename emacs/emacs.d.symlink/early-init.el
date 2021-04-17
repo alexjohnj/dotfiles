@@ -24,3 +24,7 @@
 ;; font. By inhibiting this, we easily halve startup times with fonts that are
 ;; larger than the system default.
 (setq frame-inhibit-implied-resize t)
+
+;; Configure native comp settings
+(setq comp-async-report-warnings-errors nil
+      package-native-compile t)
