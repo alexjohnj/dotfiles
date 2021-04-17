@@ -53,7 +53,7 @@
  ("lsp-treemacs" . "64e375fcc700d4d47cf52ad912e6863d479e3bfa")
  ("magit" . "9a96de26ec3772a3e374351738e911ac18e3e6de")
  ("markdown-mode" . "3e380572a5177d0fa527c15efd15e340f53a923b")
- ("melpa" . "fe3f9f732a69483bfa86446cd90f0f1c2611cc80")
+ ("melpa" . "f184e09d370d563852da2028b9c2546d6fc162c0")
  ("modus-themes" . "7ac62ded8506373098682382c8477cc1cfab7c69")
  ("moody" . "2a29baa0cb6e364c5acbbf590a6d7c936c4378ae")
  ("org" . "edda21e9312be2af5566286bcd9042fbbec56725")
