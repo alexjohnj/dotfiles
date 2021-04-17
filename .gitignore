@@ -29,6 +29,7 @@ emacs/emacs.d.symlink/straight/build/
 emacs/emacs.d.symlink/straight/repos/
 emacs/emacs.d.symlink/straight/links/
 emacs/emacs.d.symlink/straight/build-cache.el
+/emacs/emacs.d.symlink/eln-cache/
 
 # vim Dictionaries
 en.utf-8.add*
