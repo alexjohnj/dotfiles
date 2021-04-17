@@ -82,6 +82,7 @@
  ("use-package" . "365c73d2618dd0040a32c2601c5456ab5495b812")
  ("web-mode" . "a3ce21f795e03c7a5489a24b2b3c4fce2d7a2f59")
  ("with-editor" . "139ef3933ea7aa3fe67b87450a6a1ac0895e5c81")
+ ("ws-butler" . "e3a38d93e01014cd47bf5af4924459bd145fd7c4")
  ("yaml-mode" . "fc5e1c58f94472944c4aa838f00f6adcac6fa992")
  ("yasnippet" . "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6"))
 :beta
