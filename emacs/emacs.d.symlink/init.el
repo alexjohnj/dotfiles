@@ -270,7 +270,11 @@ This is a wrapper around `eval-after-load' that:
   (when alex/rg-available
     (setq counsel-grep-base-command
           "rg -i --no-heading --line-number --color never '%s' %s"))
-  (global-set-key (kbd "C-s") #'counsel-grep-or-swiper)
+
+  (if (native-comp-available-p)
+      (global-set-key (kbd "C-s") #'swiper)
+    (global-set-key (kbd "C-s") #'counsel-grep-or-swiper))
+
   (global-set-key (kbd "M-x") #'counsel-M-x)
   (global-set-key (kbd "C-x C-f") #'counsel-find-file)
   (evil-leader/set-key "i" #'counsel-imenu))
