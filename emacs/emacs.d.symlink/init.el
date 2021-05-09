@@ -638,6 +638,12 @@ This is a wrapper around `eval-after-load' that:
   :config
   (add-to-list 'dash-at-point-mode-alist '(swift-mode . "o")))
 
+(use-package tree-sitter
+  :config
+  (use-package tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+
 (require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-rainbow-delimiters)
