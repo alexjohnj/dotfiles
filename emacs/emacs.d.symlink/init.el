@@ -42,7 +42,8 @@
 ;; Bootstrap straight.el
 
 (setq straight-use-package-by-default t
-      straight-check-for-modifications '(check-on-save find-when-checking))
+      straight-build-dir (format "build-%s" emacs-version)
+      straight-check-for-modifications '(find-when-checking))
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
