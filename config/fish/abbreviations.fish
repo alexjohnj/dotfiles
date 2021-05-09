@@ -39,3 +39,8 @@ abbr marked "open -a Marked\ 2"
 if type -q "bat"
     abbr "cat" "bat"
 end
+
+if type -q "exa"
+    alias ls "exa"
+    alias ll "exa --long"
+end
