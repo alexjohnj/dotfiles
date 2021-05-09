@@ -189,6 +189,11 @@ This is a wrapper around `eval-after-load' that:
 ;; only used for emacs-lisp-mode.
 (setq initial-major-mode 'fundamental-mode)
 
+;; lsp-mode recommends increasing this from the default value of 4K.
+;; Not sure if this has any impact outside of lsp though.
+(when (boundp 'read-process-output-max) ; Only available in Emacs 27+
+  (setq read-process-output-max (* 1024 1024)))
+
 
 ;;; Core Packages
 
