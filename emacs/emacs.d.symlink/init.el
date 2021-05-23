@@ -277,7 +277,8 @@ This is a wrapper around `eval-after-load' that:
     (setq counsel-grep-base-command
           "rg -i --no-heading --line-number --color never '%s' %s"))
 
-  (if (native-comp-available-p)
+  (if (and (fboundp 'native-comp-available-p)
+           (native-comp-available-p))
       (global-set-key (kbd "C-s") #'swiper)
     (global-set-key (kbd "C-s") #'counsel-grep-or-swiper))
 
