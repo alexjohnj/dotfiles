@@ -364,20 +364,12 @@ This is a wrapper around `eval-after-load' that:
         (set-face-attribute 'default nil :font font-name :height 140)
       (set-face-attribute 'default nil :font font-name :height 110))))
 
-(use-package moody
-  :when (display-graphic-p)
-  :config
-  (moody-replace-mode-line-buffer-identification)
-  (moody-replace-vc-mode))
-
 (use-package modus-themes
   :custom
   (modus-themes-intense-hl-line t)
   (modus-themes-scale-headings t)
   (modus-themes-headings '((t . rainbow-section)))
   :config
-  (when (featurep 'moody)
-    (setq modus-themes-mode-line 'moody))
   (load-theme 'modus-operandi t))
 
 ;; Match the fringe colour to the theme's background colour

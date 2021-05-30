@@ -57,7 +57,6 @@
  ("melpa" . "c8bd3d8bf771c4d5d45cf1e00a08d54941924357")
  ("modus-themes" . "d70f41631dc23835a7cfe8c4b53c412631b7cd64")
  ("magit" . "471c63d92ce22b8ea653f821bc1893ecea324d4d")
- ("moody" . "2a29baa0cb6e364c5acbbf590a6d7c936c4378ae")
  ("org" . "94d8d8ff506f670ec811e83f7871430b8788088d")
  ("page-break-lines" . "3b8549cd414d4d7ee0168ab9917124133566d3db")
  ("pfuture" . "d7926de3ba0105a36cfd00811fd6278aea903eef")
