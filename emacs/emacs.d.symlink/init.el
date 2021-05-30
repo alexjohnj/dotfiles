@@ -218,41 +218,7 @@ This is a wrapper around `eval-after-load' that:
 (use-package diminish
   :commands diminish)
 
-;; Load evil and associated packages. Note evil-leader must be loaded BEFORE
-;; evil.
-(use-package evil-leader
-  :config
-  (evil-leader/set-leader "<SPC>")
-  (global-evil-leader-mode))
-
-(use-package evil
-  :config
-  (evil-mode))
-
-(use-package undo-fu
-  :bind (:map evil-normal-state-map
-              ("u" . undo-fu-only-undo)
-              ("C-r" . undo-fu-only-redo)))
-
-(use-package evil-commentary
-  :after evil
-  :diminish evil-commentary-mode
-  :config
-  (global-set-key (kbd "s-/") #'evil-commentary)
-  (evil-commentary-mode))
-
-(use-package evil-surround
-  :after evil
-  :config
-  (global-evil-surround-mode))
-
-(use-package evil-escape
-  :after evil
-  :diminish evil-escape-mode
-  :config
-  (setq-default evil-escape-key-sequence "fd"
-                evil-escape-delay 0.1)
-  (evil-escape-mode))
+(require 'init-evil)
 
 (use-package ivy
   :diminish ivy

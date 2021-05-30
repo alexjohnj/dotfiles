@@ -8,10 +8,7 @@
                             "s" 'magit-status
                             "f" 'magit-file-dispatch)
   (which-key-add-key-based-replacements "SPC g" "Magit")
-  :custom
-  (magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1))
-
-(use-package evil-magit
-  :after (magit))
+  :config
+  (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1))
 
 (provide 'init-magit)
