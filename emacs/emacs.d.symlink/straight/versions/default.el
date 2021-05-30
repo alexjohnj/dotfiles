@@ -66,7 +66,7 @@
  ("pos-tip" . "179cc126b363f72ca12fab1e0dc462ce0ee79742")
  ("posframe" . "739d8fd1081bdd0d20dee9e437d64df58747b871")
  ("prescient.el" . "4a0f5405798cfcb98ea005078ef2e2d490e922c4")
- ("projectile" . "513228f473910128efcad13f46dfc22a74976675")
+ ("projectile" . "4e22746dcf8d6dcec1122766c966db776a57a2ef")
  ("rainbow-delimiters" . "f43d48a24602be3ec899345a3326ed0247b960c6")
  ("rg.el" . "10e64887c224002572e1f1e19c74453cba606c3f")
  ("rust-mode" . "494d59f92cbe12533eb89b202fc4f5342afcd543")
