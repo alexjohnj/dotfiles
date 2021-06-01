@@ -41,9 +41,6 @@
     "p c" 'projectile-compile-project
     "p t" 'projectile-find-test-file)
 
-  (projectile-register-project-type 'dart '("pubspec.yaml"))
-  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
-
   (projectile-mode))
 
 (defun alex/projectile-smart-add-known-projectile ()
