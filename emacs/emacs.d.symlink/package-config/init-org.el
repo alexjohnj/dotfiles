@@ -18,20 +18,21 @@
                              (define-key evil-normal-state-map (kbd "TAB") 'org-cycle)))
 
   (evil-leader/set-key-for-mode 'org-mode
-    "m E" 'org-export-dispatch
-    "m p l" 'org-toggle-latex-fragment
-    "m p i" 'org-toggle-inline-images
-    "m p u" 'org-toggle-pretty-entities
-    "m n s" 'org-narrow-to-subtree
-    "m n b" 'org-narrow-to-block
-    "m n w" 'widen
-    "m n i" 'org-tree-to-indirect-buffer)
+    "m E" #'org-export-dispatch
+    "m p l" #'org-toggle-latex-fragment
+    "m p i" #'org-toggle-inline-images
+    "m p u" #'org-toggle-pretty-entities
+    "m n s" #'org-narrow-to-subtree
+    "m n b" #'org-narrow-to-block
+    "m n w" #'widen
+    "m n i" #'org-tree-to-indirect-buffer
+    "m t" #'org-todo)
 
   (evil-leader/set-key-for-mode 'org-mode
-    "m c i" 'org-clock-in
-    "m c o" 'org-clock-out
-    "m c C" 'org-clock-cancel
-    "m c g" 'org-clock-goto))
+    "m c i" #'org-clock-in
+    "m c o" #'org-clock-out
+    "m c C" #'org-clock-cancel
+    "m c g" #'org-clock-goto))
 
 (provide 'init-org)
 ;;; init-org.el ends here
