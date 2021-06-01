@@ -633,6 +633,7 @@ This is a wrapper around `eval-after-load' that:
 (require 'init-ruby)
 (require 'init-elixir)
 (require 'init-dart)
+(require 'init-rust)
 
 (use-package json-mode
   :mode ("\\.json\\'" . json-mode))
@@ -649,15 +650,6 @@ This is a wrapper around `eval-after-load' that:
 
 (use-package gitignore-mode
   :mode "\\.gitignore\\'")
-
-(use-package rust-mode
-  :mode ("\\.rs\\'" . rust-mode)
-  :bind (:map rust-mode-map
-              ("C-c C-r" . rust-run)
-              ("C-c C-c" . 'rust-compile)
-              ("C-c C-t" . 'rust-test))
-  :config (progn
-            (setq rust-format-on-save t)))
 
 (use-package csharp-mode
   :mode ("\\.cs\\'" . csharp-mode))
