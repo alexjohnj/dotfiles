@@ -1,3 +1,4 @@
+;;; config.el -*- lexical-binding: t; -*-
 ;;; Basic Configuration
 
 ;; The following performance tweaks are taken from Doom Emacs.
