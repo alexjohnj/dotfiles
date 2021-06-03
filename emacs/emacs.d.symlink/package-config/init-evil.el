@@ -9,6 +9,7 @@
 
 (use-package evil
   :config
+  (setq evil-want-fine-undo t)
   (evil-mode 1))
 
 (use-package undo-fu
