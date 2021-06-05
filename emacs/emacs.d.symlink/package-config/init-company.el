@@ -8,6 +8,7 @@
                 company-require-match 'never ;; Allow non-matching input
                 company-dabbrev-other-buffers nil ;; Don't use other buffers as a completion source
                 company-dabbrev-downcase nil ;; Don't downcase completions
+                company-tooltip-limit 14
                 company-dabbrev-ignore-case nil))
 
 (provide 'init-company)
