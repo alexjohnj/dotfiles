@@ -320,6 +320,7 @@ This is a wrapper around `eval-after-load' that:
 
 ;; Trim tidy whitespace before saving
 (use-package ws-butler
+  :diminish
   :config
   (ws-butler-global-mode)
   (add-hook 'xcodeproj-mode-hook '(lambda () (ws-butler-mode nil))))
