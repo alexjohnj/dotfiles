@@ -590,7 +590,7 @@ This is a wrapper around `eval-after-load' that:
   :diminish
   :config
   (require 'smartparens-config)
-  (sp-local-pair '(c-mode swift-mode) "{" nil :post-handlers '(:add ("||\n[i]" "RET")))
+  (sp-local-pair '(c-mode swift-mode rustic-mode) "{" nil :post-handlers '(:add ("||\n[i]" "RET")))
   (smartparens-global-mode))
 
 (use-package dumb-jump
