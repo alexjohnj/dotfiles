@@ -613,10 +613,10 @@ This is a wrapper around `eval-after-load' that:
   (add-to-list 'dash-at-point-mode-alist '(swift-mode . "o")))
 
 (use-package tree-sitter
+  :commands (tree-sitter-hl-mode)
+  :defer t ;; Activated on a per-language basis
   :config
-  (use-package tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+  (use-package tree-sitter-langs))
 
 (require 'init-projectile)
 (require 'init-flycheck)
@@ -645,7 +645,9 @@ This is a wrapper around `eval-after-load' that:
 (require 'init-rust)
 
 (use-package json-mode
-  :mode ("\\.json\\'" . json-mode))
+  :mode ("\\.json\\'" . json-mode)
+  :config
+  (add-hook 'json-mode-hook #'tree-sitter-hl-mode))
 
 (use-package yaml-mode
   :mode ("\\.yaml\\'" . yaml-mode))
