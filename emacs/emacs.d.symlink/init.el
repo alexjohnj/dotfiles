@@ -328,7 +328,7 @@ This is a wrapper around `eval-after-load' that:
   :diminish
   :config
   (ws-butler-global-mode)
-  (add-hook 'xcodeproj-mode-hook '(lambda () (ws-butler-mode nil))))
+  (add-hook 'xcodeproj-mode-hook #'(lambda () (ws-butler-mode nil))))
 
 ;; Highlight matching parentheses
 (use-package paren
