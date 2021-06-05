@@ -12,6 +12,9 @@
 (defconst alex/IS-MAC (eq system-type 'darwin))
 (defconst alex/IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
 
+(defconst alex/IS-NATIVE-COMP (and (fboundp 'native-comp-available-p)
+                                   (native-comp-available-p)))
+
 ;; Temporarily disable the file handler list during startup for improved performance.
 (defvar alex--file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
