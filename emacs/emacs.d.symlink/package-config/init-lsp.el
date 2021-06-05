@@ -8,6 +8,13 @@
   :config
   (setq lsp-enable-on-type-formatting nil))
 
+(use-package lsp-ui
+  :after lsp-mode
+  :custom
+  (lsp-ui-doc-enable nil)
+  (lsp-ui-imenu-enable nil)
+  (lsp-ui-peek-enable nil))
+
 (use-package lsp-sourcekit
   :after lsp-mode
   :config
