@@ -227,47 +227,46 @@ This is a wrapper around `eval-after-load' that:
 (use-package ivy
   :diminish ivy
   :config
-  (evil-leader/set-key "s" 'ivy-resume)
+  (straight-use-package 'counsel)
+  (straight-use-package 'swiper)
+
   (setq ivy-use-virtual-buffers t
         ivy-count-format "(%d/%d)"
         ivy-initial-inputs-alist nil)
-  (define-key ivy-minibuffer-map (kbd "<C-return>") #'ivy-dispatching-done)
-  (define-key ivy-minibuffer-map (kbd "<C-M-return>") #'ivy-immediate-done)
-  (define-key ivy-minibuffer-map [escape] (kbd "C-g"))
-  (ivy-mode))
 
-(use-package swiper
-  :after ivy
-  :diminish ivy-mode)
-
-(use-package counsel
-  :after ivy
-  :config
   (when alex/rg-available
     (setq counsel-grep-base-command
           "rg -i --no-heading --line-number --color never '%s' %s"))
 
-  (if (and (fboundp 'native-comp-available-p)
-           (native-comp-available-p))
+  (if alex/IS-NATIVE-COMP
       (global-set-key (kbd "C-s") #'swiper)
     (global-set-key (kbd "C-s") #'counsel-grep-or-swiper))
 
-  (global-set-key (kbd "M-x") #'counsel-M-x)
-  (global-set-key (kbd "C-x C-f") #'counsel-find-file)
-  (evil-leader/set-key "i" #'counsel-imenu))
+  (evil-leader/set-key "s" #'ivy-resume)
+  (evil-leader/set-key "i" #'counsel-imenu)
+
+  (define-key ivy-minibuffer-map (kbd "<C-return>") #'ivy-dispatching-done)
+  (define-key ivy-minibuffer-map (kbd "<C-M-return>") #'ivy-immediate-done)
+  (define-key ivy-minibuffer-map [escape] (kbd "C-g"))
+  (ivy-mode)
+  (counsel-mode))
+
+(use-package ivy-rich
+  :after ivy
+  :config
+  (setq ivy-rich-parse-remote-buffer nil
+        ivy-rich-path-style 'abbrev)
+  (ivy-rich-mode)
+  (ivy-rich-project-root-cache-mode))
 
 (use-package prescient
   :config
   (prescient-persist-mode t))
 
 (use-package ivy-prescient
-  :after counsel
+  :after (prescient counsel)
   :config
   (ivy-prescient-mode t))
-
-(use-package ivy-rich
-  :after ivy
-  :config (ivy-rich-mode))
 
 (use-package which-key
   :diminish which-key-mode
