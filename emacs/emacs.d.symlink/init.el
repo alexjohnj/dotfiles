@@ -65,6 +65,12 @@
 (straight-use-package 'use-package)
 (setq use-package-compute-statistics t)
 
+(use-package esup
+  :commands (esup)
+  :config
+  ;; Fixes incompatibility with symlinks and straight.el
+  (setq esup-depth 0))
+
 
 ;;; Supporting functions/macros
 

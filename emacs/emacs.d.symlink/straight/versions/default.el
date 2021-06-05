@@ -24,6 +24,7 @@
  ("emacs-which-key" . "5fb30301cb3b4fca5a0e1ce8ec1ef59290b79199")
  ("emacsmirror-mirror" . "1c24bceb43e0e475656be908133a8eb6df3bf973")
  ("epl" . "78ab7a85c08222cd15582a298a364774e3282ce6")
+ ("esup" . "5169dd7fc8765a7377b0ab93aa63b7f0f934689a")
  ("evil" . "8dc0ccdc4c0246af87588a93812a23268f83ab94")
  ("evil-collection" . "a0833a092e75e9fa1d10444d5c505f00164ce63c")
  ("evil-commentary" . "2dab6ac34d1617971768ad219d73af48f7473fec")
