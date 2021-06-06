@@ -15,10 +15,4 @@
   (lsp-ui-imenu-enable nil)
   (lsp-ui-peek-enable nil))
 
-(use-package lsp-sourcekit
-  :after lsp-mode
-  :config
-  (setenv "SOURCEKIT_TOOLCHAIN_PATH" "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain")
-  (setq lsp-sourcekit-executable (expand-file-name "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp")))
-
 (provide 'init-lsp)

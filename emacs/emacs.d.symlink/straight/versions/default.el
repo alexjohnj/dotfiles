@@ -52,7 +52,7 @@
  ("let-alist" . "6708ec0b2e6dff80ff5b64698aa009d9070a2ed2")
  ("lsp-dart" . "10e309acc31648ec9bf7ffeef0fc2ad16b2a8584")
  ("lsp-mode" . "ff255774a4e8198417c6f57fbeee2513fa34f36f")
- ("lsp-sourcekit" . "aafa9878a3df2f08e5a9c846d91fd53350ce3c99")
+ ("lsp-sourcekit" . "ae4aa8705cc3a27ed86f1e7ee04d5c8f0522d8c0")
  ("lsp-treemacs" . "2a64981578aebd4ffc77b7de90b985a3d7fcfa93")
  ("magit" . "471c63d92ce22b8ea653f821bc1893ecea324d4d")
  ("markdown-mode" . "ac9ea26b941eef512a3c206375a6404625c229ed")
