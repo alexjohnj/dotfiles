@@ -231,11 +231,13 @@ This is a wrapper around `eval-after-load' that:
   (general-create-definer alex/leader-def
     :states '(normal motion insert emacs)
     :prefix "SPC"
+    :keymaps 'override
     :non-normal-prefix "M-SPC")
 
   (general-create-definer alex/leader-local-def
     :states '(normal motion insert emacs)
     :prefix "SPC m"
+    :keymaps 'override
     :non-normal-prefix "M-SPC m"))
 
 ;; Keep the modeline neat and tidy
