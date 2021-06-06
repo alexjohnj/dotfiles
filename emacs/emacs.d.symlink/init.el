@@ -227,13 +227,16 @@ This is a wrapper around `eval-after-load' that:
 (use-package general
   :config
   (general-auto-unbind-keys)
+
   (general-create-definer alex/leader-def
+    :states '(normal motion insert emacs)
     :prefix "SPC"
-    :states '(motion normal))
+    :non-normal-prefix "M-SPC")
 
   (general-create-definer alex/leader-local-def
-    :states '(motion normal)
-    :prefix "SPC m"))
+    :states '(normal motion insert emacs)
+    :prefix "SPC m"
+    :non-normal-prefix "M-SPC m"))
 
 ;; Keep the modeline neat and tidy
 (use-package diminish
