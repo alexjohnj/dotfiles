@@ -1,21 +1,14 @@
-(use-package evil-leader
-  :init
-  ;; This must bet set before the evil package is loaded for the evil-collection
-  ;; package to work. evil-leader implicitly loads evil so I set it here.
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-leader/set-leader "<SPC>")
-  (global-evil-leader-mode))
-
 (use-package evil
+  :init
+  (setq evil-want-keybinding nil)
   :config
   (setq evil-want-fine-undo t)
   (evil-mode 1))
 
 (use-package undo-fu
-  :bind (:map evil-normal-state-map
-              ("u" . undo-fu-only-undo)
-              ("C-r" . undo-fu-only-redo)))
+  :general
+  ('normal "u" #'undo-fu-only-undo
+           "C-r" #'undo-fu-only-redo))
 
 (use-package evil-collection
   :after evil
@@ -23,10 +16,9 @@
   (evil-collection-init))
 
 (use-package evil-commentary
-  :after evil
   :diminish evil-commentary-mode
   :config
-  (global-set-key (kbd "s-/") #'evil-commentary)
+  (general-def "s-/" #'evil-commentary)
   (evil-commentary-mode))
 
 (use-package evil-surround

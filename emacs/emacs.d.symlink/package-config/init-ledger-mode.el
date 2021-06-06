@@ -8,39 +8,40 @@
                   ledger-default-date-format ledger-iso-date-format
                   ledger-reconcile-default-commodity "GBP"
                   ledger-schedule-file "~/finance/ledger-schedule.journal")
-            (evil-leader/set-key-for-mode 'ledger-mode
-              "mn" 'ledger-navigate-next-xact-or-directive
-              "mN" 'ledger-navigate-prev-xact-or-directive
-              "mp" 'ledger-display-balance-at-point
-              "ma" 'ledger-add-transaction
-              "md" 'ledger-delete-current-transaction
-              "me" 'ledger-toggle-current-transaction
-              "mc" 'ledger-toggle-current
-              "my" 'ledger-copy-transaction-at-point
-              "ml" 'ledger-display-ledger-stats
-              "mq" 'ledger-post-align-xact
-              "mr" 'ledger-reconcile
-              "ms" 'ledger-sort-region
-              "mt" 'ledger-insert-effective-date
-              "mu" 'ledger-schedule-upcoming
-              "mor" 'ledger-report
-              "mos" 'ledger-report-save
-              "mi" 'alex/ledger-attach-receipt
-              "mI" 'alex/ledger-open-attached-receipt)
 
-            (evil-define-key 'normal ledger-reconcile-mode-map
-              "l" 'ledger-reconcile-refresh
-              "a" 'ledger-reconcile-add
-              "p" 'ledger-display-balance
-              "d" 'ledger-reconcile-delete
-              "r" 'ledger-reconcile
-              "j" 'next-line
-              "k" 'previous-line
-              "q" 'ledger-reconcile-quit
-              "s" 'ledger-reconcile-save
-              "c" 'ledger-reconcile-change-target
-              "t" 'ledger-reconcile-toggle
-              "RET" 'ledger-reconcile-visit)
+            (alex/leader-local-def ledger-mode-map
+              "m n" #'ledger-navigate-next-xact-or-directive
+              "m N" #'ledger-navigate-prev-xact-or-directive
+              "m p" #'ledger-display-balance-at-point
+              "m a" #'ledger-add-transaction
+              "m d" #'ledger-delete-current-transaction
+              "m e" #'ledger-toggle-current-transaction
+              "m c" #'ledger-toggle-current
+              "m y" #'ledger-copy-transaction-at-point
+              "m l" #'ledger-display-ledger-stats
+              "m q" #'ledger-post-align-xact
+              "m r" #'ledger-reconcile
+              "m s" #'ledger-sort-region
+              "m t" #'ledger-insert-effective-date
+              "m u" #'ledger-schedule-upcoming
+              "m i" #'alex/ledger-attach-receipt
+              "m I" #'alex/ledger-open-attached-receipt
+              "m o r" #'ledger-report
+              "m o s" #'ledger-report-save)
+
+            (general-def 'normal ledger-reconcile-mode-map
+              "l" #'ledger-reconcile-refresh
+              "a" #'ledger-reconcile-add
+              "p" #'ledger-display-balance
+              "d" #'ledger-reconcile-delete
+              "r" #'ledger-reconcile
+              "j" #'next-line
+              "k" #'previous-line
+              "q" #'ledger-reconcile-quit
+              "s" #'ledger-reconcile-save
+              "c" #'ledger-reconcile-change-target
+              "t" #'ledger-reconcile-toggle
+              "RET" #'ledger-reconcile-visit)
 
             ;; Custom functions for attaching receipts to transactions
             (defvar alex/ledger-receipt-folder "~/finance/receipts")

@@ -1,6 +1,6 @@
 (use-package deft
-  :commands (deft)
-  :init (evil-leader/set-key "n" #'deft)
+  :general
+  (alex/leader-def "n" #'deft)
   :config
   (add-to-list 'evil-emacs-state-modes 'deft-mode)
   (setq deft-directory "~/Documents/Notes/"

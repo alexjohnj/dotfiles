@@ -16,16 +16,17 @@
                   LaTeX-electric-left-right-brace t
                   TeX-electric-sub-and-superscript t
                   LaTeX-fill-break-at-separators '(\\\( \\\[))
-            (evil-leader/set-key-for-mode 'latex-mode
-              "m p e" 'preview-environment
-              "m p d" 'preview-document
-              "m p b" 'preview-buffer
-              "m p r" 'preview-region
-              "m p s" 'preview-section
-              "m s"   'LaTeX-section
-              "m e"   'LaTeX-environment
-              "m c"   'LaTeX-close-environment
-              "m ="   'TeX-master-file-ask)))
+
+            (alex/leader-local-def latex-mode-map
+              "p e" #'preview-environment
+              "p d" #'preview-document
+              "p b" #'preview-buffer
+              "p r" #'preview-region
+              "p s" #'preview-section
+              "s"   #'LaTeX-section
+              "e"   #'LaTeX-environment
+              "c"   #'LaTeX-close-environment
+              "="   #'TeX-master-file-ask)))
 
 (use-package reftex
   :commands (turn-on-reftex)
@@ -33,16 +34,18 @@
           (add-hook 'LaTeX-mode-hook 'turn-on-reftex))
   :config (progn
             (setq reftex-plug-into-AUCTeX t)
-            (evil-define-key 'normal reftex-toc-mode-map
-              (kbd "j") 'reftex-toc-next
-              (kbd "k") 'reftex-toc-previous
-              (kbd "Q") 'reftex-toc-quit-and-kill
-              (kbd "%") 'reftex-toc-rename-label)
-            (evil-leader/set-key-for-mode 'latex-mode
-              "m r r" 'reftex-reference
-              "m r l" 'reftex-label
-              "m r t" 'reftex-toc
-              "m r v" 'reftex-view-crossref)))
+
+            (general-def 'normal reftex-toc-mode-map
+              "j" #'reftex-toc-next
+              "k" #'reftex-toc-previous
+              "Q" #'reftex-toc-quit-and-kill
+              "%" #'reftex-toc-rename-label)
+
+            (alex/leader-local-def latex-mode-map
+              "r r" #'reftex-reference
+              "r l" #'reftex-label
+              "r t" #'reftex-toc
+              "r v" #'reftex-view-crossref)))
 
 (use-package company-auctex
   :after (latex)

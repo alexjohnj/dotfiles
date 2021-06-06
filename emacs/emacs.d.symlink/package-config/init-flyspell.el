@@ -9,9 +9,9 @@
               (setq ispell-program-name "aspell"
                     ispell-dictionary "en_GB"
                     ispell-extra-args '("--sug-mode=ultra")))
-            (evil-leader/set-key
-              "S t" 'flyspell-mode
-              "S s" 'ispell-buffer
-              "S S" 'flyspell-buffer)))
+            (alex/leader-def
+              "S t" #'flyspell-mode
+              "S s" #'ispell-buffer
+              "S S" #'flyspell-buffer)))
 
 (provide 'init-flyspell)

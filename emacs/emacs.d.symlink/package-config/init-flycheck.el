@@ -11,15 +11,16 @@
   ;; Disable flycheck elisp documentation checker
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 
-  (evil-leader/set-key
-    "ec" 'flycheck-buffer
-    "en" 'flycheck-next-error
-    "eN" 'flycheck-previous-error
-    "e1" 'flycheck-first-error
-    "eC" 'flycheck-clear
-    "el" 'flycheck-list-errors
-    "ev" 'flycheck-verify-setup
-    "et" 'flycheck-mode)
+  (alex/leader-def
+    "e c" #'flycheck-buffer
+    "e n" #'flycheck-next-error
+    "e N" #'flycheck-previous-error
+    "e 1" #'flycheck-first-error
+    "e C" #'flycheck-clear
+    "e l" #'flycheck-list-errors
+    "e v" #'flycheck-verify-setup
+    "e t" #'flycheck-mode)
+
   (which-key-add-key-based-replacements "SPC e" "Flycheck")
 
   (flycheck-define-checker proselint

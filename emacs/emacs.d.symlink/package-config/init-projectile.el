@@ -1,17 +1,15 @@
 (use-package projectile
   :diminish projectile-mode
-  :commands (projectile-switch-project
-             projectile-project-p
-             projectile-find-file
+  :commands (projectile-project-p
              projectile-add-known-project)
-  :init
-  (evil-leader/set-key
+  :general
+  (alex/leader-def
     "p f" #'projectile-find-file
     "p p" #'projectile-switch-project
     "p -" #'projectile-remove-known-project
     "p +" #'alex/projectile-smart-add-known-projectile)
+  :init
   (which-key-add-key-based-replacements "SPC p" "Project")
-
   :config
   (setq projectile-switch-project-action #'alex/projectile-switch-project
         projectile-enable-caching t
@@ -26,20 +24,20 @@
           projectile-git-submodule-command nil
           projectile-indexing-method 'alien))
 
-  (evil-leader/set-key
-    "pb" 'projectile-switch-to-buffer
-    "p C-f" 'alex/projectile-invalidate-and-search
-    "pq" 'projectile-switch-open-project
-    "pd" 'projectile-find-dir
-    "pk" 'projectile-kill-buffers
-    "pD" 'projectile-dired
-    "pr" 'projectile-replace
-    "psg" 'projectile-grep
-    "pss" 'rg-project
-    "psS" 'rg-dwim-project-dir
-    "pS" 'projectile-save-project-buffers
-    "p c" 'projectile-compile-project
-    "p t" 'projectile-find-test-file)
+  (alex/leader-def
+    "p b"    #'projectile-switch-to-buffer
+    "p C-f" #'alex/projectile-invalidate-and-search
+    "p q"   #'projectile-switch-open-project
+    "p d"   #'projectile-find-dir
+    "p k"   #'projectile-kill-buffers
+    "p D"   #'projectile-dired
+    "p r"   #'projectile-replace
+    "p S"   #'projectile-save-project-buffers
+    "p c"   #'projectile-compile-project
+    "p t"   #'projectile-find-test-file
+    "p s g" #'projectile-grep
+    "p s s" #'rg-project
+    "p s S" #'rg-dwim-project-dir)
 
   (projectile-mode))
 

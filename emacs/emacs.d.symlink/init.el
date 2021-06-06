@@ -226,9 +226,13 @@ This is a wrapper around `eval-after-load' that:
 
 (use-package general
   :config
+  (general-auto-unbind-keys)
   (general-create-definer alex/leader-def
-    :prefix "SPC")
+    :prefix "SPC"
+    :states '(motion normal))
+
   (general-create-definer alex/leader-local-def
+    :states '(motion normal)
     :prefix "SPC m"))
 
 ;; Keep the modeline neat and tidy
@@ -252,15 +256,16 @@ This is a wrapper around `eval-after-load' that:
           "rg -i --no-heading --line-number --color never '%s' %s"))
 
   (if alex/IS-NATIVE-COMP
-      (global-set-key (kbd "C-s") #'swiper)
-    (global-set-key (kbd "C-s") #'counsel-grep-or-swiper))
+      (general-def "C-s" #'swiper)
+    (general-def "C-s" #'counsel-grep-or-swiper))
 
-  (evil-leader/set-key "s" #'ivy-resume)
-  (evil-leader/set-key "i" #'counsel-imenu)
+  (alex/leader-def "s" #'ivy-resume)
+  (alex/leader-def "i" #'counsel-imenu)
 
-  (define-key ivy-minibuffer-map (kbd "<C-return>") #'ivy-dispatching-done)
-  (define-key ivy-minibuffer-map (kbd "<C-M-return>") #'ivy-immediate-done)
-  (define-key ivy-minibuffer-map [escape] (kbd "C-g"))
+  (general-def ivy-minibuffer-map
+    "<C-return>" #'ivy-dispatching-done
+    "<C-M-return>" #'ivy-immediate-done
+    [escape] "C-g")
   (ivy-mode)
   (counsel-mode))
 
@@ -351,7 +356,8 @@ This is a wrapper around `eval-after-load' that:
 
 ;; Unfill text
 (use-package unfill
-  :bind (("C-M-q" . unfill-paragraph)))
+  :general
+  ("C-M-q" #'unfill-paragraph))
 
 ;; Aggressively indent code in certain modes
 (use-package aggressive-indent
@@ -374,7 +380,7 @@ This is a wrapper around `eval-after-load' that:
                                orig-fg))))
 
 ;; Use my custom font if it's installed.
-(let ((font-name "JetBrains Mono"))
+(let ((font-name "Fira Code"))
   (when (member font-name (font-family-list))
     (if (memq window-system '(mac ns)) ; Font scaling is a bit different between
                                         ; macOS and other platforms.
@@ -477,97 +483,78 @@ This is a wrapper around `eval-after-load' that:
 
 ;;; Basic Keybindings
 
-;; I define keybindings for general editor functionality in this section. Mode
-;; specific keybindings are defined in their use-package configurations. I use
-;; evil-leader extensively with different categories of keybindings prefixed by
-;; a common key.
-
-;; Little helper to avoid repeating the prefix for definitions.
-(defun alex/evil-leader--prefix (prefix key def &rest bindings)
-  "Define evil-leader keys under PREFIX. So the shortcut becomes LEADER PREFIX KEY to execute DEF."
-  (while key
-    (evil-leader/set-key (concat prefix key) def)
-    (setq key (pop bindings)
-          def (pop bindings))))
-
-;; General bindings. These don't have a common prefix.
-(evil-leader/set-key
-  "~" 'ansi-term)
-
 ;; Buffer Management.
-(alex/evil-leader--prefix "b"
-                          "b" 'switch-to-buffer
-                          "d" 'kill-this-buffer
-                          "k" 'kill-buffer
-                          "l" 'list-buffers
-                          "K K" 'desktop-clear)
+(alex/leader-def
+  "b b" #'switch-to-buffer
+  "b d" #'kill-this-buffer
+  "b k" #'kill-buffer
+  "b l" #'list-buffers)
 
 ;; File Management
-(alex/evil-leader--prefix "f"
-                          "f" 'counsel-find-file
-                          "d" 'dired
-                          "D" 'alex/delete-file-and-buffer
-                          "R" 'alex/rename-current-buffer-file
-                          "s" 'evil-write
-                          "S" 'evil-write-all
-                          "y" 'alex/show-buffer-name
-                          "Y" 'alex/kill-buffer-name)
+(alex/leader-def
+  "f f" #'counsel-find-file
+  "f d" #'dired
+  "f D" #'alex/delete-file-and-buffer
+  "f R" #'alex/rename-current-buffer-file
+  "f s" #'evil-write
+  "f S" #'evil-write-all
+  "f y" #'alex/show-buffer-name
+  "f Y" #'alex/kill-buffer-name)
 
 ;; Window Management
-(alex/evil-leader--prefix "w"
-                          "=" 'balance-windows
-                          "c" 'delete-window
-                          "C" 'delete-other-windows
-                          "h" 'evil-window-left
-                          "H" 'evil-window-move-far-left
-                          "j" 'evil-window-down
-                          "J" 'evil-window-move-very-bottom
-                          "k" 'evil-window-up
-                          "K" 'evil-window-move-very-top
-                          "l" 'evil-window-right
-                          "L" 'evil-window-move-far-right
-                          "s" 'split-window-below
-                          "v" 'split-window-right)
+(alex/leader-def
+  "w =" #'balance-windows
+  "w c" #'delete-window
+  "w C" #'delete-other-windows
+  "w h" #'evil-window-left
+  "w H" #'evil-window-move-far-left
+  "w j" #'evil-window-down
+  "w J" #'evil-window-move-very-bottom
+  "w k" #'evil-window-up
+  "w K" #'evil-window-move-very-top
+  "w l" #'evil-window-right
+  "w L" #'evil-window-move-far-right
+  "w s" #'split-window-below
+  "w v" #'split-window-right)
 
 (use-package ace-window
   :commands ace-window
-  :init (alex/evil-leader--prefix "w"
-                                  "w" 'ace-window
-                                  "d" 'ace-delete-window
-                                  "S" 'ace-swap-window))
+  :general
+  (alex/leader-def
+    "w w" #'ace-window
+    "w d" #'ace-delete-window
+    "w S" #'ace-swap-window))
 
 ;; Help System
-(alex/evil-leader--prefix "h"
-                          "f" 'counsel-describe-function
-                          "m" 'describe-mode
-                          "v" 'counsel-describe-variable
-                          "b" 'describe-bindings
-                          "p" 'describe-package
-                          "i" 'info
-                          "M" 'man)
-
-(alex/evil-leader--prefix "h a"
-                          "a" 'apropos
-                          "c" 'apropos-command
-                          "d" 'apropos-documentation
-                          "v" 'apropos-variable
-                          "o" 'apropos-user-option)
+(alex/leader-def
+  "h f" #'counsel-describe-function
+  "h m" #'describe-mode
+  "h v" #'counsel-describe-variable
+  "h b" #'describe-bindings
+  "h p" #'describe-package
+  "h i" #'info
+  "h M" #'man
+  "h a a" #'apropos
+  "h a c" #'apropos-command
+  "h a d" #'apropos-documentation
+  "h a v" #'apropos-variable
+  "h a o" #'apropos-user-option)
 
 ;; Text Editing
-(alex/evil-leader--prefix "x"
-                          "u"   'downcase-region
-                          "U"   'upcase-region
-                          "a r" 'align-regexp
-                          "d w" 'delete-trailing-whitespace
-                          "i r" 'indent-region
-                          "i b" 'alex/indent-buffer
-                          "C" 'alex/toggle-reading-mode)
+(alex/leader-def
+  "x u"   #'downcase-region
+  "x U"   #'upcase-region
+  "x a r" #'align-regexp
+  "x d w" #'delete-trailing-whitespace
+  "x i r" #'indent-region
+  "x i b" #'alex/indent-buffer
+  "x C" #'alex/toggle-reading-mode)
 
 ;; Elisp Editing
-(evil-leader/set-key-for-mode 'emacs-lisp-mode
-  "m e b" 'eval-buffer
-  "m e r" 'eval-region
-  "m e e" 'eval-last-sexp)
+(alex/leader-local-def
+  "e b" #'eval-buffer
+  "e r" #'eval-region
+  "e e" #'eval-last-sexp)
 
 ;; Set up which-key hints for leader prefixes.
 (which-key-add-key-based-replacements
@@ -586,14 +573,15 @@ This is a wrapper around `eval-after-load' that:
   (setq mac-right-option-modifier nil)
   (setq mac-command-modifier 'super)
   (setq mac-pass-command-to-system t)
-  (global-set-key [(super a)] 'mark-whole-buffer)
-  (global-set-key [(super v)] 'yank)
-  (global-set-key [(super s)] 'save-buffer)
-  (global-set-key [(super w)] 'delete-frame)
-  (global-set-key [(super n)] 'make-frame)
-  (global-set-key [(super z)] 'undo)
-  (global-set-key [(super q)] nil)
-  (global-set-key [(super ctrl f)] 'toggle-frame-fullscreen))
+  (general-unbind [(super q)])
+  (general-def
+    [(super a)] #'mark-whole-buffer
+    [(super v)] #'yank
+    [(super s)] #'save-buffer
+    [(super w)] #'delete-frame
+    [(super n)] #'make-frame
+    [(super z)] #'undo
+    [(super ctrl f)] #'toggle-frame-fullscreen))
 
 
 ;;; Core Packages
