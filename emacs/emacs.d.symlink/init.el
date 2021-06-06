@@ -226,8 +226,6 @@ This is a wrapper around `eval-after-load' that:
 
 (use-package general
   :config
-  (general-auto-unbind-keys)
-
   (general-create-definer alex/leader-def
     :states '(normal motion insert emacs)
     :prefix "SPC"
