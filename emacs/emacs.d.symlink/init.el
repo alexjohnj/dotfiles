@@ -678,5 +678,4 @@ This is a wrapper around `eval-after-load' that:
 
 ;;; Org Packages
 
-(require 'init-calendar)
 (require 'init-org)
