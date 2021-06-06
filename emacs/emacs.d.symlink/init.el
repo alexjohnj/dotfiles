@@ -487,71 +487,71 @@ This is a wrapper around `eval-after-load' that:
 ;;; Basic Keybindings
 
 ;; Buffer Management.
-(alex/leader-def
-  "b b" #'switch-to-buffer
-  "b d" #'kill-this-buffer
-  "b k" #'kill-buffer
-  "b l" #'list-buffers)
+(alex/leader-def :infix "b"
+  "b" #'switch-to-buffer
+  "d" #'kill-this-buffer
+  "k" #'kill-buffer
+  "l" #'list-buffers)
 
 ;; File Management
-(alex/leader-def
-  "f f" #'counsel-find-file
-  "f d" #'dired
-  "f D" #'alex/delete-file-and-buffer
-  "f R" #'alex/rename-current-buffer-file
-  "f s" #'evil-write
-  "f S" #'evil-write-all
-  "f y" #'alex/show-buffer-name
-  "f Y" #'alex/kill-buffer-name)
+(alex/leader-def :infix "f"
+  "f" #'counsel-find-file
+  "d" #'dired
+  "D" #'alex/delete-file-and-buffer
+  "R" #'alex/rename-current-buffer-file
+  "s" #'evil-write
+  "S" #'evil-write-all
+  "y" #'alex/show-buffer-name
+  "Y" #'alex/kill-buffer-name)
 
 ;; Window Management
-(alex/leader-def
-  "w =" #'balance-windows
-  "w c" #'delete-window
-  "w C" #'delete-other-windows
-  "w h" #'evil-window-left
-  "w H" #'evil-window-move-far-left
-  "w j" #'evil-window-down
-  "w J" #'evil-window-move-very-bottom
-  "w k" #'evil-window-up
-  "w K" #'evil-window-move-very-top
-  "w l" #'evil-window-right
-  "w L" #'evil-window-move-far-right
-  "w s" #'split-window-below
-  "w v" #'split-window-right)
+(alex/leader-def :infix "w"
+  "=" #'balance-windows
+  "c" #'delete-window
+  "C" #'delete-other-windows
+  "h" #'evil-window-left
+  "H" #'evil-window-move-far-left
+  "j" #'evil-window-down
+  "J" #'evil-window-move-very-bottom
+  "k" #'evil-window-up
+  "K" #'evil-window-move-very-top
+  "l" #'evil-window-right
+  "L" #'evil-window-move-far-right
+  "s" #'split-window-below
+  "v" #'split-window-right)
 
 (use-package ace-window
   :commands ace-window
   :general
-  (alex/leader-def
-    "w w" #'ace-window
-    "w d" #'ace-delete-window
-    "w S" #'ace-swap-window))
+  (alex/leader-def :infix "w"
+    "w" #'ace-window
+    "d" #'ace-delete-window
+    "S" #'ace-swap-window))
 
 ;; Help System
-(alex/leader-def
-  "h f" #'counsel-describe-function
-  "h m" #'describe-mode
-  "h v" #'counsel-describe-variable
-  "h b" #'describe-bindings
-  "h p" #'describe-package
-  "h i" #'info
-  "h M" #'man
-  "h a a" #'apropos
-  "h a c" #'apropos-command
-  "h a d" #'apropos-documentation
-  "h a v" #'apropos-variable
-  "h a o" #'apropos-user-option)
+(alex/leader-def :infix "h"
+  "f" #'counsel-describe-function
+  "m" #'describe-mode
+  "v" #'counsel-describe-variable
+  "b" #'describe-bindings
+  "p" #'describe-package
+  "i" #'info
+  "M" #'man
+  "a a" #'apropos
+  "a c" #'apropos-command
+  "a d" #'apropos-documentation
+  "a v" #'apropos-variable
+  "a o" #'apropos-user-option)
 
 ;; Text Editing
-(alex/leader-def
-  "x u"   #'downcase-region
-  "x U"   #'upcase-region
-  "x a r" #'align-regexp
-  "x d w" #'delete-trailing-whitespace
-  "x i r" #'indent-region
-  "x i b" #'alex/indent-buffer
-  "x C" #'alex/toggle-reading-mode)
+(alex/leader-def :infix "x"
+  "u"   #'downcase-region
+  "U"   #'upcase-region
+  "a r" #'align-regexp
+  "d w" #'delete-trailing-whitespace
+  "i r" #'indent-region
+  "i b" #'alex/indent-buffer
+  "C" #'alex/toggle-reading-mode)
 
 ;; Elisp Editing
 (alex/leader-local-def
