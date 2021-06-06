@@ -224,6 +224,13 @@ This is a wrapper around `eval-after-load' that:
 (defconst alex/fd-available  (if (executable-find "fd") t nil)
   "t if the fd executable is available on this system.")
 
+(use-package general
+  :config
+  (general-create-definer alex/leader-def
+    :prefix "SPC")
+  (general-create-definer alex/leader-local-def
+    :prefix "SPC m"))
+
 ;; Keep the modeline neat and tidy
 (use-package diminish
   :commands diminish)
