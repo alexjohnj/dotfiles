@@ -21,6 +21,8 @@ set -gx PUB_CACHE $HOME/.pub-cache
 
 # Set the PATH
 set -l path_components \
+    /Applications/MacPorts/Emacs.app/Contents/MacOS \
+    /Applications/MacPorts/Emacs.app/Contents/MacOS/bin \
     $HOME/bin \
     $HOME/.local/bin \
     $HOME/.cargo/bin \
