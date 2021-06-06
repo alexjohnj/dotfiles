@@ -6,7 +6,9 @@
          (lsp-mode . lsp-enable-which-key-integration)
          (lsp-mode . yas-minor-mode-on))
   :config
-  (setq lsp-enable-on-type-formatting nil))
+  (setq lsp-enable-on-type-formatting nil)
+  (general-def lsp-mode-map
+    "M-RET" #'lsp-execute-code-action))
 
 (use-package lsp-ui
   :after lsp-mode
