@@ -2,6 +2,7 @@
   :straight (beancount :type built-in)
   :mode (("\\.beancount\\'" . beancount-mode))
   :config
+  (setq beancount-use-ido nil)
   (add-hook 'beancount-mode-hook #'alex/beancount--configure-indentation)
   (add-hook 'beancount-mode-hook #'alex/beancount--set-local-hooks nil t))
 
