@@ -8,7 +8,8 @@
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'. I'm using straight.el for package
 ;; management so this isn't needed.
-(setq package-enable-at-startup nil)
+(setq package-enable-at-startup nil
+      package-quickstart nil)
 (advice-add #'package--ensure-init-file :override #'ignore)
 
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
@@ -27,4 +28,5 @@
 
 ;; Configure native comp settings
 (setq comp-async-report-warnings-errors nil
-      package-native-compile t)
+      package-native-compile t
+      comp-deferred-compilation nil)
