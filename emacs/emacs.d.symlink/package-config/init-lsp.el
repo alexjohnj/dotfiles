@@ -8,7 +8,8 @@
   :config
   (setq lsp-enable-on-type-formatting nil)
   (general-def lsp-mode-map
-    "M-RET" #'lsp-execute-code-action))
+    "M-RET" #'lsp-execute-code-action
+    "s-M-l" #'lsp-format-buffer))
 
 (use-package lsp-ui
   :after lsp-mode
