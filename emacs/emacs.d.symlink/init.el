@@ -387,7 +387,7 @@ This is a wrapper around `eval-after-load' that:
   (when (member font-name (font-family-list))
     (if (memq window-system '(mac ns)) ; Font scaling is a bit different between
                                         ; macOS and other platforms.
-        (set-face-attribute 'default nil :font font-name :height 150)
+        (set-face-attribute 'default nil :font font-name :height 140 :weight 'regular)
       (set-face-attribute 'default nil :font font-name :height 110))))
 
 (use-package modus-themes
