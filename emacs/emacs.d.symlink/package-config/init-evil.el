@@ -3,6 +3,10 @@
   (setq evil-want-keybinding nil)
   :config
   (setq evil-want-fine-undo t)
+  (alex/leader-def "SPC" #'evil-buffer)
+  (general-def
+    "s-[" #'evil-prev-buffer
+    "s-]" #'evil-next-buffer)
   (evil-mode 1))
 
 (use-package undo-fu
