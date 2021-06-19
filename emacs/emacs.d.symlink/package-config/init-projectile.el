@@ -15,8 +15,7 @@
         projectile-enable-caching t
         projectile-globally-ignored-files '(".DS_Store" "Icon" "TAGS")
         projectile-globally-ignored-file-suffixes '(".elc" ".pyc" ".o")
-        projectile-ignored-projects '("~/" "/tmp")
-        projectile-completion-system 'ivy)
+        projectile-ignored-projects '("~/" "/tmp"))
 
   (when alex/fd-available
     (setq projectile-generic-command "fd . -0 -H -E .git --color=never --type file --type symlink --follow"

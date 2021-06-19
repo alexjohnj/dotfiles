@@ -224,6 +224,10 @@ This is a wrapper around `eval-after-load' that:
 (defconst alex/fd-available  (if (executable-find "fd") t nil)
   "t if the fd executable is available on this system.")
 
+;; Keep the modeline neat and tidy
+(use-package diminish
+  :commands diminish)
+
 (use-package general
   :config
   (general-create-definer alex/leader-def
@@ -238,56 +242,7 @@ This is a wrapper around `eval-after-load' that:
     :keymaps 'override
     :non-normal-prefix "M-SPC m"))
 
-;; Keep the modeline neat and tidy
-(use-package diminish
-  :commands diminish)
-
 (require 'init-evil)
-
-(use-package ivy
-  :diminish ivy
-  :config
-  (straight-use-package 'counsel)
-  (straight-use-package 'swiper)
-
-  (setq ivy-use-virtual-buffers t
-        ivy-count-format "(%d/%d)"
-        ivy-initial-inputs-alist nil)
-
-  (when alex/rg-available
-    (setq counsel-grep-base-command
-          "rg -i --no-heading --line-number --color never '%s' %s"))
-
-  (if alex/IS-NATIVE-COMP
-      (general-def "C-s" #'swiper)
-    (general-def "C-s" #'counsel-grep-or-swiper))
-
-  (alex/leader-def "s" #'ivy-resume)
-  (alex/leader-def "i" #'counsel-imenu)
-
-  (general-def ivy-minibuffer-map
-    "<C-return>" #'ivy-dispatching-done
-    "<C-M-return>" #'ivy-immediate-done
-    [escape] "C-g")
-  (ivy-mode)
-  (counsel-mode))
-
-(use-package ivy-rich
-  :after ivy
-  :config
-  (setq ivy-rich-parse-remote-buffer nil
-        ivy-rich-path-style 'abbrev)
-  (ivy-rich-mode)
-  (ivy-rich-project-root-cache-mode))
-
-(use-package prescient
-  :config
-  (prescient-persist-mode t))
-
-(use-package ivy-prescient
-  :after (prescient counsel)
-  :config
-  (ivy-prescient-mode t))
 
 (use-package which-key
   :diminish which-key-mode
@@ -295,6 +250,33 @@ This is a wrapper around `eval-after-load' that:
   (setq which-key-idle-delay 0.3)
   (which-key-setup-side-window-right-bottom)
   (which-key-mode))
+
+
+;;; Completion Frameworks
+
+(use-package vertico
+  :config
+  (general-def vertico-map
+    [escape] "C-g")
+  (vertico-mode))
+
+(use-package orderless
+  :config
+  (setq completion-styles '(orderless)))
+
+(use-package savehist
+  :config
+  (savehist-mode))
+
+;; The marginalia package adds annotations next to completion results.
+(use-package marginalia
+  :config
+  (marginalia-mode))
+
+(use-package ctrlf
+  :config
+  (add-to-list 'ctrlf-minibuffer-bindings '([escape] . ctrlf-cancel))
+  (ctrlf-mode))
 
 
 ;;; Editor Settings
@@ -486,6 +468,8 @@ This is a wrapper around `eval-after-load' that:
 
 ;;; Basic Keybindings
 
+(alex/leader-def "i" #'imenu)
+
 ;; Buffer Management.
 (alex/leader-def :infix "b"
   "b" #'switch-to-buffer
@@ -495,7 +479,7 @@ This is a wrapper around `eval-after-load' that:
 
 ;; File Management
 (alex/leader-def :infix "f"
-  "f" #'counsel-find-file
+  "f" #'find-file
   "d" #'dired
   "D" #'alex/delete-file-and-buffer
   "R" #'alex/rename-current-buffer-file
@@ -530,9 +514,9 @@ This is a wrapper around `eval-after-load' that:
 
 ;; Help System
 (alex/leader-def :infix "h"
-  "f" #'counsel-describe-function
+  "f" #'describe-function
   "m" #'describe-mode
-  "v" #'counsel-describe-variable
+  "v" #'describe-variable
   "b" #'describe-bindings
   "p" #'describe-package
   "i" #'info
