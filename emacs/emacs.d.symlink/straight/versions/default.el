@@ -8,6 +8,7 @@
  ("cfrs" . "7c42f2c82c7ae689f3ef291b066688c58ab96298")
  ("company-auctex" . "9400a2ec7459dde8cbf1a5d50dfee4e300ed7e18")
  ("company-mode" . "91d7bb61523e69803bfd1eee0efaaa3eb50673e2")
+ ("consult" . "1f64c06c6feb544628cdfb780d5ecbb3facff23f")
  ("csharp-mode" . "33e3042535e70a284389f8da1c495958fed8a826")
  ("ctrlf" . "dbe83710d06bc39315f1455f6f21479f3747c0aa")
  ("dap-mode" . "e8fe25768c44ba005e0ff51a0d781ba1693e60a0")

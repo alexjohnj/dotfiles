@@ -273,6 +273,13 @@ This is a wrapper around `eval-after-load' that:
   :config
   (marginalia-mode))
 
+(use-package consult
+  :general
+  ([remap switch-to-buffer] #'consult-buffer
+   [remap imenu] #'consult-imenu
+   [remap apropos] #'consult-apropos
+   [remap man] #'consult-man))
+
 (use-package ctrlf
   :config
   (add-to-list 'ctrlf-minibuffer-bindings '([escape] . ctrlf-cancel))
