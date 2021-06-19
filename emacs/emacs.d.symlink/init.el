@@ -385,6 +385,12 @@ This is a wrapper around `eval-after-load' that:
                     :foreground (face-foreground 'default)
                     :background (face-background 'default))
 
+;; Hide the titlebar when running on macOS
+(when alex/IS-MAC
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (setq ns-use-proxy-icon nil
+        frame-title-format nil))
+
 
 ;;; Editing Functions
 
