@@ -87,7 +87,7 @@
  ("treemacs" . "f13249866b300ec3a4908bf132d984c6354e3fcf")
  ("unfill" . "eef1614c79eb259cb782437a25680246793a924d")
  ("use-package" . "a7422fb8ab1baee19adb2717b5b47b9c3812a84c")
- ("vertico" . "13d1ca5ff3fae3009adb0c62bc7f166e58d595b5")
+ ("vertico" . "fee1a0ff256b18fca362c0bfe263b4c976fcb405")
  ("web-mode" . "8ef47935d638902ba35a557cae5edd6ab6ab1346")
  ("with-editor" . "ebcbd3b137154e6c5a2b976bacbb89d48ddfa242")
  ("ws-butler" . "e3a38d93e01014cd47bf5af4924459bd145fd7c4")
