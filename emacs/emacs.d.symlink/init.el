@@ -321,8 +321,10 @@ This is a wrapper around `eval-after-load' that:
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
-;; Send files to the trash.
-(setq delete-by-moving-to-trash alex/IS-MAC)
+;; Send files to the correct trash folder on macOS.
+(when alex/IS-MAC
+  (setq delete-by-moving-to-trash t
+        trash-directory "~/.Trash"))
 
 (use-package xcodeproj-mode
   :straight (xcodeproj-mode :type built-in))
