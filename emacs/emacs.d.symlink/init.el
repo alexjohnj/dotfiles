@@ -177,7 +177,7 @@ This is a wrapper around `eval-after-load' that:
 ;; This is set up a little different to how doom-emacs sets it up.
 ;;
 (use-package gcmh
-  :diminish
+  :diminish gcmh-mode
   :config
   (setq gcmh-idle-delay 10
         gcmh-high-cons-threshold 16777216 ; 16 MB
@@ -610,6 +610,7 @@ This is a wrapper around `eval-after-load' that:
 (use-package tree-sitter
   :commands (tree-sitter-hl-mode)
   :defer t ;; Activated on a per-language basis
+  :diminish tree-sitter-mode
   :config
   (use-package tree-sitter-langs))
 
