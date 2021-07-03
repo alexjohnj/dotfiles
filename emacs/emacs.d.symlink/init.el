@@ -643,7 +643,8 @@ This is a wrapper around `eval-after-load' that:
 (require 'init-rust)
 
 (use-package json-mode
-  :mode ("\\.json\\'" . json-mode)
+  :mode (("\\.json\\'" . json-mode)
+         ("\\.apns\\'" . json-mode))
   :config
   (add-hook 'json-mode-hook #'tree-sitter-hl-mode))
 
