@@ -5,7 +5,7 @@
   :diminish flycheck-mode
   :hook ((after-init . global-flycheck-mode))
   :config
-  (setq flycheck-indication-mode 'left-fringe
+  (setq flycheck-indication-mode nil
         flycheck-display-errors-delay 0.5)
 
   ;; Disable flycheck elisp documentation checker
