@@ -60,7 +60,7 @@
  ("marginalia" . "10301075a3b84afd708db4fc1ef72c56d421d040")
  ("markdown-mode" . "ac9ea26b941eef512a3c206375a6404625c229ed")
  ("melpa" . "c8bd3d8bf771c4d5d45cf1e00a08d54941924357")
- ("modus-themes" . "010492718c256ae3cd18109aaaf572310a29987c")
+ ("modus-themes" . "9521dcec6c012d3776e3d05692720dd24922218b")
  ("orderless" . "2646dad28c0819fbe9ee521d39efb9ae40e03982")
  ("org" . "94d8d8ff506f670ec811e83f7871430b8788088d")
  ("page-break-lines" . "3b8549cd414d4d7ee0168ab9917124133566d3db")
