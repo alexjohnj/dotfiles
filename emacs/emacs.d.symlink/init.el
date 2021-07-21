@@ -2,9 +2,6 @@
 ;;; Basic Configuration
 
 ;; The following performance tweaks are taken from Doom Emacs.
-;; Increase garbage collection threshold during init to improve performance.
-(setq gc-cons-threshold most-positive-fixnum
-      gc-cons-percentage 0.6)
 
 (when (version< emacs-version "27")
   (load (expand-file-name "early-init.el" user-emacs-directory)))
@@ -178,6 +175,7 @@ This is a wrapper around `eval-after-load' that:
 ;;
 (use-package gcmh
   :diminish gcmh-mode
+  :hook (after-init . gcmh-mode)
   :config
   (setq gcmh-idle-delay 10
         gcmh-high-cons-threshold 16777216 ; 16 MB
@@ -671,3 +669,8 @@ This is a wrapper around `eval-after-load' that:
 ;;; Org Packages
 
 (require 'init-org)
+
+(message "*** Emacs loaded in %s with %d garbage collections."
+         (format "%.2f seconds"
+                 (float-time
+                  (time-subtract after-init-time before-init-time))) gcs-done)
