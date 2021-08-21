@@ -6,6 +6,7 @@ config/beets/state.pickle
 config/fish/fishd*
 config/fish/fish_variables
 config/fish/fish_history
+/config/fish/completions
 
 # .emacs.d Folders
 auto-save-list/
