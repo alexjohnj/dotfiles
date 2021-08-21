@@ -14,10 +14,10 @@ import:
 plugins:
   - fetchart
   - embedart
-  # - lyrics
   - convert
   - lastgenre
   - scrub
+  - unimported
 
 fetchart:
   auto: yes
@@ -41,3 +41,12 @@ convert:
 
 lastgenre:
   force: no
+
+unimported:
+  ignore_extensions:
+    - jpg
+    - png
+    - log
+    - cue
+    - txt
+    - pdf
