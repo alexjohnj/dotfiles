@@ -260,7 +260,8 @@ This is a wrapper around `eval-after-load' that:
 
 (use-package orderless
   :config
-  (setq completion-styles '(orderless)))
+  (setq completion-styles '(orderless)
+        completion-category-overrides '((file (styles partial-completion)))))
 
 (use-package savehist
   :config
