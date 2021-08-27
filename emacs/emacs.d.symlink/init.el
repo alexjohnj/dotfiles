@@ -385,7 +385,7 @@ This is a wrapper around `eval-after-load' that:
   (modus-themes-scale-headings t)
   (modus-themes-headings '((t . rainbow-section)))
   :config
-  (load-theme 'modus-operandi t))
+  (load-theme 'modus-vivendi t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
