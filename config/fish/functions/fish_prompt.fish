@@ -1,7 +1,7 @@
 # name: ajl
 
 function _git_branch_name
-  echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+  echo (command git symbolic-ref HEAD 2> /dev/null | sed -e 's|^refs/heads/||')
 end
 
 function _git_is_clean --description "Returns 0 if clean, 1 otherwise"
@@ -20,9 +20,9 @@ function _get_git_origin_state
 # Echoes 'ok' if up to date, 'pull' if need to pull or 'push' if need
 # to push. Echoes "" if there's no remote. From here:
 # http://stackoverflow.com/questions/3258243/git-check-if-pull-needed
-  set -l local (git rev-parse @\{0\} ^/dev/null)
-  set -l remote (git rev-parse @\{u\} ^/dev/null)
-  set -l base (git merge-base @ @\{u\} ^/dev/null)
+  set -l local (git rev-parse @\{0\} 2>/dev/null)
+  set -l remote (git rev-parse @\{u\} 2>/dev/null)
+  set -l base (git merge-base @ @\{u\} 2>/dev/null)
 
   if [ -z $remote ]
     echo ""
@@ -67,7 +67,7 @@ function _make_prompt_segment
 end
 
 function _print_ssh -d "Returns 0 if SSH was printed, 1 otherwise"
-  if _is_ssh_session 
+  if _is_ssh_session
     _make_prompt_segment normal normal $USER
     _make_prompt_segment normal blue "@"
     _make_prompt_segment normal normal (hostname -s)
@@ -119,7 +119,7 @@ end
 
 function fish_prompt
   set -g last_status $status
-  
+
   _print_ssh
   if [ $status -eq 0 ]
     _print_spacing
