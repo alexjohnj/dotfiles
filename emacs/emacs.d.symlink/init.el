@@ -356,6 +356,11 @@ This is a wrapper around `eval-after-load' that:
 (use-package aggressive-indent
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
+;; Configure tramp
+(after! tramp
+  (add-to-list 'tramp-default-user-alist
+               '("ssh" "munchlax\\.local\\'" "root")))
+
 
 ;;; Appearance
 
