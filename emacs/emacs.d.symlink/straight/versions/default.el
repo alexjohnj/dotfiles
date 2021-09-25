@@ -80,7 +80,7 @@
  ("smartparens" . "25f4d6d1b732f4deabf922059d22a0a7dc04bd0a")
  ("spinner" . "e19f3cfc0646c0e23c10c22df219fcf427054621")
  ("straight.el" . "1e27b0590df77a5d478970ca58fd6606971692f5")
- ("swift-mode" . "1b47a09f1c0e15c543e0551e7f1e643f437e7711")
+ ("swift-mode" . "4ec7c7328d0f09bf323c8be2db3be248bf30827a")
  ("transient" . "162698aa9d40ecafefcb1af7bdf602954d766970")
  ("tree-sitter-indent.el" . "18d263720c5a8f7fde0db368c7c36ea70437fc0b")
  ("tree-sitter-langs" . "5d362ce98dcf656d7a55fcad6ae21c0a2caca861")
