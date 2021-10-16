@@ -378,7 +378,7 @@ This is a wrapper around `eval-after-load' that:
                                orig-fg))))
 
 ;; Use my custom font if it's installed.
-(let ((font-name "Fira Code"))
+(let ((font-name "Overpass Mono"))
   (when (member font-name (font-family-list))
     (if (memq window-system '(mac ns)) ; Font scaling is a bit different between
                                         ; macOS and other platforms.
