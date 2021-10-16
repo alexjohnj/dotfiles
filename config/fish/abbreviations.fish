@@ -28,7 +28,7 @@ alias bean-bal-halifax "bean-report $BEANCOUNT_FILE bal -e Assets:Halifax"
 alias bean-bal-assets "bean-report $BEANCOUNT_FILE bal -e Assets:"
 
 # Download a YouTube video to the downloads folder
-abbr ytdl "youtube-dl -o '~/Downloads/%(title)s.%(ext)s'"
+abbr ytdl "yt-dlp -o '~/Downloads/%(title)s.%(ext)s'"
 
 # macOS Aliases
 abbr dut "diskutil"
