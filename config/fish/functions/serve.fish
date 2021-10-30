@@ -3,7 +3,7 @@ function serve --description 'Start a local server for the current directory, op
     if test (count $argv) -eq 1
         set port $argv[1]
     end
-    python -m SimpleHTTPServer $port &
+    python3 -m http.server $port &
     open http://localhost:$port
     fg
 end
