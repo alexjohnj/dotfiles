@@ -44,3 +44,7 @@ if type -q "exa"
     alias ls "exa"
     alias ll "exa --long"
 end
+
+if type -q "xip"
+    abbr unxip "xip --expand"
+end
