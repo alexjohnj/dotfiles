@@ -249,6 +249,12 @@ This is a wrapper around `eval-after-load' that:
   (which-key-setup-side-window-right-bottom)
   (which-key-mode))
 
+(use-package highlight-indent-guides
+  :hook ((text-mode . highlight-indent-guides-mode)
+         (prog-mode . highlight-indent-guides-mode))
+  :config
+  (setq highlight-indent-guides-method 'character))
+
 
 ;;; Completion Frameworks
 
@@ -653,7 +659,9 @@ This is a wrapper around `eval-after-load' that:
   (add-hook 'json-mode-hook #'tree-sitter-hl-mode))
 
 (use-package yaml-mode
-  :mode ("\\.yaml\\'" . yaml-mode))
+  :mode ("\\.yaml\\'" . yaml-mode)
+  :config
+  (add-hook 'yaml-mode-hook #'highlight-indent-guides-mode))
 
 (use-package fish-mode
   :mode ("\\.fish\\'" . fish-mode))

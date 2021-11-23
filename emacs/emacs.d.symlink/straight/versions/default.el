@@ -43,6 +43,7 @@
  ("git-modes" . "14adca24eb6b0b4e311ad144c5d41972c6b044b2")
  ("gnu-elpa-mirror" . "3e7e5862acc80a6371fae2e1bf087442402f7c54")
  ("goto-chg" . "2af612153bc9f5bed135d25abe62f46ddaa9027f")
+ ("highlight-indent-guides" . "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
  ("ht.el" . "c4c1be487d6ecb353d07881526db05d7fc90ea87")
  ("hydra" . "2d553787aca1aceb3e6927e426200e9bb9f056f1")
  ("json-mode" . "0e819e519ae17a2686e0881c4ca51fa873fa9b83")
