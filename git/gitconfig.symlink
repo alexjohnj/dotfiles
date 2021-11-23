@@ -10,6 +10,9 @@
   ff = only
 [pull]
   ff = only
+[rebase]
+  autoStash = true
+  autoSquash = true
 [credential]
   helper = osxkeychain
 [filter "lfs"]
