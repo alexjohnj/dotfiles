@@ -48,3 +48,7 @@ end
 if type -q "xip"
     abbr unxip "xip --expand"
 end
+
+if type -q "xattr"
+    abbr sanitize "sudo xattr -r -d com.apple.quarantine"
+end
