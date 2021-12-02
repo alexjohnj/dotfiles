@@ -334,6 +334,11 @@ This is a wrapper around `eval-after-load' that:
 (use-package xcodeproj-mode
   :straight (xcodeproj-mode :type built-in))
 
+(when alex/IS-MAC
+  (defun alex/xed ()
+    (interactive)
+    (start-process "xed" nil "xed" ".")))
+
 ;; Trim tidy whitespace before saving
 (use-package ws-butler
   :diminish
