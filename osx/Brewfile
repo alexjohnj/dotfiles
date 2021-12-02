@@ -1,6 +1,7 @@
 tap "beeftornado/rmtree"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 
@@ -8,23 +9,49 @@ brew "asdf"
 brew "bundletool"
 brew "dust"
 brew "lorem"
+brew "mas"
 brew "swiftlint"
 
 cask "appcleaner"
 cask "calibre"
 cask "dash"
 cask "discord"
+cask "firefox"
 cask "hex-fiend"
 cask "iina"
 cask "imageoptim"
+cask "istat-menus"
 cask "kitty"
+cask "macbreakz"
 cask "mailmate"
-cask "microsoft-teams"
 cask "paw"
+cask "plex"
+cask "plexamp"
 cask "proxyman"
+cask "raycast"
 cask "red-eye"
 cask "reveal"
 cask "spectacle"
-cask "spotify"
-cask "superduper"
 cask "transmit"
+
+cask "font-overpass"
+cask "font-overpass-mono"
+
+mas "1Password", id: 1333542190
+mas "DaisyDisk", id: 411643860
+mas "Deliveries", id: 290986013
+mas "DevCleaner", id: 1388020431
+mas "Diagrams", id: 1276248849
+mas "Home Assistant", id: 1099568401
+mas "Marked 2", id: 890031187
+mas "MediaInfo", id: 510620098
+mas "MusicHarbor", id: 1440405750
+mas "NepTunes", id: 1006739057
+mas "Numbers", id: 409203825
+mas "PDF Expert", id: 1055273043
+mas "Pages", id: 409201541
+mas "Red Line Tools", id: 1469400117
+mas "Reeder", id: 1529448980
+mas "Slack", id: 803453959
+mas "Things", id: 904280696
+mas "Vimari", id: 1480933944
