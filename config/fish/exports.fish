@@ -23,11 +23,11 @@ set -gx PUB_CACHE $HOME/.pub-cache
 set -l path_components \
     /Applications/MacPorts/Emacs.app/Contents/MacOS \
     /Applications/MacPorts/Emacs.app/Contents/MacOS/bin \
-    $HOME/bin \
+    $HOME/.bin \
     $HOME/.local/bin \
     $HOME/.cargo/bin \
     $PUB_CACHE/bin \
-    $HOME/Library/Python/3.8/bin \
+    $HOME/Library/Python/3.9/bin \
     $HOME/Library/Python/2.7/bin \
     $GEM_HOME/bin \
     $GOPATH/bin \
