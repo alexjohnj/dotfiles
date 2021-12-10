@@ -29,7 +29,6 @@ set -l path_components \
     $HOME/Library/Python/3.9/bin \
     $HOME/Library/Python/2.7/bin \
     $GEM_HOME/bin \
-    $GOPATH/bin \
     /opt/local/bin \
     /opt/local/sbin \
     /usr/local/sbin
