@@ -31,6 +31,8 @@ set -l path_components \
     $GEM_HOME/bin \
     /opt/local/bin \
     /opt/local/sbin \
+    /opt/homebrew/bin \
+    /opt/homebrew/sbin \
     /usr/local/sbin
 
 for c in $path_components[-1..1]
