@@ -14,6 +14,7 @@
         '(([unpushed status] . show)
           ([unstaged status] . show)
           ([untracked status] . show)))
+  (remove-hook 'magit-refs-sections-hook 'magit-insert-tags)
   (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1))
 
 (provide 'init-magit)
