@@ -688,6 +688,8 @@ This is a wrapper around `eval-after-load' that:
 (use-package kotlin-mode
   :mode ("\\.kt\\'" . kotlin-mode))
 
+(use-package dockerfile-mode)
+
 
 ;;; Org Packages
 
