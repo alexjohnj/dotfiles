@@ -369,8 +369,12 @@ This is a wrapper around `eval-after-load' that:
 
 ;; Configure tramp
 (after! tramp
+  (setq tramp-verbose 5)
   (add-to-list 'tramp-default-user-alist
                '("ssh" "munchlax\\.local\\'" "root")))
+
+(add-to-list 'backup-directory-alist
+             (cons tramp-file-name-regexp nil))
 
 
 ;;; Appearance
