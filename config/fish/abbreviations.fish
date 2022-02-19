@@ -52,3 +52,6 @@ end
 if type -q "xattr"
     abbr sanitize "sudo xattr -r -d com.apple.quarantine"
 end
+
+abbr pip "python -m pip"
+abbr pip3 "python3 -m pip"
