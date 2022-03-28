@@ -33,6 +33,3 @@ set-option -g status-right-length 40
 set-option -g status-bg blue
 set-window-option -g window-status-format '#[fg=white] [#I] #W '
 set-window-option -g window-status-current-format '#[fg=white,bold,underscore,bg=brightblue] [#I] #W '
-
-# OS Specific configuration
-if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
