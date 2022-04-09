@@ -679,8 +679,8 @@ This is a wrapper around `eval-after-load' that:
 (use-package php-mode
   :mode ("\\.php\\'" . php-mode))
 
-(use-package gitignore-mode
-  :mode "\\.gitignore\\'")
+(use-package git-modes
+  :mode (("\\.gitignore\\'" . gitignore-mode)))
 
 (use-package csharp-mode
   :mode ("\\.cs\\'" . csharp-mode))
