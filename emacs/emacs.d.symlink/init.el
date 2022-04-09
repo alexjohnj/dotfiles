@@ -405,10 +405,6 @@ This is a wrapper around `eval-after-load' that:
       (set-face-attribute 'default nil :font font-name :height 110))))
 
 (use-package modus-themes
-  :custom
-  (modus-themes-intense-hl-line t)
-  (modus-themes-scale-headings t)
-  (modus-themes-headings '((t . rainbow-section)))
   :config
   (load-theme 'modus-vivendi t))
 
