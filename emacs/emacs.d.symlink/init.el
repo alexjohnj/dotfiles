@@ -674,10 +674,6 @@ This is a wrapper around `eval-after-load' that:
 (use-package fish-mode
   :mode ("\\.fish\\'" . fish-mode))
 
-;; For the rare time I have to view PHP code
-(use-package php-mode
-  :mode ("\\.php\\'" . php-mode))
-
 (use-package git-modes
   :mode (("\\.gitignore\\'" . gitignore-mode)))
 
