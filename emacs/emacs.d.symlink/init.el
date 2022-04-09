@@ -681,9 +681,6 @@ This is a wrapper around `eval-after-load' that:
 (use-package git-modes
   :mode (("\\.gitignore\\'" . gitignore-mode)))
 
-(use-package csharp-mode
-  :mode ("\\.cs\\'" . csharp-mode))
-
 (use-package kotlin-mode
   :mode ("\\.kt\\'" . kotlin-mode))
 
