@@ -39,6 +39,10 @@
 (setq user-full-name "Alex Jackson"
       user-mail-address "alex@alexj.org")
 
+;; Silence warnings from native compilation
+(when alex/IS-NATIVE-COMP
+  (setq native-comp-async-report-warnings-errors nil))
+
 
 ;; Bootstrap straight.el
 
