@@ -290,8 +290,10 @@ This is a wrapper around `eval-after-load' that:
    [remap man] #'consult-man))
 
 (use-package ctrlf
+  :defer nil
+  :general
+  (:keymaps 'ctrlf-minibuffer-mode-map [escape] #'ctrlf-cancel)
   :config
-  (add-to-list 'ctrlf-minibuffer-bindings '([escape] . ctrlf-cancel))
   (ctrlf-mode))
 
 
