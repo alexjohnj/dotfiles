@@ -639,6 +639,7 @@ This is a wrapper around `eval-after-load' that:
 
 (require 'init-projectile)
 (require 'init-flycheck)
+(require 'init-code-completion)
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
 (require 'init-flyspell)
@@ -649,13 +650,11 @@ This is a wrapper around `eval-after-load' that:
 
 ;;; Language Packages
 
-(require 'init-lsp)
 (require 'init-ledger-mode)
 (require 'init-beancount-mode)
 (require 'init-markdown-mode)
 (require 'init-scss-mode)
 (require 'init-web-mode)
-(require 'init-company)
 (require 'init-latex)
 (require 'init-swift)
 (require 'init-ruby)

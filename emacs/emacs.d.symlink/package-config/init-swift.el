@@ -7,7 +7,4 @@
   :config (progn
             (add-to-list 'flycheck-checkers 'swift)))
 
-(use-package lsp-sourcekit
-  :after (lsp-mode swift-mode))
-
 (provide 'init-swift)

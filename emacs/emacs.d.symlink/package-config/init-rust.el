@@ -2,7 +2,8 @@
   :mode ("\\.rs\\'" . rustic-mode)
   :config
   (add-hook 'rustic-mode-hook #'tree-sitter-hl-mode)
-  (setq rustic-format-on-save t)
+  (setq rustic-format-on-save t
+        rustic-lsp-setup-p nil)
   (push 'rustic-clippy flycheck-checkers)
 
   (alex/leader-local-def rustic-mode-map
