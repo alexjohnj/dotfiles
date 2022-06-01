@@ -254,6 +254,7 @@ This is a wrapper around `eval-after-load' that:
   (which-key-mode))
 
 (use-package highlight-indent-guides
+  :diminish
   :hook ((text-mode . highlight-indent-guides-mode)
          (prog-mode . highlight-indent-guides-mode))
   :config
@@ -362,6 +363,7 @@ This is a wrapper around `eval-after-load' that:
 ;; Pretty print line-feed characters. I think the only place I use line-feeds is
 ;; in this file!
 (use-package page-break-lines
+  :diminish
   :hook (emacs-lisp-mode . page-break-lines-mode))
 
 ;; Unfill text
@@ -371,6 +373,7 @@ This is a wrapper around `eval-after-load' that:
 
 ;; Aggressively indent code in certain modes
 (use-package aggressive-indent
+  :diminish
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
 ;; Configure tramp
