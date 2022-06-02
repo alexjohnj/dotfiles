@@ -17,10 +17,10 @@
 (setq file-name-handler-alist nil)
 
 ;; Restore default settings after Emacs has started up.
-(add-hook 'emacs-startup-hook '(lambda ()
-                                 (setq gc-cons-threshold 16777216
-                                       gc-cons-percentage 0.1
-                                       file-name-handler-alist alex--file-name-handler-alist)))
+(add-hook 'emacs-startup-hook #'(lambda ()
+                                  (setq gc-cons-threshold 16777216
+                                        gc-cons-percentage 0.1
+                                        file-name-handler-alist alex--file-name-handler-alist)))
 
 ;; Stop Emacs from dumping customise values in init file.
 (let ((custom (expand-file-name "custom.el" user-emacs-directory)))
@@ -317,7 +317,7 @@ This is a wrapper around `eval-after-load' that:
 (fset 'yes-or-no-p 'y-or-n-p) ; Change yes-no prompts to y-n
 
 (add-hook 'prog-mode-hook
-          '(lambda () (setq show-trailing-whitespace t)))
+          #'(lambda () (setq show-trailing-whitespace t)))
 
 ;; Enable emoji, and stop the UI from freezing when trying to display them on a Mac.
 (when (and alex/IS-MAC
