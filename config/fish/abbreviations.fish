@@ -46,6 +46,7 @@ if type -q "exa"
 end
 
 if type -q "xip"
+    and not type -q "unxip" # I have an unxip executable on some systems.
     abbr unxip "xip --expand"
 end
 
