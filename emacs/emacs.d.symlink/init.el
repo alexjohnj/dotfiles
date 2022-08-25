@@ -226,6 +226,9 @@ This is a wrapper around `eval-after-load' that:
 (defconst alex/fd-available  (if (executable-find "fd") t nil)
   "t if the fd executable is available on this system.")
 
+(defconst alex/trash-available (if (executable-find "trash") t nil)
+  "t if the trash executable is available on this system.")
+
 ;; Keep the modeline neat and tidy
 (use-package diminish
   :commands diminish)
@@ -337,6 +340,10 @@ This is a wrapper around `eval-after-load' that:
 (when alex/IS-MAC
   (setq delete-by-moving-to-trash t
         trash-directory "~/.Trash"))
+
+(when alex/trash-available
+  (defun system-move-file-to-trash (file)
+    (call-process (executable-find "trash") nil 0 nil file)))
 
 (use-package xcodeproj-mode
   :straight (xcodeproj-mode :type built-in))
