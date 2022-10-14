@@ -350,6 +350,7 @@ This is a wrapper around `eval-after-load' that:
 
 (when alex/IS-MAC
   (defun alex/xed ()
+    "Open Xcode in the current working directory."
     (interactive)
     (start-process "xed" nil "xed" ".")))
 
