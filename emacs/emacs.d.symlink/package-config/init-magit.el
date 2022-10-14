@@ -1,7 +1,8 @@
 (use-package magit
   :commands (magit-dispatch
              magit-status
-             magit-file-dispatch)
+             magit-file-dispatch
+             alex/copy-branch-name)
   :general
   (alex/leader-def
     "g g" #'magit-dispatch
@@ -15,6 +16,19 @@
           ([unstaged status] . show)
           ([untracked status] . show)))
   (remove-hook 'magit-refs-sections-hook 'magit-insert-tags)
-  (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1))
+  (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
+
+  (defun alex/copy-branch-name (prefix)
+    "Copy the name of the branch at point or the current branch's
+name if there is no branch at point. With a prefix argument,
+always copies the name of the current branch."
+    (interactive "P")
+    (let ((branch-name (if prefix
+                           (magit-get-current-branch)
+                         (or (magit-branch-at-point) (magit-get-current-branch)))))
+      (if branch-name
+          (progn (kill-new branch-name)
+                 (message "%s" branch-name))
+        (user-error "No branch at point")))))
 
 (provide 'init-magit)
