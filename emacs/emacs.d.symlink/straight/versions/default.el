@@ -41,6 +41,7 @@
  ("flycheck-swift" . "4c5ad401252400a78da395fd56a71e67ff8c2761")
  ("flymake" . "d7cd31f318f1b63c654c34d82983c3e784f70e52")
  ("gcmh" . "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
+ ("gcode-mode.el" . "1f83845af4102efc5e5856b55bd5ad165b2f0cdd")
  ("general.el" . "9651024e7f40a8ac5c3f31f8675d3ebe2b667344")
  ("git-modes" . "eca3bb42ea8abed9ef8549b2ac91bbea445c5bb5")
  ("gnu-elpa-mirror" . "55b898c5b620af6c059b3ce073b340b322ef591f")
