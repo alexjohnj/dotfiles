@@ -18,6 +18,7 @@
  ("diminish.el" . "6b7e837b0cf0129e9d7d6abae48093cf599bb9e8")
  ("dockerfile-mode" . "b63a3d12b7dea0cb9efc7f78d7ad5672ceab2a3f")
  ("dumb-jump" . "0a783d1db610ff1dc4e1b7869589cff16ff92f7a")
+ ("ef-themes" . "d344f3ddc4a712fcaee7d5cf28832892fb85b3af")
  ("eglot" . "000b7fdce93ed29c505a7fa75baaf87094fd690a")
  ("el-get" . "bf3dba444dcd240b8cb358a0850c8c5a92606134")
  ("eldoc" . "a01b7ac6b2d03f0a4bafab2fa3c73b3b17aa6141")

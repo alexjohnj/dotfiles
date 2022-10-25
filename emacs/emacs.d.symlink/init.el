@@ -417,9 +417,9 @@ This is a wrapper around `eval-after-load' that:
         (set-face-attribute 'default nil :font font-name :height 130 :weight 'regular)
       (set-face-attribute 'default nil :font font-name :height 110))))
 
-(use-package modus-themes
+(use-package ef-themes
   :config
-  (load-theme 'modus-vivendi t))
+  (load-theme 'ef-autumn t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
