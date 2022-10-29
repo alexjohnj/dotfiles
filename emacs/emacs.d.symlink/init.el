@@ -649,7 +649,7 @@ This is a wrapper around `eval-after-load' that:
   (use-package tree-sitter-langs))
 
 (require 'init-projectile)
-(require 'init-flycheck)
+(require 'init-flymake)
 (require 'init-code-completion)
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
