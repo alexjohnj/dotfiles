@@ -670,6 +670,7 @@ This is a wrapper around `eval-after-load' that:
 (require 'init-swift)
 (require 'init-ruby)
 (require 'init-rust)
+(use-package elixir-mode)
 
 (use-package json-mode
   :mode (("\\.json\\'" . json-mode)
