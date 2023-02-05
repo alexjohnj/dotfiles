@@ -14,9 +14,6 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
--- Enable hotkeys help widget for VIM and other apps
--- when client with a matching name is opened:
-require("awful.hotkeys_popup.keys")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -51,6 +48,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 terminal = "kitty"
 editor = os.getenv("EDITOR") or "emacs"
 editor_cmd = terminal .. " -e " .. editor
+lock_cmd = "slock"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -60,6 +58,7 @@ editor_cmd = terminal .. " -e " .. editor
 local modkey = "Mod4"
 local space = "space"
 local shift = "Shift"
+local ctrl = "Control"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -224,7 +223,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
     awful.key({ modkey }, "o", function () awful.screen.focus_relative(1) end,
-              {description = "toggle focus between screens", group = "screen"}),
+              {description = "toggle focused screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
     awful.key({ modkey,           }, "Tab",
@@ -257,7 +256,8 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-
+    awful.key({ modkey, ctrl }, "q", function () awful.spawn(lock_cmd) end,
+       {description = "lock screen", group = "awesome"}),
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
@@ -288,11 +288,11 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.util.spawn("dmenu_run") end,
+    awful.key({ modkey },            "r",     function () awful.util.spawn("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
 
     -- Menubar
-    awful.key({ modkey }, space, function() menubar.show() end,
+    awful.key({ modkey }, space, function() awful.util.spawn("rofi -show drun") end,
               {description = "show the menubar", group = "launcher"})
 )
 
@@ -439,6 +439,7 @@ awful.rules.rules = {
           "DTA",  -- Firefox addon DownThemAll.
           "copyq",  -- Includes session name in class.
           "pinentry",
+          "plexamp",
         },
         class = {
           "Arandr",
@@ -540,5 +541,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart Applications
-awful.spawn.with_shell("compton") -- Compositor
+awful.spawn.with_shell("picom -b") -- Compositor
 awful.spawn.with_shell("nitrogen --restore") -- Background
