@@ -20,6 +20,7 @@ emacs/emacs.d.symlink/games
 emacs/emacs.d.symlink/url
 emacs/emacs.d.symlink/history
 emacs/emacs.d.symlink/network-security.data
+emacs/emacs.d.symlink/session.*
 
 /emacs/emacs.d.symlink/eshell/
 emacs/emacs.d.symlink/transient/
