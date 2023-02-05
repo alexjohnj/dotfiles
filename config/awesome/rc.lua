@@ -200,12 +200,6 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
-              {description = "go back", group = "tag"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -241,6 +235,20 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
+
+    -- Directional focus using arrows
+    awful.key({ modkey }, "Down", function() awful.client.focus.global_bydirection("down")
+        if client.focus then client.focus:raise() end end,
+        {description = "Focus down", group = "client"}),
+    awful.key({ modkey }, "Up", function() awful.client.focus.global_bydirection("up")
+        if client.focus then client.focus:raise() end end,
+        {description = "Focus up", group = "client"}),
+    awful.key({ modkey }, "Left", function() awful.client.focus.global_bydirection("left")
+        if client.focus then client.focus:raise() end end,
+        {description = "Focus left", group = "client"}),
+    awful.key({ modkey }, "Right", function() awful.client.focus.global_bydirection("right")
+        if client.focus then client.focus:raise() end end,
+        {description = "Focus right", group = "client"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
