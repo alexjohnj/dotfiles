@@ -55,6 +55,7 @@
  ("kotlin-mode" . "99499e1500034b5fd5fdce9bfef367d90c61b5ce")
  ("ledger-mode" . "8bad528d43007e0310b5e72e6e021b502b30495c")
  ("let-alist" . "592553db5929b54db40af0df90c5add0aaca045b")
+ ("lua-mode" . "ad639c62e38a110d8d822c4f914af3e20b40ccc4")
  ("magit" . "2a5815fee1ed091751b8bbfa242f7a78d7e5e039")
  ("marginalia" . "c9297eefec7c60f3b5a30ec2fb93438e06fc26d9")
  ("markdown-mode" . "c338cdff80012893e64ba62a199281f430db7021")
