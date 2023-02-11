@@ -68,6 +68,7 @@
  ("project" . "760e4d127e34cb774a7c24d5a8fe2a250314ace9")
  ("projectile" . "004e202a6af3f452e1ef6539420dc0775f603290")
  ("rainbow-delimiters" . "a32b39bdfe6c61c322c37226d66e1b6d4f107ed0")
+ ("rainbow-mode" . "8e96388fb4d616a9dde23e712bad0d9cd048fbf0")
  ("rg.el" . "3880e8c734c976a2d393aeacf60d510f56d8217d")
  ("rust-mode" . "b4537b6f5fa65626c1bab944681b35769cab9b5c")
  ("rustic" . "4879922524faff116535c9061af6e8a902609f65")

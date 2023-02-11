@@ -648,6 +648,9 @@ This is a wrapper around `eval-after-load' that:
   :config
   (use-package tree-sitter-langs))
 
+(use-package rainbow-mode
+  :hook ((lua-mode . rainbow-mode)))
+
 (require 'init-projectile)
 (require 'init-flymake)
 (require 'init-code-completion)
