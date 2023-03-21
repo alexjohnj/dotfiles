@@ -21,19 +21,14 @@ set -gx PUB_CACHE $HOME/.pub-cache
 
 # Set the PATH
 set -l path_components \
-    /Applications/MacPorts/Emacs.app/Contents/MacOS \
-    /Applications/MacPorts/Emacs.app/Contents/MacOS/bin \
     $HOME/.bin \
     $HOME/.local/bin \
     $HOME/.cargo/bin \
     $HOME/Library/Python/3.9/bin \
     $HOME/Library/Python/2.7/bin \
     $GEM_HOME/bin \
-    /opt/local/bin \
-    /opt/local/sbin \
     /opt/homebrew/bin \
-    /opt/homebrew/sbin \
-    /usr/local/sbin
+    /opt/homebrew/sbin
 
 for c in $path_components[-1..1]
     if begin not contains $c $PATH; and [ -e $c ]; end
