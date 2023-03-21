@@ -17,9 +17,9 @@ function _git_is_clean --description "Returns 0 if clean, 1 otherwise"
 end
 
 function _get_git_origin_state
-# Echoes 'ok' if up to date, 'pull' if need to pull or 'push' if need
-# to push. Echoes "" if there's no remote. From here:
-# http://stackoverflow.com/questions/3258243/git-check-if-pull-needed
+# Echoes 'ok' if up to date, 'pull' if need to pull, 'push' if need to push or
+# 'mixed' if there's been a force push. Echoes "" if there's no remote. From
+# here: http://stackoverflow.com/questions/3258243/git-check-if-pull-needed
   set -l local (git rev-parse @\{0\} 2>/dev/null)
   set -l remote (git rev-parse @\{u\} 2>/dev/null)
   set -l base (git merge-base @ @\{u\} 2>/dev/null)
@@ -40,6 +40,8 @@ function _get_git_origin_state
     echo "pull"
   else if [ $remote = $base ]
     echo "push"
+  else
+    echo "mixed"
   end
 end
 
@@ -101,6 +103,8 @@ function _print_git_status --description "Returns 0 if the status was printed, 1
     _make_prompt_segment normal blue $git_info
   else if [ $origin_state = "push" ]
     _make_prompt_segment normal yellow $git_info
+  else if [ $origin_state = "mixed" ]
+    _make_prompt_segment blue yellow $git_info
   end
   return 0
 end
