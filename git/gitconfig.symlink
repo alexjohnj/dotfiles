@@ -26,3 +26,4 @@
   lgs = lg --stat
   rnotes = log --no-merges --pretty=format:'* %s'
   tag-history = tag --sort=-taggerdate --format='%(refname:strip=2) - %(taggerdate)'
+  unstage = reset --
