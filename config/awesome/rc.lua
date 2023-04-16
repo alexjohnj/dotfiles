@@ -192,9 +192,12 @@ end)
 -- }}}
 
 -- {{{ Mouse bindings
-root.buttons(gears.table.join(
-                awful.button({ }, 3, function () mymainmenu:toggle() end)
-))
+root.buttons(
+   gears.table.join(
+      awful.button({ }, 3, function () mymainmenu:toggle() end),
+      awful.button({ }, 1, function () mymainmenu:hide() end)
+   )
+)
 -- }}}
 
 -- {{{ Key bindings
