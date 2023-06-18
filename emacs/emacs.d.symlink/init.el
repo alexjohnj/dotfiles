@@ -685,7 +685,8 @@ This is a wrapper around `eval-after-load' that:
 (use-package yaml-mode
   :mode ("\\.yaml\\'" . yaml-mode)
   :config
-  (add-hook 'yaml-mode-hook #'highlight-indent-guides-mode))
+  (add-hook 'yaml-mode-hook #'highlight-indent-guides-mode)
+  (add-hook 'yaml-mode-hook #'tree-sitter-hl-mode))
 
 (use-package fish-mode
   :mode ("\\.fish\\'" . fish-mode))
