@@ -539,7 +539,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart Applications
-awful.spawn.with_shell("picom -b") -- Compositor
 awful.spawn.with_shell("nitrogen --restore") -- Background
 awful.spawn.with_shell("flatpak run --command=/app/libexec/deja-dup/deja-dup-monitor org.gnome.DejaDup")
 awful.spawn.with_shell("flatpak run com.discordapp.Discord --start-minimized")

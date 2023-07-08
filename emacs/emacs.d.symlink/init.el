@@ -702,6 +702,11 @@ This is a wrapper around `eval-after-load' that:
 
 (use-package dockerfile-mode)
 
+(use-package nix-mode
+  :mode ("\\.nix\\'" . nix-mode)
+  :config
+  (add-hook 'nix-mode-hook #'tree-sitter-hl-mode))
+
 
 ;;; Org Packages
 
