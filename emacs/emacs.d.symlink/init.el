@@ -271,6 +271,7 @@
   (ctrlf-mode))
 
 (use-package eglot
+  :commands eglot
   :straight nil ; Built in as of Emacs 29.1
   :config
   (fset #'jsonrpc--log-event #'ignore); massive perf boost---don't log every event
@@ -635,38 +636,7 @@
 
 ;;; Language Packages
 
-(require 'init-ledger-mode)
-(require 'init-beancount-mode)
-(require 'init-markdown-mode)
-(require 'init-scss-mode)
-(require 'init-web-mode)
-(require 'init-latex)
-(require 'init-swift)
-(require 'init-ruby)
-(require 'init-rust)
-(use-package elixir-mode)
-(use-package lua-mode)
-
-(use-package json-mode
-  :mode (("\\.json\\'" . json-mode)
-         ("\\.apns\\'" . json-mode)))
-
-(use-package yaml-mode
-  :hook ((yaml-mode . highlight-indent-guides-mode)))
-
-(use-package fish-mode
-  :mode ("\\.fish\\'" . fish-mode))
-
-(use-package git-modes
-  :mode (("\\.gitignore\\'" . gitignore-mode)))
-
-(use-package kotlin-mode
-  :mode ("\\.kt\\'" . kotlin-mode))
-
-(use-package gcode-mode
-  :mode ("\\.gcode\\'" . gcode-mode))
-
-(use-package dockerfile-mode)
+(require 'init-languages)
 
 
 ;;; Org Packages
