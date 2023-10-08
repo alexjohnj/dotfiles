@@ -6,6 +6,11 @@
 (setq gc-cons-threshold most-positive-fixnum
       gc-cons-percentage 0.6)
 
+;; Suppress compilation messages
+(setq byte-compile-warnings '(not obsolete)
+      warning-suppress-log-types '((comp) (bytecomp))
+      native-comp-async-report-warnings-errors 'silent)
+
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'. I'm using straight.el for package
 ;; management so this isn't needed.
@@ -26,8 +31,3 @@
 ;; font. By inhibiting this, we easily halve startup times with fonts that are
 ;; larger than the system default.
 (setq frame-inhibit-implied-resize t)
-
-;; Configure native comp settings
-(setq comp-async-report-warnings-errors nil
-      package-native-compile t
-      comp-deferred-compilation nil)
