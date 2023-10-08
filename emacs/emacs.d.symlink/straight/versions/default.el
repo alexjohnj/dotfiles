@@ -39,8 +39,6 @@
  ("gnu-elpa-mirror" . "ebf10357d7e2e8d5d1ebca1ac7bfa225e05b1b4b")
  ("goto-chg" . "278cd3e6d5107693aa2bb33189ca503f22f227d0")
  ("highlight-indent-guides" . "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
- ("json-mode" . "eedb4560034f795a7950fa07016bd4347c368873")
- ("json-snatcher" . "b28d1c0670636da6db508d03872d96ffddbc10f2")
  ("kind-icon" . "941389060c4553935b54024d3e3ec5027e1e3725")
  ("kotlin-mode" . "fddd747e5b4736e8b27a147960f369b86179ddff")
  ("let-alist" . "021fc10df2e44faba4728d849ee767cf890aa51a")

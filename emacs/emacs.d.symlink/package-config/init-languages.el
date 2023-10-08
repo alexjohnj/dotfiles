@@ -24,9 +24,9 @@
 
 (use-package gcode-mode)
 
-(use-package json-mode
-  :mode (("\\.json\\'" . json-mode)
-         ("\\.apns\\'" . json-mode))
+(use-package json-ts-mode
+  :straight nil
+  :mode ("\\.json\\'" "\\.apns\\'")
   :init
   (alex/treesit--add-source 'json "https://github.com/tree-sitter/tree-sitter-json"))
 
