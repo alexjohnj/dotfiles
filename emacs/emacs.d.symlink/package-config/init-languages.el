@@ -17,7 +17,8 @@
   :init
   (alex/treesit--add-source 'dockerfile "https://github.com/camdencheek/tree-sitter-dockerfile"))
 
-(use-package fish-mode)
+(use-package fish-mode
+  :mode ("\\.fish\\'"))
 
 (use-package git-modes
   :mode (("\\.gitignore\\'" . gitignore-mode)))
@@ -30,11 +31,13 @@
   :init
   (alex/treesit--add-source 'json "https://github.com/tree-sitter/tree-sitter-json"))
 
-(use-package kotlin-mode)
+(use-package kotlin-mode
+  :mode ("\\.kt\\'"))
 
 (require 'init-latex)
 
-(use-package lua-mode)
+(use-package lua-mode
+  :mode ("\\.lua\\'"))
 
 (use-package markdown-mode
   :mode (("\\.markdown\\'" . gfm-mode)
@@ -66,9 +69,11 @@
     "t f" #'rustic-cargo-test-rerun))
 
 (use-package swift-mode
-  :hook
-  (swift-mode . (lambda ()
-                  (setq fill-column 120))))
+  :mode ("\\.swift\\'")
+  :config
+  (defun alex/swift-mode-hook ()
+    (setq fill-column 120))
+  (add-hook 'swift-mode-hook #'alex/swift-mode-hook))
 
 (use-package web-mode
   :mode (("\\.html\\'" . web-mode)
