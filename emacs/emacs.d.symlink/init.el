@@ -364,6 +364,7 @@
 
 ;; Configure tramp
 (use-package tramp
+  :defer t
   :straight nil
   :config
   (setq tramp-verbose 5)
