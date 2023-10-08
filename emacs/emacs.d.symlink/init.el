@@ -155,7 +155,7 @@
 
 ;; Ensure the system PATH is picked up properly by Emacs
 (use-package exec-path-from-shell
-  :unless (memq system-type '(windows-nt ms-dos))
+  :when (memq system-type '(darwin))
   :config
   (add-to-list 'exec-path-from-shell-variables "GPG_AGENT_INFO")
   (add-to-list 'exec-path-from-shell-variables "SSH_AUTH_SOCK")
