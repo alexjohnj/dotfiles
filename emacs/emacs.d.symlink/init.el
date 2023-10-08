@@ -620,13 +620,6 @@
   :config
   (add-to-list 'dash-at-point-mode-alist '(swift-mode . "o")))
 
-(use-package tree-sitter
-  :commands (tree-sitter-hl-mode)
-  :defer t ;; Activated on a per-language basis
-  :diminish tree-sitter-mode
-  :config
-  (use-package tree-sitter-langs))
-
 (use-package rainbow-mode
   :hook ((lua-mode . rainbow-mode)))
 
@@ -656,15 +649,10 @@
 
 (use-package json-mode
   :mode (("\\.json\\'" . json-mode)
-         ("\\.apns\\'" . json-mode))
-  :config
-  (add-hook 'json-mode-hook #'tree-sitter-hl-mode))
+         ("\\.apns\\'" . json-mode)))
 
 (use-package yaml-mode
-  :mode ("\\.yaml\\'" . yaml-mode)
-  :config
-  (add-hook 'yaml-mode-hook #'highlight-indent-guides-mode)
-  (add-hook 'yaml-mode-hook #'tree-sitter-hl-mode))
+  :hook ((yaml-mode . highlight-indent-guides-mode)))
 
 (use-package fish-mode
   :mode ("\\.fish\\'" . fish-mode))

@@ -1,7 +1,6 @@
 (use-package swift-mode
   :mode ("\\.swift\\'" . swift-mode)
-  :hook ((swift-mode . tree-sitter-hl-mode)
-         (swift-mode . alex/swift-mode-hook)))
+  :hook ((swift-mode . alex/swift-mode-hook)))
 
 (use-package flycheck-swift
   :after (flycheck swift-mode)

@@ -1,7 +1,6 @@
 (use-package rustic
   :mode ("\\.rs\\'" . rustic-mode)
   :config
-  (add-hook 'rustic-mode-hook #'tree-sitter-hl-mode)
   (setq rustic-format-on-save nil
         rustic-lsp-setup-p nil
         rustic-lsp-client 'eglot)
