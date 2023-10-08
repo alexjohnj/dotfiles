@@ -214,19 +214,47 @@
     [escape] "C-g")
   (vertico-mode))
 
-(use-package orderless
-  :config
-  (setq completion-styles '(orderless)
-        completion-category-overrides '((file (styles partial-completion)))))
-
 (use-package savehist
   :config
   (savehist-mode))
+
+(use-package corfu
+  :straight (:files (:defaults "extensions/*")) ;; Loads additional extensions from repo
+  :hook ((after-init . global-corfu-mode)
+         (global-corfu-mode . corfu-popupinfo-mode))
+  :config
+  (setq corfu-auto t
+        corfu-auto-delay 0
+        corfu-auto-prefix 1)
+
+  ;; Wait 0.5s to show the popup and then 1s to update it.
+  (setq corfu-popupinfo-delay '(0.5 . 1)))
+
+;; Adds icons to the margins of the Corfu completion popup.
+(use-package kind-icon
+  :after corfu
+  :config
+  (setq kind-icon-default-face 'corfu-default
+        kind-icon-use-icons nil) ;; Use text based icons instead of SVGs.
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
+;; Provides additional completion at point functions
+(use-package cape
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  :config
+  (setq cape-dabbrev-check-other-buffers nil))
 
 ;; The marginalia package adds annotations next to completion results.
 (use-package marginalia
   :config
   (marginalia-mode))
+
+(use-package orderless
+  :config
+  (setq completion-styles '(orderless)
+        completion-category-overrides '((file (styles partial-completion)))))
 
 (use-package consult
   :general
@@ -242,6 +270,13 @@
   :config
   (ctrlf-mode))
 
+(use-package eglot
+  :straight nil ; Built in as of Emacs 29.1
+  :config
+  (fset #'jsonrpc--log-event #'ignore); massive perf boost---don't log every event
+  )
+
+
 
 ;;; Editor Settings
 
@@ -254,8 +289,8 @@
 (defvaralias 'js-indent-level 'tab-width)
 
 (blink-cursor-mode 0) ; Disable blinking cursor
-
 (global-auto-revert-mode 1)
+
 (setq-default fill-column 80)
 (setq require-final-newline t) ; Insert newline at end of file when saved.
 (setq case-fold-search t) ; Makes searches case-insensitive
@@ -271,8 +306,8 @@
 
 ;; Editing contextual info
 (global-hl-line-mode 1)
-(line-number-mode)
-(column-number-mode)
+(line-number-mode 1)
+(column-number-mode 1)
 
 ;; Save backups to a temporary directory instead of the current directory
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
@@ -597,7 +632,6 @@
 
 (require 'init-projectile)
 (require 'init-flymake)
-(require 'init-code-completion)
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
 (require 'init-flyspell)
