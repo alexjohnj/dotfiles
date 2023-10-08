@@ -130,3 +130,4 @@ tramp
 # Server files generated on Windows
 /emacs/emacs.d.symlink/server/
 /emacs/emacs.d.symlink/var/
+/emacs/emacs.d.symlink/tree-sitter/
