@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package org
+  :straight nil ;; Prefer the built-in org package
   :mode (("\\.org\\'" . org-mode))
   :config
   (setq org-startup-indented t
