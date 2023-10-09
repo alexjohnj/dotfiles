@@ -23,7 +23,11 @@
 (use-package git-modes
   :mode (("\\.gitignore\\'" . gitignore-mode)))
 
-(use-package gcode-mode)
+(use-package gcode-mode
+  :defer t)
+
+(use-package graphql-mode
+  :defer t)
 
 (use-package json-ts-mode
   :straight nil
