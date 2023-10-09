@@ -54,6 +54,20 @@
   :config
   (add-hook 'markdown-mode-hook 'flyspell-mode))
 
+(use-package typescript-ts-mode
+  :straight nil
+  :mode ("\\.ts\\'")
+  :init
+  (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+  :config
+  (add-hook 'typescript-ts-mode-hook #'eglot-ensure))
+
+(use-package tsx-ts-mode
+  :straight nil
+  :mode ("\\.tsx\\'")
+  :init
+  (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
+
 (use-package ruby-mode
   :mode "/\\(Gem\\|Fast\\|App\\|Match\\|Pod\\)file")
 

@@ -271,7 +271,7 @@
   (ctrlf-mode))
 
 (use-package eglot
-  :commands eglot
+  :commands (eglot eglot-ensure)
   :straight nil ; Built in as of Emacs 29.1
   :config
   (fset #'jsonrpc--log-event #'ignore); massive perf boost---don't log every event
@@ -605,7 +605,8 @@
   :diminish
   :config
   (require 'smartparens-config)
-  (sp-local-pair '(c-mode swift-mode rustic-mode) "{" nil :post-handlers '(:add ("||\n[i]" "RET")))
+  (sp-local-pair '(c-mode swift-mode rustic-mode typescript-ts-mode)
+                 "{" nil :post-handlers '(:add ("||\n[i]" "RET")))
   (smartparens-global-mode))
 
 (use-package dumb-jump
