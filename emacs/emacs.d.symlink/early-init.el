@@ -22,6 +22,9 @@
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
+(push '(ns-appearance . dark) default-frame-alist)
+(push '(ns-transparent-titlebar . t) default-frame-alist)
+(push '(background-color . "#0f0e06") default-frame-alist)
 
 ;; Make the default frame a bit bigger.
 (push '(width . 140) default-frame-alist)
