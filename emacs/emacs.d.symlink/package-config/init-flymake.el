@@ -1,5 +1,6 @@
 (use-package flymake
   :hook ((prog-mode . flymake-mode))
+  :straight nil ; Ensure the built in flymake package is used.
   :general (alex/leader-def
              "e c" #'flymake-start
              "e n" #'flymake-goto-next-error
