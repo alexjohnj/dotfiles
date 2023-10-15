@@ -49,8 +49,10 @@ theme.notification_width = 400
 theme.notification_bg = colors.primary_background
 theme.notification_fg = colors.text_on_background
 theme.notification_border_color = colors.accent_color
-theme.menu_submenu = ""
-theme.menu_height = dpi(20)
+theme.menu_submenu = ">"
+theme.menu_height = dpi(24)
 theme.menu_width = dpi(105)
+
+theme.systray_icon_spacing = 8
 
 return theme
