@@ -140,11 +140,11 @@ local tasklist_buttons = gears.table.join(
 end))
 
 awful.screen.connect_for_each_screen(function(s)
+      padding = 8
+
       -- Each screen has its own tag table.
       awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
 
-      -- Create a promptbox for each screen
-      s.mypromptbox = awful.widget.prompt()
       -- Create an imagebox widget which will contain an icon indicating which layout we're using.
       -- We need one layoutbox per screen.
       s.mylayoutbox = awful.widget.layoutbox(s)
@@ -170,22 +170,19 @@ awful.screen.connect_for_each_screen(function(s)
       -- Create the wibox
       s.mywibox = awful.wibar({ position = "top", screen = s })
 
-      -- Add widgets to the wibox
+      -- Add Widgets to the wibox
       s.mywibox:setup {
          layout = wibox.layout.align.horizontal,
          { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
+            wibox.container.margin(s.mytaglist, padding)
          },
-         s.mytasklist, -- Middle widget
+         wibox.container.margin(s.mytasklist, padding, padding), -- Middle Widget
          { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
             wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
+            wibox.container.margin(mytextclock, padding, padding),
+            wibox.container.margin(s.mylayoutbox, 0, padding),
          },
       }
 end)
@@ -539,7 +536,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart Applications
-awful.spawn.with_shell("picom -b") -- Compositor
+awful.spawn.with_shell("picom --daemon --backend glx --vsync --corner-radius 8") -- Compositor
 awful.spawn.with_shell("nitrogen --restore") -- Background
 awful.spawn.with_shell("flatpak run --command=/app/libexec/deja-dup/deja-dup-monitor org.gnome.DejaDup")
-awful.spawn.with_shell("flatpak run com.discordapp.Discord --start-minimized")
