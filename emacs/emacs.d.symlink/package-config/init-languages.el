@@ -74,6 +74,12 @@
   :init
   (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
 
+(use-package python-ts-mode
+  :straight nil
+  :mode ("\\.py\\'")
+  :init
+  (alex/treesit--add-source 'python "https://github.com/tree-sitter/tree-sitter-python"))
+
 (use-package ruby-mode
   :mode "/\\(Gem\\|Fast\\|App\\|Match\\|Pod\\)file")
 
