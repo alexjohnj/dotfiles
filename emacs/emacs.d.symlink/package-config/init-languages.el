@@ -60,7 +60,13 @@
   :init
   (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
   :config
-  (add-hook 'typescript-ts-mode-hook #'eglot-ensure))
+  (add-hook 'typescript-ts-base-mode-hook #'eglot-ensure))
+
+(use-package tsx-ts-mode
+  :straight nil
+  :mode ("\\.tsx\\'")
+  :init
+  (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
 
 (use-package tsx-ts-mode
   :straight nil
