@@ -273,7 +273,11 @@
 (use-package eglot
   :commands (eglot eglot-ensure)
   :straight nil ; Built in as of Emacs 29.1
+  :general
+  ("M-RET" #'eglot-code-actions)
   :config
+  (setq eglot-confirm-server-initiated-edits nil)
+  (add-hook 'eglot-managed-mode-hook #'eglot-inlay-hints-mode)
   (fset #'jsonrpc--log-event #'ignore); massive perf boost---don't log every event
   )
 
