@@ -609,7 +609,7 @@
   :diminish
   :config
   (require 'smartparens-config)
-  (sp-local-pair '(c-mode swift-mode rustic-mode typescript-ts-mode)
+  (sp-local-pair '(c-mode swift-mode rustic-mode typescript-ts-mode js-base-mode)
                  "{" nil :post-handlers '(:add ("||\n[i]" "RET")))
   (smartparens-global-mode))
 

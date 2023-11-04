@@ -54,6 +54,12 @@
   :config
   (add-hook 'markdown-mode-hook 'flyspell-mode))
 
+(use-package css-ts-mode
+  :straight nil
+  :mode ("\\.css\\'")
+  :init
+  (alex/treesit--add-source 'css "https://github.com/tree-sitter/tree-sitter-css"))
+
 (use-package typescript-ts-mode
   :straight nil
   :mode ("\\.ts\\'")
