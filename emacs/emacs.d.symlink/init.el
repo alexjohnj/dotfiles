@@ -404,7 +404,8 @@
 
 (use-package ef-themes
   :config
-  (load-theme 'ef-autumn t))
+  (setq ef-themes-to-toggle '(ef-autumn ef-frost))
+  (load-theme (car ef-themes-to-toggle) t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
