@@ -54,6 +54,9 @@
   :config
   (add-hook 'markdown-mode-hook 'flyspell-mode))
 
+(use-package nix-mode
+  :mode ("\\.nix\\'" . nix-mode))
+
 (use-package css-ts-mode
   :straight nil
   :mode ("\\.css\\'")
