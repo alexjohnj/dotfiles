@@ -8,3 +8,7 @@ else if test -f ~/.asdf/asdf.fish
     # asdf is installed from the git repo.
     source ~/.asdf/asdf.fish
 end
+
+ if type -q direnv
+     direnv hook fish | source
+ end
