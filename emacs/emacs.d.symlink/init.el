@@ -375,6 +375,10 @@
   (add-to-list 'tramp-default-user-alist
                '("ssh" "munchlax\\.local\\'" "root")))
 
+(use-package direnv
+  :config
+  (direnv-mode))
+
 (add-to-list 'backup-directory-alist
              (cons tramp-file-name-regexp nil))
 
