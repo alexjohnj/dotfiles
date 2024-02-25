@@ -60,12 +60,9 @@
       (alex/beancount--indent-line)
       (forward-line 1))))
 
-(defconst alex/bean-format-available (if (executable-find "bean-format") t nil)
-  "t if the bean-format command is available")
-
 (defun alex/beancount-format-file ()
   (interactive)
-  (when alex/bean-format-available
+  (when (executable-find "bean-format")
     (let ((line-no (line-number-at-pos)))
       (call-process-region (point-min) (point-max) "bean-format" t (current-buffer))
       (goto-line line-no)
