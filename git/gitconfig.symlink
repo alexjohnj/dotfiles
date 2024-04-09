@@ -13,6 +13,9 @@
 [rebase]
   autoStash = true
   autoSquash = true
+[status]
+  short = true
+  branch = true
 [credential]
   helper = osxkeychain
 [filter "lfs"]
@@ -21,7 +24,7 @@
   required = true
   process = git-lfs filter-process
 [alias]
-  st = status -s
+  st = status
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   lgs = lg --stat
   rnotes = log --no-merges --pretty=format:'* %s'
