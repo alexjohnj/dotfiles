@@ -2,6 +2,7 @@
  ("ace-window" . "77115afc1b0b9f633084cf7479c767988106c196")
  ("aggressive-indent-mode" . "a437a45868f94b77362c6b913c5ee8e67b273c42")
  ("annalist.el" . "134fa3f0fb91a636a1c005c483516d4b64905a6d")
+ ("apheleia" . "b776ed96b1a980af284c8fb07a8db387c1e6c358")
  ("auctex" . "a69f4a392b0c83c492007ec7dc87dd1d3612fc19")
  ("avy" . "be612110cb116a38b8603df367942e2bb3d9bdbe")
  ("cape" . "bf22aa6ce0ffca1a1a77b693dddcd05eddc386f0")

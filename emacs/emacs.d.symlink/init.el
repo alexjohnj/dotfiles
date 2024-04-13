@@ -336,6 +336,15 @@
     (interactive)
     (start-process "xed" nil "xed" ".")))
 
+;; Apheleia provides a way to format on save asynchronously without messing up
+;; the position of the cursor.
+(use-package apheleia
+  :general
+  ("s-I" #'apheleia-format-buffer)
+  :config
+  ;; Global mode is optimised to not load until a file is saved.
+  (apheleia-global-mode t))
+
 ;; Trim tidy whitespace before saving
 (use-package ws-butler
   :diminish
