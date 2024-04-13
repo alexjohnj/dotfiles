@@ -73,7 +73,8 @@
               indent-region-function 'alex/beancount--indent-region
               org-imenu-depth 3)
   (add-hook 'before-save-hook #'alex/beancount-format-file nil t)
-  (flycheck-mode -1)
+  (smartparens-mode -1) ;; SP is _really_ slow in large files so use electric pair instead.
+  (electric-pair-mode t)
   (auto-fill-mode -1))
 
 (provide 'init-beancount-mode)
