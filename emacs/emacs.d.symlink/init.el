@@ -651,7 +651,7 @@
   :bind (([f1] . eldoc-doc-buffer)))
 
 (use-package rainbow-mode
-  :hook ((lua-mode . rainbow-mode)))
+  :hook ((prog-mode . rainbow-mode)))
 
 (require 'init-projectile)
 (require 'init-flymake)
