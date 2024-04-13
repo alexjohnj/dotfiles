@@ -613,11 +613,21 @@
 
 (use-package smartparens
   :diminish
+  :hook (prog-mode text-mode markdown-mode)
   :config
   (require 'smartparens-config)
-  (sp-local-pair '(c-mode swift-mode rustic-mode typescript-ts-mode js-base-mode)
-                 "{" nil :post-handlers '(:add ("||\n[i]" "RET")))
-  (smartparens-global-mode))
+
+  ;; Xcode style insertion of a newline between pairs
+  ;; Source: https://xenodium.com/emacs-smartparens-auto-indent/
+  (defun alex/indent-between-pair (&rest _ignored)
+    (newline)
+    (indent-according-to-mode)
+    (forward-line -1)
+    (indent-according-to-mode))
+
+  (sp-local-pair 'prog-mode "{" nil :post-handlers '((alex/indent-between-pair "RET")))
+  (sp-local-pair 'prog-mode "[" nil :post-handlers '((alex/indent-between-pair "RET")))
+  (sp-local-pair 'prog-mode "(" nil :post-handlers '((alex/indent-between-pair "RET"))))
 
 (use-package dumb-jump
   :commands dumb-jump-xref-activate
