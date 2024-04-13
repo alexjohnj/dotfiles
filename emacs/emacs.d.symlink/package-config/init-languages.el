@@ -63,25 +63,23 @@
   :init
   (alex/treesit--add-source 'css "https://github.com/tree-sitter/tree-sitter-css"))
 
+(use-package js-ts-mode
+  :straight nil
+  :mode (("\\.js\\'" . js-ts-mode))
+  :init
+  (alex/treesit--add-source 'javascript "https://github.com/tree-sitter/tree-sitter-javascript")
+  :config
+  (add-hook 'js-base-mode-hook #'eglot-ensure))
+
 (use-package typescript-ts-mode
   :straight nil
-  :mode ("\\.ts\\'")
+  :mode (("\\.ts\\'" . typescript-ts-mode)
+         ("\\.tsx\\'" . tsx-ts-mode))
   :init
   (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+  (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
   :config
   (add-hook 'typescript-ts-base-mode-hook #'eglot-ensure))
-
-(use-package tsx-ts-mode
-  :straight nil
-  :mode ("\\.tsx\\'")
-  :init
-  (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
-
-(use-package tsx-ts-mode
-  :straight nil
-  :mode ("\\.tsx\\'")
-  :init
-  (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
 
 (use-package python-ts-mode
   :straight nil
