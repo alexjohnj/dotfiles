@@ -60,19 +60,11 @@
       (alex/beancount--indent-line)
       (forward-line 1))))
 
-(defun alex/beancount-format-file ()
-  (interactive)
-  (when (executable-find "bean-format")
-    (let ((line-no (line-number-at-pos)))
-      (call-process-region (point-min) (point-max) "bean-format" t (current-buffer))
-      (goto-line line-no)
-      (recenter))))
-
 (defun alex/beancount--configure-buffer-hook ()
   (setq-local indent-line-function 'alex/beancount--indent-line
               indent-region-function 'alex/beancount--indent-region
-              org-imenu-depth 3)
-  (add-hook 'before-save-hook #'alex/beancount-format-file nil t)
+              org-imenu-depth 3
+              apheleia-formatter 'bean-format)
   (smartparens-mode -1) ;; SP is _really_ slow in large files so use electric pair instead.
   (electric-pair-mode t)
   (auto-fill-mode -1))
