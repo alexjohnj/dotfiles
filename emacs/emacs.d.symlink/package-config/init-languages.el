@@ -124,14 +124,6 @@
         web-mode-enable-auto-pairing t
         web-mode-enable-engine-detection t
         web-mode-enable-current-element-highlight t)
-
-  (defun alex/web-mode--configure-eex-pairing ()
-    (sp-with-modes '(web-mode)
-      (sp-local-pair "<% " " %>" :insert "C-b %")
-      (sp-local-pair "<%= " " %>" :insert "C-b =")
-      (sp-local-pair "<%# " " %>" :insert "C-b #")))
-
-  (add-hook 'web-mode-hook #'alex/web-mode--configure-eex-pairing)
   (add-hook 'web-mode-hook #'aggressive-indent-mode))
 
 (use-package yaml-mode
