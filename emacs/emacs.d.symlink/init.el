@@ -121,11 +121,10 @@
 ;;
 (use-package gcmh
   :diminish gcmh-mode
-  :hook (after-init . gcmh-mode)
   :config
-  (setq gcmh-idle-delay 10
-        gcmh-high-cons-threshold 16777216 ; 16 MB
-        gc-cons-percentage 0.1)
+  (setq gcmh-idle-delay 'auto
+        gcmh-auto-idle-delay-factor 10
+        gcmh-high-cons-threshold (* 16 1024 1024)) ; 16 MB
   (add-hook 'focus-out-hook #'gcmh-idle-garbage-collect)
   (gcmh-mode))
 
