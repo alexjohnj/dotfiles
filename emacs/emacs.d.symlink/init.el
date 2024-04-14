@@ -72,10 +72,14 @@
 
 ;;; Emacs Server/Daemon
 
-;; Start a new Emacs server instance if one isn't running.
-(require 'server)
-(unless (server-running-p)
-  (server-mode 1))
+(defun alex/start-server-if-needed ()
+  (unless (server-running-p)
+    (server-start)))
+
+(use-package server
+  ;; Start a new Emacs server instance if one isn't running.
+  :commands (server-running-p)
+  :hook ((after-init . alex/start-server-if-needed)))
 
 
 ;;; Performance Optimisations (from doom-emacs)
