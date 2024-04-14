@@ -342,6 +342,7 @@
   :general
   ("s-I" #'apheleia-format-buffer)
   :config
+  (setq apheleia-remote-algorithm 'local)
   ;; Global mode is optimised to not load until a file is saved.
   (apheleia-global-mode t))
 
