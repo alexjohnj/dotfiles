@@ -55,7 +55,9 @@
   (add-hook 'markdown-mode-hook 'flyspell-mode))
 
 (use-package nix-mode
-  :mode ("\\.nix\\'" . nix-mode))
+  :mode ("\\.nix\\'" . nix-mode)
+  :config
+  (add-hook 'nix-mode-hook #'eglot-ensure))
 
 (use-package css-ts-mode
   :straight nil
