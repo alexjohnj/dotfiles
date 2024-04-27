@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ../../modules/system/nvidia.nix ];
 
   # Enable support for flakes.
   nix.settings = { experimental-features = "flakes nix-command"; };
@@ -34,19 +34,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  # Enable and configure Nvidia graphics drivers.
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-  };
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
