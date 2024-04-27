@@ -80,22 +80,6 @@
     description = "Alex Jackson";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
-    packages = with pkgs; [
-      (aspellWithDicts (dicts: [ dicts.en ]))
-      _1password-gui
-      bat
-      direnv
-      discord
-      emacs29-gtk3
-      f3d
-      fd
-      firefox
-      kitty
-      nil # nix lsp server
-      nixfmt # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
-      overpass
-      ripgrep
-    ];
   };
 
   # Enable Syncthing
@@ -119,7 +103,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = (with pkgs; [ git htop tree vim ])
+  environment.systemPackages = (with pkgs; [ htop ])
     ++ (with pkgs.gnomeExtensions; [ dash-to-dock blur-my-shell ]);
 
   networking.firewall.enable = true;

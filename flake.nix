@@ -13,11 +13,10 @@
         ./hosts/pikachu/configuration.nix
         home-manager.nixosModules.home-manager
         {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.alex = import ./home.nix;
-          };
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.alex.imports =
+            [ ./home/shared.nix ./home/home-pikachu.nix ];
         }
       ];
     };
