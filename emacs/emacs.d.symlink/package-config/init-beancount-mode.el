@@ -67,6 +67,7 @@
               apheleia-formatter 'bean-format)
   (smartparens-mode -1) ;; SP is _really_ slow in large files so use electric pair instead.
   (electric-pair-mode t)
+  (apheleia-mode t)
   (auto-fill-mode -1))
 
 (provide 'init-beancount-mode)
