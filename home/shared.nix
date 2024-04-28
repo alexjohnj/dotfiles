@@ -8,7 +8,6 @@
     bat
     fd
     git
-    htop
     nil # nix lsp server
     nixfmt # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     ripgrep
@@ -33,6 +32,13 @@
       # Theme names ares specified in github.com/kovidgoyal/kitty-themes
       # Theme previews can be found in github.com/dexpota/kitty-themes
       theme = "Tomorrow Night Eighties";
+    };
+
+    htop = {
+      enable = true;
+      settings = {
+        color_scheme = 6; # Broken Gray
+      };
     };
   };
 }
