@@ -1,6 +1,4 @@
 { config, pkgs, ... }: {
-  imports = [ ./git ./vim ];
-
   home.username = "alex";
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
@@ -25,16 +23,6 @@
       nix-direnv.enable = true;
     };
 
-    kitty = {
-      enable = true;
-      font.name = "Zed Mono Extended";
-      font.size = 13.0;
-      settings = { window_padding_width = "5 10"; };
-      # Theme names ares specified in github.com/kovidgoyal/kitty-themes
-      # Theme previews can be found in github.com/dexpota/kitty-themes
-      theme = "Tomorrow Night Eighties";
-    };
-
     htop = {
       enable = true;
       settings = {
@@ -48,4 +36,6 @@
     ".ideavimrc".source = ./config/ideavimrc;
     ".stglobalignore".source = ./config/stglobalignore;
   };
+
+  imports = [ ./git ./vim ./kitty ];
 }
