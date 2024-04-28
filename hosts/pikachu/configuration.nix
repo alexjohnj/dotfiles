@@ -72,7 +72,7 @@
     pulse.enable = true;
   };
 
-  # Enable the fish shell
+  # Enable the fish shell (this is needed in addition to enabling it with home-manager)
   programs.fish.enable = true;
 
   users.users.alex = {

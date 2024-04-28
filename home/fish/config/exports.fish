@@ -1,3 +1,5 @@
+set fish_greeting ""
+
 # Preferences
 set -gx EDITOR vim
 set -gx PGP_KEY_ID D5716AB9B3C403F8700FB842086F38162DD08BF1
@@ -31,7 +33,9 @@ set -l path_components \
     /opt/homebrew/sbin
 
 for c in $path_components[-1..1]
-    if begin not contains $c $PATH; and [ -e $c ]; end
+    if begin
+            not contains $c $PATH; and [ -e $c ]
+        end
         set -x PATH $c $PATH
     end
 end
@@ -40,12 +44,12 @@ end
 set -gx NODE_PATH /usr/local/lib/node
 
 # Octave Configuration
-set -gx GNUTERM "aqua"
+set -gx GNUTERM aqua
 
 # ledger environment variables
 set -gx LEDGER_FILE "$HOME/finance/ledger.journal"
 set -gx BEANCOUNT_FILE "$HOME/finance/ledger.beancount"
 
 # bat Configuration
-set -x BAT_STYLE "plain"
-set -x BAT_THEME "base16"
+set -x BAT_STYLE plain
+set -x BAT_THEME base16

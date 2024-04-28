@@ -2,12 +2,6 @@
 config/beets/library.db
 config/beets/state.pickle
 
-# Fish generated files
-config/fish/fishd*
-config/fish/fish_variables
-config/fish/fish_history
-/config/fish/completions
-
 # vim Dictionaries
 en.utf-8.add*
 
