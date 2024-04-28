@@ -14,15 +14,7 @@
     tree
   ];
 
-  programs = {
-    emacs.enable = true;
-
-    direnv = {
-      enable = true;
-      enableFishIntegration = true;
-      nix-direnv.enable = true;
-    };
-  };
+  programs.emacs.enable = true;
 
   home.file = {
     ".gemrc".source = ./config/gemrc;
@@ -30,5 +22,5 @@
     ".stglobalignore".source = ./config/stglobalignore;
   };
 
-  imports = [ ./git ./vim ./kitty ./htop ];
+  imports = [ ./git ./vim ./kitty ./htop ./direnv ];
 }
