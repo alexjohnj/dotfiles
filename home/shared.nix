@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     (aspellWithDicts (dicts: [ dicts.en ]))
     bat
+    du-dust
     fd
     file
     nil # nix lsp server
