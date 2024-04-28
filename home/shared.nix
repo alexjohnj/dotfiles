@@ -14,13 +14,11 @@
     tree
   ];
 
-  programs.emacs.enable = true;
-
   home.file = {
     ".gemrc".source = ./config/gemrc;
     ".ideavimrc".source = ./config/ideavimrc;
     ".stglobalignore".source = ./config/stglobalignore;
   };
 
-  imports = [ ./git ./vim ./kitty ./htop ./direnv ];
+  imports = [ ./git ./vim ./kitty ./htop ./direnv ./emacs ];
 }

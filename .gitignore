@@ -8,33 +8,6 @@ config/fish/fish_variables
 config/fish/fish_history
 /config/fish/completions
 
-# .emacs.d Folders
-auto-save-list/
-elpa/
-ido.last
-projectile.cache
-projectile-bookmarks.eld
-srecode-map.el
-emacs/emacs.d.symlink/custom.el
-emacs/emacs.d.symlink/games
-emacs/emacs.d.symlink/url
-emacs/emacs.d.symlink/history
-emacs/emacs.d.symlink/network-security.data
-emacs/emacs.d.symlink/session.*
-
-/emacs/emacs.d.symlink/eshell/
-emacs/emacs.d.symlink/transient/
-emacs/emacs.d.symlink/.lsp-session-v1
-emacs/emacs.d.symlink/.dap-breakpoints
-
-!emacs/emacs.d.symlink/straight/versions/
-emacs/emacs.d.symlink/straight/build-*
-emacs/emacs.d.symlink/straight/repos/
-emacs/emacs.d.symlink/straight/links/
-emacs/emacs.d.symlink/straight/build-cache.el
-emacs/emacs.d.symlink/eln-cache/
-emacs/emacs.d.symlink/projects
-
 # vim Dictionaries
 en.utf-8.add*
 
