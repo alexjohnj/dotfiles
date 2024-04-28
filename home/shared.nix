@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  imports = [ ./git ];
+  imports = [ ./git ./vim ];
 
   home.username = "alex";
   home.stateVersion = "23.11";
@@ -14,7 +14,6 @@
     nixfmt # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     ripgrep
     tree
-    vim
   ];
 
   programs = {
