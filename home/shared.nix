@@ -22,13 +22,6 @@
       enableFishIntegration = true;
       nix-direnv.enable = true;
     };
-
-    htop = {
-      enable = true;
-      settings = {
-        color_scheme = 6; # Broken Gray
-      };
-    };
   };
 
   home.file = {
@@ -37,5 +30,5 @@
     ".stglobalignore".source = ./config/stglobalignore;
   };
 
-  imports = [ ./git ./vim ./kitty ];
+  imports = [ ./git ./vim ./kitty ./htop ];
 }
