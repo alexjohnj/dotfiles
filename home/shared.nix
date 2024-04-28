@@ -1,4 +1,6 @@
 { config, pkgs, ... }: {
+  imports = [ ./git ];
+
   home.username = "alex";
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
@@ -8,7 +10,6 @@
     bat
     fd
     file
-    git
     nil # nix lsp server
     nixfmt # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     ripgrep
