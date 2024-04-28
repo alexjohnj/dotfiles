@@ -1,5 +1,12 @@
 { config, pkgs, ... }: {
   home.username = "alex";
+  home.homeDirectory = if pkgs.stdenv.hostPlatform.isLinux then
+    "/home/alex"
+  else if pkgs.stdenv.hostPlatform.isDarwin then
+    "/Users/alex"
+  else
+    builtins.abort "Unsupported platform";
+
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 

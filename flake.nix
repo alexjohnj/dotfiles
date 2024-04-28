@@ -16,7 +16,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.alex.imports =
-            [ ./home/shared.nix ./home/home-pikachu.nix ];
+            [ ./home ./home/home-pikachu.nix ];
         }
       ];
     };
