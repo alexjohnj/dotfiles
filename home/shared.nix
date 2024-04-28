@@ -14,11 +14,6 @@
     tree
   ];
 
-  home.file = {
-    ".gemrc".source = ./files/gemrc;
-    ".ideavimrc".source = ./files/ideavimrc;
-    ".stglobalignore".source = ./files/stglobalignore;
-  };
-
-  imports = [ ./direnv ./emacs ./fish ./git ./htop ./kitty ./tmux ./vim ];
+  imports =
+    [ ./direnv ./emacs ./fish ./files ./git ./htop ./kitty ./tmux ./vim ];
 }
