@@ -9,7 +9,6 @@
     fd
     git
     htop
-    kitty
     nil # nix lsp server
     nixfmt # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     ripgrep
@@ -24,6 +23,16 @@
       enable = true;
       enableFishIntegration = true;
       nix-direnv.enable = true;
+    };
+
+    kitty = {
+      enable = true;
+      font.name = "Zed Mono Extended";
+      font.size = 13.0;
+      settings = { window_padding_width = "5 10"; };
+      # Theme names ares specified in github.com/kovidgoyal/kitty-themes
+      # Theme previews can be found in github.com/dexpota/kitty-themes
+      theme = "Tomorrow Night Eighties";
     };
   };
 }
