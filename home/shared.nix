@@ -20,5 +20,5 @@
     ".stglobalignore".source = ./config/stglobalignore;
   };
 
-  imports = [ ./git ./vim ./kitty ./htop ./direnv ./emacs ];
+  imports = [ ./git ./vim ./kitty ./htop ./direnv ./emacs ./tmux ];
 }
