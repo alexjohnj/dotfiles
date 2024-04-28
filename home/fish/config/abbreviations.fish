@@ -1,9 +1,9 @@
 # Enable colourised output in ls. This tries to be compatible with GNU ls, BSD
 # ls w/ colour support and BSD ls w/o colour support (e.g., OpenBSD).
-if min_fish_version 3.1.0
-    source "$HOME/.config/fish/abbreviations-3.1.0.fish"
-else
-    source "$HOME/.config/fish/abbreviations-before-3.1.0.fish"
+if ls --color=always &>/dev/null # GNU
+    alias ls "ls --color=always"
+else if ls -G &>/dev/null # BSD
+    alias ls "ls -G"
 end
 
 # Prevent rm commands from being added to HISTORY. The number of times I've done
@@ -31,26 +31,26 @@ alias bean-bal-assets "bean-report $BEANCOUNT_FILE bal -e Assets:"
 abbr ytdl "yt-dlp -o '~/Downloads/%(title)s.%(ext)s'"
 
 # macOS Aliases
-abbr dut "diskutil"
+abbr dut diskutil
 abbr simctl "xcrun simctl"
 abbr marked "open -a Marked\ 2"
 
 # Replace default tools with more modern ones
-if type -q "bat"
-    abbr "cat" "bat"
+if type -q bat
+    abbr cat bat
 end
 
-if type -q "exa"
-    alias ls "exa"
+if type -q exa
+    alias ls exa
     alias ll "exa --long"
 end
 
-if type -q "xip"
-    and not type -q "unxip" # I have an unxip executable on some systems.
+if type -q xip
+    and not type -q unxip # I have an unxip executable on some systems.
     abbr unxip "xip --expand"
 end
 
-if type -q "xattr"
+if type -q xattr
     abbr sanitize "sudo xattr -r -d com.apple.quarantine"
 end
 
