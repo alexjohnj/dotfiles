@@ -1,9 +1,0 @@
-configuration {
-  show-icons: true;
-  font: "Overpass Mono Bold 12";
-  kb-element-next: "Tab,Super+Tab";
-  kb-element-prev: "ISO_Left_Tab,Super+ISO_Left_Tab";
-}
-
-
-@theme "theme.rasi"
