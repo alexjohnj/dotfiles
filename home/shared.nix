@@ -7,6 +7,7 @@
     (aspellWithDicts (dicts: [ dicts.en ]))
     bat
     fd
+    file
     git
     nil # nix lsp server
     nixfmt # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
@@ -40,5 +41,11 @@
         color_scheme = 6; # Broken Gray
       };
     };
+  };
+
+  home.file = {
+    ".gemrc".source = ./config/gemrc;
+    ".ideavimrc".source = ./config/ideavimrc;
+    ".stglobalignore".source = ./config/stglobalignore;
   };
 }
