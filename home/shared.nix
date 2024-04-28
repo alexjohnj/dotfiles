@@ -15,9 +15,9 @@
   ];
 
   home.file = {
-    ".gemrc".source = ./config/gemrc;
-    ".ideavimrc".source = ./config/ideavimrc;
-    ".stglobalignore".source = ./config/stglobalignore;
+    ".gemrc".source = ./files/gemrc;
+    ".ideavimrc".source = ./files/ideavimrc;
+    ".stglobalignore".source = ./files/stglobalignore;
   };
 
   imports = [ ./direnv ./emacs ./fish ./git ./htop ./kitty ./tmux ./vim ];
