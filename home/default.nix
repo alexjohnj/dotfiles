@@ -11,15 +11,19 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
+    asdf-vm
     (aspellWithDicts (dicts: [ dicts.en ]))
     bat
     du-dust
     fd
     file
+    iperf
+    multimarkdown
     nil # nix lsp server
     nixfmt # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     ripgrep
     tree
+    yt-dlp
   ];
 
   imports =
