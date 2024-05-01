@@ -20,7 +20,7 @@
     iperf
     multimarkdown
     nil # nix lsp server
-    nixfmt # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
+    nixfmt-rfc-style # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     ripgrep
     tree
     yt-dlp
