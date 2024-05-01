@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   programs.emacs = {
     enable = true;
     package = pkgs.emacs29-gtk3;
@@ -25,7 +26,6 @@
     # emacs.d.
     #
     # See nix-community/home-manager/issues/2085
-    source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/home/emacs/emacs.d";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/emacs/emacs.d";
   };
 }

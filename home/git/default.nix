@@ -1,5 +1,9 @@
-{ config, pkgs, ... }: {
-  home.packages = with pkgs; [ git-lfs git-absorb ];
+{ config, pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    git-lfs
+    git-absorb
+  ];
 
   programs.git.enable = true;
   xdg.configFile = {

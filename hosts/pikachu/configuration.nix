@@ -1,14 +1,19 @@
-{ pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ../../modules/system/nvidia.nix ];
+{ pkgs, ... }:
+{
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/system/nvidia.nix
+  ];
 
   # Enable support for flakes.
-  nix.settings = { experimental-features = "flakes nix-command"; };
+  nix.settings = {
+    experimental-features = "flakes nix-command";
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices."luks-91e75985-10c9-42bb-8657-5b76c1b1dc9e".device =
-    "/dev/disk/by-uuid/91e75985-10c9-42bb-8657-5b76c1b1dc9e";
+  boot.initrd.luks.devices."luks-91e75985-10c9-42bb-8657-5b76c1b1dc9e".device = "/dev/disk/by-uuid/91e75985-10c9-42bb-8657-5b76c1b1dc9e";
 
   # Networking
   networking.hostName = "pikachu";
@@ -40,8 +45,18 @@
   services.xserver.displayManager.gdm.wayland = false;
   services.xserver.desktopManager.gnome.enable = true;
   security.pam.services.gdm.enableGnomeKeyring = true;
-  environment.gnome.excludePackages = (with pkgs; [ gnome-tour gnome-console ])
-    ++ (with pkgs.gnome; [ cheese epiphany geary gnome-music totem ]);
+  environment.gnome.excludePackages =
+    (with pkgs; [
+      gnome-tour
+      gnome-console
+    ])
+    ++ (with pkgs.gnome; [
+      cheese
+      epiphany
+      geary
+      gnome-music
+      totem
+    ]);
 
   # Support AppImages somehow?
   # This is kind'a cool.
@@ -78,7 +93,10 @@
   users.users.alex = {
     isNormalUser = true;
     description = "Alex Jackson";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.fish;
   };
 
@@ -103,8 +121,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = (with pkgs; [ htop ])
-    ++ (with pkgs.gnomeExtensions; [ dash-to-dock blur-my-shell ]);
+  environment.systemPackages =
+    (with pkgs; [ htop ])
+    ++ (with pkgs.gnomeExtensions; [
+      dash-to-dock
+      blur-my-shell
+    ]);
 
   networking.firewall.enable = true;
 

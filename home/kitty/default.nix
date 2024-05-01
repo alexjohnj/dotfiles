@@ -1,9 +1,11 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   programs.kitty = {
     enable = true;
     font.name = "Zed Mono Extended";
     font.size = 13.0;
-    settings = { # See https://sw.kovidgoyal.net/kitty/conf/
+    settings = {
+      # See https://sw.kovidgoyal.net/kitty/conf/
       confirm_os_window_close = 0;
       update_check_interval = 0;
       window_padding_width = "5 10";
