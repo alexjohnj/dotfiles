@@ -71,13 +71,14 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "colemak";
+    xkb = {
+      layout = "us";
+      variant = "colemak";
+    };
     excludePackages = [ pkgs.xterm ];
   };
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -112,8 +113,8 @@
   services.flatpak.enable = true;
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "alex";
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "alex";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
