@@ -3,6 +3,9 @@
   email = alex@alexj.org
   signingkey = 2DD08BF1
 
+[includeIf "gitdir:~/src/plex/"]
+  path = "~/src/plex/.gitconfig"
+
 [init]
   defaultBranch = main
 
