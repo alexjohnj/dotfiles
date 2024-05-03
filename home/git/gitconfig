@@ -2,25 +2,36 @@
   name = Alex Jackson
   email = alex@alexj.org
   signingkey = 2DD08BF1
+
+[init]
+  defaultBranch = main
+
 [push]
   default = simple
+
 [merge]
   ff = only
+
 [pull]
   ff = only
+
 [rebase]
   autoStash = true
   autoSquash = true
+
 [status]
   short = true
   branch = true
+
 [credential]
   helper = osxkeychain
+
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   required = true
   process = git-lfs filter-process
+
 [alias]
   st = status
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
