@@ -11,6 +11,7 @@
 
 [push]
   default = simple
+  autoSetupRemote = true
 
 [merge]
   ff = only
