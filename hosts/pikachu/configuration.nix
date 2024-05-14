@@ -97,6 +97,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "audio"
     ];
     shell = pkgs.fish;
   };
@@ -111,6 +112,8 @@
   };
 
   services.flatpak.enable = true;
+
+  services.tailscale.enable = true;
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
