@@ -342,6 +342,7 @@
 ;; Apheleia provides a way to format on save asynchronously without messing up
 ;; the position of the cursor.
 (use-package apheleia
+  :defer nil ;; This package is well optimised so doesn't need deferring
   :general
   ("s-I" #'apheleia-format-buffer)
   :config
