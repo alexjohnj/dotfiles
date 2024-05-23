@@ -279,11 +279,11 @@
   :general
   ("M-RET" #'eglot-code-actions)
   :config
-  (setq eglot-confirm-server-initiated-edits nil)
+  (setq eglot-confirm-server-initiated-edits nil
+        eglot-autoshutdown t)
   (add-hook 'eglot-managed-mode-hook #'eglot-inlay-hints-mode)
   (fset #'jsonrpc--log-event #'ignore); massive perf boost---don't log every event
   )
-
 
 
 ;;; Editor Settings
