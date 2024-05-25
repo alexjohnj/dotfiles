@@ -1,8 +1,9 @@
 (use-package evil
   :init
-  (setq evil-want-keybinding nil)
+  (setopt evil-want-keybinding nil)
   :config
-  (setq evil-want-fine-undo t)
+  (setopt evil-want-fine-undo t
+          evil-move-beyond-eol t)
   (alex/leader-def "SPC" #'evil-buffer)
   (general-def
     "s-[" #'evil-prev-buffer
@@ -24,19 +25,22 @@
   :diminish evil-commentary-mode
   :config
   (general-def "s-/" #'evil-commentary)
-  (evil-commentary-mode))
+  (evil-commentary-mode t))
 
 (use-package evil-surround
   :after evil
   :config
-  (global-evil-surround-mode))
+  (global-evil-surround-mode t))
 
 (use-package evil-escape
   :after evil
   :diminish evil-escape-mode
   :config
-  (setq-default evil-escape-key-sequence "fd"
-                evil-escape-delay 0.1)
-  (evil-escape-mode))
+  (setopt evil-escape-key-sequence "fd"
+          evil-escape-delay 0.1)
+  (evil-escape-mode t))
+
+(use-package evil-cleverparens
+  :hook (emacs-lisp-mode))
 
 (provide 'init-evil)

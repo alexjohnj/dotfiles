@@ -11,6 +11,14 @@
 
 (require 'init-beancount-mode)
 
+(use-package clojure-mode
+  :mode (("\\.clj\\'" . clojure-mode)
+         ("\\.cljs\\'" . clojurescript-mode))
+  :hook ((clojure-mode . aggressive-indent-mode)
+         (clojure-mode . eglot-ensure)
+         (clojure-mode . smartparens-strict-mode)
+         (clojure-mode . evil-cleverparens-mode)))
+
 (use-package dockerfile-ts-mode
   :straight nil
   :mode "/Dockerfile"
