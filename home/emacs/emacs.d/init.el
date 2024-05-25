@@ -655,7 +655,12 @@
 
 (use-package eldoc
   :straight nil
-  :bind (([f1] . eldoc-doc-buffer)))
+  :bind (([f1] . eldoc-doc-buffer))
+  :custom
+  eldoc-idle-delay 0.25)
+
+(use-package eldoc-box
+  :hook (eldoc-mode . eldoc-box-hover-mode))
 
 (use-package rainbow-mode
   :hook ((prog-mode . rainbow-mode)))
