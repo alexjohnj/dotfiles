@@ -61,7 +61,9 @@
 
 (when (version< emacs-version "29.1")
   (straight-use-package 'use-package))
-(setq use-package-compute-statistics t)
+
+(setopt use-package-compute-statistics t
+        use-package-enable-imenu-support t)
 
 (use-package esup
   :commands (esup)
