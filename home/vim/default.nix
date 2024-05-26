@@ -2,6 +2,7 @@
 {
   programs.vim = {
     enable = true;
+    packageConfigurable = pkgs.vim;
     extraConfig = builtins.readFile ./vimrc;
     plugins = with pkgs.vimPlugins; [
       ctrlp-vim
