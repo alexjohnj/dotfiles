@@ -126,7 +126,7 @@
 ;; This is set up a little different to how doom-emacs sets it up.
 ;;
 (use-package gcmh
-  :diminish gcmh-mode
+  :diminish
   :config
   (setq gcmh-idle-delay 'auto
         gcmh-auto-idle-delay-factor 10
@@ -345,6 +345,7 @@
 ;; the position of the cursor.
 (use-package apheleia
   :defer nil ;; This package is well optimised so doesn't need deferring
+  :diminish
   :general
   ("s-I" #'apheleia-format-buffer)
   :config
@@ -655,14 +656,17 @@
 
 (use-package eldoc
   :straight nil
+  :diminish
   :bind (([f1] . eldoc-doc-buffer))
   :custom
   eldoc-idle-delay 0.25)
 
 (use-package eldoc-box
+  :diminish eldoc-box-hover-mode
   :hook (eldoc-mode . eldoc-box-hover-mode))
 
 (use-package rainbow-mode
+  :diminish
   :hook ((prog-mode . rainbow-mode)))
 
 (require 'init-projectile)
