@@ -128,11 +128,11 @@
 (use-package gcmh
   :diminish
   :config
-  (setq gcmh-idle-delay 'auto
-        gcmh-auto-idle-delay-factor 10
-        gcmh-high-cons-threshold (* 16 1024 1024)) ; 16 MB
-  (add-hook 'focus-out-hook #'gcmh-idle-garbage-collect)
-  (gcmh-mode))
+  (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect)
+  (setopt gcmh-idle-delay 'auto
+          gcmh-auto-idle-delay-factor 10
+          gcmh-high-cons-threshold (* 16 1024 1024)) ; 16 MB
+  (gcmh-mode t))
 
 ;; HACK `tty-run-terminal-initialization' is *tremendously* slow for some
 ;;      reason. Disabling it completely could have many side-effects, so we
