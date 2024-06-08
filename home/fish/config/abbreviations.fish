@@ -27,8 +27,13 @@ abbr et "emacsclient -nw -a \"\""
 alias bean-bal-halifax "bean-report $BEANCOUNT_FILE bal -e Assets:Halifax"
 alias bean-bal-assets "bean-report $BEANCOUNT_FILE bal -e Assets:"
 
+set -l YTDL_OUTPUT_FORMAT "%(uploader)s - %(upload_date>%Y-%m-%d)s - %(title)s.%(ext)s"
+
 # Download a YouTube video to the downloads folder
-abbr ytdl "yt-dlp -o '~/Downloads/%(title)s.%(ext)s'"
+abbr ytdld "yt-dlp -o '~/Downloads/$YTDL_OUTPUT_FORMAT'"
+
+# Download a YouTube video in the current directory
+abbr ytdl "yt-dlp -o './$YTDL_OUTPUT_FORMAT'"
 
 # macOS Aliases
 abbr dut diskutil
