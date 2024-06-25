@@ -55,17 +55,15 @@
   :mode (("\\.markdown\\'" . gfm-mode)
          ("\\.md\\'" . gfm-mode))
   :hook (markdown-mode . flyspell-mode)
-  :init
-  (setq markdown-italic-underscore t
-        markdown-fontify-code-blocks-natively t
-        markdown-enable-math t)
   :config
+  (setopt markdown-italic-underscore t
+          markdown-fontify-code-blocks-natively t
+          markdown-enable-math t)
   (add-hook 'markdown-mode-hook 'flyspell-mode))
 
 (use-package nix-mode
   :mode ("\\.nix\\'" . nix-mode)
-  :config
-  (add-hook 'nix-mode-hook #'eglot-ensure))
+  :hook ((nix-mode . eglot-ensure)))
 
 (use-package css-ts-mode
   :straight nil
@@ -89,6 +87,13 @@
   (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
   (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
   :config
+  ;; TypeScript LSP configuration reference:
+  ;; https://github.com/typescript-language-server/typescript-language-server/blob/master/docs/configuration.md
+  (with-eval-after-load 'eglot
+    (add-to-list 'eglot-server-programs
+                 '((typescript-ts-mode) . ("typescript-language-server" "--stdio"
+                                           :initializationOptions (:preferences ( :includeInlayParameterNameHints t
+                                                                                  :includeInlayFunctionParameterTypeHints t))))))
   (add-hook 'typescript-ts-base-mode-hook #'eglot-ensure))
 
 (use-package python-ts-mode
@@ -106,7 +111,6 @@
   (setq rustic-format-on-save nil
         rustic-lsp-setup-p nil
         rustic-lsp-client 'eglot)
-  (push 'rustic-clippy flycheck-checkers)
 
   (alex/leader-local-def rustic-mode-map
     "b" #'rustic-cargo-build
