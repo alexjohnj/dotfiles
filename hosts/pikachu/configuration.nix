@@ -47,16 +47,14 @@
   security.pam.services.gdm.enableGnomeKeyring = true;
   environment.gnome.excludePackages =
     (with pkgs; [
-      gnome-tour
-      gnome-console
-    ])
-    ++ (with pkgs.gnome; [
       cheese
       epiphany
       geary
-      gnome-music
+      gnome-console
+      gnome-tour
       totem
-    ]);
+    ])
+    ++ (with pkgs.gnome; [ gnome-music ]);
 
   # Support AppImages somehow?
   # This is kind'a cool.
