@@ -1,11 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   services.xserver.videoDrivers = [ "nvidia" ];
-
   hardware = {
     nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.production;
       modesetting.enable = true;
-      powerManagement.enable = true;
     };
 
     graphics = {
@@ -13,5 +12,12 @@
       enable32Bit = true;
       extraPackages = [ pkgs.nvidia-vaapi-driver ];
     };
+  };
+
+  environment.variables = {
+    GBM_BACKEND = "nvidia-drm";
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 }
