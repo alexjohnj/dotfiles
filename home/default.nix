@@ -19,6 +19,7 @@
     du-dust
     fd
     file
+    imagemagick
     iperf
     less
     multimarkdown
