@@ -2,7 +2,7 @@
 {
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29-gtk3;
+    package = pkgs.emacs29-pgtk;
   };
 
   # Emacs configuration files are symlinked instead of copied to the nix
