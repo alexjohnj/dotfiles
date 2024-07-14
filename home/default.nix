@@ -28,6 +28,7 @@
     nixfmt-rfc-style # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     pandoc
     ripgrep
+    tmux
     tree
     yt-dlp
   ];
