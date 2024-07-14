@@ -74,6 +74,7 @@
     };
     excludePackages = [ pkgs.xterm ];
   };
+  console.useXkbConfig = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
