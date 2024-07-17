@@ -54,12 +54,10 @@
 (use-package markdown-mode
   :mode (("\\.markdown\\'" . gfm-mode)
          ("\\.md\\'" . gfm-mode))
-  :hook (markdown-mode . flyspell-mode)
   :config
   (setopt markdown-italic-underscore t
           markdown-fontify-code-blocks-natively t
-          markdown-enable-math t)
-  (add-hook 'markdown-mode-hook 'flyspell-mode))
+          markdown-enable-math t))
 
 (use-package nix-mode
   :mode ("\\.nix\\'" . nix-mode)

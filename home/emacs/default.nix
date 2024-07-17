@@ -3,7 +3,11 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacs29-pgtk;
+    extraPackages = epkgs: [ epkgs.jinx ];
   };
+
+  # This dictionary is needed for jinx.
+  home.packages = [ pkgs.hunspellDicts.en_GB-large ];
 
   # Emacs configuration files are symlinked instead of copied to the nix
   # store. There's a few reasons for this:

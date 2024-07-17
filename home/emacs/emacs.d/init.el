@@ -673,7 +673,7 @@
 (require 'init-flymake)
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
-(require 'init-flyspell)
+(require 'init-spelling)
 (require 'init-rg)
 (require 'init-deft)
 (require 'init-ediff)
