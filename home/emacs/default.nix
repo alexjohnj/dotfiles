@@ -3,7 +3,11 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacs29-pgtk;
-    extraPackages = epkgs: [ epkgs.jinx ];
+    extraPackages =
+      epkgs: with epkgs; [
+        jinx
+        treesit-grammars.with-all-grammars
+      ];
   };
 
   # This dictionary is needed for jinx.
