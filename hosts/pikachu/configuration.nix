@@ -89,6 +89,8 @@
   # Enable the fish shell (this is needed in addition to enabling it with home-manager)
   programs.fish.enable = true;
 
+  programs.steam.enable = true;
+
   users.users.alex = {
     isNormalUser = true;
     description = "Alex Jackson";
