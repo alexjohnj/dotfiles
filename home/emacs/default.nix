@@ -10,6 +10,8 @@
       ];
   };
 
+  services.emacs.enable = true;
+
   # This dictionary is needed for jinx.
   home.packages = [ pkgs.hunspellDicts.en_GB-large ];
 
