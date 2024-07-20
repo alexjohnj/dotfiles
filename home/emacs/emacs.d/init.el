@@ -416,13 +416,22 @@
                                orig-fg))))
 
 ;; Use my custom font if it's installed.
-(let ((font-name "Zed Mono"))
-  (if (member font-name (font-family-list))
-      (if (memq window-system '(mac ns)) ; Font scaling is a bit different between
+(defun alex/set-font ()
+  (let ((font-name "Zed Mono"))
+    (if (member font-name (font-family-list))
+        (if (memq window-system '(mac ns)) ; Font scaling is a bit different between
                                         ; macOS and other platforms.
-          (set-face-attribute 'default nil :font font-name :height 140 :weight 'regular)
-        (set-face-attribute 'default nil :font font-name :height 110))
-    (warn "Font %s is not installed. Using the default font." font-name)))
+            (set-face-attribute 'default nil :font font-name :height 140 :weight 'regular)
+          (set-face-attribute 'default nil :font font-name :height 110))
+      (warn "Font %s is not installed. Using the default font." font-name))))
+
+;; Hook frame creation so the font is set when Emacs is running in server mode.
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (with-selected-frame frame (alex/set-font))))
+
+;; Set the font immediately for when Emacs isn't running in server mode.
+(alex/set-font)
 
 (use-package ef-themes
   :config
