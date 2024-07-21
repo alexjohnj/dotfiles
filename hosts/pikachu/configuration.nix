@@ -49,11 +49,19 @@
       cheese
       epiphany
       geary
+      gnome-connections
       gnome-console
       gnome-tour
       totem
+      yelp # Help app
     ])
-    ++ (with pkgs.gnome; [ gnome-music ]);
+    ++ (with pkgs.gnome; [
+      gnome-clocks
+      gnome-contacts
+      gnome-maps
+      gnome-music
+      gnome-weather
+    ]);
 
   # Support AppImages somehow?
   # This is kind'a cool.
