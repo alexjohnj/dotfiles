@@ -228,12 +228,12 @@
   :hook ((after-init . global-corfu-mode)
          (global-corfu-mode . corfu-popupinfo-mode))
   :config
-  (setq corfu-auto t
-        corfu-auto-delay 0
-        corfu-auto-prefix 1)
+  (setopt corfu-auto t
+          corfu-auto-delay 0.1
+          corfu-auto-prefix 2)
 
   ;; Wait 0.5s to show the popup and then 1s to update it.
-  (setq corfu-popupinfo-delay '(0.5 . 1)))
+  (setopt corfu-popupinfo-delay '(0.5 . 1)))
 
 ;; Adds icons to the margins of the Corfu completion popup.
 (use-package kind-icon
