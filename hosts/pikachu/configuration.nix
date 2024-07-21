@@ -133,13 +133,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages =
-    (with pkgs; [ htop ])
-    ++ (with pkgs.gnomeExtensions; [
-      dash-to-dock
-      blur-my-shell
-    ]);
-
   networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
