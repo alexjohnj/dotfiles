@@ -10,7 +10,7 @@
       ];
   };
 
-  services.emacs.enable = true;
+  services.emacs.enable = pkgs.stdenv.hostPlatform.isLinux;
 
   # This dictionary is needed for jinx.
   home.packages = [ pkgs.hunspellDicts.en_GB-large ];
