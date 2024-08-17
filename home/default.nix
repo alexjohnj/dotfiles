@@ -16,6 +16,8 @@
     (aspellWithDicts (dicts: [ dicts.en ]))
     asdf-vm
     bat
+    babashka
+    clojure
     du-dust
     fd
     file
