@@ -106,6 +106,7 @@
       "networkmanager"
       "wheel"
       "audio"
+      "docker"
     ];
     shell = pkgs.fish;
   };
@@ -134,6 +135,14 @@
   nixpkgs.config.allowUnfree = true;
 
   networking.firewall.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
