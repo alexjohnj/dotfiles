@@ -20,8 +20,8 @@ abbr gem-nuke "gem uninstall -aIx" # Uninstalls all gems
 abbr cpv "rsync -avP"
 
 # Edit with Emacs
-abbr e "emacsclient -n -a \"\""
-abbr et "emacsclient -nw -a \"\""
+abbr e "emacsclient --reuse-frame --no-wait --alternate-editor \"\""
+abbr et "emacsclient --tty --alternate-editor \"\""
 
 # Aliases for Beets
 alias bean-bal-halifax "bean-report $BEANCOUNT_FILE bal -e Assets:Halifax"
