@@ -35,6 +35,7 @@
   :defer t)
 
 (use-package graphql-mode
+  :mode (("\\.graphqls?\\'" . graphql-mode))
   :defer t)
 
 (use-package json-ts-mode
