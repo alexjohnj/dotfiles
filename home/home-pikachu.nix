@@ -13,9 +13,9 @@
       (callPackage ../packages/super-slicer/default.nix { })
     ]
     ++ (with pkgs.gnomeExtensions; [
-      dash-to-dock
+      appindicator
       blur-my-shell
-      vitals
+      dash-to-dock
     ]);
 
   programs.firefox.enable = true;
