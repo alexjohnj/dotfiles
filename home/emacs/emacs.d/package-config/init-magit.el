@@ -31,6 +31,10 @@ always copies the name of the current branch."
                  (message "%s" branch-name))
         (user-error "No branch at point")))))
 
+(use-package magit-delta
+  :after (magit)
+  :hook (magit-mode . magit-delta-mode))
+
 (use-package git-timemachine
   :commands (git-timemachine)
   :general
