@@ -14,7 +14,6 @@
 
   home.packages = with pkgs; [
     (aspellWithDicts (dicts: [ dicts.en ]))
-    asdf-vm
     bat
     babashka
     clojure
@@ -35,6 +34,8 @@
     tree
     yt-dlp
   ];
+
+  programs.mise.enable = true;
 
   imports = [
     ./direnv
