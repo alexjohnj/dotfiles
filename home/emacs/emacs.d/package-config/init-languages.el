@@ -19,6 +19,9 @@
          (clojure-mode . smartparens-strict-mode)
          (clojure-mode . evil-cleverparens-mode)))
 
+(use-package cider
+  :commands (cider-jack-in))
+
 (use-package dockerfile-ts-mode
   :straight nil
   :mode "/Dockerfile"
