@@ -44,24 +44,24 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   security.pam.services.gdm.enableGnomeKeyring = true;
-  environment.gnome.excludePackages =
-    (with pkgs; [
+  environment.gnome.excludePackages = (
+    with pkgs;
+    [
       cheese
       epiphany
       geary
+      gnome-clocks
       gnome-connections
       gnome-console
-      gnome-tour
-      totem
-      yelp # Help app
-    ])
-    ++ (with pkgs.gnome; [
-      gnome-clocks
       gnome-contacts
       gnome-maps
       gnome-music
+      gnome-tour
       gnome-weather
-    ]);
+      totem
+      yelp # Help app
+    ]
+  );
 
   # Support AppImages somehow?
   # This is kind'a cool.
