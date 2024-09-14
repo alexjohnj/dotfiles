@@ -17,6 +17,7 @@
     bat
     babashka
     clojure
+    clojure-lsp
     du-dust
     fd
     file
