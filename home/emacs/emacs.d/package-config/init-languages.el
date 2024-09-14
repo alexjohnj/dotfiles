@@ -63,9 +63,16 @@
           markdown-fontify-code-blocks-natively t
           markdown-enable-math t))
 
-(use-package nix-mode
-  :mode ("\\.nix\\'" . nix-mode)
-  :hook ((nix-mode . eglot-ensure)))
+(use-package nix-ts-mode
+  :mode ("\\.nix\\'" . nix-ts-mode)
+  :hook ((nix-ts-mode . eglot-ensure))
+  :config
+  (with-eval-after-load 'eglot
+    (let ((program (cdr (assoc 'nix-mode eglot-server-programs))))
+      (add-to-list 'eglot-server-programs (cons 'nix-ts-mode program))))
+  (with-eval-after-load 'apheleia
+    (let ((formatter (alist-get 'nix-mode apheleia-mode-alist)))
+      (add-to-list 'apheleia-mode-alist (cons 'nix-ts-mode formatter)))))
 
 (use-package css-ts-mode
   :straight nil
