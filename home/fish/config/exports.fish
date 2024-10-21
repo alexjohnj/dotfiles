@@ -40,6 +40,12 @@ for c in $path_components[-1..1]
     end
 end
 
+# Android SDK environment
+set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
+if test -d $ANDROID_HOME
+    set -x PATH "$ANDROID_HOME/emulator" "$ANDROID_HOME/platform-tools" $PATH
+end
+
 # Set up node
 set -gx NODE_PATH /usr/local/lib/node
 
