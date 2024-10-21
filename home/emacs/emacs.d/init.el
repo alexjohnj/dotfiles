@@ -521,10 +521,12 @@
         (message filename)
       (error "Buffer not visiting a file"))))
 
-(defun alex/kill-buffer-name()
-  "Add the path to the current buffer's file to the kill ring"
-  (interactive)
-  (let ((filename (buffer-file-name)))
+(defun alex/copy-buffer-name (arg)
+  "Add the path to the current buffer's file to the kill ring."
+  (interactive "P")
+  (let ((filename (if arg
+                      (file-name-nondirectory (buffer-file-name))
+                    (buffer-file-name))))
     (when filename
       (kill-new filename)
       (message filename))))
@@ -550,7 +552,7 @@
   "s" #'evil-write
   "S" #'evil-write-all
   "y" #'alex/show-buffer-name
-  "Y" #'alex/kill-buffer-name)
+  "Y" #'alex/copy-buffer-name)
 
 ;; Window Management
 (alex/leader-def :infix "w"
@@ -639,7 +641,9 @@
 
 (use-package smartparens
   :diminish
-  :hook (prog-mode text-mode markdown-mode)
+  :hook
+  ((prog-mode text-mode markdown-mode) . smartparens-mode)
+  ((emacs-lisp-mode) . smartparens-strict-mode)
   :config
   (require 'smartparens-config)
 
