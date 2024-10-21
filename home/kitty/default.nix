@@ -15,6 +15,6 @@
     };
     # Theme names ares specified in github.com/kovidgoyal/kitty-themes
     # Theme previews can be found in github.com/dexpota/kitty-themes
-    theme = "Modus Vivendi";
+    themeFile = "Modus_Vivendi";
   };
 }
