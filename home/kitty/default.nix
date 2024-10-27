@@ -13,6 +13,10 @@
       tab_bar_style = "powerline";
       tab_powerline_style = "round";
     };
+    keybindings = {
+      "kitty_mod+t" = "new_tab_with_cwd";
+      "cmd+t" = "new_tab_with_cwd";
+    };
     # Theme names ares specified in github.com/kovidgoyal/kitty-themes
     # Theme previews can be found in github.com/dexpota/kitty-themes
     themeFile = "Modus_Vivendi";
