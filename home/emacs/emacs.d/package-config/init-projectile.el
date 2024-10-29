@@ -7,6 +7,7 @@
     "p f" #'projectile-find-file
     "p p" #'projectile-switch-project
     "p -" #'projectile-remove-known-project
+    "p b" #'consult-project-buffer
     "p +" #'alex/projectile-smart-add-known-projectile)
   :init
   (which-key-add-key-based-replacements "SPC p" "Project")
@@ -24,7 +25,6 @@
           projectile-indexing-method 'alien))
 
   (alex/leader-def
-    "p b"    #'projectile-switch-to-buffer
     "p C-f" #'alex/projectile-invalidate-and-search
     "p q"   #'projectile-switch-open-project
     "p d"   #'projectile-find-dir
