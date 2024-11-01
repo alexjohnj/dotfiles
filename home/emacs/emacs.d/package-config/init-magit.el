@@ -33,7 +33,8 @@ always copies the name of the current branch."
 
 (use-package magit-delta
   :after (magit)
-  :hook (magit-mode . magit-delta-mode))
+  :hook (magit-mode . magit-delta-mode)
+  :diminish)
 
 (use-package git-timemachine
   :commands (git-timemachine)
