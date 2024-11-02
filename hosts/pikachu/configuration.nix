@@ -47,40 +47,19 @@
     };
 
     excludePackages = [ pkgs.xterm ];
-
-    displayManager = {
-      gdm.enable = true;
-    };
-
-    desktopManager = {
-      gnome.enable = true;
-    };
   };
+
+  # Enable COSMIC DE
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
+  environment.cosmic.excludePackages = with pkgs; [
+    cosmic-edit
+    cosmic-term
+  ];
 
   # Use X keyboard layout in the console (specifically the disk decryption
   # password prompt).
   console.useXkbConfig = true;
-
-  # Configure the GNOME Desktop Environment.
-  security.pam.services.gdm.enableGnomeKeyring = true;
-  environment.gnome.excludePackages = (
-    with pkgs;
-    [
-      cheese
-      epiphany
-      geary
-      gnome-clocks
-      gnome-connections
-      gnome-console
-      gnome-contacts
-      gnome-maps
-      gnome-music
-      gnome-tour
-      gnome-weather
-      totem
-      yelp # Help app
-    ]
-  );
 
   # Support AppImages somehow?
   # This is kind'a cool.
