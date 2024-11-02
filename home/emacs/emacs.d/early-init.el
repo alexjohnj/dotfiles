@@ -34,3 +34,6 @@
 ;; font. By inhibiting this, we easily halve startup times with fonts that are
 ;; larger than the system default.
 (setq frame-inhibit-implied-resize t)
+
+;; Compile lsp-mode in plist mode for better performance.
+(setenv "LSP_USE_PLISTS" "true")

@@ -287,6 +287,36 @@
   (fset #'jsonrpc--log-event #'ignore); massive perf boost---don't log every event
   )
 
+(use-package lsp-mode
+  :commands (lsp)
+  :init
+  (setq lsp-use-plists t)
+  :general
+  ("s-." #'lsp-execute-code-action
+   [f2] #'lsp-rename)
+  :config
+  ;; General
+  (setopt lsp-enable-suggest-server-download nil
+          lsp-keep-workspace-alive nil)
+
+  ;; Editing
+  (setopt lsp-enable-folding nil
+          lsp-enable-text-document-color nil
+          lsp-semantic-tokens-enable nil)
+
+  ;; Completion
+  (setopt lsp-completion-provider :none ;; Completion is provided by Corfu/CAPF
+          lsp-completion-enable t)
+
+  ;; Diagnostics
+  (setopt lsp-diagnostics-provider :flymake)
+
+  ;; UI
+  (setopt lsp-headerline-breadcrumb-enable nil
+          lsp-modeline-code-actions-enable nil
+          lsp-modeline-diagnostics-enable nil
+          lsp-modeline-workspace-status-enable nil))
+
 
 ;;; Editor Settings
 
