@@ -3,11 +3,10 @@
   home.packages =
     with pkgs;
     [
-      _1password-gui
       discord
       f3d
-      overpass
       inter
+      overpass
       (callPackage ../packages/orca-slicer/default.nix { })
       (callPackage ../packages/prusa-slicer/default.nix { })
       (callPackage ../packages/super-slicer/default.nix { })
