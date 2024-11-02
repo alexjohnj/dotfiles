@@ -37,12 +37,31 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # Desktop configuration
+  services.xserver = {
+    enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+    xkb = {
+      layout = "us";
+      variant = "colemak";
+    };
+
+    excludePackages = [ pkgs.xterm ];
+
+    displayManager = {
+      gdm.enable = true;
+    };
+
+    desktopManager = {
+      gnome.enable = true;
+    };
+  };
+
+  # Use X keyboard layout in the console (specifically the disk decryption
+  # password prompt).
+  console.useXkbConfig = true;
+
+  # Configure the GNOME Desktop Environment.
   security.pam.services.gdm.enableGnomeKeyring = true;
   environment.gnome.excludePackages = (
     with pkgs;
@@ -73,16 +92,6 @@
     mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "colemak";
-    };
-    excludePackages = [ pkgs.xterm ];
-  };
-  console.useXkbConfig = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
