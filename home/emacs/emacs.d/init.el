@@ -283,7 +283,7 @@
   :commands (eglot eglot-ensure)
   :straight nil ; Built in as of Emacs 29.1
   :general
-  ("M-RET" #'eglot-code-actions)
+  ("s-." #'eglot-code-actions)
   :config
   (setq eglot-confirm-server-initiated-edits nil
         eglot-autoshutdown t)
