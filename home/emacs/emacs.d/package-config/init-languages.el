@@ -1,13 +1,19 @@
 ;; init-languages -- Programming Language Configuration -*- lexical-binding:t -*-
 
-(defun alex/treesit-install-all-grammars ()
-  "Install all language grammars in the variable 'treesit-language-source-alist'."
-  (interactive)
-  (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist)))
+(use-package treesit
+  :straight nil
+  :preface
+  (defun alex/treesit-install-all-grammars ()
+    "Install all language grammars in the variable 'treesit-language-source-alist'."
+    (interactive)
+    (dolist (grammar treesit-language-source-alist)
+      (let ((language (car grammar)))
+        (unless (treesit-language-available-p language)
+          (treesit-install-language-grammar language)))))
 
-(defun alex/treesit--add-source (lang &rest source)
-  (eval-after-load 'treesit (lambda ()
-                              (add-to-list 'treesit-language-source-alist `(,lang . ,source)))))
+  (defun alex/treesit--add-source (lang &rest source)
+    (eval-after-load 'treesit (lambda ()
+                                (add-to-list 'treesit-language-source-alist `(,lang . ,source))))))
 
 (require 'init-beancount-mode)
 
