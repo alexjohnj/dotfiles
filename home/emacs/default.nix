@@ -17,6 +17,7 @@
     hunspellDicts.en_GB-large
     # Provides some language servers used in Emacs
     vscode-langservers-extracted
+    emacs-lsp-booster
   ];
 
   # Emacs configuration files are symlinked instead of copied to the nix
