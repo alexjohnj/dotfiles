@@ -313,7 +313,7 @@
           lsp-completion-enable t)
 
   ;; Diagnostics
-  (setopt lsp-diagnostics-provider :flymake)
+  (setopt lsp-diagnostics-provider :flycheck)
 
   ;; UI
   (setopt lsp-headerline-breadcrumb-enable nil
@@ -717,7 +717,7 @@
   :hook ((prog-mode . rainbow-mode)))
 
 (require 'init-projectile)
-(require 'init-flymake)
+(require 'init-flycheck)
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
 (require 'init-spelling)
