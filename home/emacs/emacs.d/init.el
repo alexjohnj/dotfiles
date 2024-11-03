@@ -227,6 +227,8 @@
   :straight (:files (:defaults "extensions/*")) ;; Loads additional extensions from repo
   :hook ((after-init . global-corfu-mode)
          (global-corfu-mode . corfu-popupinfo-mode))
+  :general
+  (:states '(insert) "C-SPC" #'completion-at-point)
   :config
   (setopt corfu-auto t
           corfu-cycle t
