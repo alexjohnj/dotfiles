@@ -71,11 +71,8 @@
 
 (use-package nix-ts-mode
   :mode ("\\.nix\\'" . nix-ts-mode)
-  :hook ((nix-ts-mode . eglot-ensure))
+  :hook ((nix-ts-mode . lsp-deferred))
   :config
-  (with-eval-after-load 'eglot
-    (let ((program (cdr (assoc 'nix-mode eglot-server-programs))))
-      (add-to-list 'eglot-server-programs (cons 'nix-ts-mode program))))
   (with-eval-after-load 'apheleia
     (let ((formatter (alist-get 'nix-mode apheleia-mode-alist)))
       (add-to-list 'apheleia-mode-alist (cons 'nix-ts-mode formatter)))))
