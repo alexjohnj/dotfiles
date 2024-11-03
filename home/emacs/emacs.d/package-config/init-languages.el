@@ -89,27 +89,36 @@
 (use-package js-ts-mode
   :straight nil
   :mode (("\\.js\\'" . js-ts-mode))
+  :hook ((js-base-mode . lsp-deferred))
   :init
-  (alex/treesit--add-source 'javascript "https://github.com/tree-sitter/tree-sitter-javascript")
-  :config
-  (add-hook 'js-base-mode-hook #'eglot-ensure))
+  (alex/treesit--add-source 'javascript "https://github.com/tree-sitter/tree-sitter-javascript"))
 
 (use-package typescript-ts-mode
   :straight nil
   :mode (("\\.ts\\'" . typescript-ts-mode)
          ("\\.tsx\\'" . tsx-ts-mode))
+  :hook ((typescript-ts-base-mode . lsp-deferred))
   :init
   (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
   (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
   :config
-  ;; TypeScript LSP configuration reference:
-  ;; https://github.com/typescript-language-server/typescript-language-server/blob/master/docs/configuration.md
-  (with-eval-after-load 'eglot
-    (add-to-list 'eglot-server-programs
-                 '((typescript-ts-mode) . ("typescript-language-server" "--stdio"
-                                           :initializationOptions (:preferences ( :includeInlayParameterNameHints t
-                                                                                  :includeInlayFunctionParameterTypeHints t))))))
-  (add-hook 'typescript-ts-base-mode-hook #'eglot-ensure))
+  (when (executable-find "vscode-eslint-language-server")
+    (setopt lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")))
+
+  ;; TODO: Make this a buffer local variable so that eslint is only used as a
+  ;; formatter if it's available in the project?
+  ;; Configure apheleia to run both prettier and eslint in that oredr to format JS buffers.
+  ;; eslint is a pain because it needs a custom formatter to format files in place.
+  ;; (with-eval-after-load 'apheleia
+  ;;   (defconst alex/ESLINT-FORMATTER (expand-file-name "package-config/eslint-formatter.js" user-emacs-directory))
+  ;;   (add-to-list 'apheleia-formatters
+  ;;                '(eslint . (npx "eslint" "--fix-dry-run" "--stdin" "--stdin-filename" filepath
+  ;;                                "--format" alex/ESLINT-FORMATTER)))
+  ;;   (setf (alist-get 'typescript-ts-mode apheleia-mode-alist)
+  ;;         '(prettier-typescript eslint))
+  ;;   (setf (alist-get 'tsx-ts-mode apheleia-mode-alist)
+  ;;         '(prettier-typescript eslint)))
+  )
 
 (use-package python-ts-mode
   :straight nil

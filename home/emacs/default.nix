@@ -12,8 +12,12 @@
 
   services.emacs.enable = pkgs.stdenv.hostPlatform.isLinux;
 
-  # This dictionary is needed for jinx.
-  home.packages = [ pkgs.hunspellDicts.en_GB-large ];
+  home.packages = with pkgs; [
+    # This dictionary is needed for jinx.
+    hunspellDicts.en_GB-large
+    # Provides some language servers used in Emacs
+    vscode-langservers-extracted
+  ];
 
   # Emacs configuration files are symlinked instead of copied to the nix
   # store. There's a few reasons for this:

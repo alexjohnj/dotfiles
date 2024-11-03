@@ -290,7 +290,7 @@
   )
 
 (use-package lsp-mode
-  :commands (lsp)
+  :commands (lsp lsp-deferred)
   :init
   (setq lsp-use-plists t)
   :general
