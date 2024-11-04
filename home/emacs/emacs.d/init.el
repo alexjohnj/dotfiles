@@ -364,6 +364,9 @@
           lsp-modeline-diagnostics-enable nil
           lsp-modeline-workspace-status-enable nil))
 
+(use-package yasnippet
+  :hook ((lsp-mode . yas-minor-mode)))
+
 
 ;;; Editor Settings
 
