@@ -5,10 +5,19 @@
     ../../modules/system/nvidia.nix
   ];
 
-  # Enable support for flakes.
-  nix.settings = {
-    experimental-features = "flakes nix-command";
+  nix = {
+    settings = {
+      experimental-features = "flakes nix-command";
+    };
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -119,8 +128,6 @@
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
-
-  nixpkgs.config.allowUnfree = true;
 
   networking.firewall.enable = true;
 
