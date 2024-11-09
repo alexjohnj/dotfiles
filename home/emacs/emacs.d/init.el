@@ -283,10 +283,11 @@
   (ctrlf-mode))
 
 (use-package eglot
-  :commands (eglot eglot-ensure)
+  :disabled t
   :straight nil ; Built in as of Emacs 29.1
+  :commands (eglot eglot-ensure)
   :general
-  ("s-." #'eglot-code-actions)
+  ([(super .)] #'eglot-code-actions)
   :config
   (setq eglot-confirm-server-initiated-edits nil
         eglot-autoshutdown t)
