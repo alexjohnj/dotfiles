@@ -315,12 +315,6 @@
          (when (byte-code-function-p bytecode)
            (funcall bytecode))))
      (apply old-fn args)))
-  (advice-add (if (progn (require 'json)
-                         (fboundp 'json-parse-buffer))
-                  'json-parse-buffer
-                'json-read)
-              :around
-              #'lsp-booster--advice-json-parse)
 
   (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
     "Prepend emacs-lsp-booster command to lsp CMD."
@@ -341,6 +335,12 @@
    [f2] #'lsp-rename)
   :config
   (when alex/emacs-lsp-booster-available
+    (advice-add (if (progn (require 'json)
+                           (fboundp 'json-parse-buffer))
+                    'json-parse-buffer
+                  'json-read)
+                :around
+                #'lsp-booster--advice-json-parse)
     (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command))
 
   ;; General
