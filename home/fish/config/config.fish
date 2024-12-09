@@ -8,3 +8,7 @@ end
 if type -q direnv
     direnv hook fish | source
 end
+
+if type -q fzf
+    fzf --fish | source
+end
