@@ -648,7 +648,7 @@ The DWIM behaviour of this command is as follows:
 ;; Buffer Management.
 (alex/leader-def :infix "b"
   "b" #'switch-to-buffer
-  "d" #'kill-this-buffer
+  "d" #'kill-current-buffer
   "k" #'kill-buffer
   "l" #'list-buffers)
 
