@@ -25,7 +25,7 @@
     iperf
     less
     multimarkdown
-    nil # nix lsp server
+    nixd
     nix-search-cli
     nixfmt-rfc-style # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     nodejs_22
