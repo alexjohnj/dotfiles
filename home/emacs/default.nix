@@ -6,6 +6,7 @@
     extraPackages =
       epkgs: with epkgs; [
         jinx
+        lspce
         treesit-grammars.with-all-grammars
       ];
   };

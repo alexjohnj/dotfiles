@@ -296,6 +296,7 @@
   )
 
 (use-package eglot-booster
+  :disabled t
   :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
   :when alex/emacs-lsp-booster-available
   :after eglot
@@ -303,6 +304,7 @@
   (eglot-booster-mode))
 
 (use-package lsp-mode
+  :disabled t
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-use-plists t)
@@ -365,8 +367,9 @@
           lsp-modeline-diagnostics-enable nil
           lsp-modeline-workspace-status-enable nil))
 
-(use-package yasnippet
-  :hook ((lsp-mode . yas-minor-mode)))
+(use-package lspce
+  :straight nil ;; Installed with nix
+  :commands (lspce-mode))
 
 
 ;;; Editor Settings
@@ -792,7 +795,7 @@ The DWIM behaviour of this command is as follows:
   :hook ((prog-mode . rainbow-mode)))
 
 (require 'init-projectile)
-(require 'init-flycheck)
+(require 'init-diagnostics)
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
 (require 'init-spelling)

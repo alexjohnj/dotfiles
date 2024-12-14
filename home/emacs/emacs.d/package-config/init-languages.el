@@ -21,9 +21,14 @@
   :mode (("\\.clj\\'" . clojure-mode)
          ("\\.cljs\\'" . clojurescript-mode))
   :hook ((clojure-mode . aggressive-indent-mode)
-         (clojure-mode . eglot-ensure)
+         (clojure-mode . lspce-mode)
          (clojure-mode . smartparens-strict-mode)
-         (clojure-mode . evil-cleverparens-mode)))
+         (clojure-mode . evil-cleverparens-mode))
+  :config
+  (with-eval-after-load 'lspce
+    (add-to-list 'lspce-modes-enable-single-file-root 'clojure-mode)
+    (add-to-list 'lspce-server-programs
+                 '("clojure" "clojure-lsp" nil))))
 
 (use-package cider
   :commands (cider-jack-in))
@@ -71,11 +76,14 @@
 
 (use-package nix-ts-mode
   :mode ("\\.nix\\'" . nix-ts-mode)
-  :hook ((nix-ts-mode . lsp-deferred))
+  :hook ((nix-ts-mode . lspce-mode))
   :config
   (with-eval-after-load 'apheleia
     (let ((formatter (alist-get 'nix-mode apheleia-mode-alist)))
-      (add-to-list 'apheleia-mode-alist (cons 'nix-ts-mode formatter)))))
+      (add-to-list 'apheleia-mode-alist (cons 'nix-ts-mode formatter))))
+  (with-eval-after-load 'lspce
+    (add-to-list 'lspce-server-programs
+                 '("nix" "nixd" nil))))
 
 (use-package css-ts-mode
   :straight nil
@@ -86,7 +94,6 @@
 (use-package js-ts-mode
   :straight nil
   :mode (("\\.js\\'" . js-ts-mode))
-  :hook ((js-base-mode . lsp-deferred))
   :init
   (alex/treesit--add-source 'javascript "https://github.com/tree-sitter/tree-sitter-javascript"))
 
@@ -94,7 +101,6 @@
   :straight nil
   :mode (("\\.ts\\'" . typescript-ts-mode)
          ("\\.tsx\\'" . tsx-ts-mode))
-  :hook ((typescript-ts-base-mode . lsp-deferred))
   :init
   (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
   (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
