@@ -22,7 +22,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.initrd.luks.devices."luks-91e75985-10c9-42bb-8657-5b76c1b1dc9e".device = "/dev/disk/by-uuid/91e75985-10c9-42bb-8657-5b76c1b1dc9e";
+  boot.initrd.luks.devices."luks-91e75985-10c9-42bb-8657-5b76c1b1dc9e".device =
+    "/dev/disk/by-uuid/91e75985-10c9-42bb-8657-5b76c1b1dc9e";
 
   # Networking
   networking.hostName = "pikachu";
@@ -80,6 +81,8 @@
     mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
