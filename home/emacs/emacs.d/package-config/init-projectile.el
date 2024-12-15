@@ -33,10 +33,11 @@
     "p r"   #'projectile-replace
     "p S"   #'projectile-save-project-buffers
     "p c"   #'projectile-compile-project
-    "p t"   #'projectile-find-test-file
-    "p s g" #'projectile-grep
-    "p s s" #'rg-project
-    "p s S" #'rg-dwim-project-dir)
+    "p t"   #'projectile-find-test-file)
+
+  (if alex/rg-available
+      (alex/leader-def "p s" #'consult-ripgrep)
+    (alex/leader-def "p s" #'consult-grep))
 
   (projectile-mode))
 
