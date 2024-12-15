@@ -18,7 +18,8 @@
              "e c" #'flymake-start
              "e n" #'flymake-goto-next-error
              "e p" #'flymake-goto-prev-error
-             "e l" #'flymake-show-buffer-diagnostics
+             "e L" #'flymake-show-buffer-diagnostics
+             "e l" #'consult-flymake
              "e t" #'flymake-mode
              "e v" #'flymake-running-backends)
   :init

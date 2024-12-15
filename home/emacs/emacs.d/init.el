@@ -269,6 +269,7 @@
         completion-category-overrides '((file (styles partial-completion)))))
 
 (use-package consult
+  :defer nil
   :general
   ([remap switch-to-buffer] #'consult-buffer
    [remap imenu] #'consult-imenu
