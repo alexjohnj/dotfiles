@@ -698,7 +698,7 @@ The DWIM behaviour of this command is as follows:
   "v" #'describe-variable
   "b" #'describe-bindings
   "p" #'describe-package
-  "i" #'info
+  "i" #'consult-info
   "M" #'man
   "a a" #'apropos
   "a c" #'apropos-command
