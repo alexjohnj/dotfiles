@@ -370,7 +370,10 @@
 
 (use-package lspce
   :straight nil ;; Installed with nix
-  :commands (lspce-mode))
+  :commands (lspce-mode)
+  :config
+  (setopt lspce-send-changes-idle-time 0.1
+          lspce-envs-pass-to-subprocess '("PATH")))
 
 
 ;;; Editor Settings
