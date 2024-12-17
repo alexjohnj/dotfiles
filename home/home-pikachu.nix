@@ -4,7 +4,6 @@
     with pkgs;
     [
       discord
-      f3d
       inter
       overpass
       (callPackage ../packages/orca-slicer/default.nix { })
