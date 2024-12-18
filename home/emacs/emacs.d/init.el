@@ -346,6 +346,9 @@
                 #'lsp-booster--advice-json-parse)
     (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command))
 
+  (when (executable-find "vscode-eslint-language-server")
+    (setopt lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")))
+
   ;; General
   (setopt lsp-enable-suggest-server-download nil
           lsp-keep-workspace-alive nil)
@@ -373,7 +376,12 @@
   :commands (lspce-mode)
   :config
   (setopt lspce-send-changes-idle-time 0.1
-          lspce-envs-pass-to-subprocess '("PATH")))
+          lspce-envs-pass-to-subprocess '("PATH"))
+
+  (add-to-list 'lspce-server-programs
+               '("typescriptreact" "typescript-language-server" "--stdio"))
+  (add-to-list 'lspce-server-programs
+               '("nix" "nixd" nil)))
 
 
 ;;; Editor Settings

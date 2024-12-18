@@ -80,10 +80,7 @@
   :config
   (with-eval-after-load 'apheleia
     (let ((formatter (alist-get 'nix-mode apheleia-mode-alist)))
-      (add-to-list 'apheleia-mode-alist (cons 'nix-ts-mode formatter))))
-  (with-eval-after-load 'lspce
-    (add-to-list 'lspce-server-programs
-                 '("nix" "nixd" nil))))
+      (add-to-list 'apheleia-mode-alist (cons 'nix-ts-mode formatter)))))
 
 (use-package css-ts-mode
   :straight nil
@@ -105,8 +102,6 @@
   (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
   (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
   :config
-  (when (executable-find "vscode-eslint-language-server")
-    (setopt lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")))
 
   ;; TODO: Make this a buffer local variable so that eslint is only used as a
   ;; formatter if it's available in the project?
