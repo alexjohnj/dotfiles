@@ -162,9 +162,13 @@
 (use-package exec-path-from-shell
   :when (memq system-type '(darwin))
   :config
-  (add-to-list 'exec-path-from-shell-variables "GPG_AGENT_INFO")
-  (add-to-list 'exec-path-from-shell-variables "SSH_AUTH_SOCK")
-  (add-to-list 'exec-path-from-shell-variables "SSH_AGENT_PID")
+  ;; By default exec-path-from-shell uses an interactive login shell which is
+  ;; slow. Setting this to nil speeds things up a lot.
+  (setopt exec-path-from-shell-arguments nil)
+
+  (dolist (env-variable '("GPG_AGENT_INFO" "SSH_AUTH_SOCK" "SSH_AGENT_PID"))
+    (add-to-list 'exec-path-from-shell-variables env-variable))
+
   (exec-path-from-shell-initialize))
 
 (defconst alex/rg-available (if (executable-find "rg") t nil)
