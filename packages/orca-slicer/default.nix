@@ -2,10 +2,10 @@
 let
   appname = "OrcaSlicer";
   pname = "orca-slicer";
-  version = "2.1.1";
+  version = "2.2.0";
   src = fetchurl {
-    url = "https://github.com/SoftFever/OrcaSlicer/releases/download/v2.1.1/OrcaSlicer_Linux_V${version}.AppImage";
-    hash = "sha256-kvM1rBGEJhjRqQt3a8+I0o4ahB1Uc9qB+4PzhYoNQdM=";
+    url = "https://github.com/SoftFever/OrcaSlicer/releases/download/v${version}/OrcaSlicer_Linux_V${version}.AppImage";
+    hash = "sha256-3uqA3PXTrrOE0l8ziRAtmQ07gBFB+1Zx3S6JhmOPrZ8=";
   };
   appimageContents = appimageTools.extractType2 { inherit pname version src; };
 in
