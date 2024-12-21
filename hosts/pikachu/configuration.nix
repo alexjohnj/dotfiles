@@ -64,6 +64,7 @@
   services.displayManager.cosmic-greeter.enable = true;
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-edit
+    cosmic-store
     cosmic-term
   ];
 
