@@ -5,6 +5,7 @@
     [
       discord
       inter
+      nh
       overpass
       (callPackage ../packages/orca-slicer/default.nix { })
       (callPackage ../packages/prusa-slicer/default.nix { })
