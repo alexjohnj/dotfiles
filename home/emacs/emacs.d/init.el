@@ -288,24 +288,32 @@
   (ctrlf-mode))
 
 (use-package eglot
-  :disabled t
-  :straight nil ; Built in as of Emacs 29.1
+  :straight nil
   :commands (eglot eglot-ensure)
   :general
-  ([(super .)] #'eglot-code-actions)
+  (:keymaps 'eglot-mode-map
+            [(super .)] #'eglot-code-actions)
   :config
-  (setq eglot-confirm-server-initiated-edits nil
-        eglot-autoshutdown t)
+  (setopt eglot-confirm-server-initiated-edits nil
+          eglot-autoshutdown t)
   (add-hook 'eglot-managed-mode-hook #'eglot-inlay-hints-mode)
-  (fset #'jsonrpc--log-event #'ignore); massive perf boost---don't log every event
-  )
+
+  ;; Performance tweaks
+  (fset #'jsonrpc--log-event #'ignore) ; massive perf boost---don't log every event
+  (setopt eglot-events-buffer-size 0)
+
+  ;; Associate nix-mode configuration with nix-ts-mode too.
+  (let ((program (cdr (assoc 'nix-mode eglot-server-programs))))
+    (add-to-list 'eglot-server-programs (cons 'nix-ts-mode program))))
 
 (use-package eglot-booster
-  :disabled t
+  :disabled t ;; This seems to be pulling down its own copy of eglot?
   :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
   :when alex/emacs-lsp-booster-available
   :after eglot
   :config
+  (unless (version< emacs-version "30")
+    (setopt eglot-booster-io-only t))
   (eglot-booster-mode))
 
 (use-package lsp-mode
@@ -374,18 +382,6 @@
           lsp-modeline-code-actions-enable nil
           lsp-modeline-diagnostics-enable nil
           lsp-modeline-workspace-status-enable nil))
-
-(use-package lspce
-  :straight nil ;; Installed with nix
-  :commands (lspce-mode)
-  :config
-  (setopt lspce-send-changes-idle-time 0.1
-          lspce-envs-pass-to-subprocess '("PATH"))
-
-  (add-to-list 'lspce-server-programs
-               '("typescriptreact" "typescript-language-server" "--stdio"))
-  (add-to-list 'lspce-server-programs
-               '("nix" "nixd" nil)))
 
 
 ;;; Editor Settings

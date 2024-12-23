@@ -21,14 +21,9 @@
   :mode (("\\.clj\\'" . clojure-mode)
          ("\\.cljs\\'" . clojurescript-mode))
   :hook ((clojure-mode . aggressive-indent-mode)
-         (clojure-mode . lspce-mode)
+         (clojure-mode . eglot-ensure)
          (clojure-mode . smartparens-strict-mode)
-         (clojure-mode . evil-cleverparens-mode))
-  :config
-  (with-eval-after-load 'lspce
-    (add-to-list 'lspce-modes-enable-single-file-root 'clojure-mode)
-    (add-to-list 'lspce-server-programs
-                 '("clojure" "clojure-lsp" nil))))
+         (clojure-mode . evil-cleverparens-mode)))
 
 (use-package cider
   :commands (cider-jack-in))
@@ -76,7 +71,7 @@
 
 (use-package nix-ts-mode
   :mode ("\\.nix\\'" . nix-ts-mode)
-  :hook ((nix-ts-mode . lspce-mode))
+  :hook ((nix-ts-mode . eglot-ensure))
   :config
   (with-eval-after-load 'apheleia
     (let ((formatter (alist-get 'nix-mode apheleia-mode-alist)))
@@ -127,19 +122,11 @@
 (use-package ruby-mode
   :mode "/\\(Gem\\|Fast\\|App\\|Match\\|Pod\\)file")
 
-(use-package rustic
-  :mode ("\\.rs\\'" . rustic-mode)
+(use-package rust-mode
+  :mode ("\\.rs\\'" . rust-mode)
+  :hook (rust-mode . eglot-ensure)
   :config
-  (setq rustic-format-on-save nil
-        rustic-lsp-setup-p nil
-        rustic-lsp-client 'eglot)
-
-  (alex/leader-local-def rustic-mode-map
-    "b" #'rustic-cargo-build
-    "c" #'rustic-cargo-check
-    "t a" #'rustic-cargo-test
-    "t t" #'rustic-cargo-current-test
-    "t f" #'rustic-cargo-test-rerun))
+  (setopt rust-mode-treesitter-derive t))
 
 (use-package swift-mode
   :mode ("\\.swift\\'")
