@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -59,14 +59,44 @@
     excludePackages = [ pkgs.xterm ];
   };
 
-  # Enable COSMIC DE
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
-  environment.cosmic.excludePackages = with pkgs; [
-    cosmic-edit
-    cosmic-store
-    cosmic-term
-  ];
+  # Desktop Environments
+  services.xserver.displayManager.gdm.enable = lib.mkDefault true;
+  services.xserver.desktopManager.gnome.enable = lib.mkDefault true;
+  security.pam.services.gdm.enableGnomeKeyring = lib.mkDefault true;
+  environment.gnome.excludePackages = lib.mkDefault (
+    with pkgs;
+    [
+      cheese
+      epiphany
+      geary
+      gnome-clocks
+      gnome-connections
+      gnome-console
+      gnome-contacts
+      gnome-maps
+      gnome-music
+      gnome-tour
+      gnome-weather
+      totem
+      yelp # Help app
+    ]
+  );
+
+  specialisation.cosmic.configuration = {
+    services.xserver.displayManager.gdm.enable = false;
+    services.xserver.desktopManager.gnome.enable = false;
+    security.pam.services.gdm.enableGnomeKeyring = false;
+    environment.gnome.excludePackages = [ ];
+
+    system.nixos.tags = [ "with-cosmic" ];
+    services.desktopManager.cosmic.enable = true;
+    services.displayManager.cosmic-greeter.enable = true;
+    environment.cosmic.excludePackages = with pkgs; [
+      cosmic-edit
+      cosmic-store
+      cosmic-term
+    ];
+  };
 
   # Use X keyboard layout in the console (specifically the disk decryption
   # password prompt).
