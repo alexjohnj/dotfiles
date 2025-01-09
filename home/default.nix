@@ -14,8 +14,8 @@
 
   home.packages = with pkgs; [
     (aspellWithDicts (dicts: [ dicts.en ]))
-    bat
     babashka
+    bat
     clojure
     clojure-lsp
     du-dust
@@ -25,8 +25,8 @@
     iperf
     less
     multimarkdown
+    nh
     nixd
-    nix-search-cli
     nixfmt-rfc-style # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     nodejs_22
     pandoc
