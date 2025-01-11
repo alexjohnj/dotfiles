@@ -793,13 +793,11 @@ The DWIM behaviour of this command is as follows:
 (use-package eldoc
   :straight nil
   :diminish
-  :bind (([f1] . eldoc-doc-buffer))
   :custom
   eldoc-idle-delay 0.25)
 
 (use-package eldoc-box
-  :diminish eldoc-box-hover-mode
-  :hook (eldoc-mode . eldoc-box-hover-mode))
+  :general ([f1] #'eldoc-box-help-at-point))
 
 (use-package rainbow-mode
   :diminish
