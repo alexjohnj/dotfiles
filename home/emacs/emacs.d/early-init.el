@@ -35,5 +35,7 @@
 ;; larger than the system default.
 (setq frame-inhibit-implied-resize t)
 
+(setq pgtk-wait-for-event-timeout nil)
+
 ;; Compile lsp-mode in plist mode for better performance.
 (setenv "LSP_USE_PLISTS" "true")
