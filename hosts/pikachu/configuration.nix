@@ -1,4 +1,10 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  secrets,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
@@ -14,6 +20,27 @@
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 30d";
+    };
+  };
+
+  age = {
+    identityPaths = [ "${config.users.users.alex.home}/.ssh/id_ed25519" ];
+
+    secrets = {
+      "restic/env" = {
+        file = secrets.files.restic."env.age";
+        owner = "alex";
+      };
+
+      "restic/password" = {
+        file = secrets.files.restic."password.age";
+        owner = "alex";
+      };
+
+      "restic/repo/b2" = {
+        file = secrets.files.restic.repo."b2.age";
+        owner = "alex";
+      };
     };
   };
 
@@ -150,6 +177,71 @@
     configDir = "/home/alex/.config/syncthing";
     openDefaultPorts = true;
   };
+
+  # Backups with restic
+  services.restic.backups =
+    let
+      homeDir = config.users.users.alex.home;
+      common = {
+        exclude = [
+          "**/.cache"
+          "**/Cache"
+          "**/cache"
+          "**/__pycache__"
+          "**/node_modules"
+          "${homeDir}/.cargo"
+          "${homeDir}/.npm"
+          "${homeDir}/.vscode"
+          "${homeDir}/.local/share"
+          "${homeDir}/Applications"
+        ];
+
+        extraBackupArgs = [
+          "--exclude-caches"
+        ];
+
+        initialize = true;
+        user = "alex";
+        environmentFile = config.age.secrets."restic/env".path;
+        passwordFile = config.age.secrets."restic/password".path;
+      };
+    in
+    {
+      munchlax = common // {
+        repository = "rest:http://munchlax.home.arpa:8020";
+        timerConfig = {
+          OnCalendar = "hourly";
+          Persistent = true;
+        };
+        paths = [ homeDir ];
+        pruneOpts = [
+          "--keep-hourly 24"
+          "--keep-daily 7"
+          "--keep-weekly 5"
+          "--keep-monthly 12"
+        ];
+      };
+
+      b2 = common // {
+        repositoryFile = config.age.secrets."restic/repo/b2".path;
+        timerConfig = {
+          OnCalendar = "daily";
+          Persistent = true;
+        };
+        paths = [
+          "${homeDir}/Desktop"
+          "${homeDir}/Documents"
+          "${homeDir}/Pictures"
+          "${homeDir}/finance"
+          "${homeDir}/src"
+        ];
+        pruneOpts = [
+          "--keep-daily 7"
+          "--keep-weekly 5"
+          "--keep-monthly 12"
+        ];
+      };
+    };
 
   services.flatpak.enable = true;
 

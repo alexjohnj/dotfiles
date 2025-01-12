@@ -1,3 +1,7 @@
+# nix-secrets repository. I clone this inside the dotfiles repo for convenience
+# but it's a different private repository.
+nix-secrets/
+
 # beets generated files
 config/beets/library.db
 config/beets/state.pickle

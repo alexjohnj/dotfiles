@@ -11,6 +11,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
+    secrets = {
+      url = "git+ssh://git@github.com/alexjohnj/nix-secrets.git?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.agenix.follows = "agenix";
+    };
   };
   outputs =
     {
@@ -18,29 +30,34 @@
       nixpkgs,
       nixos-cosmic,
       home-manager,
+      agenix,
+      secrets,
       ...
     }@inputs:
     {
       nixosConfigurations.pikachu = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit secrets; };
         modules = [
           {
             nix.settings = {
               substituters = [ "https://cosmic.cachix.org/" ];
               trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
             };
+
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.alex.imports = [
+                ./home
+                ./home/home-pikachu.nix
+              ];
+            };
           }
           nixos-cosmic.nixosModules.default
-          ./hosts/pikachu/configuration.nix
+          agenix.nixosModules.default
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.alex.imports = [
-              ./home
-              ./home/home-pikachu.nix
-            ];
-          }
+          ./hosts/pikachu/configuration.nix
         ];
       };
 
