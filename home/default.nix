@@ -38,11 +38,14 @@
 
   programs.mise.enable = true;
 
+  alexj.ghostty.enable = true;
+
   imports = [
     ./direnv
     ./emacs
-    ./fish
     ./files
+    ./fish
+    ./ghostty
     ./git
     ./htop
     ./kitty
