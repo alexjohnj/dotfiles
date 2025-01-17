@@ -51,5 +51,6 @@
     ./kitty
     ./tmux
     ./vim
+    ./zed
   ];
 }

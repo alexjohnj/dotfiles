@@ -1,0 +1,57 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {}
+  },
+  {
+    "context": "Editor && VimControl",
+    "bindings": {
+      "alt-enter": "editor::ToggleCodeActions",
+      "space i": "outline::Toggle",
+      "alt-q": "editor::Rewrap"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "f d": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space f f": "file_finder::Toggle",
+      "space w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "space w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "space w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "space w j": ["workspace::ActivatePaneInDirection", "Down"],
+      "space w shift-h": ["workspace::SwapPaneInDirection", "Left"],
+      "space w shift-l": ["workspace::SwapPaneInDirection", "Right"],
+      "space w shift-k": ["workspace::SwapPaneInDirection", "Up"],
+      "space w shift-j": ["workspace::SwapPaneInDirection", "Down"],
+      "space w v": "pane::SplitVertical",
+      "space w s": "pane::SplitHorizontal",
+      "space w C": "pane::CloseAllItems",
+      "space w w": "workspace::ActivateNextPane",
+      "space e n": "editor::GoToDiagnostic",
+      "space e p": "editor::GoToPrevDiagnostic",
+      "space e l": "diagnostics::Deploy"
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {
+      "space w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "space w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "space w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "space w j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  }
+]
