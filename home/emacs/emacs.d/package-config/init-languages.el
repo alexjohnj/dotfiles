@@ -150,4 +150,10 @@
 (use-package yaml-mode
   :hook ((yaml-mode . highlight-indent-guides-mode)))
 
+(use-package zig-mode
+  :mode ("\\.zig\\'" . zig-mode)
+  :hook ((zig-mode . eglot-ensure))
+  :config
+  (setopt zig-format-on-save nil))
+
 (provide 'init-languages)
