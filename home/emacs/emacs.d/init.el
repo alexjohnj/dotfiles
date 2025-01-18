@@ -246,6 +246,13 @@
   ;; Wait 0.5s to show the popup and then 1s to update it.
   (setopt corfu-popupinfo-delay '(0.5 . 0.2)))
 
+(use-package emacs
+  :preface
+  (defun alex/disable-ispell-capf ()
+    (remove-hook 'completion-at-point-functions #'ispell-completion-at-point t))
+  :config
+  (add-hook 'text-mode-hook #'alex/disable-ispell-capf))
+
 ;; Adds icons to the margins of the Corfu completion popup.
 (use-package kind-icon
   :after corfu
