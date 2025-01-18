@@ -48,7 +48,6 @@
     ./ghostty
     ./git
     ./htop
-    ./kitty
     ./tmux
     ./vim
     ./zed
