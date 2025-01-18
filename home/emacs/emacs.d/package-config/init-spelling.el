@@ -3,7 +3,10 @@
   :diminish
   :general
   ([remap ispell-word] #'jinx-correct)
-  (alex/leader-def "S s" #'jinx-correct-all)
+  (alex/leader-def
+    "S s" #'jinx-correct-all
+    "S n" #'jinx-next
+    "S p" #'jinx-previous)
   :hook ((prog-mode . jinx-mode)
          (text-mode . jinx-mode)))
 
