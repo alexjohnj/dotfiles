@@ -1,0 +1,25 @@
+[global]
+frame_color = "#b4befe"
+separator_color= frame
+highlight = "#89b4fa"
+padding = 12
+frame_width = 1
+gap_size = 8
+font = "Overpass 13"
+format = "<b>%s</b>\n\n%b"
+corner_radius = 8
+
+[urgency_low]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#a6e3a1"
+
+[urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#b4befe"
+
+[urgency_critical]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#f38ba8"

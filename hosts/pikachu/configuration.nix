@@ -86,45 +86,6 @@
     excludePackages = [ pkgs.xterm ];
   };
 
-  # Desktop Environments
-  services.xserver.displayManager.gdm.enable = lib.mkDefault true;
-  services.xserver.desktopManager.gnome.enable = lib.mkDefault true;
-  security.pam.services.gdm.enableGnomeKeyring = lib.mkDefault true;
-  environment.gnome.excludePackages = lib.mkDefault (
-    with pkgs;
-    [
-      cheese
-      epiphany
-      geary
-      gnome-clocks
-      gnome-connections
-      gnome-console
-      gnome-contacts
-      gnome-maps
-      gnome-music
-      gnome-tour
-      gnome-weather
-      totem
-      yelp # Help app
-    ]
-  );
-
-  specialisation.cosmic.configuration = {
-    services.xserver.displayManager.gdm.enable = false;
-    services.xserver.desktopManager.gnome.enable = false;
-    security.pam.services.gdm.enableGnomeKeyring = false;
-    environment.gnome.excludePackages = [ ];
-
-    system.nixos.tags = [ "with-cosmic" ];
-    services.desktopManager.cosmic.enable = true;
-    services.displayManager.cosmic-greeter.enable = true;
-    environment.cosmic.excludePackages = with pkgs; [
-      cosmic-edit
-      cosmic-store
-      cosmic-term
-    ];
-  };
-
   # Use X keyboard layout in the console (specifically the disk decryption
   # password prompt).
   console.useXkbConfig = true;
@@ -143,7 +104,6 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -152,10 +112,49 @@
     pulse.enable = true;
   };
 
-  # Enable the fish shell (this is needed in addition to enabling it with home-manager)
-  programs.fish.enable = true;
+  programs = {
+    # Fish must be enabled here and in home-manager
+    fish.enable = true;
 
-  programs.steam.enable = true;
+    steam.enable = true;
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+
+    uwsm.enable = true;
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+    hyprlock.enable = true;
+  };
+
+  # Enables support for volumes in thunar
+  services.gvfs.enable = true;
+
+  # Display Manager
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      default_session = {
+        command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
+        user = "alex";
+      };
+      initial_session = default_session;
+    };
+  };
+
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+    xarchiver
+  ];
+
+  services.playerctld.enable = true;
 
   users.users.alex = {
     isNormalUser = true;
@@ -246,14 +245,6 @@
   services.flatpak.enable = true;
 
   services.tailscale.enable = true;
-
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "alex";
-
-  # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
 
   networking.firewall.enable = true;
 

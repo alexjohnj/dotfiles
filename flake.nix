@@ -2,11 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +23,6 @@
     {
       self,
       nixpkgs,
-      nixos-cosmic,
       home-manager,
       agenix,
       secrets,
@@ -40,11 +34,6 @@
         specialArgs = { inherit secrets; };
         modules = [
           {
-            nix.settings = {
-              substituters = [ "https://cosmic.cachix.org/" ];
-              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-            };
-
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -54,7 +43,6 @@
               ];
             };
           }
-          nixos-cosmic.nixosModules.default
           agenix.nixosModules.default
           home-manager.nixosModules.home-manager
           ./hosts/pikachu/configuration.nix

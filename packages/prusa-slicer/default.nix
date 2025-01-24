@@ -14,7 +14,7 @@ appimageTools.wrapType2 {
 
   extraPkgs = pkgs: [
     pkgs.webkitgtk
-    pkgs.libsoup
+    pkgs.libsoup_2_4
   ];
 
   extraInstallCommands = ''
