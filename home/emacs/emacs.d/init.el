@@ -537,7 +537,7 @@
 
 (use-package ef-themes
   :config
-  (setq ef-themes-to-toggle '(ef-autumn ef-frost))
+  (setq ef-themes-to-toggle '(ef-trio-dark ef-frost))
   (load-theme (car ef-themes-to-toggle) t))
 
 ;; Match the fringe colour to the theme's background colour

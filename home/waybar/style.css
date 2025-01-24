@@ -1,0 +1,49 @@
+@define-color text-default rgb(205, 214, 244);
+@define-color lavender rgb(180, 190, 254);
+@define-color mauve rgb(198, 160, 246);
+
+@define-color background-base rgb(30, 30, 46);
+@define-color background-mantle rgb(24, 24, 37);
+@define-color background-crust rgb(17, 17, 27);
+
+@define-color surface-zero rgb(49, 50, 68);
+
+* {
+    border-radius: 0;
+    border: none;
+    font-family: Overpass, serif;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @background-base;
+    color: @text-default;
+}
+
+tooltip {
+    background: @background-base;
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    color: @text-default;
+}
+
+#workspaces button {
+    background: transparent;
+    color: @text-default;
+}
+
+#workspaces button:hover {
+    border-top: 1px solid @lavender;
+}
+
+#workspaces button.visible {
+    color: @mauve;
+}
+
+#mode, #clock, #battery {
+    padding: 8px 16px;
+}
+
+#clock {
+    background-color: @surface-zero;
+}
