@@ -1,7 +1,7 @@
-{ pkgs, config, ... }:
+{ ... }:
 {
   programs.tmux = {
-    enable = false;
+    enable = true;
     extraConfig = builtins.readFile ./tmux.conf;
   };
 }
