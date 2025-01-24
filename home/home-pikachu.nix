@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages =
     with pkgs;
@@ -18,4 +18,8 @@
 
   programs.firefox.enable = true;
   programs.zathura.enable = true;
+
+  imports = [
+    ./hyprland
+  ];
 }
