@@ -535,10 +535,10 @@
 ;; Set the font immediately for when Emacs isn't running in server mode.
 (alex/set-font)
 
-(use-package ef-themes
+(use-package catppuccin-theme
   :config
-  (setq ef-themes-to-toggle '(ef-autumn ef-frost))
-  (load-theme (car ef-themes-to-toggle) t))
+  (setopt catppuccin-flavor 'mocha)
+  (load-theme 'catppuccin t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
