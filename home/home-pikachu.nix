@@ -21,5 +21,6 @@
 
   imports = [
     ./hypr
+    ./dunst
   ];
 }

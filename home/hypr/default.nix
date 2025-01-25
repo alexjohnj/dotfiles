@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   xdg.configFile."hypr/hyprland.conf".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/hyprland/hyprland.conf";
@@ -19,10 +19,6 @@
           ",${image}"
         ];
       };
-  };
-
-  services.dunst = {
-    enable = true;
   };
 
   imports = [
