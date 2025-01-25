@@ -1,0 +1,134 @@
+* {
+    base: #1e1e2e;
+    mantle: #181825;
+    crust: #11111b;
+
+    surface0: #313244;
+    surface1: #45475a;
+    surface2: #585b70;
+
+    text: #cdd6f4;
+    subtext0: #a6adc8;
+    subtext1: #bac2de;
+
+    lavendar: #b4befe;
+
+    bg-col-light: @base;
+    border-col: @mantle;
+    selected-col: #1e1e2e;
+
+    blue: #89b4fa;
+    fg-col: #cdd6f4;
+    fg-col2: #cba6f7;
+    grey: #6c7086;
+
+    horizontalSpacing: 12px;
+
+    width: 768;
+    font: "Overpass 14";
+}
+
+element-text, element-icon, mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    height: 500;
+    border: 2px;
+    border-radius: 8;
+
+    border-color: @crust;
+    background-color: @mantle;
+    text-color: @text;
+}
+
+mainbox {
+    background-color: inherit;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: inherit;
+    padding: 16px 12px 16px 12px;
+}
+
+prompt {
+    background-color: @surface2;
+    text-color: @subtext1;
+
+    padding: 8px;
+    border-radius: 4px;
+    vertical-align: 0.5;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+}
+
+entry {
+    padding: 12px;
+    text-color: @fg-col;
+    background-color: @crust;
+    margin: 0px 0px 0px 8px;
+    border-radius: 4;
+}
+
+listview {
+    margin: 0px 12px 20px 12px;
+    columns: 1;
+    lines: 6;
+    background-color: inherit;
+}
+
+element {
+    border-color: @mantle;
+    border: 0px 0px 1px 0px;
+    padding: 8px 0 8px 0;
+    background-color: inherit;
+    text-color: @fg-col;
+}
+
+element-text {
+    vertical-align: 0.5;
+}
+
+element-icon {
+    size: 24px;
+    margin: 0px 8px 0px 0px;
+}
+
+element selected {
+    text-color: @fg-col2;
+}
+
+mode-switcher {
+    spacing: 0;
+}
+
+button {
+    padding: 10px;
+    background-color: @bg-col-light;
+    text-color: @grey;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+    text-color: @blue;
+}
+
+message {
+    background-color: @bg-col-light;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+    padding: 6px;
+    margin: 20px 0px 0px 20px;
+    text-color: @blue;
+    background-color: @bg-col-light;
+}

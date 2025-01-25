@@ -1,3 +1,5 @@
 configuration {
   modes: "window,drun";
 }
+
+@theme "catppuccin-mocha"
