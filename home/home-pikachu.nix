@@ -20,6 +20,6 @@
   programs.zathura.enable = true;
 
   imports = [
-    ./hyprland
+    ./hypr
   ];
 }
