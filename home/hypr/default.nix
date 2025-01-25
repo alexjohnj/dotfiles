@@ -1,10 +1,10 @@
 { config, ... }:
 {
   xdg.configFile."hypr/hyprland.conf".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/hyprland/hyprland.conf";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/hypr/hyprland.conf";
 
   xdg.configFile."hypr/hyprlock.conf".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/hyprland/hyprlock.conf";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/hypr/hyprlock.conf";
 
   services.hyprpaper = {
     enable = true;
