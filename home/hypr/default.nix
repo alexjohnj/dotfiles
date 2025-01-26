@@ -11,20 +11,10 @@
   xdg.configFile."hypr/hyprlock.conf".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/hypr/hyprlock.conf";
 
-  services.hyprpaper = {
-    enable = true;
-    settings =
-      let
-        image = "~/Pictures/Wallpapers/Drawings/6K - Fluted Gradients - Orange.png";
-      in
-      {
-        ipc = "off";
-        preload = [ image ];
-        wallpaper = [
-          ",${image}"
-        ];
-      };
-  };
+  home.packages = with pkgs; [
+    swww
+    waypaper
+  ];
 
   imports = [
     ./hyprsunset.nix
