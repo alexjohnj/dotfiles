@@ -127,6 +127,18 @@
     hyprlock.enable = true;
   };
 
+  # Display Manager
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      default_session = {
+        command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
+        user = "alex";
+      };
+      initial_session = default_session;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     pcmanfm
   ];
@@ -231,12 +243,6 @@
       enable = true;
       setSocketVariable = true;
     };
-  };
-
-  # Display Manager
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
   };
 
   # This value determines the NixOS release from which the default
