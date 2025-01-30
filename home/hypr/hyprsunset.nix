@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 let
-  temperature = "5000";
+  temperature = "4500";
   startHour = "18";
   hyprsunset = pkgs.hyprsunset;
   # Script from MichaelBradley/dotfiles
