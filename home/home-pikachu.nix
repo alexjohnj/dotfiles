@@ -20,7 +20,8 @@
   programs.zathura.enable = true;
 
   imports = [
-    ./hypr
     ./dunst
+    ./hypr
+    ./waybar
   ];
 }
