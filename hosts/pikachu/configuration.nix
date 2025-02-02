@@ -104,7 +104,6 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -140,6 +139,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    pavucontrol
     pcmanfm
   ];
 
