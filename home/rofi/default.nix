@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 {
-  home.packages = [ pkgs.rofi-wayland ];
+  home.packages = with pkgs; [
+    rofi-wayland
+    rofi-power-menu
+  ];
+
   xdg.configFile."rofi/config.rasi".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home/rofi/config.rasi";
 
