@@ -4,6 +4,7 @@
     with pkgs;
     [
       discord
+      feh
       inter
       overpass
       (callPackage ../packages/orca-slicer/default.nix { })
