@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "Material Icon Theme",
   "show_inline_completions": false,
   "assistant": {
     "default_model": {
@@ -15,9 +16,9 @@
     },
     "version": "2"
   },
-  "theme": "Ayu Dark",
+  "theme": "Oxocarbon Dark (IBM Carbon)",
   "vim_mode": true,
-  "buffer_font_size": 14,
+  "buffer_font_size": 14.0,
   "buffer_font_features": {
     // Disable ligatures:
     "calt": false
