@@ -40,10 +40,16 @@
   },
   "languages": {
     "TSX": {
-      "show_inline_completions": true
+      "show_inline_completions": true,
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
     },
     "TypeScript": {
-      "show_inline_completions": true
+      "show_inline_completions": true,
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
     },
     "JavaScript": {
       "code_actions_on_format": {
@@ -59,7 +65,7 @@
   },
   "lsp": {
     "vtsls": {
-      "initialization_options": {
+      "settings": {
         "typescript": {
           "preferences": {
             "importModuleSpecifier": "project-relative"
