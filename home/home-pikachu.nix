@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     inter
     overpass
+    (callPackage ../packages/orca-slicer/default.nix { })
     (callPackage ../packages/super-slicer/default.nix { })
   ];
 
