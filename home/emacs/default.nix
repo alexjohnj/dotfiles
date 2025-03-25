@@ -1,8 +1,11 @@
 { config, pkgs, ... }:
+let
+  isLinux = pkgs.stdenv.hostPlatform.isLinux;
+in
 {
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs30-pgtk;
+    package = if isLinux then pkgs.emac-pgtk else pkgs.emacs;
     extraPackages =
       epkgs: with epkgs; [
         jinx
@@ -10,7 +13,7 @@
       ];
   };
 
-  services.emacs.enable = pkgs.stdenv.hostPlatform.isLinux;
+  services.emacs.enable = isLinux;
 
   home.packages = with pkgs; [
     # This dictionary is needed for jinx.
