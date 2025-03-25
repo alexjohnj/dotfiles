@@ -244,7 +244,13 @@
 
   services.flatpak.enable = true;
 
-  services.tailscale.enable = true;
+  services.tailscale = {
+    enable = true;
+    extraSetFlags = [
+      "--operator"
+      "alex"
+    ];
+  };
 
   networking.firewall.enable = true;
 
