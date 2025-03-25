@@ -491,7 +491,8 @@
   :defer t
   :straight nil
   :config
-  (setq tramp-verbose 5)
+  (setopt tramp-verbose 5
+          tramp-use-connection-share nil)
   (add-to-list 'tramp-default-user-alist
                '("ssh" "munchlax\\.local\\'" "root")))
 
