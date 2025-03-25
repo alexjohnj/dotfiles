@@ -246,13 +246,6 @@
   ;; Wait 0.5s to show the popup and then 1s to update it.
   (setopt corfu-popupinfo-delay '(0.5 . 0.2)))
 
-(use-package emacs
-  :preface
-  (defun alex/disable-ispell-capf ()
-    (remove-hook 'completion-at-point-functions #'ispell-completion-at-point t))
-  :config
-  (add-hook 'text-mode-hook #'alex/disable-ispell-capf))
-
 ;; Adds icons to the margins of the Corfu completion popup.
 (use-package kind-icon
   :after corfu
@@ -263,11 +256,17 @@
 
 ;; Provides additional completion at point functions
 (use-package cape
+  :commands (cape-file cape-dabbrev cape-emoji)
+  :preface
+  (defun alex/configure-text-mode-capf ()
+    (remove-hook 'completion-at-point-functions #'ispell-completion-at-point t)
+    (add-hook 'completion-at-point-functions #'cape-emoji t))
   :init
-  (add-to-list 'completion-at-point-functions #'cape-file)
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'cape-dabbrev)
+  (add-hook 'text-mode-hook #'alex/configure-text-mode-capf)
   :config
-  (setq cape-dabbrev-check-other-buffers nil))
+  (setopt cape-dabbrev-check-other-buffers nil))
 
 ;; The marginalia package adds annotations next to completion results.
 (use-package marginalia
