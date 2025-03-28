@@ -2,9 +2,7 @@ start-at-login = false
 
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
 after-login-command = []
-after-startup-command = [
-    'exec-and-forget borders active_color=0xff8839ef width=4',
-]
+after-startup-command = []
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
