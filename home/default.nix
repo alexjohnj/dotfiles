@@ -48,6 +48,7 @@
     ./ghostty
     ./git
     ./htop
+    ./ssh
     ./tmux
     ./vim
     ./zed
