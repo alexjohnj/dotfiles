@@ -16,7 +16,9 @@
   navigate = true
 
 [diff]
+  algorithm = histogram
   colorMoved = default
+  renames = true
 
 [init]
   defaultBranch = main
@@ -24,6 +26,11 @@
 [push]
   default = simple
   autoSetupRemote = true
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
 
 [merge]
   ff = only
@@ -39,6 +46,12 @@
 [status]
   short = true
   branch = true
+
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = version:refname
 
 [credential]
   helper = osxkeychain
