@@ -5,7 +5,7 @@ in
 {
   programs.emacs = {
     enable = true;
-    package = if isLinux then pkgs.emac-pgtk else pkgs.emacs;
+    package = if isLinux then pkgs.emacs-pgtk else pkgs.emacs;
     extraPackages =
       epkgs: with epkgs; [
         jinx
