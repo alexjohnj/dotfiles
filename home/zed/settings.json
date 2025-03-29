@@ -11,10 +11,10 @@
     "mode": "subtle"
   },
   "features": {
-    "inline_completion_provider": "zed"
+    "edit_prediction_provider": "zed"
   },
   "icon_theme": "Material Icon Theme",
-  "show_inline_completions": false,
+  "show_edit_predictions": true,
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
@@ -45,13 +45,11 @@
   },
   "languages": {
     "TSX": {
-      "show_inline_completions": true,
       "code_actions_on_format": {
         "source.fixAll.eslint": true
       }
     },
     "TypeScript": {
-      "show_inline_completions": true,
       "code_actions_on_format": {
         "source.fixAll.eslint": true
       }
