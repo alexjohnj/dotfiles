@@ -16,8 +16,6 @@
     (aspellWithDicts (dicts: [ dicts.en ]))
     babashka
     bat
-    clojure
-    clojure-lsp
     du-dust
     fd
     file
