@@ -37,10 +37,16 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "space w C": "pane::CloseAllItems",
-      "space w c": "pane::CloseActiveItem",
+      "space w C": "pane::CloseInactiveItems",
       "space w s": "pane::SplitHorizontal",
       "space w v": "pane::SplitVertical"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space b d": "pane::CloseActiveItem",
+      "space b b": "tab_switcher::Toggle"
     }
   },
   {
