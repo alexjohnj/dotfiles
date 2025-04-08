@@ -20,7 +20,7 @@
     }
   ],
   "edit_predictions": {
-    "mode": "subtle"
+    "mode": "eager"
   },
   "features": {
     "edit_prediction_provider": "zed"
@@ -29,8 +29,8 @@
   "show_edit_predictions": true,
   "assistant": {
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "provider": "zed.dev",
+      "model": "claude-3-7-sonnet-latest"
     },
     "version": "2"
   },
