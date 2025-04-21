@@ -15,7 +15,7 @@
 
     matchBlocks = {
       "munchlax" = {
-        hostname = "munchlax.home.arpa";
+        hostname = "munchlax.pokenode.net";
         user = "root";
       };
 
@@ -25,7 +25,7 @@
       };
 
       "pibox" = {
-        hostname = "192.168.1.200";
+        hostname = "pibox.home.arpa";
         user = "alex";
       };
 
