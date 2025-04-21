@@ -156,6 +156,12 @@
 
   services.playerctld.enable = true;
 
+  services.gnome.gnome-keyring.enable = true;
+
+  # Unlock gnome keyring on login
+  security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+
   users.users.alex = {
     isNormalUser = true;
     description = "Alex Jackson";
