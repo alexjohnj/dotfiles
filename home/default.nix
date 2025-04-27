@@ -16,6 +16,7 @@
     (aspellWithDicts (dicts: [ dicts.en ]))
     babashka
     bat
+    btop
     du-dust
     fd
     file
