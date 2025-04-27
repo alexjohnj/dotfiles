@@ -14,7 +14,6 @@
 
   home.packages = with pkgs; [
     (aspellWithDicts (dicts: [ dicts.en ]))
-    babashka
     bat
     btop
     du-dust
