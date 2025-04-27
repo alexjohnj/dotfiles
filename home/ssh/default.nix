@@ -38,6 +38,12 @@
         hostname = "v2.home.arpa";
         user = "biqu";
       };
+
+      "remarkable" = {
+        hostname = "rm.pokenode.net";
+        user = "root";
+      };
+
     };
   };
 }
