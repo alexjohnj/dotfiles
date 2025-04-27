@@ -170,6 +170,7 @@
       "wheel"
       "audio"
       "docker"
+      "libvirtd"
     ];
     shell = pkgs.fish;
   };
@@ -260,13 +261,15 @@
 
   networking.firewall.enable = true;
 
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
+  virtualisation = {
+    libvirtd.enable = true;
+    podman = {
       enable = true;
-      setSocketVariable = true;
+      dockerCompat = true;
     };
   };
+
+  programs.virt-manager.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
