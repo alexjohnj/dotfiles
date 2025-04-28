@@ -17,7 +17,8 @@
     "bindings": {
       "space f f": "file_finder::Toggle",
       "space p f": "file_finder::Toggle",
-      "space p p": "projects::OpenRecent"
+      "space p p": "projects::OpenRecent",
+      "space p S": "workspace::SaveAll"
     }
   },
   {
@@ -50,6 +51,20 @@
     }
   },
   {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space g s": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "space g s": "git_panel::Close",
+      "s": "git::StageFile",
+      "u": "git::UnstageFile"
+    }
+  },
+  {
     "context": "Editor",
     "bindings": {
       "alt-q": "editor::Rewrap"
@@ -62,7 +77,8 @@
       "space e l": "diagnostics::Deploy",
       "space e n": "editor::GoToDiagnostic",
       "space e p": "editor::GoToPreviousDiagnostic",
-      "space i": "outline::Toggle"
+      "space i": "outline::Toggle",
+      "space g f b": "git::Blame"
     }
   }
 ]
