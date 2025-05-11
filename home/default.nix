@@ -30,6 +30,7 @@
     nodejs_22
     pandoc
     ripgrep
+    rustup
     tmux
     tree
     yt-dlp
