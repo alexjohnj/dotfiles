@@ -34,6 +34,7 @@
     },
     "version": "2"
   },
+  "load_direnv": "shell_hook",
   "theme": "Oxocarbon Dark (IBM Carbon)",
   "vim_mode": true,
   "buffer_font_size": 14.0,
