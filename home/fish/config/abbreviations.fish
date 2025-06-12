@@ -61,3 +61,8 @@ end
 
 abbr pip "python -m pip"
 abbr pip3 "python3 -m pip"
+
+if type -q emulator
+    abbr android:boot \
+        "emulator -list-avds | fzf --height=~100% --tmux | xargs -I % -L1 emulator -no-snapshot @%"
+end
