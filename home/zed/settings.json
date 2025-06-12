@@ -12,32 +12,35 @@
       "host": "munchlax",
       "projects": [
         {
-          "paths": [
-            "/mnt/cache_nvme/appdata"
-          ]
+          "paths": ["/mnt/cache_nvme/appdata"]
         }
       ]
     }
   ],
+  "project_panel": {
+    "auto_reveal_entries": false
+  },
   "edit_predictions": {
     "mode": "eager"
   },
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot"
   },
   "icon_theme": "Material Icon Theme",
   "show_edit_predictions": true,
-  "assistant": {
+  "agent": {
+    "default_profile": "write",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
     },
     "version": "2"
   },
   "load_direnv": "shell_hook",
   "theme": "Oxocarbon Dark (IBM Carbon)",
   "vim_mode": true,
-  "buffer_font_size": 14.0,
+  "buffer_font_family": "Departure Mono",
+  "buffer_font_size": 13.0,
   "buffer_font_features": {
     // Disable ligatures:
     "calt": false
@@ -77,12 +80,25 @@
           "arguments": ["--stdin-filepath", "{buffer_path}"]
         }
       }
+    },
+    "Swift": {
+      "formatter": {
+        "external": {
+          "command": "swift",
+          "arguments": ["format", "format", "-"]
+        }
+      }
     }
   },
   "lsp": {
     "vtsls": {
       "settings": {
         "typescript": {
+          "tsserver": {
+            "experimental": {
+              "enableProjectDiagnostics": true
+            }
+          },
           "preferences": {
             "importModuleSpecifier": "project-relative"
           }
