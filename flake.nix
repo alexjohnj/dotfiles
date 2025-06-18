@@ -53,7 +53,6 @@
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
         modules = [
           ./home
-          ./home/aerospace
         ];
       };
     };
