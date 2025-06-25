@@ -485,15 +485,7 @@
   :diminish
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
-;; Configure tramp
-(use-package tramp
-  :defer t
-  :straight nil
-  :config
-  (setopt tramp-verbose 5
-          tramp-use-connection-share nil)
-  (add-to-list 'tramp-default-user-alist
-               '("ssh" "munchlax\\.local\\'" "root")))
+
 
 (use-package envrc
   :hook (after-init . envrc-global-mode))
@@ -809,6 +801,7 @@ The DWIM behaviour of this command is as follows:
   :diminish
   :hook ((prog-mode . rainbow-mode)))
 
+(require 'init-tramp)
 (require 'init-projectile)
 (require 'init-diagnostics)
 (require 'init-rainbow-delimiters)
