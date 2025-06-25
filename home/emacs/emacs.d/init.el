@@ -535,10 +535,9 @@
 ;; Set the font immediately for when Emacs isn't running in server mode.
 (alex/set-font)
 
-(use-package ef-themes
+(use-package emacs
   :config
-  (setq ef-themes-to-toggle '(ef-trio-dark ef-frost))
-  (load-theme (car ef-themes-to-toggle) t))
+  (load-theme 'modus-vivendi t))
 
 ;; Match the fringe colour to the theme's background colour
 (set-face-attribute 'fringe nil
