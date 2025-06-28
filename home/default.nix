@@ -16,6 +16,7 @@
     (aspellWithDicts (dicts: [ dicts.en ]))
     bat
     btop
+    departure-mono
     du-dust
     fd
     file
