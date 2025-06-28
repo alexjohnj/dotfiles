@@ -17,7 +17,7 @@ appimageTools.wrapType2 {
   inherit pname version src;
 
   extraPkgs = pkgs: [
-    pkgs.webkitgtk
+    pkgs.webkitgtk_4_1
     pkgs.glxinfo # Orca uses glxinfo to activate some NVIDIA specific performance fixes.
     pkgs.mesa # It needs mesa for said NVIDIA fixes.
   ];
