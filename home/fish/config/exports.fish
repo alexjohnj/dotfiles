@@ -18,12 +18,16 @@ set -gx GEM_HOME "$HOME/.gem"
 # XZ
 set -gx XZ_OPT "--threads=0"
 
+# npm
+set -gx NPM_CONFIG_PREFIX "$HOME/.npm-global"
+
 # Set the PATH
 set -l path_components \
     $HOME/.bin \
     $HOME/.local/bin \
     $HOME/.cargo/bin \
     $GEM_HOME/bin \
+    $NPM_CONFIG_PREFIX/bin \
     /opt/homebrew/bin \
     /opt/homebrew/sbin
 
