@@ -18,9 +18,6 @@ set -gx GEM_HOME "$HOME/.gem"
 # XZ
 set -gx XZ_OPT "--threads=0"
 
-# Dart and Flutter environment
-set -gx PUB_CACHE $HOME/.pub-cache
-
 # Set the PATH
 set -l path_components \
     $HOME/.bin \
