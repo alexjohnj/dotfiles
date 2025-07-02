@@ -24,6 +24,7 @@ set -l path_components \
     $HOME/.local/bin \
     $HOME/.cargo/bin \
     $GEM_HOME/bin \
+    $HOME/.npm-global/bin \
     /opt/homebrew/bin \
     /opt/homebrew/sbin
 
