@@ -28,29 +28,5 @@
               "c"   #'LaTeX-close-environment
               "="   #'TeX-master-file-ask)))
 
-(use-package reftex
-  :commands (turn-on-reftex)
-  :init (progn
-          (add-hook 'LaTeX-mode-hook 'turn-on-reftex))
-  :config (progn
-            (setq reftex-plug-into-AUCTeX t)
-
-            (general-def 'normal reftex-toc-mode-map
-              "j" #'reftex-toc-next
-              "k" #'reftex-toc-previous
-              "Q" #'reftex-toc-quit-and-kill
-              "%" #'reftex-toc-rename-label)
-
-            (alex/leader-local-def latex-mode-map
-              "r r" #'reftex-reference
-              "r l" #'reftex-label
-              "r t" #'reftex-toc
-              "r v" #'reftex-view-crossref)))
-
-(use-package company-auctex
-  :after (latex)
-  :config (progn
-            (company-auctex-init)))
-
 (provide 'init-latex)
 ;;; init-latex.el ends here

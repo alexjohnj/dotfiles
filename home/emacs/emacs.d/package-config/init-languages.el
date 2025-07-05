@@ -17,17 +17,6 @@
 
 (require 'init-beancount-mode)
 
-(use-package clojure-mode
-  :mode (("\\.clj\\'" . clojure-mode)
-         ("\\.cljs\\'" . clojurescript-mode))
-  :hook ((clojure-mode . aggressive-indent-mode)
-         (clojure-mode . eglot-ensure)
-         (clojure-mode . smartparens-strict-mode)
-         (clojure-mode . evil-cleverparens-mode)))
-
-(use-package cider
-  :commands (cider-jack-in))
-
 (use-package dockerfile-ts-mode
   :straight nil
   :mode "/Dockerfile"
@@ -40,9 +29,6 @@
 (use-package git-modes
   :mode (("\\.gitignore\\'" . gitignore-mode)))
 
-(use-package gcode-mode
-  :defer t)
-
 (use-package graphql-mode
   :mode (("\\.graphqls?\\'" . graphql-mode))
   :defer t)
@@ -53,13 +39,7 @@
   :init
   (alex/treesit--add-source 'json "https://github.com/tree-sitter/tree-sitter-json"))
 
-(use-package kotlin-mode
-  :mode ("\\.kt\\'"))
-
 (require 'init-latex)
-
-(use-package lua-mode
-  :mode ("\\.lua\\'"))
 
 (use-package markdown-mode
   :mode (("\\.markdown\\'" . gfm-mode)
@@ -149,11 +129,5 @@
 
 (use-package yaml-mode
   :hook ((yaml-mode . highlight-indent-guides-mode)))
-
-(use-package zig-mode
-  :mode ("\\.zig\\'" . zig-mode)
-  :hook ((zig-mode . eglot-ensure))
-  :config
-  (setopt zig-format-on-save nil))
 
 (provide 'init-languages)
