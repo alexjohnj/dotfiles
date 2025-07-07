@@ -46,6 +46,7 @@
  ("markdown-mode" . "7c51a2167c5a1330e0ab52fe5b2d03c1ead122ca")
  ("melpa" . "bfae97cdf7426c67e8ce73b3bc0984583ecc07c7")
  ("nix-ts-mode" . "62ce3a2dc39529c5db3516427e84b2c96b8efcfd")
+ ("nongnu" . "67c49cfdf5a5a9f28792c500c8eb0017cfe74a3a")
  ("nongnu-elpa" . "fca2a26fd4e5e03ae82cb8f560de1ab3ef882a7e")
  ("orderless" . "254f2412489bbbf62700f9d3d5f18e537841dcc3")
  ("page-break-lines" . "982571749c8fe2b5e2997dd043003a1b9fe87b38")
@@ -68,7 +69,6 @@
  ("vertico" . "d8dc49a3520ab908c2b0f62a4a8ae32ca23f2726")
  ("web-mode" . "994cb350bceeebb031406112cf6da119e066ef8e")
  ("with-editor" . "f32cd7b09d518b629bfaa3eeb92b539891c6b9bc")
- ("ws-butler" . "67c49cfdf5a5a9f28792c500c8eb0017cfe74a3a")
  ("xterm-color" . "2ad407c651e90fff2ea85d17bf074cee2c022912")
  ("yaml-mode" . "d91f878729312a6beed77e6637c60497c5786efa"))
 :gamma
