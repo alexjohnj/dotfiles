@@ -624,6 +624,19 @@
       (kill-new filename)
       (message filename))))
 
+(defun alex/copy-relative-buffer-path ()
+  "Copy the path to the file the current buffer is visiting, relative to the project root. If not in a project, copies the absolute path."
+  (interactive)
+  (if (buffer-file-name)
+      (let* ((project-root (projectile-project-root))
+             (file-path (buffer-file-name))
+             (relative-path (if project-root
+                                (file-relative-name file-path project-root)
+                              file-path)))
+        (kill-new relative-path)
+        (message relative-path))
+    (error "Buffer is not visiting a file")))
+
 
 ;;; Basic Keybindings
 
