@@ -5,7 +5,8 @@ in
 {
   programs.emacs = {
     enable = true;
-    package = if isLinux then pkgs.emacs-pgtk else pkgs.emacs;
+    package =
+      if isLinux then pkgs.emacs-pgtk else pkgs.emacs.override { withNativeCompilation = true; };
     extraPackages =
       epkgs: with epkgs; [
         jinx
