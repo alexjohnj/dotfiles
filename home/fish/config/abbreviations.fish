@@ -66,3 +66,7 @@ if type -q emulator
     abbr android:boot \
         "emulator -list-avds | fzf --height=~100% --tmux | xargs -I % -L1 emulator -no-snapshot @%"
 end
+
+if test -f ~/.claude/local/claude
+    alias claude "~/.claude/local/claude"
+end
