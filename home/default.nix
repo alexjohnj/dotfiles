@@ -22,6 +22,7 @@
     file
     imagemagick
     iperf
+    jq
     less
     multimarkdown
     nh
