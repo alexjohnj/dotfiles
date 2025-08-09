@@ -823,6 +823,7 @@ The DWIM behaviour of this command is as follows:
 (require 'init-rg)
 (require 'init-deft)
 (require 'init-ediff)
+(require 'init-eat)
 
 
 ;;; Language Packages
