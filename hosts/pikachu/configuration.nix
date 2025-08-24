@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/system/nvidia.nix
+    ../../modules/system/flatpak.nix
   ];
 
   nix = {
@@ -249,7 +250,14 @@
       };
     };
 
-  services.flatpak.enable = true;
+  modules.flatpak = {
+    enable = true;
+    autoUpdate = {
+      enable = true;
+      onCalendar = "daily";
+      randomizedDelaySec = "1h";
+    };
+  };
 
   services.tailscale = {
     enable = true;
