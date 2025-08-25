@@ -36,6 +36,7 @@
     rustup
     tmux
     tree
+    uv
     yt-dlp
   ];
 
