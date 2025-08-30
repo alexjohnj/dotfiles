@@ -52,6 +52,7 @@
     ./ghostty
     ./git
     ./htop
+    ./npm
     ./ssh
     ./tmux
     ./vim
