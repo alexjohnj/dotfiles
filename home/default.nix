@@ -14,6 +14,7 @@
 
   home.packages = with pkgs; [
     (aspellWithDicts (dicts: [ dicts.en ]))
+    anki-bin
     bat
     btop
     departure-mono
