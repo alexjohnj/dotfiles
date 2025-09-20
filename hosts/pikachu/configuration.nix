@@ -155,6 +155,14 @@
     xarchiver
   ];
 
+  fonts.packages = with pkgs; [
+    inter
+    overpass
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+  ];
+
   services.playerctld.enable = true;
 
   services.gnome.gnome-keyring.enable = true;

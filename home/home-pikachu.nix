@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     inter
     overpass
+    noto-fonts
     (callPackage ../packages/orca-slicer/default.nix { })
     (callPackage ../packages/super-slicer/default.nix { })
   ];
