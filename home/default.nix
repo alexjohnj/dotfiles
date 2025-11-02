@@ -18,7 +18,7 @@
     bat
     btop
     departure-mono
-    du-dust
+    dust
     fd
     file
     imagemagick
