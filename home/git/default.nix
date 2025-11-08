@@ -6,7 +6,12 @@
   ];
 
   programs.git.enable = true;
-  programs.git.delta.enable = true;
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
   xdg.configFile = {
     "git/config".source = ./gitconfig;
     "git/ignore".source = ./gitignore;
