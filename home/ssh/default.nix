@@ -5,15 +5,18 @@
 
   programs.ssh = {
     enable = true;
-
-    controlMaster = "auto";
-    controlPath = "~/.ssh/ctrl/%r@%h:%p";
-    controlPersist = "10m";
-
-    hashKnownHosts = true;
-    addKeysToAgent = "yes";
+    enableDefaultConfig = false;
 
     matchBlocks = {
+      "*" = {
+        hashKnownHosts = true;
+        addKeysToAgent = "yes";
+
+        controlMaster = "auto";
+        controlPath = "~/.ssh/ctrl/%r@%h:%p";
+        controlPersist = "10m";
+      };
+
       "munchlax" = {
         hostname = "munchlax.pokenode.net";
         user = "root";
@@ -43,7 +46,6 @@
         hostname = "rm.pokenode.net";
         user = "root";
       };
-
     };
   };
 }
