@@ -13,6 +13,9 @@
     ./dunst
     ./gtk
     ./hypr
+    ./niri
+    ./swww
     ./waybar
+    ./wlsunset
   ];
 }

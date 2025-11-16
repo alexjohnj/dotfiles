@@ -148,12 +148,8 @@
       ];
     };
 
-    uwsm.enable = true;
-    hyprland = {
-      enable = true;
-      withUWSM = true;
-    };
     hyprlock.enable = true;
+    niri.enable = true;
   };
 
   # Enables support for volumes in thunar
@@ -164,7 +160,7 @@
     enable = true;
     settings = rec {
       default_session = {
-        command = "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop";
+        command = "niri-session";
         user = "alex";
       };
       initial_session = default_session;
@@ -174,6 +170,7 @@
   environment.systemPackages = with pkgs; [
     pavucontrol
     xarchiver
+    xwayland-satellite # Provides X11 support for niri
   ];
 
   fonts.packages = with pkgs; [

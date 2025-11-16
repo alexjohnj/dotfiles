@@ -1,0 +1,250 @@
+// https://yalter.github.io/niri/Configuration:-Introduction
+
+/*****************************************************************************************
+* STARTUP
+*****************************************************************************************/
+// spawn-at-startup "$COMMAND"
+
+/*****************************************************************************************
+* MISCELLANEOUS SETTINGS
+*****************************************************************************************/
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+/*****************************************************************************************
+* KEYBOARD & MOUSE
+*****************************************************************************************/
+input {
+    keyboard {
+        numlock
+        repeat-delay 350
+    }
+
+    mouse {
+        accel-speed -1.0
+    }
+
+    focus-follows-mouse
+}
+
+/*****************************************************************************************
+* DISPLAYS
+*
+* Run `niri msg outputs` to get display information.
+*****************************************************************************************/
+output "DP-3" {
+    mode "2560x1440@144.000"
+    scale 1.0
+    variable-refresh-rate on-demand=true
+}
+
+output "DP-2" {
+    mode "2560x1440@144.000"
+    scale 1.0
+    variable-refresh-rate on-demand=true
+    position x=-2560 y=0
+}
+
+/*****************************************************************************************
+* LAYOUT & APPEARANCE
+*
+* https://yalter.github.io/niri/Configuration:-Layout
+*****************************************************************************************/
+layout {
+    gaps 8
+    always-center-single-column
+
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    // Leave brackets empty to let windows self-size.
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        width 2
+
+        // Colours can be set in a variety of ways:
+        // - CSS named colours: "red"
+        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
+        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
+        active-color "#c8a2c8"
+        inactive-color "#595959"
+    }
+
+    struts {
+        left 8
+        right 8
+    }
+}
+
+cursor {
+    xcursor-theme "Yaru-purple-dark"
+    xcursor-size 24
+}
+
+/*****************************************************************************************
+* WINDOW RULES
+*****************************************************************************************/
+window-rule {
+    // This applies rounded corners to all windows.
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
+
+window-rule {
+    // Enable floating layout for Firefox's PiP.
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"#
+    exclude title="^Picture-in-Picture$"
+}
+
+window-rule {
+    match app-id="OrcaSlicer"
+    open-maximized true
+}
+
+window-rule {
+    // Place Steam notifications somewhere other than the middle of the screen.
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=8 y=8 relative-to="top-right"
+}
+
+/*****************************************************************************************
+* Key Bindings
+*
+* https://yalter.github.io/niri/Configuration%3A-Key-Bindings.html
+*****************************************************************************************/
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+Ctrl+Return { spawn "ghostty"; }
+    Mod+Ctrl+E { spawn "thunar"; }
+
+    Super+Space hotkey-overlay-title="Run Application" { spawn "rofi" "-show" "drun"; }
+    Super+Shift+Q hotkey-overlay-title="Power" { spawn "rofi" "-show" "power" "-modi" "power:rofi-power-menu --no-symbols"; }
+    Super+Tab { spawn "rofi" "-show" "window"; }
+
+    Super+W repeat=false { close-window; }
+    Super+Ctrl+Q hotkey-overlay-title="Lock" repeat=false { spawn "hyprlock"; }
+
+    Mod+Ctrl+H     { focus-column-left; }
+    Mod+Ctrl+J     { focus-window-or-workspace-down; }
+    Mod+Ctrl+K     { focus-window-or-workspace-up; }
+    Mod+Ctrl+L     { focus-column-right; }
+
+    Mod+Shift+Ctrl+H     { move-column-left; }
+    Mod+Shift+Ctrl+J     { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Ctrl+K     { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Ctrl+L     { move-column-right; }
+
+    Mod+Ctrl+Home { focus-column-first; }
+    Mod+Ctrl+End  { focus-column-last; }
+    Mod+Ctrl+Shift+Home { move-column-to-first; }
+    Mod+Ctrl+Shift+End  { move-column-to-last; }
+
+    Mod+Ctrl+Page_Down      { focus-workspace-down; }
+    Mod+Ctrl+Page_Up        { focus-workspace-up; }
+    Mod+Ctrl+Shift+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Shift+Page_Up   { move-column-to-workspace-up; }
+
+    Mod+Ctrl+O repeat=false { toggle-overview; }
+
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+
+    Mod+Ctrl+1 { focus-workspace 1; }
+    Mod+Ctrl+2 { focus-workspace 2; }
+    Mod+Ctrl+3 { focus-workspace 3; }
+    Mod+Ctrl+4 { focus-workspace 4; }
+    Mod+Shift+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Shift+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Shift+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Shift+Ctrl+4 { move-column-to-workspace 4; }
+
+    // The following binds move the focused window in and out of a column.
+    // If the window is alone, they will consume it into the nearby column to the side.
+    // If the window is already in a column, they will expel it out.
+    Mod+Ctrl+BracketLeft  { consume-or-expel-window-left; }
+    Mod+Ctrl+BracketRight { consume-or-expel-window-right; }
+
+    // Consume one window from the right to the bottom of the focused column.
+    Mod+Comma  { consume-window-into-column; }
+    // Expel the bottom window from the focused column to the right.
+    Mod+Period { expel-window-from-column; }
+
+    Mod+Ctrl+R { switch-preset-column-width; }
+    // Cycling through the presets in reverse order is also possible.
+    // Mod+R { switch-preset-column-width-back; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Shift+Ctrl+R { reset-window-height; }
+    Mod+Ctrl+F { maximize-column; }
+    Mod+Ctrl+Shift+F { fullscreen-window; }
+
+    Mod+Ctrl+C { center-column; }
+
+    Mod+Ctrl+Minus { set-column-width "-10%"; }
+    Mod+Ctrl+Equal { set-column-width "+10%"; }
+
+    // Finer height adjustments when in column with other windows.
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Move the focused window between the floating and the tiling layout.
+    Mod+Ctrl+Period       { toggle-window-floating; }
+
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    // Applications such as remote-desktop clients and software KVM switches may
+    // request that niri stops processing the keyboard shortcuts defined here
+    // so they may, for example, forward the key presses as-is to a remote machine.
+    // It's a good idea to bind an escape hatch to toggle the inhibitor,
+    // so a buggy application can't hold your session hostage.
+    //
+    // The allow-inhibiting=false property can be applied to other binds as well,
+    // which ensures niri always processes them, even when an inhibitor is active.
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    Ctrl+Alt+Delete { quit; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+}
+
+recent-windows {
+    previews {
+        max-height 320
+    }
+}
+
+// Local Variables:
+// jinx-local-words: "niri"
+// End:

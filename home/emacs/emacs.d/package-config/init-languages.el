@@ -130,4 +130,7 @@
 (use-package yaml-mode
   :hook ((yaml-mode . highlight-indent-guides-mode)))
 
+(use-package kdl-mode
+  :mode ("\\.kdl\\'"))
+
 (provide 'init-languages)
