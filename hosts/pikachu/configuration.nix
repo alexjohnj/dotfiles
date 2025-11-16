@@ -111,6 +111,27 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.extraConfig."99-disable-suspend" = {
+      # Don't let the audio pipeline go to sleep, eliminating sound startup
+      # delays when playing through my monitor.
+      "monitor.alsa.rules" = [
+        {
+          matches = [
+            {
+              "node.name" = "alsa_output.pci-0000_26_00.1.hdmi-stereo";
+            }
+          ];
+          actions = {
+            update-props = {
+              "session.suspend-timeout-seconds" = 0;
+              "node.always-process" = true;
+              "dither.method" = "wannamaker3";
+              "dither.noise" = 1;
+            };
+          };
+        }
+      ];
+    };
   };
 
   programs = {
