@@ -61,6 +61,13 @@ abbr pip3 "python3 -m pip"
 if type -q emulator
     abbr android:boot \
         "emulator -list-avds | fzf --height=~100% --tmux | xargs -I % -L1 emulator -no-snapshot @%"
+
+    abbr android:openurl adb shell am start -W -a android.intent.action.VIEW -d
+
+    abbr android:talkback:on \
+        "adb shell settings put secure enabled_accessibility_services com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService"
+    abbr android:talkback:off \
+        "adb shell settings put secure enabled_accessibility_services com.android.talkback/com.google.android.marvin.talkback.TalkBackService"
 end
 
 if test -f ~/.claude/local/claude
