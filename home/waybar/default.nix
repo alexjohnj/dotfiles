@@ -7,13 +7,18 @@
       mainBar = {
         layer = "top";
         modules-left = [
-          "hyprland/workspaces"
-          "hyprland/submap"
+          "niri/workspaces"
+          "niri/window"
         ];
         modules-center = [ ];
         modules-right = [
+          "tray"
           "clock"
         ];
+        tray = {
+          icon-size = 16;
+          spacing = 8;
+        };
         clock = {
           format = "{:%a %d %b  %H:%M}";
         };

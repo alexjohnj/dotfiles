@@ -7,6 +7,7 @@
 @define-color background-crust rgb(17, 17, 27);
 
 @define-color surface-zero rgb(49, 50, 68);
+@define-color surface-one rgb(69, 71, 90);
 
 * {
     border-radius: 0;
@@ -30,20 +31,30 @@ tooltip {
 #workspaces button {
     background: transparent;
     color: @text-default;
+    border-top: 1px solid transparent;
+    padding: 0px 8px;
 }
 
 #workspaces button:hover {
     border-top: 1px solid @lavender;
 }
 
-#workspaces button.visible {
-    color: @mauve;
+#workspaces button.focused {
+    border-top: 1px solid @mauve;
 }
 
-#mode, #clock, #battery {
-    padding: 8px 16px;
+#clock, #tray {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: @surface-zero;
+}
+
+#tray {
+    padding-left: 16px;
 }
 
 #clock {
-    background-color: @surface-zero;
+    /* TODO: need to use a monospaced digits font here. */
+    padding-right: 16px;
+    padding-left: 12px;
 }
