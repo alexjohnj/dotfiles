@@ -8,8 +8,8 @@ let
   pname = "orca-slicer";
   version = "2.3.0";
   src = fetchurl {
-    url = "https://github.com/SoftFever/OrcaSlicer/releases/download/v2.3.0/OrcaSlicer_Linux_AppImage_V2.3.0.AppImage";
-    hash = "sha256-cwediOw28GFdt5GdAKom/jAeNIum4FGGKnz8QEAVDAM=";
+    url = "https://github.com/OrcaSlicer/OrcaSlicer/releases/download/v2.3.1/OrcaSlicer_Linux_AppImage_Ubuntu2404_V2.3.1.AppImage";
+    hash = "sha256-8ZnlQIkU79u7+k/WdSzWrUcnIJtIi8R7/5oNpfBTpwE=";
   };
   appimageContents = appimageTools.extractType2 { inherit pname version src; };
 in
@@ -18,7 +18,7 @@ appimageTools.wrapType2 {
 
   extraPkgs = pkgs: [
     pkgs.webkitgtk_4_1
-    pkgs.glxinfo # Orca uses glxinfo to activate some NVIDIA specific performance fixes.
+    pkgs.mesa-demos # Orca uses glxinfo to activate some NVIDIA specific performance fixes.
     pkgs.mesa # It needs mesa for said NVIDIA fixes.
   ];
 
