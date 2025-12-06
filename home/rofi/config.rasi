@@ -1,5 +1,17 @@
+// -*- mode: css; indent-tabs-mode: nil; tab-width: 2; css-indent-offset: 2; -*-
+
 configuration {
-  modes: "window,drun";
+  modes: "combi,calc";
+  combi-modes: "window,drun";
+  kb-mode-next: "equal";
+
+  calc {
+    calc-command: "echo -n '{result}' | wl-copy";
+    hint-welcome: "";
+    hint-result: "";
+    no-history: true;
+    terse: true;
+  }
 }
 
 @theme "catppuccin-mocha"

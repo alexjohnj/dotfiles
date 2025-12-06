@@ -2,8 +2,9 @@
 {
   home.packages = with pkgs; [
     inter
-    overpass
     noto-fonts
+    overpass
+    wl-clipboard-rs
     (callPackage ../packages/super-slicer/default.nix { })
     (callPackage ../packages/orca-slicer/default.nix { })
   ];

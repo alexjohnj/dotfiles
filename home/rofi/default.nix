@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
-    rofi
+    (rofi.override {
+      plugins = [
+        rofi-calc
+      ];
+    })
     rofi-power-menu
   ];
 
