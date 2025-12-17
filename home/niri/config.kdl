@@ -136,7 +136,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Ctrl+Return { spawn "ghostty"; }
-    Mod+Ctrl+E { spawn "thunar"; }
+    Mod+Ctrl+E { spawn "nautilus"; }
 
     Super+Space hotkey-overlay-title="Run Application" { spawn "rofi" "-show" "combi"; }
     Super+Shift+Q hotkey-overlay-title="Power" { spawn "rofi" "-show" "power" "-modi" "power:rofi-power-menu --no-symbols"; }

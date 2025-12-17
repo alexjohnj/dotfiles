@@ -140,14 +140,6 @@
 
     steam.enable = true;
 
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
-
     hyprlock.enable = true;
     niri.enable = true;
   };
@@ -168,8 +160,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    nautilus
     pavucontrol
-    xarchiver
     xwayland-satellite # Provides X11 support for niri
   ];
 
