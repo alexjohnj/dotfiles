@@ -14,9 +14,7 @@
 
   home.packages = with pkgs; [
     (aspellWithDicts (dicts: [ dicts.en ]))
-    anki-bin
     bat
-    btop
     departure-mono
     dust
     fd
@@ -32,7 +30,6 @@
     nixfmt-rfc-style # "nix fmt" is built in but Emacs is looking for "nixfmt" which isn't.
     nodejs_22
     pandoc
-    repomix
     ripgrep
     rustup
     tmux
