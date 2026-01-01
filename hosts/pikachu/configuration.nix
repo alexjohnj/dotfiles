@@ -138,8 +138,6 @@
     # Fish must be enabled here and in home-manager
     fish.enable = true;
 
-    steam.enable = true;
-
     hyprlock.enable = true;
     niri.enable = true;
   };
