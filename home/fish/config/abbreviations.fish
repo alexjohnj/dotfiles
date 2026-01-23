@@ -69,7 +69,3 @@ if type -q emulator
     abbr android:talkback:off \
         "adb shell settings put secure enabled_accessibility_services com.android.talkback/com.google.android.marvin.talkback.TalkBackService"
 end
-
-if test -f ~/.claude/local/claude
-    alias claude "~/.claude/local/claude"
-end
