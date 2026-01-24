@@ -282,6 +282,8 @@
       "alex"
     ];
   };
+  # Enabled to fix https://github.com/tailscale/tailscale/issues/4254
+  services.resolved.enable = true;
 
   networking.firewall.enable = true;
 
