@@ -48,6 +48,10 @@ used on Pikachu include:
 - `home/rofi` as an application launcher.
 - `home/waybar` as the menu bar.
 
+### Pibox
+
+A headless Raspberry Pi 3 Model B used as an always on Tailscale exit node.
+
 ## Development Workflow
 
 ```sh

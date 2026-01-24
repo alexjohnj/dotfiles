@@ -5,6 +5,9 @@
 # but it's a different private repository.
 nix-secrets/
 
+# nix build outputs
+result
+
 # beets generated files
 config/beets/library.db
 config/beets/state.pickle

@@ -64,6 +64,17 @@
         ];
       };
 
+      # Build an SD card image with `nix build '.#nixosConfigurations.pibox.config.system.build.sdImage'`
+      nixosConfigurations.pibox = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = { inherit secrets; };
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          ./hosts/pibox/configuration.nix
+          agenix.nixosModules.default
+        ];
+      };
+
       homeConfigurations."alex@glaceon" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
         extraSpecialArgs = { inherit llm-agents; };
