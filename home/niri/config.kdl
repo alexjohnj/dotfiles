@@ -21,6 +21,10 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 *****************************************************************************************/
 input {
     keyboard {
+        xkb {
+            layout "us"
+            variant "colemak"
+        }
         numlock
         repeat-delay 350
     }
