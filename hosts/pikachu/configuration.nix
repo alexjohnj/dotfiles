@@ -161,6 +161,7 @@
     nautilus
     pavucontrol
     xwayland-satellite # Provides X11 support for niri
+    podman-compose
   ];
 
   fonts.packages = with pkgs; [
