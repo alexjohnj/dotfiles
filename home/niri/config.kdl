@@ -37,6 +37,15 @@ input {
 }
 
 /*****************************************************************************************
+* GESTURES
+*****************************************************************************************/
+gestures {
+    hot-corners {
+        top-right
+    }
+}
+
+/*****************************************************************************************
 * DISPLAYS
 *
 * Run `niri msg outputs` to get display information.
@@ -62,7 +71,6 @@ output "DP-2" {
 layout {
     gaps 8
     always-center-single-column
-
 
     preset-column-widths {
         proportion 0.33333
