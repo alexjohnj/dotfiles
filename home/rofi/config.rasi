@@ -4,6 +4,9 @@ configuration {
   modes: "combi,calc";
   combi-modes: "window,drun";
   kb-mode-next: "equal";
+  hover-select: true;
+  me-select-entry: "";
+  me-accept-entry: "MousePrimary";
 
   calc {
     calc-command: "echo -n '{result}' | wl-copy";

@@ -166,10 +166,11 @@
 
   fonts.packages = with pkgs; [
     inter
-    overpass
+    nerd-fonts.symbols-only
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
+    overpass
   ];
 
   services.playerctld.enable = true;

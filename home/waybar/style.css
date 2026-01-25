@@ -28,6 +28,15 @@ tooltip {
     color: @text-default;
 }
 
+#custom-launcher {
+    color: @text-default;
+    padding: 0px 16px;
+}
+
+#custom-launcher:hover {
+    color: @mauve;
+}
+
 #workspaces button {
     background: transparent;
     color: @text-default;

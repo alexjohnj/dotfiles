@@ -6,11 +6,16 @@
     settings = {
       mainBar = {
         layer = "top";
+        "custom/launcher" = {
+          format = "󱄅";
+          tooltip = false;
+          on-click = "pkill rofi || rofi -show drun -theme-str 'window { location: north west; anchor: north; y-offset: 8px; x-offset: 16px; }'";
+        };
         modules-left = [
+          "custom/launcher"
           "niri/workspaces"
           "niri/window"
         ];
-        modules-center = [ ];
         modules-right = [
           "tray"
           "clock"
