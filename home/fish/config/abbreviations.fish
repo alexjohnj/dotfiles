@@ -68,4 +68,7 @@ if type -q emulator
         "adb shell settings put secure enabled_accessibility_services com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService"
     abbr android:talkback:off \
         "adb shell settings put secure enabled_accessibility_services com.android.talkback/com.google.android.marvin.talkback.TalkBackService"
+
+    abbr android:pkill \
+        adb shell am force-stop
 end
