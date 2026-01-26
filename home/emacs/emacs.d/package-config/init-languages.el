@@ -75,23 +75,7 @@
          ("\\.tsx\\'" . tsx-ts-mode))
   :init
   (alex/treesit--add-source 'typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-  (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-  :config
-
-  ;; TODO: Make this a buffer local variable so that eslint is only used as a
-  ;; formatter if it's available in the project?
-  ;; Configure apheleia to run both prettier and eslint in that oredr to format JS buffers.
-  ;; eslint is a pain because it needs a custom formatter to format files in place.
-  ;; (with-eval-after-load 'apheleia
-  ;;   (defconst alex/ESLINT-FORMATTER (expand-file-name "package-config/eslint-formatter.js" user-emacs-directory))
-  ;;   (add-to-list 'apheleia-formatters
-  ;;                '(eslint . (npx "eslint" "--fix-dry-run" "--stdin" "--stdin-filename" filepath
-  ;;                                "--format" alex/ESLINT-FORMATTER)))
-  ;;   (setf (alist-get 'typescript-ts-mode apheleia-mode-alist)
-  ;;         '(prettier-typescript eslint))
-  ;;   (setf (alist-get 'tsx-ts-mode apheleia-mode-alist)
-  ;;         '(prettier-typescript eslint)))
-  )
+  (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
 
 (use-package python-ts-mode
   :straight nil
