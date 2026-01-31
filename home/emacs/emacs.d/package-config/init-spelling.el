@@ -2,7 +2,7 @@
   :straight nil ;; Installed via. nix
   :diminish
   :general
-  ([remap ispell-word] #'jinx-correct)
+  ([remap ispell-word] #'jinx-correct-word)
   (alex/leader-def
     "S s" #'jinx-correct-all
     "S n" #'jinx-next
