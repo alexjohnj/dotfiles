@@ -181,6 +181,14 @@
   security.pam.services.greetd.enableGnomeKeyring = true;
   security.pam.services.login.enableGnomeKeyring = true;
 
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
+  };
+
   users.users.alex = {
     isNormalUser = true;
     description = "Alex Jackson";
@@ -192,6 +200,9 @@
       "libvirtd"
     ];
     shell = pkgs.fish;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIr9c9JzaN5dNyoTuP63ne3MqfCWRqdulB4xIEFMf36u" # Glaceon
+    ];
   };
 
   # Enable Syncthing
