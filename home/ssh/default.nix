@@ -22,6 +22,11 @@
         user = "root";
       };
 
+      "pikachu" = {
+        user = "alex";
+        hostname = "pikachu.pokenode.net";
+      };
+
       "router" = {
         hostname = "192.168.1.1";
         user = "root";
