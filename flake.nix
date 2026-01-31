@@ -28,6 +28,14 @@
       secrets,
       ...
     }@inputs:
+    let
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "aarch64-linux"
+        "x86_64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+    in
     {
       nixosConfigurations.pikachu = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -51,9 +59,9 @@
 
       homeConfigurations."alex@glaceon" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
-        modules = [
-          ./home
-        ];
+        modules = [ ./home ];
       };
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
     };
 }
