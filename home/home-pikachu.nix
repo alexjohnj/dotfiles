@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    docker-credential-helpers
     inter
     noto-fonts
     overpass
@@ -8,6 +9,12 @@
     (callPackage ../packages/super-slicer/default.nix { })
     (callPackage ../packages/orca-slicer/default.nix { })
   ];
+
+  home.file.".config/containers/auth.json".text = builtins.toJSON {
+    credHelpers = {
+      "registry.gitlab.com" = "secretservice";
+    };
+  };
 
   programs.firefox.enable = true;
 
