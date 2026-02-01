@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.username = "alex";
   home.homeDirectory =
@@ -7,7 +7,7 @@
     else if pkgs.stdenv.hostPlatform.isDarwin then
       "/Users/alex"
     else
-      builtins.abort "Unsupported platform";
+      abort "Unsupported platform";
 
   home.stateVersion = "23.11";
   programs.home-manager.enable = true;
@@ -43,6 +43,7 @@
   alexj.ghostty.enable = true;
 
   imports = [
+    ./claude
     ./direnv
     ./emacs
     ./files
