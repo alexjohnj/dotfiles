@@ -9,6 +9,5 @@
 
 ## Plan Mode
 
-- Always ask for clarification if something is unclear.
-- Make the plan extremely concise. Sacrifice grammar for the sake of concision.
-- At the end of each plan, give me a list of unresolved questions to answer, if any.
+- Ask questions, don't assume. Use the `AskUserQuestion` tool.
+- Do not create the plan until all questions are answered.
