@@ -1,7 +1,13 @@
 set fish_greeting ""
 
 # Preferences
-set -gx EDITOR vim
+
+if type -q emacsclient
+    set -gx EDITOR "emacsclient --alternate-editor 'vim'"
+else
+    set -gx EDITOR vim
+end
+
 set -gx PGP_KEY_ID D5716AB9B3C403F8700FB842086F38162DD08BF1
 
 # Set up Homebrew & Casks
