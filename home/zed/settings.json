@@ -14,19 +14,17 @@
       "host": "munchlax",
       "projects": [
         {
-          "paths": ["/mnt/cache_nvme/appdata"]
-        }
-      ]
-    }
+          "paths": ["/mnt/cache_nvme/appdata"],
+        },
+      ],
+    },
   ],
   "project_panel": {
-    "auto_reveal_entries": false
+    "auto_reveal_entries": false,
   },
   "edit_predictions": {
-    "mode": "eager"
-  },
-  "features": {
-    "edit_prediction_provider": "copilot"
+    "provider": "mercury",
+    "mode": "eager",
   },
   "icon_theme": "Zed (Default)",
   "show_edit_predictions": true,
@@ -34,13 +32,13 @@
     "enable_feedback": false,
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5"
+      "model": "gpt-5",
     },
     "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
-    }
+      "model": "claude-sonnet-4",
+    },
   },
   "load_direnv": "shell_hook",
   "theme": "Oxocarbon Dark (IBM Carbon)",
@@ -49,52 +47,52 @@
   "buffer_font_size": 13.0,
   "buffer_font_features": {
     // Disable ligatures:
-    "calt": false
+    "calt": false,
   },
   "cursor_blink": false,
   "show_whitespaces": "all",
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "inlay_hints": {
     "enabled": true,
-    "show_type_hints": false
+    "show_type_hints": false,
   },
   "active_pane_modifiers": {
-    "border_size": 1
+    "border_size": 1,
   },
   "languages": {
     "TSX": {
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
+        "source.fixAll.eslint": true,
+      },
     },
     "TypeScript": {
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
+        "source.fixAll.eslint": true,
+      },
     },
     "JavaScript": {
       "code_actions_on_format": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": true,
       },
       "formatter": {
         "external": {
           "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
-        }
-      }
+          "arguments": ["--stdin-filepath", "{buffer_path}"],
+        },
+      },
     },
     "Swift": {
       "formatter": {
         "external": {
           "command": "swift",
-          "arguments": ["format", "format", "-"]
-        }
-      }
-    }
+          "arguments": ["format", "format", "-"],
+        },
+      },
+    },
   },
   "lsp": {
     "vtsls": {
@@ -102,14 +100,14 @@
         "typescript": {
           "tsserver": {
             "experimental": {
-              "enableProjectDiagnostics": true
-            }
+              "enableProjectDiagnostics": true,
+            },
           },
           "preferences": {
-            "importModuleSpecifier": "project-relative"
-          }
-        }
-      }
-    }
-  }
+            "importModuleSpecifier": "project-relative",
+          },
+        },
+      },
+    },
+  },
 }
