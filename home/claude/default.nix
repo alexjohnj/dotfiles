@@ -5,5 +5,11 @@
     package = null;
     memory.source = ./memory.md;
     skillsDir = ./skills;
+    settings = {
+      attribution = {
+        commit = "";
+        pr = "";
+      };
+    };
   };
 }
