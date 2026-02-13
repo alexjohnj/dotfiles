@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.agenix.follows = "agenix";
     };
+
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -26,6 +31,7 @@
       home-manager,
       agenix,
       secrets,
+      llm-agents,
       ...
     }@inputs:
     let
@@ -45,6 +51,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = { inherit llm-agents; };
               users.alex.imports = [
                 ./home
                 ./home/home-pikachu.nix
@@ -59,6 +66,7 @@
 
       homeConfigurations."alex@glaceon" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+        extraSpecialArgs = { inherit llm-agents; };
         modules = [ ./home ];
       };
 
