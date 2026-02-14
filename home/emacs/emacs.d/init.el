@@ -22,12 +22,6 @@
 
 (require 'init-elpaca)
 
-(use-package esup
-  :commands (esup)
-  :config
-  ;; Fixes incompatibility with symlinked config directories
-  (setq esup-depth 0))
-
 
 ;;; Emacs Server/Daemon
 
