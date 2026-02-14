@@ -131,7 +131,7 @@
   (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect)
   (setopt gcmh-idle-delay 'auto
           gcmh-auto-idle-delay-factor 10
-          gcmh-high-cons-threshold (* 16 1024 1024)) ; 16 MB
+          gcmh-high-cons-threshold (* 64 1024 1024)) ; 64 MB
   (gcmh-mode t))
 
 ;; HACK `tty-run-terminal-initialization' is *tremendously* slow for some
@@ -179,9 +179,6 @@
 
 (defconst alex/trash-available (if (executable-find "trash") t nil)
   "t if the trash executable is available on this system.")
-
-(defconst alex/emacs-lsp-booster-available
-  (if (executable-find "emacs-lsp-booster") t nil))
 
 ;; Keep the modeline neat and tidy
 (use-package diminish
@@ -314,12 +311,10 @@
 
 (use-package eglot-booster
   :disabled t ;; This seems to be pulling down its own copy of eglot?
-  :straight (eglot-booster :type git :host github :repo "jdtsmith/eglot-booster")
-  :when alex/emacs-lsp-booster-available
+  :when (executable-find "emacs-lsp-booster")
   :after eglot
   :config
-  (unless (version< emacs-version "30")
-    (setopt eglot-booster-io-only t))
+  (setopt eglot-booster-io-only (> emacs-major-version 29))
   (eglot-booster-mode))
 
 (use-package lsp-mode
