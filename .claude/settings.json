@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r 'select(.tool_input.file_path | endswith(\".nix\")) | .tool_input.file_path' | xargs -r nix fmt"
+          }
+        ]
+      }
+    ]
+  }
+}
