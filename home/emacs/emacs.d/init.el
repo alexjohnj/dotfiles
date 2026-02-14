@@ -40,35 +40,14 @@
       user-mail-address "alex@alexj.org")
 
 
-;; Bootstrap straight.el
+;; Bootstrap package managers
 
-(setq straight-use-package-by-default t
-      straight-build-dir (format "build-%s" emacs-version)
-      straight-check-for-modifications '(find-when-checking))
-
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 6))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-(when (version< emacs-version "29.1")
-  (straight-use-package 'use-package))
-
-(setopt use-package-compute-statistics t
-        use-package-enable-imenu-support t)
+(require 'init-elpaca)
 
 (use-package esup
   :commands (esup)
   :config
-  ;; Fixes incompatibility with symlinks and straight.el
+  ;; Fixes incompatibility with symlinked config directories
   (setq esup-depth 0))
 
 
@@ -79,6 +58,7 @@
     (server-start)))
 
 (use-package server
+  :ensure nil
   ;; Start a new Emacs server instance if one isn't running.
   :commands (server-running-p)
   :hook ((after-init . alex/start-server-if-needed)))
@@ -185,6 +165,8 @@
   :commands diminish)
 
 (use-package general
+  :demand t
+  :ensure (:wait t)
   :config
   (general-create-definer alex/leader-def
     :states '(normal motion insert emacs)
@@ -201,6 +183,7 @@
 (require 'init-evil)
 
 (use-package which-key
+  :ensure nil
   :diminish which-key-mode
   :config
   (setq which-key-idle-delay 0.3)
@@ -224,11 +207,12 @@
   (vertico-mode))
 
 (use-package savehist
+  :ensure nil
   :config
   (savehist-mode))
 
 (use-package corfu
-  :straight (:files (:defaults "extensions/*")) ;; Loads additional extensions from repo
+  :ensure (:files (:defaults "extensions/*")) ;; Loads additional extensions from repo
   :hook ((after-init . global-corfu-mode)
          (global-corfu-mode . corfu-popupinfo-mode))
   :general
@@ -291,7 +275,7 @@
   (ctrlf-mode))
 
 (use-package eglot
-  :straight nil
+  :ensure nil
   :commands (eglot eglot-ensure)
   :general
   (:keymaps 'eglot-mode-map
@@ -430,7 +414,7 @@
     (call-process (executable-find "trash") nil 0 nil file)))
 
 (use-package xcodeproj-mode
-  :straight (xcodeproj-mode :type built-in))
+  :ensure nil)
 
 (when alex/IS-MAC
   (defun alex/xed ()
@@ -459,6 +443,7 @@
 
 ;; Highlight matching parentheses
 (use-package paren
+  :ensure nil
   :init (progn
           (setq show-paren-delay 0
                 show-paren-style 'parenthesis))
@@ -523,6 +508,7 @@
 (alex/set-font)
 
 (use-package emacs
+  :ensure nil
   :config
   (load-theme 'modus-vivendi t))
 
@@ -636,6 +622,7 @@
 ;;; Basic Keybindings
 
 (use-package emacs
+  :ensure nil
   :preface
   (defun prot/keyboard-quit-dwim ()
     "Do-What-I-Mean behaviour for a general `keyboard-quit'.
@@ -797,7 +784,7 @@ The DWIM behaviour of this command is as follows:
     (dumb-jump-prefer-searcher 'rg)))
 
 (use-package eldoc
-  :straight nil
+  :ensure nil
   :diminish
   :custom
   eldoc-idle-delay 0.25)
@@ -808,6 +795,9 @@ The DWIM behaviour of this command is as follows:
 (use-package rainbow-mode
   :diminish
   :hook ((prog-mode . rainbow-mode)))
+
+;; Install a newer transient than the built-in version (required by magit, rg).
+(use-package transient :ensure (:wait t))
 
 (require 'init-tramp)
 (require 'init-projectile)

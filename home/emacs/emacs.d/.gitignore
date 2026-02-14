@@ -16,12 +16,7 @@ transient/
 .lsp-session-v1
 .dap-breakpoints
 
-!straight/versions/
-straight/build-*
-straight/repos/
-straight/links/
-straight/modified/
-straight/build-cache.el
+elpaca/
 eln-cache/
 projects
 tree-sitter/

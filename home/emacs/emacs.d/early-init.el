@@ -12,7 +12,7 @@
       native-comp-async-report-warnings-errors 'silent)
 
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
-;; loaded, but after `early-init-file'. I'm using straight.el for package
+;; loaded, but after `early-init-file'. I'm using elpaca for package
 ;; management so this isn't needed.
 (setq package-enable-at-startup nil
       package-quickstart nil)

@@ -1,7 +1,7 @@
 ;; init-languages -- Programming Language Configuration -*- lexical-binding:t -*-
 
 (use-package treesit
-  :straight nil
+  :ensure nil
   :preface
   (defun alex/treesit-install-all-grammars ()
     "Install all language grammars in the variable 'treesit-language-source-alist'."
@@ -18,7 +18,7 @@
 (require 'init-beancount-mode)
 
 (use-package dockerfile-ts-mode
-  :straight nil
+  :ensure nil
   :mode "/Dockerfile"
   :init
   (alex/treesit--add-source 'dockerfile "https://github.com/camdencheek/tree-sitter-dockerfile"))
@@ -34,7 +34,7 @@
   :defer t)
 
 (use-package json-ts-mode
-  :straight nil
+  :ensure nil
   :mode ("\\.json\\'" "\\.apns\\'")
   :init
   (alex/treesit--add-source 'json "https://github.com/tree-sitter/tree-sitter-json"))
@@ -58,19 +58,19 @@
       (add-to-list 'apheleia-mode-alist (cons 'nix-ts-mode formatter)))))
 
 (use-package css-ts-mode
-  :straight nil
+  :ensure nil
   :mode ("\\.css\\'")
   :init
   (alex/treesit--add-source 'css "https://github.com/tree-sitter/tree-sitter-css"))
 
 (use-package js-ts-mode
-  :straight nil
+  :ensure nil
   :mode (("\\.js\\'" . js-ts-mode))
   :init
   (alex/treesit--add-source 'javascript "https://github.com/tree-sitter/tree-sitter-javascript"))
 
 (use-package typescript-ts-mode
-  :straight nil
+  :ensure nil
   :mode (("\\.ts\\'" . typescript-ts-mode)
          ("\\.tsx\\'" . tsx-ts-mode))
   :init
@@ -78,12 +78,13 @@
   (alex/treesit--add-source 'tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
 
 (use-package python-ts-mode
-  :straight nil
+  :ensure nil
   :mode ("\\.py\\'")
   :init
   (alex/treesit--add-source 'python "https://github.com/tree-sitter/tree-sitter-python"))
 
 (use-package ruby-mode
+  :ensure nil
   :mode "/\\(Gem\\|Fast\\|App\\|Match\\|Pod\\)file")
 
 (use-package rust-mode

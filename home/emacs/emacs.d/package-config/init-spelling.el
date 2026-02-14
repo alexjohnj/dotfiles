@@ -1,5 +1,5 @@
 (use-package jinx
-  :straight nil ;; Installed via. nix
+  :ensure nil ;; Installed via. nix
   :diminish
   :general
   ([remap ispell-word] #'jinx-correct-word)

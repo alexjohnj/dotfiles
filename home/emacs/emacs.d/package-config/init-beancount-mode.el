@@ -1,5 +1,5 @@
 (use-package beancount
-  :straight (beancount :type built-in)
+  :ensure nil
   :mode (("\\.beancount\\'" . beancount-mode))
   :config
   (setq beancount-use-ido nil)

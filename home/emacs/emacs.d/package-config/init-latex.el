@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 (use-package tex-site
-  :straight auctex
+  :ensure (auctex)
   :mode ("\\.tex\\'" . LaTeX-mode)
   :config (progn
             (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)

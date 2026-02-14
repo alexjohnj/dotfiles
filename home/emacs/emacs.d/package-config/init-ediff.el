@@ -1,4 +1,5 @@
 (use-package ediff
+  :ensure nil
   :commands (ediff)
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain
