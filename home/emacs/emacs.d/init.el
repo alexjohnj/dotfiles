@@ -92,7 +92,19 @@
     :keymaps 'override
     :non-normal-prefix "M-SPC m"))
 
+;; Hide minor modes in the modeline. Needs to be loaded before any :diminish
+;; options in use-package forms.
+(use-package diminish
+  :commands diminish)
+
 (elpaca-wait)
+
+(require 'init-evil)
+
+
+;;; Appearance
+
+(require 'init-appearance)
 
 
 ;;; Binary Availability
@@ -106,12 +118,6 @@
 (defconst alex/trash-available (if (executable-find "trash") t nil)
   "t if the trash executable is available on this system.")
 
-;; Keep the modeline neat and tidy
-(use-package diminish
-  :commands diminish)
-
-(require 'init-evil)
-
 (use-package which-key
   :ensure nil
   :diminish which-key-mode
@@ -119,13 +125,6 @@
   (setq which-key-idle-delay 0.3)
   (which-key-setup-side-window-right-bottom)
   (which-key-mode))
-
-(use-package highlight-indent-guides
-  :diminish
-  :hook ((text-mode . highlight-indent-guides-mode)
-         (prog-mode . highlight-indent-guides-mode))
-  :config
-  (setq highlight-indent-guides-method 'character))
 
 
 ;;; Completion Frameworks
@@ -231,73 +230,6 @@
   (setopt eglot-booster-io-only (> emacs-major-version 29))
   (eglot-booster-mode))
 
-(use-package lsp-mode
-  :disabled t
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-use-plists t)
-  :preface
-  (defun lsp-booster--advice-json-parse (old-fn &rest args)
-    "Try to parse bytecode instead of json."
-    (or
-     (when (equal (following-char) ?#)
-       (let ((bytecode (read (current-buffer))))
-         (when (byte-code-function-p bytecode)
-           (funcall bytecode))))
-     (apply old-fn args)))
-
-  (defun lsp-booster--advice-final-command (old-fn cmd &optional test?)
-    "Prepend emacs-lsp-booster command to lsp CMD."
-    (let ((orig-result (funcall old-fn cmd test?)))
-      (if (and (not test?)
-               (not (file-remote-p default-directory))
-               lsp-use-plists
-               (not (functionp 'json-rpc-connection))
-               (executable-find "emacs-lsp-booster"))
-          (progn
-            (when-let ((command-from-exec-path (executable-find (car orig-result))))
-              (setcar orig-result command-from-exec-path))
-            (message "Using emacs-lsp-booster for %s!" orig-result)
-            (cons "emacs-lsp-booster" orig-result))
-        orig-result)))
-  :general
-  ("s-." #'lsp-execute-code-action
-   [f2] #'lsp-rename)
-  :config
-  (when alex/emacs-lsp-booster-available
-    (advice-add (if (progn (require 'json)
-                           (fboundp 'json-parse-buffer))
-                    'json-parse-buffer
-                  'json-read)
-                :around
-                #'lsp-booster--advice-json-parse)
-    (advice-add 'lsp-resolve-final-command :around #'lsp-booster--advice-final-command))
-
-  (when (executable-find "vscode-eslint-language-server")
-    (setopt lsp-eslint-server-command '("vscode-eslint-language-server" "--stdio")))
-
-  ;; General
-  (setopt lsp-enable-suggest-server-download nil
-          lsp-keep-workspace-alive nil)
-
-  ;; Editing
-  (setopt lsp-enable-folding nil
-          lsp-enable-text-document-color nil
-          lsp-semantic-tokens-enable nil)
-
-  ;; Completion
-  (setopt lsp-completion-provider :none ;; Completion is provided by Corfu/CAPF
-          lsp-completion-enable t)
-
-  ;; Diagnostics
-  (setopt lsp-diagnostics-provider :flycheck)
-
-  ;; UI
-  (setopt lsp-headerline-breadcrumb-enable nil
-          lsp-modeline-code-actions-enable nil
-          lsp-modeline-diagnostics-enable nil
-          lsp-modeline-workspace-status-enable nil))
-
 
 ;;; Editor Settings
 
@@ -395,59 +327,11 @@
   :diminish
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
-
-
 (use-package envrc
   :hook (after-init . envrc-global-mode))
 
 (add-to-list 'backup-directory-alist
              (cons tramp-file-name-regexp nil))
-
-
-;;; Appearance
-
-;; Flash the mode line instead of playing the bell sound.
-(setq ring-bell-function
-      (lambda ()
-        (let ((orig-fg (face-foreground 'mode-line)))
-          (set-face-foreground 'mode-line "#F2804F")
-          (run-with-idle-timer 0.1 nil
-                               (lambda (fg) (set-face-foreground 'mode-line fg))
-                               orig-fg))))
-
-;; Use my custom font if it's installed.
-(defun alex/set-font ()
-  (let ((font-name "Departure Mono"))
-    (if (member font-name (font-family-list))
-        (if (memq window-system '(mac ns)) ; Font scaling is a bit different between
-                                        ; macOS and other platforms.
-            (set-face-attribute 'default nil :font font-name :height 130 :weight 'regular)
-          (set-face-attribute 'default nil :font font-name :height 110))
-      (warn "Font %s is not installed. Using the default font." font-name))))
-
-;; Hook frame creation so the font is set when Emacs is running in server mode.
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (with-selected-frame frame (alex/set-font))))
-
-;; Set the font immediately for when Emacs isn't running in server mode.
-(alex/set-font)
-
-(use-package emacs
-  :ensure nil
-  :config
-  (load-theme 'modus-vivendi t))
-
-;; Match the fringe colour to the theme's background colour
-(set-face-attribute 'fringe nil
-                    :foreground (face-foreground 'default)
-                    :background (face-background 'default))
-
-;; Hide the titlebar when running on macOS
-(when alex/IS-MAC
-  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (setq ns-use-proxy-icon nil
-        frame-title-format nil))
 
 
 ;;; Editing Functions
@@ -717,10 +601,6 @@ The DWIM behaviour of this command is as follows:
 
 (use-package eldoc-box
   :general ([f1] #'eldoc-box-help-at-point))
-
-(use-package rainbow-mode
-  :diminish
-  :hook ((prog-mode . rainbow-mode)))
 
 ;; Install a newer transient than the built-in version (required by magit, rg).
 (use-package transient :ensure (:wait t))
