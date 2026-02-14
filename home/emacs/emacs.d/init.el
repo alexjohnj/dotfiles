@@ -6,22 +6,6 @@
 (when (version< emacs-version "27")
   (load (expand-file-name "early-init.el" user-emacs-directory)))
 
-(defconst alex/IS-MAC (eq system-type 'darwin))
-(defconst alex/IS-WINDOWS (memq system-type '(cygwin windows-nt ms-dos)))
-
-(defconst alex/IS-NATIVE-COMP (and (fboundp 'native-comp-available-p)
-                                   (native-comp-available-p)))
-
-;; Temporarily disable the file handler list during startup for improved performance.
-(defvar alex--file-name-handler-alist file-name-handler-alist)
-(setq file-name-handler-alist nil)
-
-;; Restore default settings after Emacs has started up.
-(add-hook 'emacs-startup-hook #'(lambda ()
-                                  (setq gc-cons-threshold 16777216
-                                        gc-cons-percentage 0.1
-                                        file-name-handler-alist alex--file-name-handler-alist)))
-
 ;; Stop Emacs from dumping customise values in init file.
 (let ((custom (expand-file-name "custom.el" user-emacs-directory)))
   (unless (file-exists-p custom)
@@ -64,41 +48,7 @@
   :hook ((after-init . alex/start-server-if-needed)))
 
 
-;;; Performance Optimisations (from doom-emacs)
-
-;; Disable bidirectional text rendering for a modest performance boost. I've set
-;; this to `nil' in the past, but the `bidi-display-reordering's docs say that
-;; is an undefined state and suggest this to be just as good:
-(setq-default bidi-display-reordering 'left-to-right
-              bidi-paragraph-direction 'left-to-right)
-
-;; Reduce rendering/line scan work for Emacs by not rendering cursors or regions
-;; in non-focused windows.
-(setq-default cursor-in-non-selected-windows nil)
-(setq highlight-nonselected-windows nil)
-
-;; More performant rapid scrolling over unfontified regions. May cause brief
-;; spells of inaccurate syntax highlighting right after scrolling, which should
-;; quickly self-correct.
-(setq fast-but-imprecise-scrolling t)
-
-;; Resizing the Emacs frame can be a terribly expensive part of changing the
-;; font. By inhibiting this, we halve startup times, particularly when we use
-;; fonts that are larger than the system default (which would resize the frame).
-(setq frame-inhibit-implied-resize t)
-
-;; Don't ping things that look like domain names.
-(setq ffap-machine-p-known 'reject)
-
-;; Font compacting can be terribly expensive, especially for rendering icon
-;; fonts on Windows. Whether it has a notable affect on Linux and Mac hasn't
-;; been determined, but we inhibit it there anyway.
-(setq inhibit-compacting-font-caches t)
-
-;; Performance on Windows is considerably worse than elsewhere, especially if
-;; WSL is involved. We'll need everything we can get.
-(when alex/IS-WINDOWS
-  (setq w32-get-true-file-attributes nil)) ; slightly faster IO
+;;; Performance
 
 ;; Adopt a sneaky garbage collection strategy of waiting until idle time to
 ;; collect; staving off the collector while the user is working.
@@ -113,25 +63,6 @@
           gcmh-auto-idle-delay-factor 10
           gcmh-high-cons-threshold (* 64 1024 1024)) ; 64 MB
   (gcmh-mode t))
-
-;; HACK `tty-run-terminal-initialization' is *tremendously* slow for some
-;;      reason. Disabling it completely could have many side-effects, so we
-;;      defer it until later, at which time it (somehow) runs very quickly.
-(unless (daemonp)
-  (advice-add #'tty-run-terminal-initialization :override #'ignore)
-  (add-hook 'window-setup-hook
-            (defun doom-init-tty-h ()
-              (advice-remove #'tty-run-terminal-initialization #'ignore)
-              (tty-run-terminal-initialization (selected-frame) nil t))))
-
-;; Making the initial major mode fundamental mode avoids loading in packages
-;; only used for emacs-lisp-mode.
-(setq initial-major-mode 'fundamental-mode)
-
-;; lsp-mode recommends increasing this from the default value of 4K.
-;; Not sure if this has any impact outside of lsp though.
-(when (boundp 'read-process-output-max) ; Only available in Emacs 27+
-  (setq read-process-output-max (* 1024 1024)))
 
 
 ;;; Core Packages
@@ -475,10 +406,6 @@
 
 
 ;;; Appearance
-
-;; Disable the noisy startup messages
-(setq inhibit-startup-message t)
-(setq inhibit-startup-echo-area-message t)
 
 ;; Flash the mode line instead of playing the bell sound.
 (setq ring-bell-function
