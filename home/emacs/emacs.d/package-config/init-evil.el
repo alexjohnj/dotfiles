@@ -1,4 +1,6 @@
 (use-package evil
+  :demand t
+  :ensure (:wait t)
   :init
   (setopt evil-want-keybinding nil)
   :config
@@ -10,35 +12,33 @@
     "s-]" #'evil-next-buffer)
   (evil-mode 1))
 
-(use-package undo-fu
-  :general
-  ('normal "u" #'undo-fu-only-undo
-           "C-r" #'undo-fu-only-redo))
-
 (use-package evil-collection
+  :demand t
+  :ensure (:wait t)
   :after evil
   :diminish evil-collection-unimpaired-mode
   :config
   (evil-collection-init))
 
+(use-package undo-fu
+  :general
+  ('normal "u" #'undo-fu-only-undo
+           "C-r" #'undo-fu-only-redo))
+
 (use-package evil-commentary
-  :diminish evil-commentary-mode
+  :hook (alex-first-input . evil-commentary-mode)
   :config
-  (general-def "s-/" #'evil-commentary)
-  (evil-commentary-mode t))
+  (general-def "s-/" #'evil-commentary))
 
 (use-package evil-surround
-  :after evil
-  :config
-  (global-evil-surround-mode t))
+  :hook (alex-first-input . global-evil-surround-mode))
 
 (use-package evil-escape
-  :after evil
+  :hook (alex-first-input . evil-escape-mode)
   :diminish evil-escape-mode
-  :config
-  (setopt evil-escape-key-sequence "fd"
-          evil-escape-delay 0.1)
-  (evil-escape-mode t))
+  :custom
+  (evil-escape-key-sequence "fd")
+  (evil-escape-delay 0.1))
 
 (use-package evil-cleverparens
   :hook (emacs-lisp-mode))
