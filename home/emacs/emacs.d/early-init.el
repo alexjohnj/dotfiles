@@ -6,7 +6,44 @@
 (defconst alex/IS-NATIVE-COMP (and (fboundp 'native-comp-available-p)
                                    (native-comp-available-p)))
 
-;; Most of this is taken from doom-emacs.
+;;; Custom Hooks (from smallwat3r/emacs)
+(defvar alex-first-input-hook nil
+  "Transient hook run before the first user input.")
+
+(defvar alex-first-file-hook nil
+  "Transient hook run before the first file is opened.")
+
+(defvar alex-first-buffer-hook nil
+  "Transient hook run before the first buffer switch.")
+
+(defun alex--run-first-input ()
+  "Run `alex-first-input-hook' once then remove trigger."
+  (when alex-first-input-hook
+    (run-hooks 'alex-first-input-hook)
+    (setq alex-first-input-hook nil)
+    (remove-hook 'pre-command-hook #'alex--run-first-input)))
+
+(defun alex--run-first-file ()
+  "Run `alex-first-file-hook' once then remove trigger."
+  (when alex-first-file-hook
+    (run-hooks 'alex-first-file-hook)
+    (setq alex-first-file-hook nil)
+    (remove-hook 'find-file-hook #'alex--run-first-file)))
+
+(defun alex--run-first-buffer (&rest _)
+  "Run `alex-first-buffer-hook' once then remove trigger."
+  (when alex-first-buffer-hook
+    (run-hooks 'alex-first-buffer-hook)
+    (setq alex-first-buffer-hook nil)
+    (remove-hook 'window-buffer-change-functions #'alex--run-first-buffer)))
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (add-hook 'pre-command-hook #'alex--run-first-input)
+            (add-hook 'find-file-hook #'alex--run-first-file)
+            (add-hook 'window-buffer-change-functions #'alex--run-first-buffer)))
+
+;;; Performance Tweaks (mostly from Doom Emacs)
 
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum

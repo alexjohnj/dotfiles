@@ -1,23 +1,17 @@
 ;;; config.el -*- lexical-binding: t; -*-
 ;;; Basic Configuration
 
-;; The following performance tweaks are taken from Doom Emacs.
-
 (when (version< emacs-version "27")
   (load (expand-file-name "early-init.el" user-emacs-directory)))
-
-;; Stop Emacs from dumping customise values in init file.
-(let ((custom (expand-file-name "custom.el" user-emacs-directory)))
-  (unless (file-exists-p custom)
-    (with-temp-buffer
-      (write-file custom)))
-  (setq custom-file custom))
-
-(load custom-file)
 
 ;; Setup the load path
 (add-to-list 'load-path (expand-file-name "site-packages/" user-emacs-directory)) ; Non-ELPA packages
 (add-to-list 'load-path (expand-file-name "package-config/" user-emacs-directory)) ; Package configuration
+
+;; Stop Emacs from dumping customise values in init file.
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file 'noerror 'nomessage))
 
 ;; Say hi
 (setq user-full-name "Alex Jackson"
@@ -56,22 +50,23 @@
 ;; This is set up a little different to how doom-emacs sets it up.
 ;;
 (use-package gcmh
-  :diminish
+  :hook (alex-first-buffer . gcmh-mode)
   :config
   (add-function :after after-focus-change-function #'gcmh-idle-garbage-collect)
-  (setopt gcmh-idle-delay 'auto
-          gcmh-auto-idle-delay-factor 10
-          gcmh-high-cons-threshold (* 64 1024 1024)) ; 64 MB
-  (gcmh-mode t))
+  (setq gcmh-idle-delay 'auto
+        gcmh-auto-idle-delay-factor 10
+        ;; 64 MB
+        gcmh-high-cons-threshold (* 64 1024 1024)))
 
 
 ;;; Core Packages
 
-;; I've set up the configuration for core packages early in init because they're used so much later on.
+;; These packages need to be loaded early because other packages depend on them.
 
 ;; Ensure the system PATH is picked up properly by Emacs
 (use-package exec-path-from-shell
-  :when (memq system-type '(darwin))
+  :demand alex/IS-MAC
+  :when alex/IS-MAC
   :config
   ;; By default exec-path-from-shell uses an interactive login shell which is
   ;; slow. Setting this to nil speeds things up a lot.
@@ -81,6 +76,26 @@
     (add-to-list 'exec-path-from-shell-variables env-variable))
 
   (exec-path-from-shell-initialize))
+
+(use-package general
+  :demand t
+  :config
+  (general-create-definer alex/leader-def
+    :states '(normal motion insert emacs)
+    :prefix "SPC"
+    :keymaps 'override
+    :non-normal-prefix "M-SPC")
+
+  (general-create-definer alex/leader-local-def
+    :states '(normal motion insert emacs)
+    :prefix "SPC m"
+    :keymaps 'override
+    :non-normal-prefix "M-SPC m"))
+
+(elpaca-wait)
+
+
+;;; Binary Availability
 
 (defconst alex/rg-available (if (executable-find "rg") t nil)
   "t if the rg executable is available on this system.")
@@ -94,22 +109,6 @@
 ;; Keep the modeline neat and tidy
 (use-package diminish
   :commands diminish)
-
-(use-package general
-  :demand t
-  :ensure (:wait t)
-  :config
-  (general-create-definer alex/leader-def
-    :states '(normal motion insert emacs)
-    :prefix "SPC"
-    :keymaps 'override
-    :non-normal-prefix "M-SPC")
-
-  (general-create-definer alex/leader-local-def
-    :states '(normal motion insert emacs)
-    :prefix "SPC m"
-    :keymaps 'override
-    :non-normal-prefix "M-SPC m"))
 
 (require 'init-evil)
 
