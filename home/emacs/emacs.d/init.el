@@ -409,19 +409,6 @@
       (kill-new filename)
       (message filename))))
 
-(defun alex/copy-relative-buffer-path ()
-  "Copy the path to the file the current buffer is visiting, relative to the project root. If not in a project, copies the absolute path."
-  (interactive)
-  (if (buffer-file-name)
-      (let* ((project-root (projectile-project-root))
-             (file-path (buffer-file-name))
-             (relative-path (if project-root
-                                (file-relative-name file-path project-root)
-                              file-path)))
-        (kill-new relative-path)
-        (message relative-path))
-    (error "Buffer is not visiting a file")))
-
 
 ;;; Basic Keybindings
 
@@ -600,7 +587,7 @@ The DWIM behaviour of this command is as follows:
 (use-package transient :ensure (:wait t))
 
 (require 'init-tramp)
-(require 'init-projectile)
+(require 'init-project)
 (require 'init-diagnostics)
 (require 'init-rainbow-delimiters)
 (require 'init-magit)
