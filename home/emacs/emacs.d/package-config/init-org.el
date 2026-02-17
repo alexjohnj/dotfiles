@@ -1,4 +1,4 @@
-;; init-org.el --- Configuration for org-mode and related packages.
+;; init-org.el --- Configuration for org-mode and related packages. -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 

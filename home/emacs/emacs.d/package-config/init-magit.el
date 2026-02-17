@@ -1,3 +1,5 @@
+;;; init-magit.el --- Magit configuration -*- lexical-binding: t -*-
+
 (use-package magit
   :commands (magit-dispatch
              magit-status

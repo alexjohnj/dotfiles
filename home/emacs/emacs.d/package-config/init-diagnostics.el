@@ -1,19 +1,8 @@
-(use-package flycheck
-  :disabled t
-  :hook ((prog-mode . flycheck-mode))
-  :general (alex/leader-def
-             "e c" #'flycheck-buffer
-             "e n" #'flycheck-next-error
-             "e p" #'flycheck-previous-error
-             "e l" #'flycheck-list-errors
-             "e t" #'flycheck-mode
-             "e v" #'flycheck-verify-setup)
-  :init
-  (which-key-add-key-based-replacements "SPC e" "Flycheck"))
+;;; init-diagnostics.el --- Flymake configuration -*- lexical-binding: t -*-
 
 (use-package flymake
-  :hook ((prog-mode . flymake-mode))
   :ensure nil ; Ensure the built in flymake package is used.
+  :hook ((prog-mode . flymake-mode))
   :general (alex/leader-def
              "e c" #'flymake-start
              "e n" #'flymake-goto-next-error

@@ -1,3 +1,5 @@
+;;; init-rg.el --- Ripgrep configuration -*- lexical-binding: t -*-
+
 (use-package rg
   :when alex/rg-available
   :commands (rg rg-project)

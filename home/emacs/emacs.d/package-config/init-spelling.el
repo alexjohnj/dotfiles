@@ -1,3 +1,5 @@
+;;; init-spelling.el --- Spell checking configuration -*- lexical-binding: t -*-
+
 (use-package jinx
   :ensure nil ;; Installed via. nix
   :diminish

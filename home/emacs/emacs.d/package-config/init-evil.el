@@ -1,3 +1,5 @@
+;;; init-evil.el --- Evil mode configuration -*- lexical-binding: t -*-
+
 (use-package evil
   :demand t
   :ensure (:wait t)

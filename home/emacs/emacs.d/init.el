@@ -300,10 +300,10 @@
 ;; Highlight matching parentheses
 (use-package paren
   :ensure nil
-  :init (progn
-          (setq show-paren-delay 0
-                show-paren-style 'parenthesis))
-  :hook (prog-mode . show-paren-mode))
+  :hook (prog-mode . show-paren-mode)
+  :config
+  (setopt show-paren-delay 0
+          show-paren-style 'parenthesis))
 
 ;; Pretty print line-feed characters. I think the only place I use line-feeds is
 ;; in this file!
@@ -478,7 +478,6 @@ The DWIM behaviour of this command is as follows:
   "v" #'split-window-right)
 
 (use-package ace-window
-  :commands ace-window
   :general
   (alex/leader-def :infix "w"
     "w" #'ace-window

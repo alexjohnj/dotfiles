@@ -1,3 +1,5 @@
+;;; init-deft.el --- Deft configuration -*- lexical-binding: t -*-
+
 (use-package deft
   :general
   (alex/leader-def "n" #'deft)

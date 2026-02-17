@@ -1,4 +1,4 @@
-;;; init-latex --- LaTeX Editing Modes
+;;; init-latex.el --- LaTeX Editing Modes -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 (use-package tex-site

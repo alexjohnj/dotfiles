@@ -1,3 +1,5 @@
+;;; init-eat.el --- Eat terminal emulator -*- lexical-binding: t -*-
+
 (use-package eat
   :after evil
   :commands (eat)

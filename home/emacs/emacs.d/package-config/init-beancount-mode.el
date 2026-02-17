@@ -1,3 +1,5 @@
+;;; init-beancount-mode.el --- Beancount mode configuration -*- lexical-binding: t -*-
+
 (use-package beancount
   :ensure nil
   :mode (("\\.beancount\\'" . beancount-mode))

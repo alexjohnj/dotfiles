@@ -1,3 +1,5 @@
+;;; init-ediff.el --- Ediff configuration -*- lexical-binding: t -*-
+
 (use-package ediff
   :ensure nil
   :commands (ediff)
