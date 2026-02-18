@@ -71,7 +71,7 @@
 (push '(vertical-scroll-bars) default-frame-alist)
 (push '(ns-appearance . dark) default-frame-alist)
 (push '(ns-transparent-titlebar . t) default-frame-alist)
-(push '(background-color . "#0f0e06") default-frame-alist)
+(push '(background-color . "#000000") default-frame-alist)
 
 ;; Disable expensive GUI elements early
 (setq inhibit-startup-screen t
