@@ -37,7 +37,10 @@
   :ensure nil
   :mode ("\\.json\\'" "\\.apns\\'")
   :init
-  (alex/treesit--add-source 'json "https://github.com/tree-sitter/tree-sitter-json"))
+  (alex/treesit--add-source 'json "https://github.com/tree-sitter/tree-sitter-json")
+  :config
+  (alex/leader-local-def json-ts-mode-map
+    "p" #'json-pretty-print-buffer))
 
 (require 'init-latex)
 
