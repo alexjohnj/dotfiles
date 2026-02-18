@@ -10,6 +10,11 @@
         commit = "";
         pr = "";
       };
+      sandbox = {
+        enabled = true;
+        allowUnsandboxedCommands = false;
+        dangerouslyDisableSandbox = false;
+      };
     };
   };
 }
