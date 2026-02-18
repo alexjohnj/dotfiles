@@ -25,7 +25,9 @@
     "p c" #'project-compile
 
     "p g" #'alex-project-find-regexp
-    "p r" #'project-query-replace-regexp)
+    "p r" #'project-query-replace-regexp
+
+    "p S" #'alex-project-save-buffers)
   :config
   (setopt project-switch-commands #'magit-project-status))
 
@@ -52,5 +54,19 @@
         (kill-new relative-path)
         (message relative-path))
     (error "Buffer is not visiting a file")))
+
+(defun alex-project-save-buffers ()
+  "Save all file-visiting buffers in the current project."
+  (interactive)
+  (let* ((proj (project-current t))
+         (root (project-root proj))
+         (saved 0))
+    (dolist (buf (project-buffers proj))
+      (when (and (buffer-file-name buf)
+                 (buffer-modified-p buf))
+        (with-current-buffer buf
+          (save-buffer)
+          (cl-incf saved))))
+    (message "Saved %d buffer(s) in %s" saved root)))
 
 (provide 'init-project)
