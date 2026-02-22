@@ -54,8 +54,26 @@
     "/dev/disk/by-uuid/91e75985-10c9-42bb-8657-5b76c1b1dc9e";
 
   # Networking
-  networking.hostName = "pikachu";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "pikachu";
+    firewall.enable = true;
+    useDHCP = false; # systemd-networkd handles DHCP
+  };
+
+  systemd.network = {
+    enable = true;
+    wait-online.enable = false;
+
+    networks."10-lan" = {
+      matchConfig.Name = "enp34s0";
+      networkConfig = {
+        DHCP = "yes";
+      };
+    };
+  };
+
+  # Enabled to fix https://github.com/tailscale/tailscale/issues/4254
+  services.resolved.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -193,7 +211,6 @@
     isNormalUser = true;
     description = "Alex Jackson";
     extraGroups = [
-      "networkmanager"
       "wheel"
       "audio"
       "docker"
@@ -295,10 +312,6 @@
       "alex"
     ];
   };
-  # Enabled to fix https://github.com/tailscale/tailscale/issues/4254
-  services.resolved.enable = true;
-
-  networking.firewall.enable = true;
 
   virtualisation = {
     libvirtd.enable = true;
