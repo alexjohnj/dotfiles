@@ -20,6 +20,7 @@
     gc = {
       automatic = true;
       dates = "weekly";
+      randomizedDelaySec = "10 min";
       options = "--delete-older-than 30d";
     };
   };
@@ -266,6 +267,7 @@
         timerConfig = {
           OnCalendar = "hourly";
           Persistent = true;
+          RandomizedDelaySec = "5 min";
         };
         paths = [ homeDir ];
         pruneOpts = [
@@ -281,6 +283,7 @@
         timerConfig = {
           OnCalendar = "daily";
           Persistent = true;
+          RandomizedDelaySec = "5 min";
         };
         paths = [
           "${homeDir}/Desktop"
