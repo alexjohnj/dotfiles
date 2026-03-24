@@ -41,7 +41,7 @@
     },
   },
   "load_direnv": "shell_hook",
-  "theme": "Oxocarbon Dark (IBM Carbon)",
+  "theme": "Modus Vivendi",
   "vim_mode": true,
   "buffer_font_family": "Departure Mono",
   "buffer_font_size": 13.0,
