@@ -9,6 +9,16 @@
             "command": "jq -r 'select(.tool_input.file_path | endswith(\".nix\")) | .tool_input.file_path' | xargs -r nix fmt"
           }
         ]
+      },
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r 'select(.tool_input.file_path | endswith(\"niri/config.kdl\")) | .tool_input.file_path' | xargs -r niri validate --config",
+            "statusMessage": "Validating niri config..."
+          }
+        ]
       }
     ]
   }
