@@ -7,7 +7,6 @@
     overpass
     wl-clipboard-rs
     (callPackage ../packages/super-slicer/default.nix { })
-    (callPackage ../packages/orca-slicer/default.nix { })
   ];
 
   home.file.".config/containers/auth.json".text = builtins.toJSON {
