@@ -9,8 +9,8 @@
   {
     "context": "vim_mode == insert",
     "bindings": {
-      "f d": "vim::NormalBefore"
-    }
+      "f d": "vim::NormalBefore",
+    },
   },
   {
     "context": "(EmptyPane || SharedScreen) || (VimControl && !menu)",
@@ -18,8 +18,9 @@
       "space f f": "file_finder::Toggle",
       "space p f": "file_finder::Toggle",
       "space p p": "projects::OpenRecent",
-      "space p S": "workspace::SaveAll"
-    }
+      "space p S": "workspace::SaveAll",
+      "space p y": "workspace::CopyRelativePath",
+    },
   },
   {
     "context": "VimControl && !menu",
@@ -32,43 +33,43 @@
       "space w shift-j": "workspace::SwapPaneDown",
       "space w shift-k": "workspace::SwapPaneUp",
       "space w shift-l": "workspace::SwapPaneRight",
-      "space w w": "workspace::ActivateNextPane"
-    }
+      "space w w": "workspace::ActivateNextPane",
+    },
   },
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "space w C": "pane::CloseInactiveItems",
+      "space w C": "pane::CloseOtherItems",
       "space w s": "pane::SplitHorizontal",
-      "space w v": "pane::SplitVertical"
-    }
+      "space w v": "pane::SplitVertical",
+    },
   },
   {
     "context": "VimControl && !menu",
     "bindings": {
       "space b d": "pane::CloseActiveItem",
-      "space b b": "tab_switcher::Toggle"
-    }
+      "space b b": "tab_switcher::Toggle",
+    },
   },
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "space g s": "git_panel::ToggleFocus"
-    }
+      "space g s": "git_panel::ToggleFocus",
+    },
   },
   {
     "context": "GitPanel",
     "bindings": {
       "space g s": "git_panel::Close",
       "s": "git::StageFile",
-      "u": "git::UnstageFile"
-    }
+      "u": "git::UnstageFile",
+    },
   },
   {
     "context": "Editor",
     "bindings": {
-      "alt-q": "editor::Rewrap"
-    }
+      "alt-q": "editor::Rewrap",
+    },
   },
   {
     "context": "Editor && VimControl",
@@ -78,7 +79,7 @@
       "space e n": "editor::GoToDiagnostic",
       "space e p": "editor::GoToPreviousDiagnostic",
       "space i": "outline::Toggle",
-      "space g f b": "git::Blame"
-    }
-  }
+      "space g f b": "git::Blame",
+    },
+  },
 ]
