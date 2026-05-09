@@ -34,7 +34,7 @@
     ./gtk
     ./hypr
     ./niri
-    ./swww
+    ./awww
     ./waybar
     ./wlsunset
   ];
