@@ -9,6 +9,7 @@
 
 (use-package tramp
   :ensure nil
+  :defer
   :config
   (setopt remote-file-name-inhibit-locks t
           tramp-use-scp-direct-remote-copying t
