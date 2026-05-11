@@ -13,12 +13,15 @@
   :init
   (which-key-add-key-based-replacements "SPC g" "Magit")
   :config
-  (setq magit-section-initial-visibility-alist
-        '(([unpushed status] . show)
-          ([unstaged status] . show)
-          ([untracked status] . show)))
+  (put 'magit-diff-edit-hunk-commit 'disabled nil)
+
+  (setopt magit-section-initial-visibility-alist
+          '(([unpushed status] . show)
+            ([unstaged status] . show)
+            ([untracked status] . show)))
+
   (remove-hook 'magit-refs-sections-hook 'magit-insert-tags)
-  (setq magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
+  (setopt magit-display-buffer-function 'magit-display-buffer-same-window-except-diff-v1)
 
   (defun alex/copy-branch-name (prefix)
     "Copy the name of the branch at point or the current branch's
