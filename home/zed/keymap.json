@@ -61,6 +61,11 @@
     "context": "GitPanel",
     "bindings": {
       "space g s": "git_panel::Close",
+    },
+  },
+  {
+    "context": "GitPanel && ChangesList && !GitBranchSelector",
+    "bindings": {
       "s": "git::StageFile",
       "u": "git::UnstageFile",
     },
