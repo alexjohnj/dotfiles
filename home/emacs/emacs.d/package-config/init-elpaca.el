@@ -58,5 +58,9 @@
         use-package-enable-imenu-support t
         use-package-compute-statistics t)
 
+(defun alex--write-elpaca-lock-file ()
+  (interactive)
+  (elpaca-write-lock-file elpaca-lock-file))
+
 (provide 'init-elpaca)
 ;;; init-elpaca.el ends here
