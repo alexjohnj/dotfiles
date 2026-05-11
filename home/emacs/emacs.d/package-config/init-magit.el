@@ -41,12 +41,4 @@ always copies the name of the current branch."
   :hook (magit-mode . magit-delta-mode)
   :diminish)
 
-(use-package git-timemachine
-  :commands (git-timemachine)
-  :general
-  (alex/leader-def
-    "g t" #'git-timemachine)
-  :config
-  (evil-set-initial-state 'git-timemachine-mode 'emacs))
-
 (provide 'init-magit)
