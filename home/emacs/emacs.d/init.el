@@ -153,10 +153,13 @@
 ;; Adds icons to the margins of the Corfu completion popup.
 (use-package kind-icon
   :after corfu
+  :defer
+  :init
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
   :config
   (setq kind-icon-default-face 'corfu-default
-        kind-icon-use-icons nil) ;; Use text based icons instead of SVGs.
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+        kind-icon-use-icons nil  ;; Use text based icons instead of SVGs.
+        ))
 
 ;; Provides additional completion at point functions
 (use-package cape
