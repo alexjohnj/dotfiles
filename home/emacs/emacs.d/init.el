@@ -586,7 +586,7 @@ The DWIM behaviour of this command is as follows:
   :general ([f1] #'eldoc-box-help-at-point))
 
 ;; Install a newer transient than the built-in version (required by magit, rg).
-(use-package transient :ensure (:wait t))
+(use-package transient :ensure (:wait t) :defer)
 
 (require 'init-tramp)
 (require 'init-project)
