@@ -16,6 +16,7 @@ in
     memory.source = ./memory.md;
     skillsDir = ./skills;
     settings = {
+      tui = "fullscreen";
       attribution = {
         commit = "";
         pr = "";
