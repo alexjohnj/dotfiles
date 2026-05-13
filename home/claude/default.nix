@@ -25,6 +25,9 @@ in
         type = "command";
         command = "${statusLineScript}/bin/claude-statusline";
       };
+      permissions = {
+        defaultMode = "acceptEdits";
+      };
       sandbox = {
         enabled = true;
         allowUnsandboxedCommands = false;
