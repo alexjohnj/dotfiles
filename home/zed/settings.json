@@ -7,6 +7,15 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "disable_ai": false,
   "buffer_line_height": "comfortable",
   "ssh_connections": [
@@ -20,6 +29,7 @@
     },
   ],
   "project_panel": {
+    "dock": "left",
     "auto_reveal_entries": false,
   },
   "edit_predictions": {
@@ -29,6 +39,7 @@
   "icon_theme": "Zed (Default)",
   "show_edit_predictions": true,
   "agent": {
+    "dock": "right",
     "enable_feedback": false,
     "inline_assistant_model": {
       "provider": "copilot_chat",
