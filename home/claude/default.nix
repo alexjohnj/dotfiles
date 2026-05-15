@@ -17,17 +17,23 @@ in
     skillsDir = ./skills;
     settings = {
       tui = "fullscreen";
+      showThinkingSummaries = true;
+      showClearContextOnPlanAccept = true;
+
       attribution = {
         commit = "";
         pr = "";
       };
+
       statusLine = {
         type = "command";
         command = "${statusLineScript}/bin/claude-statusline";
       };
+
       permissions = {
         defaultMode = "acceptEdits";
       };
+
       sandbox = {
         enabled = true;
         allowUnsandboxedCommands = false;
