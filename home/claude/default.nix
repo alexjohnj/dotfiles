@@ -13,8 +13,8 @@ in
   programs.claude-code = {
     enable = true;
     package = llm-agents.packages.${pkgs.system}.claude-code;
-    memory.source = ./memory.md;
-    skillsDir = ./skills;
+    context = ./memory.md;
+    skills = ./skills;
     settings = {
       tui = "fullscreen";
       showThinkingSummaries = true;
