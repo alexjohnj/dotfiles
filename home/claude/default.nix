@@ -18,7 +18,9 @@ in
     settings = {
       tui = "fullscreen";
       showThinkingSummaries = true;
+      awaySummaryEnabled = false;
       showClearContextOnPlanAccept = true;
+      skipAutoPermissionPrompt = true;
 
       attribution = {
         commit = "";
@@ -31,7 +33,7 @@ in
       };
 
       permissions = {
-        defaultMode = "acceptEdits";
+        defaultMode = "auto";
       };
 
       sandbox = {
