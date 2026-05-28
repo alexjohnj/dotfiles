@@ -1,4 +1,9 @@
-{ llm-agents, pkgs, ... }:
+{
+  llm-agents,
+  lib,
+  pkgs,
+  ...
+}:
 let
   statusLineScript = pkgs.writeShellApplication {
     name = "claude-statusline";
@@ -40,6 +45,30 @@ in
         enabled = true;
         allowUnsandboxedCommands = false;
         dangerouslyDisableSandbox = false;
+      };
+
+      hooks = {
+        SessionStart = [
+          {
+            hooks = [
+              {
+                type = "command";
+                command = "${lib.getExe pkgs.direnv} export bash > $CLAUDE_ENV_FILE";
+              }
+            ];
+          }
+        ];
+
+        CwdChanged = [
+          {
+            hooks = [
+              {
+                type = "command";
+                command = "${lib.getExe pkgs.direnv} export bash > $CLAUDE_ENV_FILE";
+              }
+            ];
+          }
+        ];
       };
     };
   };
