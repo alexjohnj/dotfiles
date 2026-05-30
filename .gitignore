@@ -1,3 +1,6 @@
+# nix build products
+/result
+
 # nix-secrets repository. I clone this inside the dotfiles repo for convenience
 # but it's a different private repository.
 nix-secrets/
