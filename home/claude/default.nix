@@ -39,6 +39,10 @@ in
 
       permissions = {
         defaultMode = "auto";
+
+        deny = [
+          "Bash(direnv *)"
+        ];
       };
 
       sandbox = {
