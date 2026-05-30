@@ -17,7 +17,7 @@ in
 {
   programs.claude-code = {
     enable = true;
-    package = llm-agents.packages.${pkgs.system}.claude-code;
+    package = llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
     context = ./memory.md;
     skills = ./skills;
     settings = {
