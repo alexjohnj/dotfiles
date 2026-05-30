@@ -16,5 +16,6 @@
       package = pkgs.yaru-theme;
       size = 24;
     };
+    gtk4.theme = null;
   };
 }
