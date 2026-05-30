@@ -7,49 +7,49 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
       "*" = {
-        hashKnownHosts = true;
-        addKeysToAgent = "yes";
+        HashKnownHosts = true;
+        AddKeysToAgent = "yes";
 
-        controlMaster = "auto";
-        controlPath = "~/.ssh/ctrl/%r@%h:%p";
-        controlPersist = "10m";
+        ControlMaster = "auto";
+        ControlPath = "~/.ssh/ctrl/%r@%h:%p";
+        ControlPersist = "10m";
       };
 
       "munchlax" = {
-        hostname = "munchlax.pokenode.net";
-        user = "root";
+        HostName = "munchlax.pokenode.net";
+        User = "root";
       };
 
       "pikachu" = {
-        user = "alex";
-        hostname = "pikachu.pokenode.net";
+        User = "alex";
+        HostName = "pikachu.pokenode.net";
       };
 
       "router" = {
-        hostname = "192.168.1.1";
-        user = "root";
+        HostName = "192.168.1.1";
+        User = "root";
       };
 
       "pibox" = {
-        hostname = "pibox.home.arpa";
-        user = "alex";
+        HostName = "pibox.home.arpa";
+        User = "alex";
       };
 
       "v0" = {
-        hostname = "v0.home.arpa";
-        user = "pi";
+        HostName = "v0.home.arpa";
+        User = "pi";
       };
 
       "v2" = {
-        hostname = "v2.home.arpa";
-        user = "biqu";
+        HostName = "v2.home.arpa";
+        User = "biqu";
       };
 
       "remarkable" = {
-        hostname = "rm.pokenode.net";
-        user = "root";
+        HostName = "rm.pokenode.net";
+        User = "root";
       };
     };
   };
