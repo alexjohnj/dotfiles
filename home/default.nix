@@ -19,6 +19,7 @@
     dust
     fd
     file
+    gh
     imagemagick
     iperf
     jq
