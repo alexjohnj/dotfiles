@@ -84,7 +84,10 @@
       homeConfigurations."alex@glaceon" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
         extraSpecialArgs = { inherit llm-agents mattpocock-skills; };
-        modules = [ ./home ];
+        modules = [
+          ./home
+          ./home/home-glaceon.nix
+        ];
       };
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt);
