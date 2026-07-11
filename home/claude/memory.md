@@ -10,9 +10,9 @@
 ## Plan Mode
 
 - Ask questions, don't assume. Use the `AskUserQuestion` tool.
-- Do not create the plan until all questions are answered.
 
 ## Tools
 
 - Always use `gh` to interact with GitHub.
 - Always use `jq` to process JSON instead of creating temporary scripts.
+- When additional tools are required, prefer using nix dev shells to obtain them instead of installing them systemwide.
