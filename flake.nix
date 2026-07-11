@@ -23,6 +23,11 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mattpocock-skills = {
+      url = "github:mattpocock/skills";
+      flake = false;
+    };
   };
   outputs =
     {
@@ -32,6 +37,7 @@
       agenix,
       secrets,
       llm-agents,
+      mattpocock-skills,
       ...
     }@inputs:
     let
@@ -51,7 +57,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit llm-agents; };
+              extraSpecialArgs = { inherit llm-agents mattpocock-skills; };
               users.alex.imports = [
                 ./home
                 ./home/home-pikachu.nix
@@ -77,7 +83,7 @@
 
       homeConfigurations."alex@glaceon" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
-        extraSpecialArgs = { inherit llm-agents; };
+        extraSpecialArgs = { inherit llm-agents mattpocock-skills; };
         modules = [ ./home ];
       };
 

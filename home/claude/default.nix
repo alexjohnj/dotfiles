@@ -1,5 +1,6 @@
 {
   llm-agents,
+  mattpocock-skills,
   lib,
   pkgs,
   ...
@@ -13,13 +14,24 @@ let
     ];
     text = builtins.readFile ./statusline.sh;
   };
+
+  localSkills = lib.mapAttrs (name: _: ./skills + "/${name}") (builtins.readDir ./skills);
+
+  # Selected skills from https://github.com/mattpocock/skills
+  mattpocockProductivitySkills = lib.genAttrs [
+    "grilling"
+    "grill-me"
+    "handoff"
+    "teach"
+    "writing-great-skills"
+  ] (name: "${mattpocock-skills}/skills/productivity/${name}");
 in
 {
   programs.claude-code = {
     enable = true;
     package = llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
     context = ./memory.md;
-    skills = ./skills;
+    skills = localSkills // mattpocockProductivitySkills;
     settings = {
       tui = "fullscreen";
       showThinkingSummaries = true;
