@@ -18,7 +18,7 @@
   # podman/docker default to $XDG_RUNTIME_DIR/containers/auth.json (tmpfs, wiped
   # on reboot), which bypasses the credHelpers config above. Point at the
   # persistent file instead so logins actually go through secretservice.
-  home.ssessionVariables.REGISTRY_AUTH_FILE = "${config.xdg.configHome}/containers/auth.json";
+  home.sessionVariables.REGISTRY_AUTH_FILE = "${config.xdg.configHome}/containers/auth.json";
 
   programs.firefox = {
     enable = true;
