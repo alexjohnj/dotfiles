@@ -56,6 +56,7 @@
     ./ssh
     ./tmux
     ./vim
+    ./yomitan-api
     ./zed
   ];
 }

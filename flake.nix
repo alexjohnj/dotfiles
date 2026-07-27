@@ -28,6 +28,11 @@
       url = "github:mattpocock/skills";
       flake = false;
     };
+
+    yomitan-api = {
+      url = "github:yomidevs/yomitan-api";
+      flake = false;
+    };
   };
   outputs =
     {
@@ -38,6 +43,7 @@
       secrets,
       llm-agents,
       mattpocock-skills,
+      yomitan-api,
       ...
     }@inputs:
     let
@@ -57,7 +63,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit llm-agents mattpocock-skills; };
+              extraSpecialArgs = { inherit llm-agents mattpocock-skills yomitan-api; };
               users.alex.imports = [
                 ./home
                 ./home/home-pikachu.nix
@@ -83,7 +89,7 @@
 
       homeConfigurations."alex@glaceon" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."aarch64-darwin";
-        extraSpecialArgs = { inherit llm-agents mattpocock-skills; };
+        extraSpecialArgs = { inherit llm-agents mattpocock-skills yomitan-api; };
         modules = [
           ./home
           ./home/home-glaceon.nix

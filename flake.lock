@@ -182,7 +182,8 @@
         "llm-agents": "llm-agents",
         "mattpocock-skills": "mattpocock-skills",
         "nixpkgs": "nixpkgs",
-        "secrets": "secrets"
+        "secrets": "secrets",
+        "yomitan-api": "yomitan-api"
       }
     },
     "secrets": {
@@ -257,6 +258,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "yomitan-api": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1782613350,
+        "narHash": "sha256-Xi4APBmsE8lU+BT13KvnaSeHxXzrz/2eMHmNHUiB7GE=",
+        "owner": "yomidevs",
+        "repo": "yomitan-api",
+        "rev": "d6a79d184062a048549fa8e82e3a880e2c2783e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yomidevs",
+        "repo": "yomitan-api",
         "type": "github"
       }
     }
