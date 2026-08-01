@@ -327,6 +327,14 @@
 
   programs.virt-manager.enable = true;
 
+  programs.steam = {
+    enable = true;
+    # Steam's own sandbox otherwise can't resolve the cursor theme and falls
+    # back to the plain X cursor. https://github.com/NixOS/nixpkgs/issues/437281
+    extraPackages = [ pkgs.yaru-theme ];
+  };
+  programs.gamemode.enable = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
