@@ -33,6 +33,11 @@
       url = "github:yomidevs/yomitan-api";
       flake = false;
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/v5.0.0-beta.7";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -44,6 +49,7 @@
       llm-agents,
       mattpocock-skills,
       yomitan-api,
+      noctalia,
       ...
     }@inputs:
     let
@@ -67,6 +73,7 @@
               users.alex.imports = [
                 ./home
                 ./home/home-pikachu.nix
+                noctalia.homeModules.default
               ];
             };
           }

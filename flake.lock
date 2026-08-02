@@ -175,6 +175,27 @@
         "url": "https://flakehub.com/f/DeterminateSystems/nixpkgs-weekly/0.1"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785444393,
+        "narHash": "sha256-9RlJNIy2DFVm9SB2vwGEBsbHc1r3dIB+K+b+nd6Bdho=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia",
+        "rev": "c366a35ffc30b011d03fcd122bbe7d22f932fc57",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "ref": "v5.0.0-beta.7",
+        "repo": "noctalia",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -182,6 +203,7 @@
         "llm-agents": "llm-agents",
         "mattpocock-skills": "mattpocock-skills",
         "nixpkgs": "nixpkgs",
+        "noctalia": "noctalia",
         "secrets": "secrets",
         "yomitan-api": "yomitan-api"
       }

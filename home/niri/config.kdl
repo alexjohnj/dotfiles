@@ -145,6 +145,17 @@ window-rule {
     variable-refresh-rate true
 }
 
+window-rule {
+    // Noctalia's non-layer-shell popups (e.g. its settings window).
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+}
+
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
 /*****************************************************************************************
 * Key Bindings
 *
@@ -155,11 +166,11 @@ binds {
     Mod+Ctrl+Return { spawn "ghostty"; }
     Mod+Ctrl+E { spawn "nautilus"; }
 
-    Super+Space hotkey-overlay-title="Run Application" { spawn-sh "pkill rofi || rofi -show combi"; }
-    Super+Shift+Q hotkey-overlay-title="Power" { spawn "rofi" "-show" "power" "-modi" "power:rofi-power-menu --no-symbols"; }
+    Super+Space hotkey-overlay-title="Run Application" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Super+Shift+Q hotkey-overlay-title="Power" { spawn-sh "noctalia msg panel-toggle session"; }
 
     Super+W repeat=false { close-window; }
-    Super+Ctrl+Q hotkey-overlay-title="Lock" repeat=false { spawn "hyprlock"; }
+    Super+Ctrl+Q hotkey-overlay-title="Lock" repeat=false { spawn-sh "noctalia msg session lock"; }
 
     Mod+Ctrl+H     { focus-column-left; }
     Mod+Ctrl+J     { focus-window-or-workspace-down; }
@@ -247,12 +258,12 @@ binds {
 
     Ctrl+Alt+Delete { quit; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioPlay        allow-when-locked=true { spawn-sh "noctalia msg media toggle"; }
+    XF86AudioPrev        allow-when-locked=true { spawn-sh "noctalia msg media previous"; }
+    XF86AudioNext        allow-when-locked=true { spawn-sh "noctalia msg media next"; }
 }
 
 recent-windows {

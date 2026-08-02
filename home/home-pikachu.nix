@@ -38,12 +38,8 @@
   };
 
   imports = [
-    ./dunst
     ./gtk
-    ./hypr
     ./niri
-    ./awww
-    ./waybar
-    ./wlsunset
+    ./noctalia
   ];
 }

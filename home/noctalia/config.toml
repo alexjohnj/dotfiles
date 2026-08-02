@@ -1,0 +1,96 @@
+# https://docs.noctalia.dev/v5/configuration/
+[shell]
+launch_apps_as_systemd_services = true
+font_family = "Overpass"
+
+[shell.panel]
+open_near_click_control_center = true
+
+[shell.launcher]
+categories = false
+
+[theme]
+mode    = "dark"
+source  = "builtin"
+builtin = "Catppuccin"
+
+[wallpaper]
+enabled   = true
+fill_mode = "crop"
+directory = "/home/alex/Pictures/Wallpapers"
+
+[backdrop]
+enabled = true
+
+[location]
+auto_locate = false
+address     = ""
+latitude    = 53.4
+longitude   = -3.0
+
+[nightlight]
+enabled            = true
+temperature_day    = 6500
+temperature_night  = 4000
+
+[notification]
+enable_daemon = true
+
+[lockscreen]
+enabled = true
+
+[idle.behavior.lock]
+timeout = 300
+action  = "lock"
+enabled = true
+
+[idle.behavior.screen-off]
+timeout = 330
+action  = "screen_off"
+enabled = true
+
+[keybinds]
+up   = [ "up", "ctrl+p" ]
+down = [ "down", "ctrl+n" ]
+
+[control_center]
+sidebar = "compact"
+hidden_tabs = [ "monitor", "power","network", "bluetooth"]
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[[control_center.shortcuts]]
+type = "session"
+
+[bar.main]
+start  = [ "launcher", "workspaces", "active_window" ]
+center = []
+end    = [ "tray", "volume", "notifications", "control-center", "clock"]
+margin_ends = 0
+widget_spacing = 12
+radius = 0
+
+[osd]
+position = "top_right"
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+active_pill_size = 1.5
+
+[widget.clock]
+format = "{:%a %d %b %H:%M}"
+
+[widget.control-center]
+glyph = "adjustments-horizontal"
+
+[widget.notifications]
+hide_when_no_unread = true
