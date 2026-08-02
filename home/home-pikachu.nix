@@ -38,6 +38,7 @@
   };
 
   imports = [
+    ./cursor-theme
     ./gtk
     ./niri
     ./noctalia

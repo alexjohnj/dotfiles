@@ -97,10 +97,7 @@ layout {
     }
 }
 
-cursor {
-    xcursor-theme "Yaru-purple-dark"
-    xcursor-size 24
-}
+include "cursor.kdl"
 
 /*****************************************************************************************
 * WINDOW RULES

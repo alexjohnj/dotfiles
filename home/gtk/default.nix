@@ -1,20 +1,18 @@
-{ pkgs, ... }:
+{ config, ... }:
+let
+  cfg = config.alexj.cursorTheme;
+in
 {
   gtk = {
     enable = true;
     font.name = "Overpass 12";
     theme = {
-      name = "Yaru-purple-dark";
-      package = pkgs.yaru-theme;
+      name = cfg.name;
+      package = cfg.package;
     };
     iconTheme = {
-      name = "Yaru-purple-dark";
-      package = pkgs.yaru-theme;
-    };
-    cursorTheme = {
-      name = "Yaru-purple-dark";
-      package = pkgs.yaru-theme;
-      size = 24;
+      name = cfg.name;
+      package = cfg.package;
     };
     gtk4.theme = null;
   };
