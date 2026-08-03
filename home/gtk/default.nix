@@ -1,18 +1,18 @@
-{ config, ... }:
+{ pkgs, ... }:
 let
-  cfg = config.alexj.cursorTheme;
+  noctaliaConfig = builtins.fromTOML (builtins.readFile ../noctalia/config.toml);
 in
 {
   gtk = {
     enable = true;
-    font.name = "Overpass 12";
-    theme = {
-      name = cfg.name;
-      package = cfg.package;
+    font = {
+      name = noctaliaConfig.shell.font_family;
+      size = 12;
+      package = pkgs.overpass;
     };
     iconTheme = {
-      name = cfg.name;
-      package = cfg.package;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
     gtk4.theme = null;
   };
