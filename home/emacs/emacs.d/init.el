@@ -17,10 +17,9 @@
 (setq user-full-name "Alex Jackson"
       user-mail-address "alex@alexj.org")
 
-
-;; Bootstrap package managers
-
-(require 'init-elpaca)
+;; Enhance use-package
+(setopt use-package-enable-imenu-support t
+        use-package-compute-statistics t)
 
 
 ;;; Emacs Server/Daemon
@@ -91,8 +90,6 @@
 (use-package diminish
   :commands diminish)
 
-(elpaca-wait)
-
 (require 'init-evil)
 (require 'init-smart-input-source)
 
@@ -136,7 +133,6 @@
   (savehist-mode))
 
 (use-package corfu
-  :ensure (:files (:defaults "extensions/*")) ;; Loads additional extensions from repo
   :hook ((after-init . global-corfu-mode)
          (global-corfu-mode . corfu-popupinfo-mode))
   :general
@@ -587,7 +583,7 @@ The DWIM behaviour of this command is as follows:
   :general ([f1] #'eldoc-box-help-at-point))
 
 ;; Install a newer transient than the built-in version (required by magit, rg).
-(use-package transient :ensure (:wait t) :defer)
+(use-package transient :defer)
 
 (require 'init-tramp)
 (require 'init-project)

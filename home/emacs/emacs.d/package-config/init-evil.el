@@ -2,7 +2,6 @@
 
 (use-package evil
   :demand t
-  :ensure (:wait t)
   :init
   (setopt evil-want-keybinding nil)
   :config
@@ -16,7 +15,6 @@
 
 (use-package evil-collection
   :demand t
-  :ensure (:wait t)
   :after evil
   :diminish evil-collection-unimpaired-mode
   :config

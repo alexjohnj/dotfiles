@@ -24,6 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     mattpocock-skills = {
       url = "github:mattpocock/skills";
       flake = false;
@@ -50,6 +55,7 @@
       mattpocock-skills,
       yomitan-api,
       noctalia,
+      emacs-overlay,
       ...
     }@inputs:
     let
@@ -65,6 +71,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit secrets; };
         modules = [
+          { nixpkgs.overlays = [ emacs-overlay.overlays.default ]; }
           {
             home-manager = {
               useGlobalPkgs = true;
@@ -95,7 +102,10 @@
       };
 
       homeConfigurations."alex@glaceon" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          overlays = [ emacs-overlay.overlays.default ];
+        };
         extraSpecialArgs = { inherit llm-agents mattpocock-skills yomitan-api; };
         modules = [
           ./home

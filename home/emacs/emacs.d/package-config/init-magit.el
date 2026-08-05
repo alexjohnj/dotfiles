@@ -1,10 +1,7 @@
 ;;; init-magit.el --- Magit configuration -*- lexical-binding: t -*-
 
 (use-package magit
-  :commands (magit-dispatch
-             magit-status
-             magit-file-dispatch
-             alex/copy-branch-name)
+  :commands (alex/copy-branch-name)
   :general
   (alex/leader-def
     "g g" #'magit-dispatch

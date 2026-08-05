@@ -58,10 +58,19 @@
       warning-suppress-log-types '((comp) (bytecomp))
       native-comp-async-report-warnings-errors 'silent)
 
-;; In Emacs 27+, package initialization occurs before `user-init-file' is
-;; loaded, but after `early-init-file'. I'm using elpaca for package
-;; management so this isn't needed.
-(setq package-enable-at-startup nil
+;; Packages are installed via Nix (emacs-overlay) rather than into the usual
+;; writable `package-user-dir'. The emacsWithPackages wrapper only adds each
+;; package's directory to `load-path' -- it doesn't load each package's own
+;; `<pkg>-autoloads.el', so commands that use-package never explicitly
+;; :commands/:hook/:bind (e.g. ones only referenced via a defcustom, like
+;; `project-switch-commands') would otherwise be unbound until something else
+;; loads that package. Point package.el at the Nix-built ELPA directory (via
+;; the env var the wrapper exports) so normal package activation -- which
+;; still runs automatically before `user-init-file' is loaded -- registers
+;; every package's autoloads, the same way it would for a normal ELPA install.
+(when-let* ((site-lisp (getenv "emacsWithPackages_siteLisp")))
+  (setq package-directory-list (list (expand-file-name "elpa" site-lisp))))
+(setq package-user-dir (expand-file-name "elpa-unused" user-emacs-directory)
       package-quickstart nil)
 (advice-add #'package--ensure-init-file :override #'ignore)
 
