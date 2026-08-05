@@ -54,6 +54,9 @@ in
 
         deny = [
           "Bash(direnv *)"
+          "Bash(gh pr create:*)"
+          "Bash(gh pr ready:*)"
+          "Skill(plex-tools:pr)"
         ];
       };
 
