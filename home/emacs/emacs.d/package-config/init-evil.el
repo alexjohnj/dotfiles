@@ -14,11 +14,9 @@
   (evil-mode 1))
 
 (use-package evil-collection
-  :demand t
   :after evil
   :diminish evil-collection-unimpaired-mode
-  :config
-  (evil-collection-init))
+  :hook (alex-first-input . evil-collection-init))
 
 (use-package undo-fu
   :general

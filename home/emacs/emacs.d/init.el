@@ -183,7 +183,6 @@
         completion-category-overrides '((file (styles partial-completion)))))
 
 (use-package consult
-  :defer nil
   :general
   ([remap switch-to-buffer] #'consult-buffer
    [remap imenu] #'consult-imenu
@@ -191,11 +190,9 @@
    [remap man] #'consult-man))
 
 (use-package ctrlf
-  :defer nil
   :general
   (:keymaps 'ctrlf-minibuffer-mode-map [escape] #'ctrlf-cancel)
-  :config
-  (ctrlf-mode))
+  :hook (alex-first-input . ctrlf-mode))
 
 (use-package eglot
   :ensure nil
