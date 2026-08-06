@@ -23,15 +23,37 @@ let
     "grill-me"
     "handoff"
     "teach"
+    "writing-for-agents"
     "writing-great-skills"
   ] (name: "${mattpocock-skills}/skills/productivity/${name}");
+
+  mattpocockEngineeringSkills = lib.genAttrs [
+    "ask-matt"
+    "code-review"
+    "codebase-design"
+    "diagnosing-bugs"
+    "domain-modeling"
+    "grill-with-docs"
+    "implement"
+    "improve-codebase-architecture"
+    "prototype"
+    "research"
+    "resolving-merge-conflicts"
+    "setup-matt-pocock-skills"
+    "tdd"
+    "to-spec"
+    "to-tickets"
+    "triage"
+    "wayfinder"
+    "wizard"
+  ] (name: "${mattpocock-skills}/skills/engineering/${name}");
 in
 {
   programs.claude-code = {
     enable = true;
     package = llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
     context = ./memory.md;
-    skills = localSkills // mattpocockProductivitySkills;
+    skills = localSkills // mattpocockProductivitySkills // mattpocockEngineeringSkills;
     settings = {
       tui = "fullscreen";
       showThinkingSummaries = true;
