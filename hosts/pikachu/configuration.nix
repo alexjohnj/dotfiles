@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ../../modules/system/nvidia.nix
     ../../modules/system/flatpak.nix
+    ../../modules/system/niri-libdisplay-info-fix.nix
   ];
 
   nix = {
