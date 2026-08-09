@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    (callPackage ../packages/super-slicer/default.nix { })
     docker-credential-helpers
     inter
     noto-fonts
+    orca-slicer
     overpass
     wl-clipboard-rs
-    (callPackage ../packages/super-slicer/default.nix { })
   ];
 
   home.file.".config/containers/auth.json".text = builtins.toJSON {
