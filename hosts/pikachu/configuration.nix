@@ -331,7 +331,7 @@
     enable = true;
     # Steam's own sandbox otherwise can't resolve the cursor theme and falls
     # back to the plain X cursor. https://github.com/NixOS/nixpkgs/issues/437281
-    extraPackages = [ pkgs.yaru-theme ];
+    extraPackages = [ pkgs.whitesur-cursors ];
   };
   programs.gamemode.enable = true;
 

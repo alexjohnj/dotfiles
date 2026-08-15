@@ -11,12 +11,12 @@ in
   options.alexj.cursorTheme = {
     name = lib.mkOption {
       type = lib.types.str;
-      default = "Yaru-purple-dark";
+      default = "WhiteSur-cursors";
       description = "Cursor theme name (also used as the GTK widget/icon theme).";
     };
     package = lib.mkOption {
       type = lib.types.package;
-      default = pkgs.yaru-theme;
+      default = pkgs.whitesur-cursors;
       description = "Package providing alexj.cursorTheme.name.";
     };
     size = lib.mkOption {
