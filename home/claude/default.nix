@@ -24,7 +24,6 @@ let
     "handoff"
     "teach"
     "writing-for-agents"
-    "writing-great-skills"
   ] (name: "${mattpocock-skills}/skills/productivity/${name}");
 
   mattpocockEngineeringSkills = lib.genAttrs [
