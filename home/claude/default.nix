@@ -60,6 +60,8 @@ in
       showClearContextOnPlanAccept = true;
       skipAutoPermissionPrompt = true;
 
+      outputStyle = "concise";
+
       attribution = {
         commit = "";
         pr = "";
