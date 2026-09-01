@@ -28,12 +28,10 @@ let
 
   mattpocockEngineeringSkills = lib.genAttrs [
     "ask-matt"
-    "code-review"
     "codebase-design"
     "diagnosing-bugs"
     "domain-modeling"
     "grill-with-docs"
-    "implement"
     "improve-codebase-architecture"
     "prototype"
     "research"
@@ -44,7 +42,6 @@ let
     "to-tickets"
     "triage"
     "wayfinder"
-    "wizard"
   ] (name: "${mattpocock-skills}/skills/engineering/${name}");
 in
 {
