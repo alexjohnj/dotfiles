@@ -72,11 +72,14 @@ in
       permissions = {
         defaultMode = "auto";
 
-        deny = [
-          "Bash(direnv *)"
+        ask = [
           "Bash(gh pr create:*)"
           "Bash(gh pr ready:*)"
           "Skill(plex-tools:pr)"
+        ];
+
+        deny = [
+          "Bash(direnv *)"
         ];
       };
 
