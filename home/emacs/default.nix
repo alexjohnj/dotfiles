@@ -28,7 +28,7 @@ in
     enable = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
       config = emacsConfigText;
-      package = if isLinux then pkgs.emacs30-pgtk else pkgs.emacs30;
+      package = if isLinux then pkgs.emacs-pgtk else pkgs.emacs;
       # Every use-package block in emacs.d omits :ensure and relies on this,
       # mirroring the old `use-package-always-ensure t` behaviour. Blocks
       # that shouldn't be Nix-installed (built-ins, packages installed
