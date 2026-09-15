@@ -1,4 +1,4 @@
-
+;; -*- lexical-binding: t; -*-
 ;;; init-tramp.el --- TRAMP optimizations -*- lexical-binding: t -*-
 ;;
 ;;; Commentary:
