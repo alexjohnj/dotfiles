@@ -349,6 +349,30 @@
   (interactive)
   (indent-region (point-min) (point-max)))
 
+(defconst alex/smart-punctuation-alist
+  '(("‘" . "'") ("’" . "'") ("‚" . "'") ("‛" . "'") ("′" . "'")
+    ("“" . "\"") ("”" . "\"") ("„" . "\"") ("‟" . "\"") ("″" . "\"")
+    ("‐" . "-") ("‑" . "-") ("‒" . "-") ("–" . "-") ("−" . "-")
+    ("—" . "--") ("―" . "--")
+    ("…" . "...")
+    (" " . " ") (" " . " ") (" " . " "))
+  "Smart punctuation characters and their ASCII replacements.")
+
+(defun alex/replace-smart-punctuation (start end)
+  "Replace smart punctuation between START and END with ASCII equivalents.
+Interactively, operates on the active region or the whole buffer."
+  (interactive
+   (if (use-region-p)
+       (list (region-beginning) (region-end))
+     (list (point-min) (point-max))))
+  (let ((regexp (regexp-opt (mapcar #'car alex/smart-punctuation-alist)))
+        (end (copy-marker end)))
+    (save-excursion
+      (goto-char start)
+      (while (re-search-forward regexp end t)
+        (replace-match (cdr (assoc (match-string 0) alex/smart-punctuation-alist)) t t)))
+    (set-marker end nil)))
+
 
 ;;; Buffer Management
 
