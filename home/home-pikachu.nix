@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    google-chrome
     (callPackage ../packages/super-slicer/default.nix { })
     docker-credential-helpers
     inter
