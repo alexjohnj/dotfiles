@@ -44,7 +44,8 @@
             (with-selected-frame frame (alex/set-font))))
 
 ;; Set the font immediately for when Emacs isn't running in server mode.
-(alex/set-font)
+(unless (daemonp)
+  (alex/set-font))
 
 ;; Hide the titlebar when running on macOS
 (when alex/IS-MAC
