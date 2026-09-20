@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   home.packages = with pkgs; [
+    anki
     google-chrome
     (callPackage ../packages/super-slicer/default.nix { })
     docker-credential-helpers
