@@ -1,7 +1,7 @@
 ;;; init-magit.el --- Magit configuration -*- lexical-binding: t -*-
 
 (use-package magit
-  :commands (alex/copy-branch-name)
+  :commands (alex/copy-branch-name alex/copy-revision-range)
   :general
   (alex/leader-def
     "g g" #'magit-dispatch
@@ -31,7 +31,21 @@ always copies the name of the current branch."
       (if branch-name
           (progn (kill-new branch-name)
                  (message "%s" branch-name))
-        (user-error "No branch at point")))))
+        (user-error "No branch at point"))))
+
+  (defun alex/copy-revision-range (inclusive)
+    "Copy the range of commits selected in the region as OLDEST..NEWEST.
+With a prefix argument, copy OLDEST^..NEWEST so the range includes
+the oldest selected commit."
+    (interactive "P")
+    (let ((commits (magit-region-values 'commit t)))
+      (unless commits
+        (user-error "No commit range selected"))
+      (let ((range (format (if inclusive "%s^..%s" "%s..%s")
+                           (magit-rev-abbrev (car (last commits)))
+                           (magit-rev-abbrev (car commits)))))
+        (kill-new range)
+        (message "%s" range)))))
 
 (use-package magit-delta
   :after (magit)
