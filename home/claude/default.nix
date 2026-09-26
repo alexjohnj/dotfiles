@@ -56,6 +56,7 @@ in
       awaySummaryEnabled = false;
       showClearContextOnPlanAccept = true;
       skipAutoPermissionPrompt = true;
+      maxProseWidth = 80;
 
       outputStyle = "concise";
 
