@@ -39,8 +39,6 @@
     yt-dlp
   ];
 
-  programs.mise.enable = true;
-
   alexj.ghostty.enable = true;
 
   imports = [
@@ -57,6 +55,5 @@
     ./tmux
     ./vim
     ./yomitan-api
-    ./zed
   ];
 }
