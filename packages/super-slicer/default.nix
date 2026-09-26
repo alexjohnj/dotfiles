@@ -7,7 +7,7 @@ let
     url = "https://github.com/supermerill/SuperSlicer/releases/download/2.5.59.13/SuperSlicer-ubuntu_20.04-${version}.AppImage";
     hash = "sha256-My37twRvwSwZNpAL4qhc4PEwMbOB7fJm+MbQjZRzDaQ=";
   };
-  appimageContents = appimageTools.extractType2 { inherit pname version src; };
+  appimageContents = appimageTools.extract { inherit pname version src; };
 in
 appimageTools.wrapType2 {
   inherit pname version src;
