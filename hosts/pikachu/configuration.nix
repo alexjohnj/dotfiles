@@ -13,7 +13,10 @@
 
   nix = {
     settings = {
-      experimental-features = "flakes nix-command";
+      experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
     };
 
     gc = {

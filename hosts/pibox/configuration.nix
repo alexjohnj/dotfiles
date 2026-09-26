@@ -20,10 +20,10 @@
   # Reduce SD card wear.
   boot.tmp.useTmpfs = true;
   fileSystems."/".options = [ "noatime" ];
-  services.journald.extraConfig = ''
-    Storage=volatile
-    RuntimeMaxUse=64M
-  '';
+  services.journald.settings.Journal = {
+    Storage = "volatile";
+    RuntimeMaxUse = "64M";
+  };
 
   networking = {
     hostName = "pibox";
