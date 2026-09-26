@@ -33,9 +33,11 @@
 (defun alex/set-font ()
   (let ((font-name "Departure Mono"))
     (if (member font-name (font-family-list))
-        (if alex/IS-MAC ; Font scaling is a bit different between macOS and other platforms.
-            (set-face-attribute 'default nil :font font-name :height 130 :weight 'regular)
-          (set-face-attribute 'default nil :font font-name :height 110))
+        (progn
+          (if alex/IS-MAC ; Font scaling is a bit different between macOS and other platforms.
+              (set-face-attribute 'default nil :font font-name :height 130 :weight 'regular)
+            (set-face-attribute 'default nil :font font-name :height 110))
+          (set-face-attribute 'fixed-pitch nil :family font-name))
       (warn "Font %s is not installed. Using the default font." font-name))))
 
 ;; Hook frame creation so the font is set when Emacs is running in server mode.
