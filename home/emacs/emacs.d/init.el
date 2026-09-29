@@ -91,7 +91,6 @@
   :commands diminish)
 
 (require 'init-evil)
-(require 'init-smart-input-source)
 
 
 ;;; Appearance
