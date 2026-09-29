@@ -10,8 +10,6 @@
   :init
   (which-key-add-key-based-replacements "SPC g" "Magit")
   :config
-  (put 'magit-diff-edit-hunk-commit 'disabled nil)
-
   (setopt magit-section-initial-visibility-alist
           '(([unpushed status] . show)
             ([unstaged status] . show)
@@ -46,6 +44,12 @@ the oldest selected commit."
                            (magit-rev-abbrev (car commits)))))
         (kill-new range)
         (message "%s" range)))))
+
+(use-package magit-extras
+  :ensure nil
+  :defer t
+  :config
+  (put 'magit-diff-edit-hunk-commit 'disabled nil))
 
 (use-package magit-delta
   :after (magit)
