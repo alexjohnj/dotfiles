@@ -44,13 +44,12 @@
 
 (require 'init-latex)
 
-(use-package markdown-mode
-  :mode (("\\.markdown\\'" . gfm-mode)
-         ("\\.md\\'" . gfm-mode))
+(use-package markdown-ts-mode
+  :commands (markdown-ts-view-mode)
+  :ensure nil
+  :mode ("\\.md\\'" "\\.mdx\\'" "\\.markdown\\'")
   :config
-  (setopt markdown-italic-underscore t
-          markdown-fontify-code-blocks-natively t
-          markdown-enable-math t))
+  (require 'markdown-ts-mode-x))
 
 (use-package nix-ts-mode
   :mode ("\\.nix\\'" . nix-ts-mode)

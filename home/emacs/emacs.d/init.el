@@ -201,7 +201,8 @@
             [(super .)] #'eglot-code-actions)
   :config
   (setopt eglot-confirm-server-initiated-edits nil
-          eglot-autoshutdown t)
+          eglot-autoshutdown t
+          eglot-documentation-renderer #'markdown-ts-view-mode)
   (add-hook 'eglot-managed-mode-hook #'eglot-inlay-hints-mode)
 
   ;; Performance tweaks
