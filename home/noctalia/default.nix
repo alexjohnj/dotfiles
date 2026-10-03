@@ -1,7 +1,13 @@
-{ config, ... }:
+{
+  config,
+  pkgs,
+  noctalia,
+  ...
+}:
 {
   programs.noctalia = {
     enable = true;
+    package = noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
     systemd.enable = true;
   };
 

@@ -10,7 +10,6 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
 
     secrets = {
@@ -76,11 +75,17 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit llm-agents mattpocock-skills yomitan-api; };
+              extraSpecialArgs = {
+                inherit
+                  llm-agents
+                  mattpocock-skills
+                  yomitan-api
+                  noctalia
+                  ;
+              };
               users.alex.imports = [
                 ./home
                 ./home/home-pikachu.nix
-                noctalia.homeModules.default
               ];
             };
           }
