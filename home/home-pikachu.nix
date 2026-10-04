@@ -9,6 +9,7 @@
     noto-fonts
     orca-slicer
     overpass
+    python3
     wl-clipboard-rs
   ];
 
