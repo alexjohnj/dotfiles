@@ -32,10 +32,11 @@ let
     "diagnosing-bugs"
     "domain-modeling"
     "grill-with-docs"
+    "implement-spec"
     "improve-codebase-architecture"
     "prototype"
     "research"
-    "resolving-merge-conflicts"
+    "retro"
     "setup-matt-pocock-skills"
     "tdd"
     "to-spec"
@@ -57,6 +58,8 @@ in
       showClearContextOnPlanAccept = true;
       skipAutoPermissionPrompt = true;
       maxProseWidth = 80;
+
+      advisorModel = "fable";
 
       outputStyle = "concise";
 
