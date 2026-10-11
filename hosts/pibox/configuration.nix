@@ -35,7 +35,10 @@
 
   nix.settings = {
     trusted-users = [ "alex" ];
-    experimental-features = "flakes nix-command";
+    experimental-features = [
+      "flakes"
+      "nix-command"
+    ];
   };
 
   # Keep only the current + 1 previous generation to avoid filling the SD card.
