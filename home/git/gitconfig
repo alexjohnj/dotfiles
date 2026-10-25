@@ -53,8 +53,8 @@
 [tag]
   sort = version:refname
 
-[credential]
-  helper = osxkeychain
+[include]
+  path = credential
 
 [filter "lfs"]
   clean = git-lfs clean -- %f

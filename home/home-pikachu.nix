@@ -6,6 +6,7 @@
     (callPackage ../packages/super-slicer/default.nix { })
     docker-credential-helpers
     inter
+    libsecret
     noto-fonts
     orca-slicer
     overpass
