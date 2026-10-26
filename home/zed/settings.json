@@ -74,28 +74,10 @@
   "active_pane_modifiers": {
     "border_size": 1,
   },
+  "auto_install_extensions": {
+    "oxc": true,
+  },
   "languages": {
-    "TSX": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true,
-      },
-    },
-    "TypeScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true,
-      },
-    },
-    "JavaScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true,
-      },
-      "formatter": {
-        "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"],
-        },
-      },
-    },
     "Swift": {
       "formatter": {
         "external": {
