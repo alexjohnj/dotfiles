@@ -284,6 +284,26 @@
   ("s-I" #'apheleia-format-buffer)
   :config
   (setq apheleia-remote-algorithm 'local)
+  ;; The default runs oxfmt on a temp file outside the project, so it can't find
+  ;; the project's config.
+  (setf (alist-get 'oxfmt apheleia-formatters)
+        '("apheleia-npx" "oxfmt" "--stdin-filepath" filepath))
+  (defun alex/apheleia-prefer-oxfmt ()
+    "Use oxfmt in place of Prettier in projects configured for oxfmt."
+    (when (and buffer-file-name
+               (not apheleia-formatter)
+               (not (file-remote-p buffer-file-name))
+               (string-prefix-p "prettier"
+                                (symbol-name (car (apheleia--get-formatters))))
+               (locate-dominating-file
+                buffer-file-name
+                (lambda (dir)
+                  (and (file-directory-p dir)
+                       (directory-files
+                        dir nil
+                        "\\`\\(oxfmt\\.config\\.[cm]?[jt]s\\|\\.oxfmtrc\\.jsonc?\\)\\'")))))
+      (setq-local apheleia-formatter 'oxfmt)))
+  (add-hook 'after-change-major-mode-hook #'alex/apheleia-prefer-oxfmt)
   ;; Global mode is optimised to not load until a file is saved.
   (apheleia-global-mode t))
 
