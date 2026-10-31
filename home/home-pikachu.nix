@@ -4,6 +4,7 @@
     anki
     google-chrome
     (callPackage ../packages/super-slicer/default.nix { })
+    (callPackage ../packages/herdr-core/default.nix { })
     docker-credential-helpers
     inter
     libsecret
