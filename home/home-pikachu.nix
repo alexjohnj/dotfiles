@@ -1,19 +1,29 @@
-{ config, pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    anki
-    google-chrome
-    (callPackage ../packages/super-slicer/default.nix { })
-    (callPackage ../packages/herdr-core/default.nix { })
-    docker-credential-helpers
-    inter
-    libsecret
-    noto-fonts
-    orca-slicer
-    overpass
-    python3
-    wl-clipboard-rs
-  ];
+  config,
+  pkgs,
+  llm-agents,
+  ...
+}:
+{
+  home.packages =
+    with pkgs;
+    [
+      anki
+      google-chrome
+      (callPackage ../packages/super-slicer/default.nix { })
+      docker-credential-helpers
+      inter
+      libsecret
+      noto-fonts
+      orca-slicer
+      overpass
+      python3
+      wl-clipboard-rs
+    ]
+    ++ (with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+      herdr-app
+      herdr-core
+    ]);
 
   home.file.".config/containers/auth.json".text = builtins.toJSON {
     credHelpers = {
