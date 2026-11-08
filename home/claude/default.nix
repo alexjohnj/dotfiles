@@ -59,7 +59,8 @@ in
       skipAutoPermissionPrompt = true;
       maxProseWidth = 80;
 
-      advisorModel = "fable";
+      model = lib.mkDefault "sonnet";
+      advisorModel = lib.mkDefault "opus";
 
       outputStyle = "concise";
 
