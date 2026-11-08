@@ -21,6 +21,7 @@
       wl-clipboard-rs
     ]
     ++ (with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+      claude-desktop
       herdr-app
       herdr-core
     ]);
