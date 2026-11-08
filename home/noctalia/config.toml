@@ -167,13 +167,38 @@ type = "session"
 [bar.main]
 start  = [ "launcher", "workspaces", "active_window" ]
 center = []
-end    = [ "tray", "volume", "notifications", "control-center", "clock"]
+end    = [ "study_timer", "tray", "volume", "notifications", "control-center", "clock"]
 margin_ends = 0
 widget_spacing = 12
 radius = 0
 
 [osd]
 position = "top_right"
+
+[plugins]
+enabled = [ "alex/study-timer" ]
+
+# Declaring any source replaces the built-in list.
+[[plugins.source]]
+name     = "official"
+kind     = "git"
+location = "https://github.com/noctalia-dev/official-plugins"
+enabled  = true
+
+[[plugins.source]]
+name     = "community"
+kind     = "git"
+location = "https://github.com/noctalia-dev/community-plugins"
+enabled  = true
+
+[[plugins.source]]
+name     = "dotfiles"
+kind     = "path"
+location = "~/dotfiles/home/noctalia/plugins"
+enabled  = true
+
+[widget.study_timer]
+type = "alex/study-timer:bar"
 
 [widget.volume]
 show_label = false

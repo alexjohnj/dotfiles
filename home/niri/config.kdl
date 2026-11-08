@@ -165,6 +165,8 @@ binds {
 
     Super+Space hotkey-overlay-title="Run Application" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Super+Shift+Q hotkey-overlay-title="Power" { spawn-sh "noctalia msg panel-toggle session"; }
+    Super+T hotkey-overlay-title="Study Timer: Start/Pause" repeat=false { spawn-sh "noctalia msg plugin alex/study-timer:service all toggle"; }
+    Super+Shift+T hotkey-overlay-title="Study Timer: Panel" repeat=false { spawn-sh "noctalia msg panel-toggle alex/study-timer:panel"; }
 
     Super+W repeat=false { close-window; }
     Super+Ctrl+Q hotkey-overlay-title="Lock" repeat=false { spawn-sh "noctalia msg session lock"; }

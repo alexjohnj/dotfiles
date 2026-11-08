@@ -1,0 +1,30 @@
+id = "alex/study-timer"
+name = "Study Timer"
+version = "1.0.0"
+plugin_api = 43
+author = "alex"
+license = "MIT"
+icon = "stopwatch"
+description = "A stopwatch and countdown timer for study sessions."
+
+[[service]]
+id = "service"
+entry = "service.luau"
+
+[[widget]]
+id = "bar"
+entry = "bar.luau"
+
+  [widget.actions]
+  right = "none"
+
+[[panel]]
+id = "panel"
+entry = "panel.luau"
+width = 300
+height = "content"
+max_height = 320
+placement = "attached"
+position = "auto"
+open_near_click = true
+keyboard_focus = "exclusive"
