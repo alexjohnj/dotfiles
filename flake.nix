@@ -33,6 +33,11 @@
       flake = false;
     };
 
+    herdr-core = {
+      url = "github:herdrdev/herdr-core/v0.1.20";
+      flake = false;
+    };
+
     yomitan-api = {
       url = "github:yomidevs/yomitan-api";
       flake = false;
@@ -52,6 +57,7 @@
       secrets,
       llm-agents,
       mattpocock-skills,
+      herdr-core,
       yomitan-api,
       noctalia,
       emacs-overlay,
@@ -79,6 +85,7 @@
                 inherit
                   llm-agents
                   mattpocock-skills
+                  herdr-core
                   yomitan-api
                   noctalia
                   ;
@@ -111,7 +118,14 @@
           system = "aarch64-darwin";
           overlays = [ emacs-overlay.overlays.default ];
         };
-        extraSpecialArgs = { inherit llm-agents mattpocock-skills yomitan-api; };
+        extraSpecialArgs = {
+          inherit
+            llm-agents
+            mattpocock-skills
+            herdr-core
+            yomitan-api
+            ;
+        };
         modules = [
           ./home
           ./home/home-glaceon.nix

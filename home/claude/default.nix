@@ -1,6 +1,7 @@
 {
   llm-agents,
   mattpocock-skills,
+  herdr-core,
   lib,
   pkgs,
   ...
@@ -26,6 +27,10 @@ let
     "writing-for-agents"
   ] (name: "${mattpocock-skills}/skills/productivity/${name}");
 
+  herdrSkills = {
+    herdr-core = "${herdr-core}/skills/herdr-core";
+  };
+
   mattpocockEngineeringSkills = lib.genAttrs [
     "ask-matt"
     "codebase-design"
@@ -50,7 +55,7 @@ in
     enable = true;
     package = llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
     context = ./memory.md;
-    skills = localSkills // mattpocockProductivitySkills // mattpocockEngineeringSkills;
+    skills = localSkills // herdrSkills // mattpocockProductivitySkills // mattpocockEngineeringSkills;
     settings = {
       tui = "fullscreen";
       showThinkingSummaries = true;
