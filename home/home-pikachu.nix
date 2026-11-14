@@ -42,6 +42,23 @@
     configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
 
+  # Shadows the flatpak's desktop entry (XDG_DATA_HOME takes precedence over
+  # flatpak exports). 1Password writes the clipboard via X11, which
+  # xwayland-satellite can't hand to Wayland while 1Password's own Wayland
+  # window holds focus, so run the whole app under X11.
+  xdg.dataFile."applications/com.onepassword.OnePassword.desktop".text = ''
+    [Desktop Entry]
+    Name=1Password
+    Exec=flatpak run --branch=stable --arch=x86_64 --command=1password --file-forwarding com.onepassword.OnePassword --ozone-platform=x11 @@u %U @@
+    Terminal=false
+    Type=Application
+    Icon=com.onepassword.OnePassword
+    StartupWMClass=1Password
+    Comment=Password manager and secure wallet
+    MimeType=x-scheme-handler/onepassword;
+    Categories=Office;
+  '';
+
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
