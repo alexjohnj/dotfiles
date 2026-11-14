@@ -180,6 +180,7 @@
 
   environment.systemPackages = with pkgs; [
     nautilus
+    papirus-icon-theme # System copy so Flatpak apps can see it
     pavucontrol
     xwayland-satellite # Provides X11 support for niri
     podman-compose

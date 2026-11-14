@@ -32,6 +32,21 @@ in
   config = lib.mkIf cfg.enable {
     services.flatpak.enable = true;
 
+    # Flatpak forwards the host's /usr/share/icons into the sandbox. Mount the
+    # system icons there; resolve-symlinks lets the sandbox follow the Nix
+    # store symlinks.
+    # https://wiki.nixos.org/wiki/Fixes_for_non-Nix_applications
+    system.fsPackages = [ pkgs.bindfs ];
+    fileSystems."/usr/share/icons" = {
+      device = "/run/current-system/sw/share/icons";
+      fsType = "fuse.bindfs";
+      options = [
+        "ro"
+        "x-gvfs-hide"
+        "resolve-symlinks"
+      ];
+    };
+
     systemd.services.flatpak-update = lib.mkIf cfg.autoUpdate.enable {
       description = "Update system flatpaks";
       path = [ pkgs.flatpak ];
