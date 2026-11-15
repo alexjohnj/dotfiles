@@ -1,6 +1,6 @@
 --!nonstrict
 
-local PRESET_MINUTES = { 15, 25, 50 }
+local PRESET_MINUTES = { 10, 20, 45 }
 local CAPTIONS = {
   stopwatch = { running = "Stopwatch", paused = "Stopwatch paused" },
   timer = { running = "Timer", paused = "Timer paused", finished = "Time is up" },
