@@ -9,9 +9,9 @@ You have been provided the description of something to build.
 The goal is to drive the entire development of the feature.
 
 Every **child agent** below is an interactive `claude` you orchestrate with
-Herdr: herdr-core (`hc`) starts, messages, waits on and removes agents;
-herdr-app arranges what the user sees. Before launching the first child, run
-`herdr-app --skill` and `herdr-core --skill` and follow their current usage.
+Herdr. Before launching the first child, call the Skill tool with `herdr-core`
+(starting, messaging, waiting on and removing agents) and `herdr-app`
+(arranging what the user sees), and follow them for all mechanics.
 
 Communication to and from child agents should be sparse. Communicate primarily
 through **context pointers**: to the spec, tickets, research notes, and previous
