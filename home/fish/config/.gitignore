@@ -1,4 +1,5 @@
 fishd*
 fish_variables
 fish_history
-completions
+completions/*
+!completions/gco.fish
