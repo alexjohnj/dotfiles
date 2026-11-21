@@ -9,7 +9,7 @@ You have been provided the description of something to build.
 The goal is to drive the entire development of the feature.
 
 Every **child agent** below is an interactive `claude` you orchestrate with
-Herdr.
+Rex. Call the Skill tool with `rex` before your first Rex command.
 
 Communication to and from child agents should be sparse. Communicate primarily
 through **context pointers**: to the spec, tickets, research notes, and previous
@@ -17,29 +17,29 @@ commits. Don't duplicate information already available via pointers.
 
 ### Workspace
 
-- Each invocation of this skill gets its own Herdr space, named after the
-  feature. You (the orchestrator) are already running in a pane somewhere:
-  move yourself into the new space rather than leaving yourself behind in the
-  old one, so the space holds both you and your children. Rename an existing
-  space instead of creating a second one if you are already alone in one.
-  Do this before launching the first child; this skill is the user's request
-  to rearrange the window.
-- Your own pane stays in the space's first tab. Each repository the feature
-  touches gets its own tab in that space. Children working in a repository
-  appear in that repository's tab.
-- Always start children inside this space, never in a new one.
+- Each invocation of this skill uses your own Rex session (`$REX_SESSION`),
+  renamed after the feature. Rex can't move panes between sessions, so don't
+  create a new one. Do this before launching the first child; this skill is
+  the user's request to rename the session and add tabs.
+- Your own pane stays in its current tab. Each repository the feature touches
+  gets its own tab in the session, named after the repository. Children
+  working in a repository appear as panes in that repository's tab.
+- Always start children inside this session, never in a new one.
 
 ### Child agents
 
-- Start each child with herdr-core in the background, named after its role
-  (e.g. `explore`, `impl-<slug>`, `verify`), with its first task in the launch.
+- Start each child as a pane in its repository's tab without taking focus,
+  labelled after its role (e.g. `explore`, `impl-<slug>`, `verify`), running
+  `claude` with its first task as the prompt.
 - Launch each child in the repository it works in, so it picks up that
   repository's `AGENTS.md`, skills, hooks and settings.
 - Each task names its scope, the skill to call, and where to write long
   output. It permits the child to start subagents and asks it to report back
-  to your terminal address when done or stuck.
-- Wait on your children with herdr-core, then read the actual result (notes
-  file, commits) before acting on a report.
+  when done or stuck by sending a one-line message to your pane
+  (`$REX_SESSION` and `$REX_BLOCK`) with the `rex` skill.
+- After launching children, end your turn and wait for their reports. Then
+  read the actual result (notes file, commits) before acting on a report.
+  Capture a child's pane if it has gone quiet.
 
 ### Steps
 
@@ -69,7 +69,7 @@ commits. Don't duplicate information already available via pointers.
 7. If the `verify` child agent flags any issues, go back to step 4. and address
    them with an implementer child agent.
 8. When verification has finished, the working tree should be clean with all
-   work committed. Stop and remove every child agent you started. Notify the
+   work committed. Close every child pane and repository tab you started. Notify the
    user, reporting:
    1. Relevant implementation notes.
    2. Anything that has diverged from what was originally scoped.

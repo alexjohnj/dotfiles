@@ -1,7 +1,6 @@
 {
   llm-agents,
   mattpocock-skills,
-  herdr-core,
   lib,
   pkgs,
   ...
@@ -16,7 +15,11 @@ let
     text = builtins.readFile ./statusline.sh;
   };
 
-  localSkills = lib.mapAttrs (name: _: ./skills + "/${name}") (builtins.readDir ./skills);
+  disabledLocalSkills = [ "herdr-app" ];
+
+  localSkills = lib.mapAttrs (name: _: ./skills + "/${name}") (
+    removeAttrs (builtins.readDir ./skills) disabledLocalSkills
+  );
 
   # Selected skills from https://github.com/mattpocock/skills
   mattpocockProductivitySkills = lib.genAttrs [
@@ -26,10 +29,6 @@ let
     "teach"
     "writing-for-agents"
   ] (name: "${mattpocock-skills}/skills/productivity/${name}");
-
-  herdrSkills = {
-    herdr-core = "${herdr-core}/skills/herdr-core";
-  };
 
   mattpocockEngineeringSkills = lib.genAttrs [
     "ask-matt"
@@ -55,7 +54,7 @@ in
     enable = true;
     package = llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.claude-code;
     context = ./memory.md;
-    skills = localSkills // herdrSkills // mattpocockProductivitySkills // mattpocockEngineeringSkills;
+    skills = localSkills // mattpocockProductivitySkills // mattpocockEngineeringSkills;
     settings = {
       tui = "fullscreen";
       showThinkingSummaries = true;
