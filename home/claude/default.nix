@@ -15,7 +15,7 @@ let
     text = builtins.readFile ./statusline.sh;
   };
 
-  disabledLocalSkills = [ "herdr-app" ];
+  disabledLocalSkills = [ ];
 
   localSkills = lib.mapAttrs (name: _: ./skills + "/${name}") (
     removeAttrs (builtins.readDir ./skills) disabledLocalSkills

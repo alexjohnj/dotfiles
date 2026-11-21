@@ -96,23 +96,6 @@
         "type": "github"
       }
     },
-    "herdr-core": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1794327317,
-        "narHash": "sha256-++LMCl7izwdSTO5hC/zc9Z1AENMpGaQ5bJ/bI9Jc5r0=",
-        "owner": "herdrdev",
-        "repo": "herdr-core",
-        "rev": "de97ea5ba5d6877a5e082316b4a1a5b4918e861f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "herdrdev",
-        "ref": "v0.1.20",
-        "repo": "herdr-core",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -257,7 +240,6 @@
       "inputs": {
         "agenix": "agenix",
         "emacs-overlay": "emacs-overlay",
-        "herdr-core": "herdr-core",
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",
         "mattpocock-skills": "mattpocock-skills",

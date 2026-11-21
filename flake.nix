@@ -33,11 +33,6 @@
       flake = false;
     };
 
-    herdr-core = {
-      url = "github:herdrdev/herdr-core/v0.1.20";
-      flake = false;
-    };
-
     yomitan-api = {
       url = "github:yomidevs/yomitan-api";
       flake = false;
@@ -59,7 +54,6 @@
       secrets,
       llm-agents,
       mattpocock-skills,
-      herdr-core,
       yomitan-api,
       noctalia,
       emacs-overlay,
@@ -88,7 +82,6 @@
                 inherit
                   llm-agents
                   mattpocock-skills
-                  herdr-core
                   yomitan-api
                   noctalia
                   ;
@@ -126,7 +119,6 @@
           inherit
             llm-agents
             mattpocock-skills
-            herdr-core
             yomitan-api
             ;
         };

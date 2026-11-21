@@ -22,8 +22,6 @@
     ]
     ++ (with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
       claude-desktop
-      herdr-app
-      herdr-core
     ]);
 
   home.file.".config/containers/auth.json".text = builtins.toJSON {
