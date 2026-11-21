@@ -65,15 +65,28 @@ commits. Don't duplicate information already available via pointers.
    the work branch. Fix all issues raised by the code review in a single
    `impl-fixes` child agent.
 6. Once code review is complete, launch a `verify` child agent. It validates the
-   work using the pre-agreed verification steps.
+   work using the pre-agreed verification steps, and saves its screenshots and
+   a `verification.md` to the notes directory.
 7. If the `verify` child agent flags any issues, go back to step 4. and address
    them with an implementer child agent.
 8. When verification has finished, the working tree should be clean with all
-   work committed. Close every child pane and repository tab you started. Notify the
-   user, reporting:
+   work committed. Close every child pane and repository tab you started. Write
+   `report.html` to the notes directory and `open` it. It covers:
    1. Relevant implementation notes.
    2. Anything that has diverged from what was originally scoped.
    3. Anything for the user to action or decide.
+   4. Verification evidence, with screenshots referenced by relative path.
+   5. The branch, commits, and pointers to the spec and tickets.
+
+   Call the Skill tool with `artifact-design` first and follow its page
+   contract, so the page can be published unchanged. Don't publish it unless
+   the user asks. Notify the user with a short summary and the file path.
+
+### Decisions
+
+When a decision for the user turns on something visual (layouts, screenshots,
+perf numbers), write `decision-<slug>.html` to the notes directory the same way
+and `open` it, then ask in the terminal.
 
 ### Style
 
