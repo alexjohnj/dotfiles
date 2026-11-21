@@ -47,6 +47,8 @@
       url = "github:noctalia-dev/noctalia/v5.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rex.url = "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz";
   };
   outputs =
     {
@@ -61,6 +63,7 @@
       yomitan-api,
       noctalia,
       emacs-overlay,
+      rex,
       ...
     }@inputs:
     let
@@ -91,6 +94,7 @@
                   ;
               };
               users.alex.imports = [
+                rex.homeManagerModules.default
                 ./home
                 ./home/home-pikachu.nix
               ];
@@ -127,6 +131,7 @@
             ;
         };
         modules = [
+          rex.homeManagerModules.default
           ./home
           ./home/home-glaceon.nix
         ];

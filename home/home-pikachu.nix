@@ -59,6 +59,9 @@
     Categories=Office;
   '';
 
+  programs.rex.enable = true;
+  services.rex.enable = true;
+
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
