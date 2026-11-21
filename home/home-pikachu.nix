@@ -8,10 +8,11 @@
   home.packages =
     with pkgs;
     [
-      anki
-      google-chrome
       (callPackage ../packages/super-slicer/default.nix { })
+      anki
       docker-credential-helpers
+      google-chrome
+      handy
       inter
       libsecret
       noto-fonts
@@ -19,6 +20,7 @@
       overpass
       python3
       wl-clipboard-rs
+      wtype
     ]
     ++ (with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
       claude-desktop
