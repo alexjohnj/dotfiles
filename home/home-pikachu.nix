@@ -4,6 +4,23 @@
   llm-agents,
   ...
 }:
+let
+  # nixpkgs lags upstream; the version and src are let-bound in the package,
+  # so swap the inputs that use them.
+  unsloth-desktop =
+    let
+      version = "0.1.922-beta";
+    in
+    pkgs.unsloth-desktop.override {
+      fetchurl =
+        _:
+        pkgs.fetchurl {
+          url = "https://github.com/unslothai/unsloth/releases/download/v${version}/Unsloth-Desktop-Ubuntu.deb";
+          hash = "sha256-juTXGs549O9StWWW6s+fY8ME4d0Tt5tn2P/QYfI2z54=";
+        };
+      buildFHSEnv = args: pkgs.buildFHSEnv (args // { inherit version; });
+    };
+in
 {
   home.packages =
     with pkgs;
@@ -22,6 +39,7 @@
       wl-clipboard-rs
       wtype
     ]
+    ++ [ unsloth-desktop ]
     ++ (with llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
       claude-desktop
     ]);

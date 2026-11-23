@@ -248,6 +248,7 @@
           "**/node_modules"
           "${homeDir}/.cargo"
           "${homeDir}/.npm"
+          "${homeDir}/.unsloth"
           "${homeDir}/.vscode"
           "${homeDir}/.local/share"
           "${homeDir}/Applications"
