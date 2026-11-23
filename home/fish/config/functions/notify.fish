@@ -1,6 +1,6 @@
-function notify -d "Display a system notification" -a "command_name"
+function notify -d "Display a desktop notification via the terminal" -a "command_name"
     set -l og_status $status
-    if test -z $command_name
+    if test -z "$command_name"
         set command_name "A command"
     end
 
@@ -12,7 +12,13 @@ function notify -d "Display a system notification" -a "command_name"
         set -f description "$command_name failed with status code $og_status"
     end
 
-    osascript -e "display notification \"$description\" with title \"$title\""
+    # OSC 777 fields are separated by ";", so strip it and control characters.
+    set title (string replace -ra '[;\x00-\x1f\x7f]' ' ' -- $title)
+    set description (string replace -ra '[;\x00-\x1f\x7f]' ' ' -- $description)
+
+    if isatty stdout
+        printf '\e]777;notify;%s;%s\e\\' $title $description
+    end
 
     return $og_status
 end
