@@ -19,6 +19,10 @@
           tramp-copy-size-limit (* 1024 1024) ;; 1MB
           tramp-verbose 2)
 
+  ;; Non-interactive ssh shells on NixOS don't see home-manager profile paths.
+  (dolist (dir '("~/.nix-profile/bin" "/etc/profiles/per-user/alex/bin"))
+    (add-to-list 'tramp-remote-path dir))
+
   ;; Direct Async Processes
   (connection-local-set-profile-variables
    'remote-direct-async-process
