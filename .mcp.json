@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "nixos": {
-      "command": "nix",
-      "args": ["run", "github:utensils/mcp-nixos/v2.4.3", "--"]
+    "superlogical": {
+      "type": "http",
+      "url": "https://www.superlogical.com/rex/community-mcp"
     }
   }
 }
