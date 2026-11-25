@@ -15,6 +15,25 @@ let
     text = builtins.readFile ./statusline.sh;
   };
 
+  ensureChromeScript = pkgs.writeShellApplication {
+    name = "claude-ensure-chrome";
+    text =
+      if pkgs.stdenv.isDarwin then
+        ''
+          if ! pgrep -xq "Google Chrome"; then
+            open -g -a "Google Chrome" --args --profile-directory="Profile 1"
+            sleep 5
+          fi
+        ''
+      else
+        ''
+          if ! pgrep -x chrome >/dev/null; then
+            setsid -f google-chrome-stable >/dev/null 2>&1
+            sleep 5
+          fi
+        '';
+  };
+
   disabledLocalSkills = [ ];
 
   localSkills = lib.mapAttrs (name: _: ./skills + "/${name}") (
@@ -114,6 +133,19 @@ in
                 type = "command";
                 command = "/bin/sh -c 'rex __internal session-start --agent claude --feature-session-naming=false 2>/dev/null || true'";
                 timeout = 5;
+              }
+            ];
+          }
+        ];
+
+        PreToolUse = [
+          {
+            matcher = "mcp__claude-in-chrome__.*";
+            hooks = [
+              {
+                type = "command";
+                command = lib.getExe ensureChromeScript;
+                timeout = 20;
               }
             ];
           }
