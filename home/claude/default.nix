@@ -131,7 +131,7 @@ in
             hooks = [
               {
                 type = "command";
-                command = "/bin/sh -c 'rex __internal session-start --agent claude --feature-session-naming=false 2>/dev/null || true'";
+                command = "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'";
                 timeout = 5;
               }
             ];
